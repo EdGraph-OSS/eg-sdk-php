@@ -3917,15 +3917,16 @@ class InstancesApplicationsApi
      * @param  string $instanceId  (required)
      * @param  int $applicationId  (required)
      * @param  int $year  (optional)
+     * @param  bool $loadEducationOrganizations  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationByIdAsync'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails
      */
-    public function getApplicationByIdAsync($tenantId, $instanceId, $applicationId, $year = null, string $contentType = self::contentTypes['getApplicationByIdAsync'][0])
+    public function getApplicationByIdAsync($tenantId, $instanceId, $applicationId, $year = null, $loadEducationOrganizations = null, string $contentType = self::contentTypes['getApplicationByIdAsync'][0])
     {
-        list($response) = $this->getApplicationByIdAsyncWithHttpInfo($tenantId, $instanceId, $applicationId, $year, $contentType);
+        list($response) = $this->getApplicationByIdAsyncWithHttpInfo($tenantId, $instanceId, $applicationId, $year, $loadEducationOrganizations, $contentType);
         return $response;
     }
 
@@ -3938,15 +3939,16 @@ class InstancesApplicationsApi
      * @param  string $instanceId  (required)
      * @param  int $applicationId  (required)
      * @param  int $year  (optional)
+     * @param  bool $loadEducationOrganizations  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationByIdAsync'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getApplicationByIdAsyncWithHttpInfo($tenantId, $instanceId, $applicationId, $year = null, string $contentType = self::contentTypes['getApplicationByIdAsync'][0])
+    public function getApplicationByIdAsyncWithHttpInfo($tenantId, $instanceId, $applicationId, $year = null, $loadEducationOrganizations = null, string $contentType = self::contentTypes['getApplicationByIdAsync'][0])
     {
-        $request = $this->getApplicationByIdAsyncRequest($tenantId, $instanceId, $applicationId, $year, $contentType);
+        $request = $this->getApplicationByIdAsyncRequest($tenantId, $instanceId, $applicationId, $year, $loadEducationOrganizations, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4240,14 +4242,15 @@ class InstancesApplicationsApi
      * @param  string $instanceId  (required)
      * @param  int $applicationId  (required)
      * @param  int $year  (optional)
+     * @param  bool $loadEducationOrganizations  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationByIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationByIdAsyncAsync($tenantId, $instanceId, $applicationId, $year = null, string $contentType = self::contentTypes['getApplicationByIdAsync'][0])
+    public function getApplicationByIdAsyncAsync($tenantId, $instanceId, $applicationId, $year = null, $loadEducationOrganizations = null, string $contentType = self::contentTypes['getApplicationByIdAsync'][0])
     {
-        return $this->getApplicationByIdAsyncAsyncWithHttpInfo($tenantId, $instanceId, $applicationId, $year, $contentType)
+        return $this->getApplicationByIdAsyncAsyncWithHttpInfo($tenantId, $instanceId, $applicationId, $year, $loadEducationOrganizations, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4264,15 +4267,16 @@ class InstancesApplicationsApi
      * @param  string $instanceId  (required)
      * @param  int $applicationId  (required)
      * @param  int $year  (optional)
+     * @param  bool $loadEducationOrganizations  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationByIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getApplicationByIdAsyncAsyncWithHttpInfo($tenantId, $instanceId, $applicationId, $year = null, string $contentType = self::contentTypes['getApplicationByIdAsync'][0])
+    public function getApplicationByIdAsyncAsyncWithHttpInfo($tenantId, $instanceId, $applicationId, $year = null, $loadEducationOrganizations = null, string $contentType = self::contentTypes['getApplicationByIdAsync'][0])
     {
         $returnType = '\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse';
-        $request = $this->getApplicationByIdAsyncRequest($tenantId, $instanceId, $applicationId, $year, $contentType);
+        $request = $this->getApplicationByIdAsyncRequest($tenantId, $instanceId, $applicationId, $year, $loadEducationOrganizations, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4317,12 +4321,13 @@ class InstancesApplicationsApi
      * @param  string $instanceId  (required)
      * @param  int $applicationId  (required)
      * @param  int $year  (optional)
+     * @param  bool $loadEducationOrganizations  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getApplicationByIdAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getApplicationByIdAsyncRequest($tenantId, $instanceId, $applicationId, $year = null, string $contentType = self::contentTypes['getApplicationByIdAsync'][0])
+    public function getApplicationByIdAsyncRequest($tenantId, $instanceId, $applicationId, $year = null, $loadEducationOrganizations = null, string $contentType = self::contentTypes['getApplicationByIdAsync'][0])
     {
 
         // verify the required parameter 'tenantId' is set
@@ -4348,6 +4353,7 @@ class InstancesApplicationsApi
 
 
 
+
         $resourcePath = '/tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId}';
         $formParams = [];
         $queryParams = [];
@@ -4360,6 +4366,15 @@ class InstancesApplicationsApi
             $year,
             'year', // param base name
             'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $loadEducationOrganizations,
+            'loadEducationOrganizations', // param base name
+            'boolean', // openApiType
             'form', // style
             true, // explode
             false // required

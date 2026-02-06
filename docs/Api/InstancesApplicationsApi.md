@@ -540,7 +540,7 @@ try {
 ## `getApplicationByIdAsync()`
 
 ```php
-getApplicationByIdAsync($tenantId, $instanceId, $applicationId, $year): \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse
+getApplicationByIdAsync($tenantId, $instanceId, $applicationId, $year, $loadEducationOrganizations): \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1EdFiApplicationProfileResponse
 ```
 
 Retrieves an Application by ID.
@@ -566,9 +566,10 @@ $tenantId = 'tenantId_example'; // string |
 $instanceId = 'instanceId_example'; // string | 
 $applicationId = 56; // int | 
 $year = 56; // int | 
+$loadEducationOrganizations = True; // bool | 
 
 try {
-    $result = $apiInstance->getApplicationByIdAsync($tenantId, $instanceId, $applicationId, $year);
+    $result = $apiInstance->getApplicationByIdAsync($tenantId, $instanceId, $applicationId, $year, $loadEducationOrganizations);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InstancesApplicationsApi->getApplicationByIdAsync: ', $e->getMessage(), PHP_EOL;
@@ -583,6 +584,7 @@ try {
 | **instanceId** | **string**|  | |
 | **applicationId** | **int**|  | |
 | **year** | **int**|  | [optional] |
+| **loadEducationOrganizations** | **bool**|  | [optional] |
 
 ### Return type
 

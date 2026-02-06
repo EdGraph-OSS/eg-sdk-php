@@ -135,7 +135,7 @@ try {
 ## `getAllWebhookSubscriptionsAsync()`
 
 ```php
-getAllWebhookSubscriptionsAsync($tenantId): \EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookEventsResponse
+getAllWebhookSubscriptionsAsync($tenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\TenantApiWebhookV1PaginatedWebhookEventItemsResponse
 ```
 
 
@@ -158,9 +158,13 @@ $apiInstance = new EdGraph\PlatformClient\Api\WebhooksApi(
     $config
 );
 $tenantId = 'tenantId_example'; // string
+$pageSize = 10; // int
+$pageIndex = 0; // int
+$orderBy = ''; // string
+$filter = ''; // string
 
 try {
-    $result = $apiInstance->getAllWebhookSubscriptionsAsync($tenantId);
+    $result = $apiInstance->getAllWebhookSubscriptionsAsync($tenantId, $pageSize, $pageIndex, $orderBy, $filter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->getAllWebhookSubscriptionsAsync: ', $e->getMessage(), PHP_EOL;
@@ -172,10 +176,14 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenantId** | **string**|  | |
+| **pageSize** | **int**|  | [optional] [default to 10] |
+| **pageIndex** | **int**|  | [optional] [default to 0] |
+| **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
+| **filter** | **string**|  | [optional] [default to &#39;&#39;] |
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookEventsResponse**](../Model/TenantApiWebhookV1WebhookEventsResponse.md)
+[**\EdGraph\PlatformClient\Model\TenantApiWebhookV1PaginatedWebhookEventItemsResponse**](../Model/TenantApiWebhookV1PaginatedWebhookEventItemsResponse.md)
 
 ### Authorization
 

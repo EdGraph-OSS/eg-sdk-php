@@ -146,6 +146,7 @@ Class | Method | HTTP request | Description
 *ConnectionsApi* | [**getEdFiConnectionById**](docs/Api/ConnectionsApi.md#getedficonnectionbyid) | **GET** /tenants/{tenantId}/edfiadmin/connections/{connectionId} | Retrieves an Ed-Fi Connection by ID.
 *ConnectionsApi* | [**getEdFiConnectionsAsync**](docs/Api/ConnectionsApi.md#getedficonnectionsasync) | **GET** /tenants/{tenantId}/edfiadmin/connections | Retrieves a list of Ed-Fi Connections.
 *ConnectionsApi* | [**getEdFiOdsBackupCodesDescriptorsAsync**](docs/Api/ConnectionsApi.md#getedfiodsbackupcodesdescriptorsasync) | **GET** /tenants/{tenantId}/edfiadmin/connections/odsbackupcodes | Retrieves a list of Ed-Fi ODS backup codes.
+*ConnectionsApi* | [**getEdFiResourcesByInstanceYear**](docs/Api/ConnectionsApi.md#getedfiresourcesbyinstanceyear) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/resources | Retrieves an Ed-Fi Resources by Instance Id and Year.
 *ConnectionsApi* | [**getPagedConnections**](docs/Api/ConnectionsApi.md#getpagedconnections) | **GET** /tenants/{tenantId}/oneroster/connections | Retrieves a list of Connections.
 *ConnectionsApi* | [**getTenantDataSyncConnectionProfileById**](docs/Api/ConnectionsApi.md#gettenantdatasyncconnectionprofilebyid) | **GET** /tenants/{tenantId}/datasync/connections/{connectionId} | Retrieves a specific DataSync connection using its primary key
 *ConnectionsApi* | [**testConnectionDetailsAsync**](docs/Api/ConnectionsApi.md#testconnectiondetailsasync) | **POST** /tenants/{tenantId}/oneroster/connections/test | Tests the connection by sending the connection details in the request payload
@@ -234,6 +235,18 @@ Class | Method | HTTP request | Description
 *EnvironmentsReportingPeriodsSubmissionsApi* | [**getReportingPeriodSubmissionV2**](docs/Api/EnvironmentsReportingPeriodsSubmissionsApi.md#getreportingperiodsubmissionv2) | **GET** /tenants/{tenantId}/statereporting/environments/{environmentId}/reportingperiods/{reportingPeriodId}/submissions/{submissionId} | Retrieves the Submission of a Reporting Period.
 *EnvironmentsReportingPeriodsSubmissionsApi* | [**getStateReportingPeriodSubmissionsV2**](docs/Api/EnvironmentsReportingPeriodsSubmissionsApi.md#getstatereportingperiodsubmissionsv2) | **GET** /tenants/{tenantId}/statereporting/environments/{environmentId}/reportingperiods/{reportingPeriodId}/submissions | Retrieves a list of Submissions of a Reporting Period.
 *EnvironmentsReportingPeriodsSubmissionsApi* | [**setReportingPeriodSubmissionStatusV2**](docs/Api/EnvironmentsReportingPeriodsSubmissionsApi.md#setreportingperiodsubmissionstatusv2) | **PUT** /tenants/{tenantId}/statereporting/environments/{environmentId}/reportingperiods/{reportingPeriodId}/submissions/{submissionId}/status | Sets the Status of a Submission.
+*EvaluationSettingsApi* | [**getEvaluationSetting**](docs/Api/EvaluationSettingsApi.md#getevaluationsetting) | **GET** /tenants/{tenantId}/evaluations/configuration | Gets the Evaluation Settings for a given tenant
+*EvaluationSettingsApi* | [**setEvaluationSettingApplicationSetting**](docs/Api/EvaluationSettingsApi.md#setevaluationsettingapplicationsetting) | **POST** /tenants/{tenantId}/evaluations/configuration/application | Sets the Application Settings of an Evaluation for a given Tenant
+*EvaluationSettingsApi* | [**setEvaluationSettingUserSetting**](docs/Api/EvaluationSettingsApi.md#setevaluationsettingusersetting) | **POST** /tenants/{tenantId}/evaluations/configuration/users | Sets the User Settings of an Evaluation for a given Tenant
+*EvaluationsApi* | [**createEvaluation**](docs/Api/EvaluationsApi.md#createevaluation) | **POST** /tenants/{tenantId}/evaluations | Creates a new Evaluation for a given tenant
+*EvaluationsApi* | [**deleteEvaluation**](docs/Api/EvaluationsApi.md#deleteevaluation) | **DELETE** /tenants/{tenantId}/evaluations/{evaluationId} | Deletes an Evaluation for a given tenant
+*EvaluationsApi* | [**getEvaluation**](docs/Api/EvaluationsApi.md#getevaluation) | **GET** /tenants/{tenantId}/evaluations/{evaluationId} | Get an Evaluation for a given tenant
+*EvaluationsApi* | [**searchEvaluationAppraisers**](docs/Api/EvaluationsApi.md#searchevaluationappraisers) | **GET** /tenants/{tenantId}/evaluations/appraisers | Searches the Appraisers associated with an Evaluation for a given Tenant.
+*EvaluationsApi* | [**searchEvaluationCampuses**](docs/Api/EvaluationsApi.md#searchevaluationcampuses) | **GET** /tenants/{tenantId}/evaluations/campuses | Searches the Campuses associated with an Evaluation for a given Tenant.
+*EvaluationsApi* | [**searchEvaluationForms**](docs/Api/EvaluationsApi.md#searchevaluationforms) | **GET** /tenants/{tenantId}/evaluations/forms | Searches the Forms associated with an Evaluation for a given Tenant.
+*EvaluationsApi* | [**searchEvaluationStaff**](docs/Api/EvaluationsApi.md#searchevaluationstaff) | **GET** /tenants/{tenantId}/evaluations/staff | Searches the Staff associated with an Evaluation for a given Tenant.
+*EvaluationsApi* | [**searchEvaluations**](docs/Api/EvaluationsApi.md#searchevaluations) | **GET** /tenants/{tenantId}/evaluations | Searches the Evaluations for a given tenant
+*EvaluationsApi* | [**updateEvaluation**](docs/Api/EvaluationsApi.md#updateevaluation) | **PUT** /tenants/{tenantId}/evaluations/{evaluationId} | Updates an Evaluation for a given tenant
 *FormComponentsApi* | [**getFormComponent**](docs/Api/FormComponentsApi.md#getformcomponent) | **GET** /tenants/{tenantId}/forms/components/{formComponentId} | Get a Form Component.
 *FormComponentsApi* | [**searchFormComponents**](docs/Api/FormComponentsApi.md#searchformcomponents) | **GET** /tenants/{tenantId}/forms/components | Search Form Components
 *FormsApi* | [**createForm**](docs/Api/FormsApi.md#createform) | **POST** /tenants/{tenantId}/forms | Creates a new Form for a given tenant
@@ -522,6 +535,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**createTenantLocalUserAsync**](docs/Api/UsersApi.md#createtenantlocaluserasync) | **POST** /tenants/{tenantId}/users | Creates a user in the local identity provider
 *UsersApi* | [**deactivateTenantUserAsync**](docs/Api/UsersApi.md#deactivatetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/deactivate | Deactivates a user
 *UsersApi* | [**deleteTenantUserAsync**](docs/Api/UsersApi.md#deletetenantuserasync) | **DELETE** /tenants/{tenantId}/users/{userId} | Deletes a user
+*UsersApi* | [**getAllFormUsers**](docs/Api/UsersApi.md#getallformusers) | **GET** /tenants/{tenantId}/forms/users | Get All Users
 *UsersApi* | [**getAllTenantUsersAsync**](docs/Api/UsersApi.md#getalltenantusersasync) | **GET** /tenants/{tenantId}/users | Retrieves a list of users associated to this tenant
 *UsersApi* | [**getAllUsers**](docs/Api/UsersApi.md#getallusers) | **GET** /tenants/{tenantId}/statereporting/users | Get All Users
 *UsersApi* | [**getTenantUser**](docs/Api/UsersApi.md#gettenantuser) | **GET** /v2/tenants/{tenantId}/users/{userId} | Get User
@@ -713,6 +727,12 @@ Class | Method | HTTP request | Description
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsValidationsCreateValidationJobRequest](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsValidationsCreateValidationJobRequest.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponse](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponse.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserSearchStatus](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserSearchStatus.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffResponse](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffResponse.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchStatus](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchStatus.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDto.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionValidationResponseDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionValidationResponseDto.md)
@@ -953,6 +973,8 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1ReportsStatusResponse](docs/Model/EdfiAdminApiEdfiAdminV1ReportsStatusResponse.md)
 - [EdfiAdminApiEdfiAdminV1ResetInstanceResponse](docs/Model/EdfiAdminApiEdfiAdminV1ResetInstanceResponse.md)
 - [EdfiAdminApiEdfiAdminV1ResourceClaim](docs/Model/EdfiAdminApiEdfiAdminV1ResourceClaim.md)
+- [EdfiAdminApiEdfiAdminV1ResourceItem](docs/Model/EdfiAdminApiEdfiAdminV1ResourceItem.md)
+- [EdfiAdminApiEdfiAdminV1ResourcesByInstanceYearPaginatedItemsResponse](docs/Model/EdfiAdminApiEdfiAdminV1ResourcesByInstanceYearPaginatedItemsResponse.md)
 - [EdfiAdminApiEdfiAdminV1SaveClaimSetRequest](docs/Model/EdfiAdminApiEdfiAdminV1SaveClaimSetRequest.md)
 - [EdfiAdminApiEdfiAdminV1SaveClaimSetResponse](docs/Model/EdfiAdminApiEdfiAdminV1SaveClaimSetResponse.md)
 - [EdfiAdminApiEdfiAdminV1SchoolCountRepresentation](docs/Model/EdfiAdminApiEdfiAdminV1SchoolCountRepresentation.md)
@@ -975,6 +997,7 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1SyncLocalEducationAgencyRequest](docs/Model/EdfiAdminApiEdfiAdminV1SyncLocalEducationAgencyRequest.md)
 - [EdfiAdminApiEdfiAdminV1SyncResponse](docs/Model/EdfiAdminApiEdfiAdminV1SyncResponse.md)
 - [EdfiAdminApiEdfiAdminV1SyncVendorRequest](docs/Model/EdfiAdminApiEdfiAdminV1SyncVendorRequest.md)
+- [EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest](docs/Model/EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest.md)
 - [EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse](docs/Model/EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse.md)
 - [EdfiAdminApiEdfiAdminV1TierOdsApiConnection](docs/Model/EdfiAdminApiEdfiAdminV1TierOdsApiConnection.md)
 - [EdfiAdminApiEdfiAdminV1TierOdsApiConnectionListModel](docs/Model/EdfiAdminApiEdfiAdminV1TierOdsApiConnectionListModel.md)
@@ -997,6 +1020,26 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1VendorListResponsePaginatedItemsViewModel](docs/Model/EdfiAdminApiEdfiAdminV1VendorListResponsePaginatedItemsViewModel.md)
 - [EdfiAdminApiEdfiAdminV1VendorProfileResponse](docs/Model/EdfiAdminApiEdfiAdminV1VendorProfileResponse.md)
 - [EdfiAdminApiEdfiAdminV1VendorUpdatedResponse](docs/Model/EdfiAdminApiEdfiAdminV1VendorUpdatedResponse.md)
+- [EvaluationApiEvaluationSettingsV1ApplicationSetResponse](docs/Model/EvaluationApiEvaluationSettingsV1ApplicationSetResponse.md)
+- [EvaluationApiEvaluationSettingsV1EvaluationSettingResponse](docs/Model/EvaluationApiEvaluationSettingsV1EvaluationSettingResponse.md)
+- [EvaluationApiEvaluationSettingsV1ScheduleType](docs/Model/EvaluationApiEvaluationSettingsV1ScheduleType.md)
+- [EvaluationApiEvaluationSettingsV1SetApplicationRequest](docs/Model/EvaluationApiEvaluationSettingsV1SetApplicationRequest.md)
+- [EvaluationApiEvaluationSettingsV1SetUsersRequest](docs/Model/EvaluationApiEvaluationSettingsV1SetUsersRequest.md)
+- [EvaluationApiEvaluationSettingsV1UsersSetResponse](docs/Model/EvaluationApiEvaluationSettingsV1UsersSetResponse.md)
+- [EvaluationApiEvaluationsV1CampusResponse](docs/Model/EvaluationApiEvaluationsV1CampusResponse.md)
+- [EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel](docs/Model/EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel.md)
+- [EvaluationApiEvaluationsV1CreateEvaluationRequest](docs/Model/EvaluationApiEvaluationsV1CreateEvaluationRequest.md)
+- [EvaluationApiEvaluationsV1EvaluationCreatedResponse](docs/Model/EvaluationApiEvaluationsV1EvaluationCreatedResponse.md)
+- [EvaluationApiEvaluationsV1EvaluationDeletedResponse](docs/Model/EvaluationApiEvaluationsV1EvaluationDeletedResponse.md)
+- [EvaluationApiEvaluationsV1EvaluationResponse](docs/Model/EvaluationApiEvaluationsV1EvaluationResponse.md)
+- [EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel](docs/Model/EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel.md)
+- [EvaluationApiEvaluationsV1EvaluationStatus](docs/Model/EvaluationApiEvaluationsV1EvaluationStatus.md)
+- [EvaluationApiEvaluationsV1EvaluationUpdatedResponse](docs/Model/EvaluationApiEvaluationsV1EvaluationUpdatedResponse.md)
+- [EvaluationApiEvaluationsV1FormResponse](docs/Model/EvaluationApiEvaluationsV1FormResponse.md)
+- [EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel](docs/Model/EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel.md)
+- [EvaluationApiEvaluationsV1OrganizationDiscriminator](docs/Model/EvaluationApiEvaluationsV1OrganizationDiscriminator.md)
+- [EvaluationApiEvaluationsV1OrganizationIdentifierType](docs/Model/EvaluationApiEvaluationsV1OrganizationIdentifierType.md)
+- [EvaluationApiEvaluationsV1UpdateEvaluationRequest](docs/Model/EvaluationApiEvaluationsV1UpdateEvaluationRequest.md)
 - [FormApiFormComponentsV1FormComponentResponse](docs/Model/FormApiFormComponentsV1FormComponentResponse.md)
 - [FormApiFormComponentsV1FormComponentResponsePaginatedItemsViewModel](docs/Model/FormApiFormComponentsV1FormComponentResponsePaginatedItemsViewModel.md)
 - [FormApiFormComponentsV1FormComponentType](docs/Model/FormApiFormComponentsV1FormComponentType.md)
@@ -1257,10 +1300,12 @@ Class | Method | HTTP request | Description
 - [TenantApiTenantV1VerifyDomainRequest](docs/Model/TenantApiTenantV1VerifyDomainRequest.md)
 - [TenantApiWebhookV1CreateWebhookRequest](docs/Model/TenantApiWebhookV1CreateWebhookRequest.md)
 - [TenantApiWebhookV1PaginatedItemsResponse](docs/Model/TenantApiWebhookV1PaginatedItemsResponse.md)
+- [TenantApiWebhookV1PaginatedWebhookEventItemsResponse](docs/Model/TenantApiWebhookV1PaginatedWebhookEventItemsResponse.md)
 - [TenantApiWebhookV1UpdateWebhookRequest](docs/Model/TenantApiWebhookV1UpdateWebhookRequest.md)
-- [TenantApiWebhookV1WebhookEventsResponse](docs/Model/TenantApiWebhookV1WebhookEventsResponse.md)
+- [TenantApiWebhookV1WebhookEventResponse](docs/Model/TenantApiWebhookV1WebhookEventResponse.md)
 - [TenantApiWebhookV1WebhookIdResponse](docs/Model/TenantApiWebhookV1WebhookIdResponse.md)
 - [TenantApiWebhookV1WebhookResponse](docs/Model/TenantApiWebhookV1WebhookResponse.md)
+- [TenantApiWebhookV1WebhookSchema](docs/Model/TenantApiWebhookV1WebhookSchema.md)
 - [TenantApiWebhookV1WebhookSubscriberResponse](docs/Model/TenantApiWebhookV1WebhookSubscriberResponse.md)
 - [ValidationsApiContainersV1AddDataStewardBulkRequest](docs/Model/ValidationsApiContainersV1AddDataStewardBulkRequest.md)
 - [ValidationsApiContainersV1AddDataStewardBulkRequestTypesCollection](docs/Model/ValidationsApiContainersV1AddDataStewardBulkRequestTypesCollection.md)
@@ -1401,6 +1446,6 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `v1.0`
-    - Package version: `0.0.4`
+    - Package version: `0.0.5`
     - Generator version: `7.8.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

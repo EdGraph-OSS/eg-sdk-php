@@ -1820,7 +1820,7 @@ try {
 ## `testInstanceConnection()`
 
 ```php
-testInstanceConnection($tenantId, $instanceId): \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse
+testInstanceConnection($tenantId, $instanceId, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest): \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse
 ```
 
 Tests the connection of the Instance.
@@ -1844,9 +1844,10 @@ $apiInstance = new EdGraph\PlatformClient\Api\InstancesApi(
 );
 $tenantId = 'tenantId_example'; // string | 
 $instanceId = 'instanceId_example'; // string | 
+$edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest = new \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest(); // \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest | 
 
 try {
-    $result = $apiInstance->testInstanceConnection($tenantId, $instanceId);
+    $result = $apiInstance->testInstanceConnection($tenantId, $instanceId, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InstancesApi->testInstanceConnection: ', $e->getMessage(), PHP_EOL;
@@ -1859,6 +1860,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenantId** | **string**|  | |
 | **instanceId** | **string**|  | |
+| **edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest** | [**\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest**](../Model/EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1870,7 +1872,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -1880,7 +1882,7 @@ try {
 ## `testInstanceYearConnection()`
 
 ```php
-testInstanceYearConnection($tenantId, $instanceId, $year): \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse
+testInstanceYearConnection($tenantId, $instanceId, $year, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest): \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse
 ```
 
 Tests the connection of the Instance.
@@ -1905,9 +1907,10 @@ $apiInstance = new EdGraph\PlatformClient\Api\InstancesApi(
 $tenantId = 'tenantId_example'; // string | 
 $instanceId = 'instanceId_example'; // string | 
 $year = 56; // int | 
+$edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest = new \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest(); // \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest | 
 
 try {
-    $result = $apiInstance->testInstanceYearConnection($tenantId, $instanceId, $year);
+    $result = $apiInstance->testInstanceYearConnection($tenantId, $instanceId, $year, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling InstancesApi->testInstanceYearConnection: ', $e->getMessage(), PHP_EOL;
@@ -1921,6 +1924,7 @@ try {
 | **tenantId** | **string**|  | |
 | **instanceId** | **string**|  | |
 | **year** | **int**|  | |
+| **edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest** | [**\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest**](../Model/EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest.md)|  | [optional] |
 
 ### Return type
 
@@ -1932,7 +1936,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

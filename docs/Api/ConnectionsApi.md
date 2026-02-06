@@ -14,6 +14,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**getEdFiConnectionById()**](ConnectionsApi.md#getEdFiConnectionById) | **GET** /tenants/{tenantId}/edfiadmin/connections/{connectionId} | Retrieves an Ed-Fi Connection by ID. |
 | [**getEdFiConnectionsAsync()**](ConnectionsApi.md#getEdFiConnectionsAsync) | **GET** /tenants/{tenantId}/edfiadmin/connections | Retrieves a list of Ed-Fi Connections. |
 | [**getEdFiOdsBackupCodesDescriptorsAsync()**](ConnectionsApi.md#getEdFiOdsBackupCodesDescriptorsAsync) | **GET** /tenants/{tenantId}/edfiadmin/connections/odsbackupcodes | Retrieves a list of Ed-Fi ODS backup codes. |
+| [**getEdFiResourcesByInstanceYear()**](ConnectionsApi.md#getEdFiResourcesByInstanceYear) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/resources | Retrieves an Ed-Fi Resources by Instance Id and Year. |
 | [**getPagedConnections()**](ConnectionsApi.md#getPagedConnections) | **GET** /tenants/{tenantId}/oneroster/connections | Retrieves a list of Connections. |
 | [**getTenantDataSyncConnectionProfileById()**](ConnectionsApi.md#getTenantDataSyncConnectionProfileById) | **GET** /tenants/{tenantId}/datasync/connections/{connectionId} | Retrieves a specific DataSync connection using its primary key |
 | [**testConnectionDetailsAsync()**](ConnectionsApi.md#testConnectionDetailsAsync) | **POST** /tenants/{tenantId}/oneroster/connections/test | Tests the connection by sending the connection details in the request payload |
@@ -631,6 +632,76 @@ try {
 ### Return type
 
 [**\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1EdFiOdsBackupDescriptorsPaginatedItemsResponse**](../Model/EdfiAdminApiEdfiAdminV1EdFiOdsBackupDescriptorsPaginatedItemsResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getEdFiResourcesByInstanceYear()`
+
+```php
+getEdFiResourcesByInstanceYear($tenantId, $instanceId, $year, $pageIndex, $pageSize, $orderBy, $filter): \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1ResourcesByInstanceYearPaginatedItemsResponse
+```
+
+Retrieves an Ed-Fi Resources by Instance Id and Year.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\ConnectionsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$instanceId = 'instanceId_example'; // string | 
+$year = 56; // int | 
+$pageIndex = 0; // int | 
+$pageSize = 10; // int | 
+$orderBy = ''; // string | 
+$filter = ''; // string | 
+
+try {
+    $result = $apiInstance->getEdFiResourcesByInstanceYear($tenantId, $instanceId, $year, $pageIndex, $pageSize, $orderBy, $filter);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConnectionsApi->getEdFiResourcesByInstanceYear: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **instanceId** | **string**|  | |
+| **year** | **int**|  | |
+| **pageIndex** | **int**|  | [optional] [default to 0] |
+| **pageSize** | **int**|  | [optional] [default to 10] |
+| **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
+| **filter** | **string**|  | [optional] [default to &#39;&#39;] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1ResourcesByInstanceYearPaginatedItemsResponse**](../Model/EdfiAdminApiEdfiAdminV1ResourcesByInstanceYearPaginatedItemsResponse.md)
 
 ### Authorization
 

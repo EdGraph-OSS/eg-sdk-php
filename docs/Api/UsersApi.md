@@ -8,6 +8,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**createTenantLocalUserAsync()**](UsersApi.md#createTenantLocalUserAsync) | **POST** /tenants/{tenantId}/users | Creates a user in the local identity provider |
 | [**deactivateTenantUserAsync()**](UsersApi.md#deactivateTenantUserAsync) | **PUT** /tenants/{tenantId}/users/{userId}/deactivate | Deactivates a user |
 | [**deleteTenantUserAsync()**](UsersApi.md#deleteTenantUserAsync) | **DELETE** /tenants/{tenantId}/users/{userId} | Deletes a user |
+| [**getAllFormUsers()**](UsersApi.md#getAllFormUsers) | **GET** /tenants/{tenantId}/forms/users | Get All Users |
 | [**getAllTenantUsersAsync()**](UsersApi.md#getAllTenantUsersAsync) | **GET** /tenants/{tenantId}/users | Retrieves a list of users associated to this tenant |
 | [**getAllUsers()**](UsersApi.md#getAllUsers) | **GET** /tenants/{tenantId}/statereporting/users | Get All Users |
 | [**getTenantUser()**](UsersApi.md#getTenantUser) | **GET** /v2/tenants/{tenantId}/users/{userId} | Get User |
@@ -253,6 +254,72 @@ try {
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAllFormUsers()`
+
+```php
+getAllFormUsers($tenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserBasicListResponsePaginatedItemsViewModel
+```
+
+Get All Users
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\UsersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$pageSize = 10; // int
+$pageIndex = 0; // int
+$orderBy = ''; // string
+$filter = ''; // string
+
+try {
+    $result = $apiInstance->getAllFormUsers($tenantId, $pageSize, $pageIndex, $orderBy, $filter);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UsersApi->getAllFormUsers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **pageSize** | **int**|  | [optional] [default to 10] |
+| **pageIndex** | **int**|  | [optional] [default to 0] |
+| **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
+| **filter** | **string**|  | [optional] [default to &#39;&#39;] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserBasicListResponsePaginatedItemsViewModel**](../Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserBasicListResponsePaginatedItemsViewModel.md)
 
 ### Authorization
 

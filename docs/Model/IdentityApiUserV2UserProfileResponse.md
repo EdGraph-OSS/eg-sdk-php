@@ -22,5 +22,8 @@ Name | Type | Description | Notes
 **platformRole** | **string** |  | [optional]
 **tenantStatus** | **string** |  | [optional]
 **tenantAdmin** | **bool** |  | [optional]
+**isDeleted** | **bool** |  | [optional]
+**deletedDateTime** | **string** |  | [optional]
+**deletedBy** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

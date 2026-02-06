@@ -63,7 +63,9 @@ class TenantApiWebhookV1CreateWebhookRequest implements ModelInterface, ArrayAcc
         'secretHeader' => 'string',
         'secretValue' => 'string',
         'contentType' => 'string',
-        'eventSubscriptions' => '\EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookSubscriberResponse[]'
+        'eventSubscriptions' => '\EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookSubscriberResponse[]',
+        'subscriptions' => 'string[]',
+        'webhookSchema' => '\EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookSchema'
     ];
 
     /**
@@ -80,7 +82,9 @@ class TenantApiWebhookV1CreateWebhookRequest implements ModelInterface, ArrayAcc
         'secretHeader' => null,
         'secretValue' => null,
         'contentType' => null,
-        'eventSubscriptions' => null
+        'eventSubscriptions' => null,
+        'subscriptions' => null,
+        'webhookSchema' => null
     ];
 
     /**
@@ -95,7 +99,9 @@ class TenantApiWebhookV1CreateWebhookRequest implements ModelInterface, ArrayAcc
         'secretHeader' => true,
         'secretValue' => true,
         'contentType' => true,
-        'eventSubscriptions' => true
+        'eventSubscriptions' => true,
+        'subscriptions' => true,
+        'webhookSchema' => false
     ];
 
     /**
@@ -190,7 +196,9 @@ class TenantApiWebhookV1CreateWebhookRequest implements ModelInterface, ArrayAcc
         'secretHeader' => 'secretHeader',
         'secretValue' => 'secretValue',
         'contentType' => 'contentType',
-        'eventSubscriptions' => 'eventSubscriptions'
+        'eventSubscriptions' => 'eventSubscriptions',
+        'subscriptions' => 'subscriptions',
+        'webhookSchema' => 'webhookSchema'
     ];
 
     /**
@@ -205,7 +213,9 @@ class TenantApiWebhookV1CreateWebhookRequest implements ModelInterface, ArrayAcc
         'secretHeader' => 'setSecretHeader',
         'secretValue' => 'setSecretValue',
         'contentType' => 'setContentType',
-        'eventSubscriptions' => 'setEventSubscriptions'
+        'eventSubscriptions' => 'setEventSubscriptions',
+        'subscriptions' => 'setSubscriptions',
+        'webhookSchema' => 'setWebhookSchema'
     ];
 
     /**
@@ -220,7 +230,9 @@ class TenantApiWebhookV1CreateWebhookRequest implements ModelInterface, ArrayAcc
         'secretHeader' => 'getSecretHeader',
         'secretValue' => 'getSecretValue',
         'contentType' => 'getContentType',
-        'eventSubscriptions' => 'getEventSubscriptions'
+        'eventSubscriptions' => 'getEventSubscriptions',
+        'subscriptions' => 'getSubscriptions',
+        'webhookSchema' => 'getWebhookSchema'
     ];
 
     /**
@@ -287,6 +299,8 @@ class TenantApiWebhookV1CreateWebhookRequest implements ModelInterface, ArrayAcc
         $this->setIfExists('secretValue', $data ?? [], null);
         $this->setIfExists('contentType', $data ?? [], null);
         $this->setIfExists('eventSubscriptions', $data ?? [], null);
+        $this->setIfExists('subscriptions', $data ?? [], null);
+        $this->setIfExists('webhookSchema', $data ?? [], null);
     }
 
     /**
@@ -565,6 +579,67 @@ class TenantApiWebhookV1CreateWebhookRequest implements ModelInterface, ArrayAcc
             }
         }
         $this->container['eventSubscriptions'] = $eventSubscriptions;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscriptions
+     *
+     * @return string[]|null
+     */
+    public function getSubscriptions()
+    {
+        return $this->container['subscriptions'];
+    }
+
+    /**
+     * Sets subscriptions
+     *
+     * @param string[]|null $subscriptions subscriptions
+     *
+     * @return self
+     */
+    public function setSubscriptions($subscriptions)
+    {
+        if (is_null($subscriptions)) {
+            array_push($this->openAPINullablesSetToNull, 'subscriptions');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subscriptions', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subscriptions'] = $subscriptions;
+
+        return $this;
+    }
+
+    /**
+     * Gets webhookSchema
+     *
+     * @return \EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookSchema|null
+     */
+    public function getWebhookSchema()
+    {
+        return $this->container['webhookSchema'];
+    }
+
+    /**
+     * Sets webhookSchema
+     *
+     * @param \EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookSchema|null $webhookSchema webhookSchema
+     *
+     * @return self
+     */
+    public function setWebhookSchema($webhookSchema)
+    {
+        if (is_null($webhookSchema)) {
+            throw new \InvalidArgumentException('non-nullable webhookSchema cannot be null');
+        }
+        $this->container['webhookSchema'] = $webhookSchema;
 
         return $this;
     }

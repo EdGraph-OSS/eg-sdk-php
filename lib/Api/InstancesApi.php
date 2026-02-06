@@ -192,10 +192,16 @@ class InstancesApi
             'application/*+json',
         ],
         'testInstanceConnection' => [
+            'application/json-patch+json',
             'application/json',
+            'text/json',
+            'application/*+json',
         ],
         'testInstanceYearConnection' => [
+            'application/json-patch+json',
             'application/json',
+            'text/json',
+            'application/*+json',
         ],
         'truncateInstance' => [
             'application/json',
@@ -12866,15 +12872,16 @@ class InstancesApi
      *
      * @param  string $tenantId  (required)
      * @param  string $instanceId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testInstanceConnection'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails
      */
-    public function testInstanceConnection($tenantId, $instanceId, string $contentType = self::contentTypes['testInstanceConnection'][0])
+    public function testInstanceConnection($tenantId, $instanceId, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest = null, string $contentType = self::contentTypes['testInstanceConnection'][0])
     {
-        list($response) = $this->testInstanceConnectionWithHttpInfo($tenantId, $instanceId, $contentType);
+        list($response) = $this->testInstanceConnectionWithHttpInfo($tenantId, $instanceId, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, $contentType);
         return $response;
     }
 
@@ -12885,15 +12892,16 @@ class InstancesApi
      *
      * @param  string $tenantId  (required)
      * @param  string $instanceId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testInstanceConnection'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function testInstanceConnectionWithHttpInfo($tenantId, $instanceId, string $contentType = self::contentTypes['testInstanceConnection'][0])
+    public function testInstanceConnectionWithHttpInfo($tenantId, $instanceId, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest = null, string $contentType = self::contentTypes['testInstanceConnection'][0])
     {
-        $request = $this->testInstanceConnectionRequest($tenantId, $instanceId, $contentType);
+        $request = $this->testInstanceConnectionRequest($tenantId, $instanceId, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13185,14 +13193,15 @@ class InstancesApi
      *
      * @param  string $tenantId  (required)
      * @param  string $instanceId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testInstanceConnection'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function testInstanceConnectionAsync($tenantId, $instanceId, string $contentType = self::contentTypes['testInstanceConnection'][0])
+    public function testInstanceConnectionAsync($tenantId, $instanceId, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest = null, string $contentType = self::contentTypes['testInstanceConnection'][0])
     {
-        return $this->testInstanceConnectionAsyncWithHttpInfo($tenantId, $instanceId, $contentType)
+        return $this->testInstanceConnectionAsyncWithHttpInfo($tenantId, $instanceId, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13207,15 +13216,16 @@ class InstancesApi
      *
      * @param  string $tenantId  (required)
      * @param  string $instanceId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testInstanceConnection'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function testInstanceConnectionAsyncWithHttpInfo($tenantId, $instanceId, string $contentType = self::contentTypes['testInstanceConnection'][0])
+    public function testInstanceConnectionAsyncWithHttpInfo($tenantId, $instanceId, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest = null, string $contentType = self::contentTypes['testInstanceConnection'][0])
     {
         $returnType = '\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse';
-        $request = $this->testInstanceConnectionRequest($tenantId, $instanceId, $contentType);
+        $request = $this->testInstanceConnectionRequest($tenantId, $instanceId, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13258,12 +13268,13 @@ class InstancesApi
      *
      * @param  string $tenantId  (required)
      * @param  string $instanceId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testInstanceConnection'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function testInstanceConnectionRequest($tenantId, $instanceId, string $contentType = self::contentTypes['testInstanceConnection'][0])
+    public function testInstanceConnectionRequest($tenantId, $instanceId, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest = null, string $contentType = self::contentTypes['testInstanceConnection'][0])
     {
 
         // verify the required parameter 'tenantId' is set
@@ -13279,6 +13290,7 @@ class InstancesApi
                 'Missing the required parameter $instanceId when calling testInstanceConnection'
             );
         }
+
 
 
         $resourcePath = '/tenants/{tenantId}/edfiadmin/instances/{instanceId}/testconnection';
@@ -13315,7 +13327,14 @@ class InstancesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest));
+            } else {
+                $httpBody = $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -13373,15 +13392,16 @@ class InstancesApi
      * @param  string $tenantId  (required)
      * @param  string $instanceId  (required)
      * @param  int $year  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testInstanceYearConnection'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails
      */
-    public function testInstanceYearConnection($tenantId, $instanceId, $year, string $contentType = self::contentTypes['testInstanceYearConnection'][0])
+    public function testInstanceYearConnection($tenantId, $instanceId, $year, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest = null, string $contentType = self::contentTypes['testInstanceYearConnection'][0])
     {
-        list($response) = $this->testInstanceYearConnectionWithHttpInfo($tenantId, $instanceId, $year, $contentType);
+        list($response) = $this->testInstanceYearConnectionWithHttpInfo($tenantId, $instanceId, $year, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, $contentType);
         return $response;
     }
 
@@ -13393,15 +13413,16 @@ class InstancesApi
      * @param  string $tenantId  (required)
      * @param  string $instanceId  (required)
      * @param  int $year  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testInstanceYearConnection'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function testInstanceYearConnectionWithHttpInfo($tenantId, $instanceId, $year, string $contentType = self::contentTypes['testInstanceYearConnection'][0])
+    public function testInstanceYearConnectionWithHttpInfo($tenantId, $instanceId, $year, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest = null, string $contentType = self::contentTypes['testInstanceYearConnection'][0])
     {
-        $request = $this->testInstanceYearConnectionRequest($tenantId, $instanceId, $year, $contentType);
+        $request = $this->testInstanceYearConnectionRequest($tenantId, $instanceId, $year, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -13694,14 +13715,15 @@ class InstancesApi
      * @param  string $tenantId  (required)
      * @param  string $instanceId  (required)
      * @param  int $year  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testInstanceYearConnection'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function testInstanceYearConnectionAsync($tenantId, $instanceId, $year, string $contentType = self::contentTypes['testInstanceYearConnection'][0])
+    public function testInstanceYearConnectionAsync($tenantId, $instanceId, $year, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest = null, string $contentType = self::contentTypes['testInstanceYearConnection'][0])
     {
-        return $this->testInstanceYearConnectionAsyncWithHttpInfo($tenantId, $instanceId, $year, $contentType)
+        return $this->testInstanceYearConnectionAsyncWithHttpInfo($tenantId, $instanceId, $year, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -13717,15 +13739,16 @@ class InstancesApi
      * @param  string $tenantId  (required)
      * @param  string $instanceId  (required)
      * @param  int $year  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testInstanceYearConnection'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function testInstanceYearConnectionAsyncWithHttpInfo($tenantId, $instanceId, $year, string $contentType = self::contentTypes['testInstanceYearConnection'][0])
+    public function testInstanceYearConnectionAsyncWithHttpInfo($tenantId, $instanceId, $year, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest = null, string $contentType = self::contentTypes['testInstanceYearConnection'][0])
     {
         $returnType = '\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse';
-        $request = $this->testInstanceYearConnectionRequest($tenantId, $instanceId, $year, $contentType);
+        $request = $this->testInstanceYearConnectionRequest($tenantId, $instanceId, $year, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -13769,12 +13792,13 @@ class InstancesApi
      * @param  string $tenantId  (required)
      * @param  string $instanceId  (required)
      * @param  int $year  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1TestInstanceConnectionRequest $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['testInstanceYearConnection'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function testInstanceYearConnectionRequest($tenantId, $instanceId, $year, string $contentType = self::contentTypes['testInstanceYearConnection'][0])
+    public function testInstanceYearConnectionRequest($tenantId, $instanceId, $year, $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest = null, string $contentType = self::contentTypes['testInstanceYearConnection'][0])
     {
 
         // verify the required parameter 'tenantId' is set
@@ -13797,6 +13821,7 @@ class InstancesApi
                 'Missing the required parameter $year when calling testInstanceYearConnection'
             );
         }
+
 
 
         $resourcePath = '/tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/testconnection';
@@ -13841,7 +13866,14 @@ class InstancesApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest));
+            } else {
+                $httpBody = $edfiAdminApiEdfiAdminV1TestInstanceConnectionRequest;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

@@ -1082,15 +1082,19 @@ class WebhooksApi
      * Operation getAllWebhookSubscriptionsAsync
      *
      * @param  string $tenantId tenantId (required)
+     * @param  int $pageSize pageSize (optional, default to 10)
+     * @param  int $pageIndex pageIndex (optional, default to 0)
+     * @param  string $orderBy orderBy (optional, default to '')
+     * @param  string $filter filter (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllWebhookSubscriptionsAsync'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookEventsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiWebhookV1PaginatedWebhookEventItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
-    public function getAllWebhookSubscriptionsAsync($tenantId, string $contentType = self::contentTypes['getAllWebhookSubscriptionsAsync'][0])
+    public function getAllWebhookSubscriptionsAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getAllWebhookSubscriptionsAsync'][0])
     {
-        list($response) = $this->getAllWebhookSubscriptionsAsyncWithHttpInfo($tenantId, $contentType);
+        list($response) = $this->getAllWebhookSubscriptionsAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
         return $response;
     }
 
@@ -1098,15 +1102,19 @@ class WebhooksApi
      * Operation getAllWebhookSubscriptionsAsyncWithHttpInfo
      *
      * @param  string $tenantId (required)
+     * @param  int $pageSize (optional, default to 10)
+     * @param  int $pageIndex (optional, default to 0)
+     * @param  string $orderBy (optional, default to '')
+     * @param  string $filter (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllWebhookSubscriptionsAsync'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookEventsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiWebhookV1PaginatedWebhookEventItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAllWebhookSubscriptionsAsyncWithHttpInfo($tenantId, string $contentType = self::contentTypes['getAllWebhookSubscriptionsAsync'][0])
+    public function getAllWebhookSubscriptionsAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getAllWebhookSubscriptionsAsync'][0])
     {
-        $request = $this->getAllWebhookSubscriptionsAsyncRequest($tenantId, $contentType);
+        $request = $this->getAllWebhookSubscriptionsAsyncRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1226,11 +1234,11 @@ class WebhooksApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookEventsResponse' === '\SplFileObject') {
+                    if ('\EdGraph\PlatformClient\Model\TenantApiWebhookV1PaginatedWebhookEventItemsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookEventsResponse' !== 'string') {
+                        if ('\EdGraph\PlatformClient\Model\TenantApiWebhookV1PaginatedWebhookEventItemsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1248,7 +1256,7 @@ class WebhooksApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookEventsResponse', []),
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\TenantApiWebhookV1PaginatedWebhookEventItemsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1281,7 +1289,7 @@ class WebhooksApi
                     ];
             }
 
-            $returnType = '\EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookEventsResponse';
+            $returnType = '\EdGraph\PlatformClient\Model\TenantApiWebhookV1PaginatedWebhookEventItemsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1338,7 +1346,7 @@ class WebhooksApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookEventsResponse',
+                        '\EdGraph\PlatformClient\Model\TenantApiWebhookV1PaginatedWebhookEventItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1360,14 +1368,18 @@ class WebhooksApi
      * Operation getAllWebhookSubscriptionsAsyncAsync
      *
      * @param  string $tenantId (required)
+     * @param  int $pageSize (optional, default to 10)
+     * @param  int $pageIndex (optional, default to 0)
+     * @param  string $orderBy (optional, default to '')
+     * @param  string $filter (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllWebhookSubscriptionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllWebhookSubscriptionsAsyncAsync($tenantId, string $contentType = self::contentTypes['getAllWebhookSubscriptionsAsync'][0])
+    public function getAllWebhookSubscriptionsAsyncAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getAllWebhookSubscriptionsAsync'][0])
     {
-        return $this->getAllWebhookSubscriptionsAsyncAsyncWithHttpInfo($tenantId, $contentType)
+        return $this->getAllWebhookSubscriptionsAsyncAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1379,15 +1391,19 @@ class WebhooksApi
      * Operation getAllWebhookSubscriptionsAsyncAsyncWithHttpInfo
      *
      * @param  string $tenantId (required)
+     * @param  int $pageSize (optional, default to 10)
+     * @param  int $pageIndex (optional, default to 0)
+     * @param  string $orderBy (optional, default to '')
+     * @param  string $filter (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllWebhookSubscriptionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAllWebhookSubscriptionsAsyncAsyncWithHttpInfo($tenantId, string $contentType = self::contentTypes['getAllWebhookSubscriptionsAsync'][0])
+    public function getAllWebhookSubscriptionsAsyncAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getAllWebhookSubscriptionsAsync'][0])
     {
-        $returnType = '\EdGraph\PlatformClient\Model\TenantApiWebhookV1WebhookEventsResponse';
-        $request = $this->getAllWebhookSubscriptionsAsyncRequest($tenantId, $contentType);
+        $returnType = '\EdGraph\PlatformClient\Model\TenantApiWebhookV1PaginatedWebhookEventItemsResponse';
+        $request = $this->getAllWebhookSubscriptionsAsyncRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1429,12 +1445,16 @@ class WebhooksApi
      * Create request for operation 'getAllWebhookSubscriptionsAsync'
      *
      * @param  string $tenantId (required)
+     * @param  int $pageSize (optional, default to 10)
+     * @param  int $pageIndex (optional, default to 0)
+     * @param  string $orderBy (optional, default to '')
+     * @param  string $filter (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAllWebhookSubscriptionsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAllWebhookSubscriptionsAsyncRequest($tenantId, string $contentType = self::contentTypes['getAllWebhookSubscriptionsAsync'][0])
+    public function getAllWebhookSubscriptionsAsyncRequest($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getAllWebhookSubscriptionsAsync'][0])
     {
 
         // verify the required parameter 'tenantId' is set
@@ -1445,6 +1465,10 @@ class WebhooksApi
         }
 
 
+
+
+
+
         $resourcePath = '/tenants/{tenantId}/webhooks/events';
         $formParams = [];
         $queryParams = [];
@@ -1452,6 +1476,42 @@ class WebhooksApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pageSize,
+            'pageSize', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pageIndex,
+            'pageIndex', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $orderBy,
+            'orderBy', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            'filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
