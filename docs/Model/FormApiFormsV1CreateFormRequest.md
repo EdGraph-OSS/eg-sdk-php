@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **anonymous** | **bool** |  | [optional]
 **tenantId** | **string** |  | [optional]
 **status** | [**\EdGraph\PlatformClient\Model\FormApiFormsV1FormStatus**](FormApiFormsV1FormStatus.md) |  | [optional]
+**image** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -69,7 +69,8 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         'deletedBy' => 'string',
         'deletedDateTime' => 'string',
         'isDeleted' => 'bool',
-        'order' => 'int'
+        'order' => 'int',
+        'subHeading' => 'string'
     ];
 
     /**
@@ -92,7 +93,8 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         'deletedBy' => null,
         'deletedDateTime' => null,
         'isDeleted' => null,
-        'order' => 'int32'
+        'order' => 'int32',
+        'subHeading' => null
     ];
 
     /**
@@ -113,7 +115,8 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         'deletedBy' => true,
         'deletedDateTime' => true,
         'isDeleted' => true,
-        'order' => true
+        'order' => true,
+        'subHeading' => true
     ];
 
     /**
@@ -214,7 +217,8 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         'deletedBy' => 'deletedBy',
         'deletedDateTime' => 'deletedDateTime',
         'isDeleted' => 'isDeleted',
-        'order' => 'order'
+        'order' => 'order',
+        'subHeading' => 'subHeading'
     ];
 
     /**
@@ -235,7 +239,8 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         'deletedBy' => 'setDeletedBy',
         'deletedDateTime' => 'setDeletedDateTime',
         'isDeleted' => 'setIsDeleted',
-        'order' => 'setOrder'
+        'order' => 'setOrder',
+        'subHeading' => 'setSubHeading'
     ];
 
     /**
@@ -256,7 +261,8 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         'deletedBy' => 'getDeletedBy',
         'deletedDateTime' => 'getDeletedDateTime',
         'isDeleted' => 'getIsDeleted',
-        'order' => 'getOrder'
+        'order' => 'getOrder',
+        'subHeading' => 'getSubHeading'
     ];
 
     /**
@@ -329,6 +335,7 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         $this->setIfExists('deletedDateTime', $data ?? [], null);
         $this->setIfExists('isDeleted', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
+        $this->setIfExists('subHeading', $data ?? [], null);
     }
 
     /**
@@ -811,6 +818,40 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
             }
         }
         $this->container['order'] = $order;
+
+        return $this;
+    }
+
+    /**
+     * Gets subHeading
+     *
+     * @return string|null
+     */
+    public function getSubHeading()
+    {
+        return $this->container['subHeading'];
+    }
+
+    /**
+     * Sets subHeading
+     *
+     * @param string|null $subHeading subHeading
+     *
+     * @return self
+     */
+    public function setSubHeading($subHeading)
+    {
+        if (is_null($subHeading)) {
+            array_push($this->openAPINullablesSetToNull, 'subHeading');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subHeading', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subHeading'] = $subHeading;
 
         return $this;
     }

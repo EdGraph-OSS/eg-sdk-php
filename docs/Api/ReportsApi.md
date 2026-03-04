@@ -17,7 +17,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 ## `createReportAsync()`
 
 ```php
-createReportAsync($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version): \EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse
+createReportAsync($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired): \EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse
 ```
 
 Creates a new report (Does not upload pbix file).
@@ -47,9 +47,11 @@ $description = 'description_example'; // string
 $tags = 'tags_example'; // string
 $isVisible = True; // bool
 $version = 'version_example'; // string
+$identityRequired = True; // bool
+$rolesRequired = True; // bool
 
 try {
-    $result = $apiInstance->createReportAsync($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version);
+    $result = $apiInstance->createReportAsync($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportsApi->createReportAsync: ', $e->getMessage(), PHP_EOL;
@@ -68,6 +70,8 @@ try {
 | **tags** | **string**|  | [optional] |
 | **isVisible** | **bool**|  | [optional] |
 | **version** | **string**|  | [optional] |
+| **identityRequired** | **bool**|  | [optional] |
+| **rolesRequired** | **bool**|  | [optional] |
 
 ### Return type
 

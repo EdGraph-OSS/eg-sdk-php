@@ -54,6 +54,12 @@ class FormApiQuestionsV1QuestionType
 
     public const CUSTOM_COMPONENT = 'CustomComponent';
 
+    public const SCORING = 'Scoring';
+
+    public const HTML = 'Html';
+
+    public const IMAGE = 'Image';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -66,7 +72,10 @@ class FormApiQuestionsV1QuestionType
             self::SELECT,
             self::DATE,
             self::RADIO,
-            self::CUSTOM_COMPONENT
+            self::CUSTOM_COMPONENT,
+            self::SCORING,
+            self::HTML,
+            self::IMAGE
         ];
     }
 }

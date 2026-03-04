@@ -88,6 +88,7 @@ Class | Method | HTTP request | Description
 *AnalyticsConnectorsApi* | [**getADLSGen2ConnectorById**](docs/Api/AnalyticsConnectorsApi.md#getadlsgen2connectorbyid) | **GET** /tenants/{tenantId}/analytics/connectors/{connectorId} | Retrieves a connector profile by Id
 *AnalyticsConnectorsApi* | [**getPaginatedConnectors**](docs/Api/AnalyticsConnectorsApi.md#getpaginatedconnectors) | **GET** /tenants/{tenantId}/analytics/connectors | Retrieves paginated connectors
 *AnalyticsConnectorsApi* | [**updateConnector**](docs/Api/AnalyticsConnectorsApi.md#updateconnector) | **PUT** /tenants/{tenantId}/analytics/connectors/{connectorId} | Updates a connector by Id
+*AnalyticsDataLakeApi* | [**getPaginatedLakehouseRecords**](docs/Api/AnalyticsDataLakeApi.md#getpaginatedlakehouserecords) | **GET** /tenants/{tenantId}/analytics/datalake/query | Retrieves gold-tier data from the lakehouse
 *AnalyticsUserAuthorizationsApi* | [**getPaginatedUserAuthorizations**](docs/Api/AnalyticsUserAuthorizationsApi.md#getpaginateduserauthorizations) | **GET** /tenants/{tenantId}/analytics/userauthorizations | Retrieves paginated user authorizations
 *AnalyticsUserAuthorizationsApi* | [**softDeleteUserAuthorization**](docs/Api/AnalyticsUserAuthorizationsApi.md#softdeleteuserauthorization) | **DELETE** /tenants/{tenantId}/analytics/userauthorizations/{userAuthorizationId} | Soft Deletes a user authorization by Id
 *ApplicationsApi* | [**getTenantApplicationProfileByIdAsync**](docs/Api/ApplicationsApi.md#gettenantapplicationprofilebyidasync) | **GET** /tenants/{tenantId}/applications/{applicationId} | Retrieves an application
@@ -113,6 +114,7 @@ Class | Method | HTTP request | Description
 *CategoriesApi* | [**setCategoryDataOwnerBulk**](docs/Api/CategoriesApi.md#setcategorydataownerbulk) | **POST** /tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/categories/owner | Sets the Data Owner of Categories.
 *CategoriesApi* | [**uploadStateReportingCategory**](docs/Api/CategoriesApi.md#uploadstatereportingcategory) | **POST** /tenants/{tenantId}/statereporting/categories/upload | Upload a Category via a JSON file.
 *CategoriesApi* | [**uploadStateReportingPeriodsFromCategoryJson**](docs/Api/CategoriesApi.md#uploadstatereportingperiodsfromcategoryjson) | **POST** /tenants/{tenantId}/statereporting/environments/{environmentId}/reportingperiods/upload | Upload a Category via a JSON file.
+*ChangesLogsApi* | [**getAllChangesAsync**](docs/Api/ChangesLogsApi.md#getallchangesasync) | **GET** /changes/{tenantId}/changes | 
 *ClientsSecretsApi* | [**addClientSecret**](docs/Api/ClientsSecretsApi.md#addclientsecret) | **POST** /tenants/{tenantId}/oneroster/instances/{instanceId}/clients/{clientId}/secrets | Creates a new secret for an OpenId client
 *ClientsSecretsApi* | [**regenerateOneRosterApiClientSecretAsync**](docs/Api/ClientsSecretsApi.md#regenerateonerosterapiclientsecretasync) | **PUT** /tenants/{tenantId}/oneroster/instances/{instanceId}/clients/{clientId}/regeneratesecret | Regenerate Client Secret
 *CollectionsApi* | [**createCollection**](docs/Api/CollectionsApi.md#createcollection) | **POST** /tenants/{tenantId}/validations/collections | Creates a Collection.
@@ -241,6 +243,7 @@ Class | Method | HTTP request | Description
 *EvaluationsApi* | [**createEvaluation**](docs/Api/EvaluationsApi.md#createevaluation) | **POST** /tenants/{tenantId}/evaluations | Creates a new Evaluation for a given tenant
 *EvaluationsApi* | [**deleteEvaluation**](docs/Api/EvaluationsApi.md#deleteevaluation) | **DELETE** /tenants/{tenantId}/evaluations/{evaluationId} | Deletes an Evaluation for a given tenant
 *EvaluationsApi* | [**getEvaluation**](docs/Api/EvaluationsApi.md#getevaluation) | **GET** /tenants/{tenantId}/evaluations/{evaluationId} | Get an Evaluation for a given tenant
+*EvaluationsApi* | [**getEvaluationCount**](docs/Api/EvaluationsApi.md#getevaluationcount) | **GET** /tenants/{tenantId}/evaluations/count | 
 *EvaluationsApi* | [**searchEvaluationAppraisers**](docs/Api/EvaluationsApi.md#searchevaluationappraisers) | **GET** /tenants/{tenantId}/evaluations/appraisers | Searches the Appraisers associated with an Evaluation for a given Tenant.
 *EvaluationsApi* | [**searchEvaluationCampuses**](docs/Api/EvaluationsApi.md#searchevaluationcampuses) | **GET** /tenants/{tenantId}/evaluations/campuses | Searches the Campuses associated with an Evaluation for a given Tenant.
 *EvaluationsApi* | [**searchEvaluationForms**](docs/Api/EvaluationsApi.md#searchevaluationforms) | **GET** /tenants/{tenantId}/evaluations/forms | Searches the Forms associated with an Evaluation for a given Tenant.
@@ -316,6 +319,7 @@ Class | Method | HTTP request | Description
 *InstancesApplicationsApi* | [**getApplicationByIdAsync**](docs/Api/InstancesApplicationsApi.md#getapplicationbyidasync) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId} | Retrieves an Application by ID.
 *InstancesApplicationsApi* | [**getApplicationsAsync**](docs/Api/InstancesApplicationsApi.md#getapplicationsasync) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications | Retrieves a list of Applications.
 *InstancesApplicationsApi* | [**regenerateApiClientSecretAsync**](docs/Api/InstancesApplicationsApi.md#regenerateapiclientsecretasync) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId}/apiclients/{apiClientId}/regenerate | Regenerates the secret of an API Client.
+*InstancesApplicationsApi* | [**regenerateApplicationApiClientCredentials**](docs/Api/InstancesApplicationsApi.md#regenerateapplicationapiclientcredentials) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId}/apiclients/regenerate | Regenerates an application&#39;s API Client Credentials
 *InstancesApplicationsApi* | [**syncApplicationAsync**](docs/Api/InstancesApplicationsApi.md#syncapplicationasync) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId}/sync | Copies an Application from one instance to another/other instance(s)
 *InstancesApplicationsApi* | [**updateApplicationAsync**](docs/Api/InstancesApplicationsApi.md#updateapplicationasync) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId} | Updates an Application.
 *InstancesApplicationsApi* | [**updateApplicationUserAccessAsync**](docs/Api/InstancesApplicationsApi.md#updateapplicationuseraccessasync) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId}/apiclients/{apiClientId}/access/{accessId} | Updates a new application access.
@@ -421,6 +425,19 @@ Class | Method | HTTP request | Description
 *MyTenantsApi* | [**getUserTenants**](docs/Api/MyTenantsApi.md#getusertenants) | **GET** /me/tenants | Retrieves the Tenants of the User that is currently logged in.
 *MyTenantsApi* | [**searchMyLicenses**](docs/Api/MyTenantsApi.md#searchmylicenses) | **GET** /v2/me/tenants/{tenantId}/licenses | Search the user&#39;s licenses.
 *MyTenantsApi* | [**searchMyTenants**](docs/Api/MyTenantsApi.md#searchmytenants) | **GET** /v2/me/tenants | Searches tenants associated to the user.
+*ObservationConfigurationApi* | [**getTenantObservationSettings**](docs/Api/ObservationConfigurationApi.md#gettenantobservationsettings) | **GET** /tenants/{tenantId}/observations/configuration | Gets the Observation Settings for a given tenant
+*ObservationConfigurationApi* | [**setObservationSettingApplicationSetting**](docs/Api/ObservationConfigurationApi.md#setobservationsettingapplicationsetting) | **POST** /tenants/{tenantId}/observations/configuration/application | Sets the Application Settings of an Observation for a given Tenant
+*ObservationConfigurationApi* | [**setObservationSettingUserSetting**](docs/Api/ObservationConfigurationApi.md#setobservationsettingusersetting) | **POST** /tenants/{tenantId}/observations/configuration/users | Sets the User Settings of an Observation for a given Tenant
+*ObservationsApi* | [**createObservation**](docs/Api/ObservationsApi.md#createobservation) | **POST** /tenants/{tenantId}/observations | Creates a new Observation for a given tenant
+*ObservationsApi* | [**deleteObservation**](docs/Api/ObservationsApi.md#deleteobservation) | **DELETE** /tenants/{tenantId}/observations/{observationId} | Deletes an Observation for a given tenant
+*ObservationsApi* | [**getObservation**](docs/Api/ObservationsApi.md#getobservation) | **GET** /tenants/{tenantId}/observations/{observationId} | Get an Observation for a given tenant
+*ObservationsApi* | [**getObservationCount**](docs/Api/ObservationsApi.md#getobservationcount) | **GET** /tenants/{tenantId}/observations/count | 
+*ObservationsApi* | [**searchObservationCampuses**](docs/Api/ObservationsApi.md#searchobservationcampuses) | **GET** /tenants/{tenantId}/observations/campuses | Searches the Campuses associated with an Observation for a given Tenant.
+*ObservationsApi* | [**searchObservationEvaluees**](docs/Api/ObservationsApi.md#searchobservationevaluees) | **GET** /tenants/{tenantId}/observations/evaluees | Searches the Staff associated with an Observation for a given Tenant.
+*ObservationsApi* | [**searchObservationForms**](docs/Api/ObservationsApi.md#searchobservationforms) | **GET** /tenants/{tenantId}/observations/forms | Searches the Forms associated with an Observation for a given Tenant.
+*ObservationsApi* | [**searchObservationObservers**](docs/Api/ObservationsApi.md#searchobservationobservers) | **GET** /tenants/{tenantId}/observations/observers | Searches the Appraisers associated with an Observation for a given Tenant.
+*ObservationsApi* | [**searchObservations**](docs/Api/ObservationsApi.md#searchobservations) | **GET** /tenants/{tenantId}/observations | Searches the Observations for a given tenant
+*ObservationsApi* | [**updateObservation**](docs/Api/ObservationsApi.md#updateobservation) | **PUT** /tenants/{tenantId}/observations/{observationId} | Updates an Observation for a given tenant
 *OnboardingStepsApi* | [**createOnboardingStep**](docs/Api/OnboardingStepsApi.md#createonboardingstep) | **POST** /tenants/{tenantId}/onboardingsteps | Creates an Onboarding Step.
 *OnboardingStepsApi* | [**getOnboardingSteps**](docs/Api/OnboardingStepsApi.md#getonboardingsteps) | **GET** /tenants/{tenantId}/onboardingsteps | Gets a list of Onboarding Steps.
 *OnboardingStepsApi* | [**updateOnboardingStep**](docs/Api/OnboardingStepsApi.md#updateonboardingstep) | **PUT** /tenants/{tenantId}/onboardingsteps/{stepNumber} | Updates the status of an Onboarding Step.
@@ -496,6 +513,14 @@ Class | Method | HTTP request | Description
 *SettingsApi* | [**getTenantSettings**](docs/Api/SettingsApi.md#gettenantsettings) | **GET** /tenants/{tenantId}/settings | Retrieves a list of the Tenant&#39;s settings.
 *SettingsApi* | [**getTenantSettingsByCode**](docs/Api/SettingsApi.md#gettenantsettingsbycode) | **GET** /tenants/{tenantId}/settings/{code} | Retrieves a Tenant&#39;s settings by code.
 *SettingsApi* | [**setTenantSettings**](docs/Api/SettingsApi.md#settenantsettings) | **POST** /tenants/{tenantId}/settings/{code} | Creates/updates a Tenant&#39;s settings.
+*SpecificationsApi* | [**createSpecification**](docs/Api/SpecificationsApi.md#createspecification) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications | Create a Specification resource
+*SpecificationsApi* | [**deleteSpecification**](docs/Api/SpecificationsApi.md#deletespecification) | **DELETE** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/{id} | Delete of Specification resource
+*SpecificationsApi* | [**exportSpecifications**](docs/Api/SpecificationsApi.md#exportspecifications) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/export | Export all Specifications resources given a Tenant
+*SpecificationsApi* | [**getSpecification**](docs/Api/SpecificationsApi.md#getspecification) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/{id} | Get Specification resource
+*SpecificationsApi* | [**purgeSpecification**](docs/Api/SpecificationsApi.md#purgespecification) | **DELETE** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/{specificationId}/purge | Purge a deleted Specification resource
+*SpecificationsApi* | [**recoverSpecification**](docs/Api/SpecificationsApi.md#recoverspecification) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/{specificationId}/recover | Recover deleted Specification resource
+*SpecificationsApi* | [**searchSpecifications**](docs/Api/SpecificationsApi.md#searchspecifications) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/search | Seaarch specifications
+*SpecificationsApi* | [**updateSpecification**](docs/Api/SpecificationsApi.md#updatespecification) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/{id} | Update specification
 *StaffClassificationsApi* | [**createStaffClassification**](docs/Api/StaffClassificationsApi.md#createstaffclassification) | **POST** /tenants/{tenantId}/staffclassifications | Creates a StaffClassification.
 *StaffClassificationsApi* | [**deleteStaffClassification**](docs/Api/StaffClassificationsApi.md#deletestaffclassification) | **DELETE** /tenants/{tenantId}/staffclassifications/{staffClassificationId} | Deletes a StaffClassification.
 *StaffClassificationsApi* | [**getStaffClassificationById**](docs/Api/StaffClassificationsApi.md#getstaffclassificationbyid) | **GET** /tenants/{tenantId}/staffclassifications/{staffClassificationId} | Retrieves a StaffClassification by ID.
@@ -615,6 +640,8 @@ Class | Method | HTTP request | Description
 - [AnalyticsApiGroupsV1GroupResponse](docs/Model/AnalyticsApiGroupsV1GroupResponse.md)
 - [AnalyticsApiGroupsV1GroupUsersResponse](docs/Model/AnalyticsApiGroupsV1GroupUsersResponse.md)
 - [AnalyticsApiGroupsV1GroupsResponse](docs/Model/AnalyticsApiGroupsV1GroupsResponse.md)
+- [AnalyticsApiLakehousesV1LakehouseRecord](docs/Model/AnalyticsApiLakehousesV1LakehouseRecord.md)
+- [AnalyticsApiLakehousesV1PaginatedLakehouseRecordsResponse](docs/Model/AnalyticsApiLakehousesV1PaginatedLakehouseRecordsResponse.md)
 - [AnalyticsApiReportsV1AnalyticsEmbedToken](docs/Model/AnalyticsApiReportsV1AnalyticsEmbedToken.md)
 - [AnalyticsApiReportsV1AnalyticsReport](docs/Model/AnalyticsApiReportsV1AnalyticsReport.md)
 - [AnalyticsApiReportsV1AnalyticsReportDataset](docs/Model/AnalyticsApiReportsV1AnalyticsReportDataset.md)
@@ -637,6 +664,8 @@ Class | Method | HTTP request | Description
 - [ApplicationApiApplicationV1PaginatedItemsResponse](docs/Model/ApplicationApiApplicationV1PaginatedItemsResponse.md)
 - [ApplicationApiApplicationV1Role](docs/Model/ApplicationApiApplicationV1Role.md)
 - [ApplicationApiApplicationV1UrlType](docs/Model/ApplicationApiApplicationV1UrlType.md)
+- [ChangeLogChangeV1ChangeLogResponse](docs/Model/ChangeLogChangeV1ChangeLogResponse.md)
+- [ChangeLogChangeV1ChangeLogResponsePaginatedItemsViewModel](docs/Model/ChangeLogChangeV1ChangeLogResponsePaginatedItemsViewModel.md)
 - [DataSyncApiConnectionV1ConnectionListResponse](docs/Model/DataSyncApiConnectionV1ConnectionListResponse.md)
 - [DataSyncApiConnectionV1ConnectionListResponsePaginatedItemsViewModel](docs/Model/DataSyncApiConnectionV1ConnectionListResponsePaginatedItemsViewModel.md)
 - [DataSyncApiConnectionV1ConnectionMetadata](docs/Model/DataSyncApiConnectionV1ConnectionMetadata.md)
@@ -899,6 +928,7 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1CreateInstanceRequestSchoolYear](docs/Model/EdfiAdminApiEdfiAdminV1CreateInstanceRequestSchoolYear.md)
 - [EdfiAdminApiEdfiAdminV1CreateLocalEducationAgencyRequest](docs/Model/EdfiAdminApiEdfiAdminV1CreateLocalEducationAgencyRequest.md)
 - [EdfiAdminApiEdfiAdminV1CreateOnboardingStepRequest](docs/Model/EdfiAdminApiEdfiAdminV1CreateOnboardingStepRequest.md)
+- [EdfiAdminApiEdfiAdminV1CreateSpecificationRequest](docs/Model/EdfiAdminApiEdfiAdminV1CreateSpecificationRequest.md)
 - [EdfiAdminApiEdfiAdminV1CreateStateEducationAgencyRequest](docs/Model/EdfiAdminApiEdfiAdminV1CreateStateEducationAgencyRequest.md)
 - [EdfiAdminApiEdfiAdminV1CreateVendorRequest](docs/Model/EdfiAdminApiEdfiAdminV1CreateVendorRequest.md)
 - [EdfiAdminApiEdfiAdminV1DatabaseTier](docs/Model/EdfiAdminApiEdfiAdminV1DatabaseTier.md)
@@ -933,6 +963,9 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor](docs/Model/EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor.md)
 - [EdfiAdminApiEdfiAdminV1EducationServiceCenter](docs/Model/EdfiAdminApiEdfiAdminV1EducationServiceCenter.md)
 - [EdfiAdminApiEdfiAdminV1EducationServiceCenterCreatedResponse](docs/Model/EdfiAdminApiEdfiAdminV1EducationServiceCenterCreatedResponse.md)
+- [EdfiAdminApiEdfiAdminV1ExportSpecificationsRequest](docs/Model/EdfiAdminApiEdfiAdminV1ExportSpecificationsRequest.md)
+- [EdfiAdminApiEdfiAdminV1ExportStatus](docs/Model/EdfiAdminApiEdfiAdminV1ExportStatus.md)
+- [EdfiAdminApiEdfiAdminV1ExportType](docs/Model/EdfiAdminApiEdfiAdminV1ExportType.md)
 - [EdfiAdminApiEdfiAdminV1GenderRepresentation](docs/Model/EdfiAdminApiEdfiAdminV1GenderRepresentation.md)
 - [EdfiAdminApiEdfiAdminV1GenerateReportsResponse](docs/Model/EdfiAdminApiEdfiAdminV1GenerateReportsResponse.md)
 - [EdfiAdminApiEdfiAdminV1GetLocalEducationAgencyProfileResponse](docs/Model/EdfiAdminApiEdfiAdminV1GetLocalEducationAgencyProfileResponse.md)
@@ -979,9 +1012,17 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1SaveClaimSetResponse](docs/Model/EdfiAdminApiEdfiAdminV1SaveClaimSetResponse.md)
 - [EdfiAdminApiEdfiAdminV1SchoolCountRepresentation](docs/Model/EdfiAdminApiEdfiAdminV1SchoolCountRepresentation.md)
 - [EdfiAdminApiEdfiAdminV1SchoolsByTypeReportResponse](docs/Model/EdfiAdminApiEdfiAdminV1SchoolsByTypeReportResponse.md)
+- [EdfiAdminApiEdfiAdminV1SearchSpecificationsRequest](docs/Model/EdfiAdminApiEdfiAdminV1SearchSpecificationsRequest.md)
 - [EdfiAdminApiEdfiAdminV1SecretEncryptionMetadata](docs/Model/EdfiAdminApiEdfiAdminV1SecretEncryptionMetadata.md)
 - [EdfiAdminApiEdfiAdminV1SecretValueType](docs/Model/EdfiAdminApiEdfiAdminV1SecretValueType.md)
 - [EdfiAdminApiEdfiAdminV1SetInstanceIsDefaultRequest](docs/Model/EdfiAdminApiEdfiAdminV1SetInstanceIsDefaultRequest.md)
+- [EdfiAdminApiEdfiAdminV1SpecificationDeletedResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationDeletedResponse.md)
+- [EdfiAdminApiEdfiAdminV1SpecificationPurgedResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationPurgedResponse.md)
+- [EdfiAdminApiEdfiAdminV1SpecificationRecoveredResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationRecoveredResponse.md)
+- [EdfiAdminApiEdfiAdminV1SpecificationResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationResponse.md)
+- [EdfiAdminApiEdfiAdminV1SpecificationUpdatedResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationUpdatedResponse.md)
+- [EdfiAdminApiEdfiAdminV1SpecificationsExportedResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationsExportedResponse.md)
+- [EdfiAdminApiEdfiAdminV1SpecificationsSearchResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationsSearchResponse.md)
 - [EdfiAdminApiEdfiAdminV1StateEducationAgency](docs/Model/EdfiAdminApiEdfiAdminV1StateEducationAgency.md)
 - [EdfiAdminApiEdfiAdminV1StateEducationAgencyCreatedResponse](docs/Model/EdfiAdminApiEdfiAdminV1StateEducationAgencyCreatedResponse.md)
 - [EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse](docs/Model/EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse.md)
@@ -1012,6 +1053,7 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1UpdateInstanceRequest](docs/Model/EdfiAdminApiEdfiAdminV1UpdateInstanceRequest.md)
 - [EdfiAdminApiEdfiAdminV1UpdateLocalEducationAgencyRequest](docs/Model/EdfiAdminApiEdfiAdminV1UpdateLocalEducationAgencyRequest.md)
 - [EdfiAdminApiEdfiAdminV1UpdateOnboardingStepRequest](docs/Model/EdfiAdminApiEdfiAdminV1UpdateOnboardingStepRequest.md)
+- [EdfiAdminApiEdfiAdminV1UpdateSpecificationRequest](docs/Model/EdfiAdminApiEdfiAdminV1UpdateSpecificationRequest.md)
 - [EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest](docs/Model/EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest.md)
 - [EdfiAdminApiEdfiAdminV1UpdateVendorRequest](docs/Model/EdfiAdminApiEdfiAdminV1UpdateVendorRequest.md)
 - [EdfiAdminApiEdfiAdminV1Vendor](docs/Model/EdfiAdminApiEdfiAdminV1Vendor.md)
@@ -1029,6 +1071,7 @@ Class | Method | HTTP request | Description
 - [EvaluationApiEvaluationsV1CampusResponse](docs/Model/EvaluationApiEvaluationsV1CampusResponse.md)
 - [EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel](docs/Model/EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel.md)
 - [EvaluationApiEvaluationsV1CreateEvaluationRequest](docs/Model/EvaluationApiEvaluationsV1CreateEvaluationRequest.md)
+- [EvaluationApiEvaluationsV1EvaluationCountResponse](docs/Model/EvaluationApiEvaluationsV1EvaluationCountResponse.md)
 - [EvaluationApiEvaluationsV1EvaluationCreatedResponse](docs/Model/EvaluationApiEvaluationsV1EvaluationCreatedResponse.md)
 - [EvaluationApiEvaluationsV1EvaluationDeletedResponse](docs/Model/EvaluationApiEvaluationsV1EvaluationDeletedResponse.md)
 - [EvaluationApiEvaluationsV1EvaluationResponse](docs/Model/EvaluationApiEvaluationsV1EvaluationResponse.md)
@@ -1086,6 +1129,11 @@ Class | Method | HTTP request | Description
 - [FormApiSubmissionsV1SubmissionUpdatedResponse](docs/Model/FormApiSubmissionsV1SubmissionUpdatedResponse.md)
 - [FormApiSubmissionsV1SubmissionsExportedResponse](docs/Model/FormApiSubmissionsV1SubmissionsExportedResponse.md)
 - [FormApiSubmissionsV1UpdateSubmissionRequest](docs/Model/FormApiSubmissionsV1UpdateSubmissionRequest.md)
+- [GoogleProtobufWellKnownTypesListValue](docs/Model/GoogleProtobufWellKnownTypesListValue.md)
+- [GoogleProtobufWellKnownTypesNullValue](docs/Model/GoogleProtobufWellKnownTypesNullValue.md)
+- [GoogleProtobufWellKnownTypesStruct](docs/Model/GoogleProtobufWellKnownTypesStruct.md)
+- [GoogleProtobufWellKnownTypesValue](docs/Model/GoogleProtobufWellKnownTypesValue.md)
+- [GoogleProtobufWellKnownTypesValueKindOneofCase](docs/Model/GoogleProtobufWellKnownTypesValueKindOneofCase.md)
 - [IMSAdminApiV1ClientsAccessTokenType](docs/Model/IMSAdminApiV1ClientsAccessTokenType.md)
 - [IMSAdminApiV1ClientsAddClientSecretRequest](docs/Model/IMSAdminApiV1ClientsAddClientSecretRequest.md)
 - [IMSAdminApiV1ClientsClaim](docs/Model/IMSAdminApiV1ClientsClaim.md)
@@ -1446,6 +1494,6 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `v1.0`
-    - Package version: `0.0.15`
+    - Package version: `0.0.16`
     - Generator version: `7.8.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

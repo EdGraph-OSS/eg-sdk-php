@@ -62,7 +62,8 @@ class FormApiSectionsV1UpdateSectionRequest implements ModelInterface, ArrayAcce
         'tenantId' => 'string',
         'title' => 'string',
         'description' => 'string',
-        'order' => 'int'
+        'order' => 'int',
+        'subHeading' => 'string'
     ];
 
     /**
@@ -78,7 +79,8 @@ class FormApiSectionsV1UpdateSectionRequest implements ModelInterface, ArrayAcce
         'tenantId' => null,
         'title' => null,
         'description' => null,
-        'order' => 'int32'
+        'order' => 'int32',
+        'subHeading' => null
     ];
 
     /**
@@ -92,7 +94,8 @@ class FormApiSectionsV1UpdateSectionRequest implements ModelInterface, ArrayAcce
         'tenantId' => true,
         'title' => true,
         'description' => true,
-        'order' => true
+        'order' => true,
+        'subHeading' => true
     ];
 
     /**
@@ -186,7 +189,8 @@ class FormApiSectionsV1UpdateSectionRequest implements ModelInterface, ArrayAcce
         'tenantId' => 'tenantId',
         'title' => 'title',
         'description' => 'description',
-        'order' => 'order'
+        'order' => 'order',
+        'subHeading' => 'subHeading'
     ];
 
     /**
@@ -200,7 +204,8 @@ class FormApiSectionsV1UpdateSectionRequest implements ModelInterface, ArrayAcce
         'tenantId' => 'setTenantId',
         'title' => 'setTitle',
         'description' => 'setDescription',
-        'order' => 'setOrder'
+        'order' => 'setOrder',
+        'subHeading' => 'setSubHeading'
     ];
 
     /**
@@ -214,7 +219,8 @@ class FormApiSectionsV1UpdateSectionRequest implements ModelInterface, ArrayAcce
         'tenantId' => 'getTenantId',
         'title' => 'getTitle',
         'description' => 'getDescription',
-        'order' => 'getOrder'
+        'order' => 'getOrder',
+        'subHeading' => 'getSubHeading'
     ];
 
     /**
@@ -280,6 +286,7 @@ class FormApiSectionsV1UpdateSectionRequest implements ModelInterface, ArrayAcce
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
+        $this->setIfExists('subHeading', $data ?? [], null);
     }
 
     /**
@@ -524,6 +531,40 @@ class FormApiSectionsV1UpdateSectionRequest implements ModelInterface, ArrayAcce
             }
         }
         $this->container['order'] = $order;
+
+        return $this;
+    }
+
+    /**
+     * Gets subHeading
+     *
+     * @return string|null
+     */
+    public function getSubHeading()
+    {
+        return $this->container['subHeading'];
+    }
+
+    /**
+     * Sets subHeading
+     *
+     * @param string|null $subHeading subHeading
+     *
+     * @return self
+     */
+    public function setSubHeading($subHeading)
+    {
+        if (is_null($subHeading)) {
+            array_push($this->openAPINullablesSetToNull, 'subHeading');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subHeading', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['subHeading'] = $subHeading;
 
         return $this;
     }

@@ -15,6 +15,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**getApplicationByIdAsync()**](InstancesApplicationsApi.md#getApplicationByIdAsync) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId} | Retrieves an Application by ID. |
 | [**getApplicationsAsync()**](InstancesApplicationsApi.md#getApplicationsAsync) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications | Retrieves a list of Applications. |
 | [**regenerateApiClientSecretAsync()**](InstancesApplicationsApi.md#regenerateApiClientSecretAsync) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId}/apiclients/{apiClientId}/regenerate | Regenerates the secret of an API Client. |
+| [**regenerateApplicationApiClientCredentials()**](InstancesApplicationsApi.md#regenerateApplicationApiClientCredentials) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId}/apiclients/regenerate | Regenerates an application&#39;s API Client Credentials |
 | [**syncApplicationAsync()**](InstancesApplicationsApi.md#syncApplicationAsync) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId}/sync | Copies an Application from one instance to another/other instance(s) |
 | [**updateApplicationAsync()**](InstancesApplicationsApi.md#updateApplicationAsync) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId} | Updates an Application. |
 | [**updateApplicationUserAccessAsync()**](InstancesApplicationsApi.md#updateApplicationUserAccessAsync) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/applications/{applicationId}/apiclients/{apiClientId}/access/{accessId} | Updates a new application access. |
@@ -717,6 +718,68 @@ try {
 | **instanceId** | **string**|  | |
 | **applicationId** | **int**|  | |
 | **apiClientId** | **int**|  | |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1RegenerateApiClientSecretResponse**](../Model/EdfiAdminApiEdfiAdminV1RegenerateApiClientSecretResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `regenerateApplicationApiClientCredentials()`
+
+```php
+regenerateApplicationApiClientCredentials($tenantId, $instanceId, $applicationId): \EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1RegenerateApiClientSecretResponse
+```
+
+Regenerates an application's API Client Credentials
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\InstancesApplicationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$instanceId = 'instanceId_example'; // string | 
+$applicationId = 56; // int | 
+
+try {
+    $result = $apiInstance->regenerateApplicationApiClientCredentials($tenantId, $instanceId, $applicationId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InstancesApplicationsApi->regenerateApplicationApiClientCredentials: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **instanceId** | **string**|  | |
+| **applicationId** | **int**|  | |
 
 ### Return type
 

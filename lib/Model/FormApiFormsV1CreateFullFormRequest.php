@@ -64,7 +64,8 @@ class FormApiFormsV1CreateFullFormRequest implements ModelInterface, ArrayAccess
         'anonymous' => 'bool',
         'tenantId' => 'string',
         'status' => '\EdGraph\PlatformClient\Model\FormApiFormsV1FormStatus',
-        'sections' => '\EdGraph\PlatformClient\Model\FormApiFormsV1CreateFullSectionRequest[]'
+        'sections' => '\EdGraph\PlatformClient\Model\FormApiFormsV1CreateFullSectionRequest[]',
+        'image' => 'string'
     ];
 
     /**
@@ -82,7 +83,8 @@ class FormApiFormsV1CreateFullFormRequest implements ModelInterface, ArrayAccess
         'anonymous' => null,
         'tenantId' => null,
         'status' => null,
-        'sections' => null
+        'sections' => null,
+        'image' => null
     ];
 
     /**
@@ -98,7 +100,8 @@ class FormApiFormsV1CreateFullFormRequest implements ModelInterface, ArrayAccess
         'anonymous' => true,
         'tenantId' => true,
         'status' => false,
-        'sections' => true
+        'sections' => true,
+        'image' => true
     ];
 
     /**
@@ -194,7 +197,8 @@ class FormApiFormsV1CreateFullFormRequest implements ModelInterface, ArrayAccess
         'anonymous' => 'anonymous',
         'tenantId' => 'tenantId',
         'status' => 'status',
-        'sections' => 'sections'
+        'sections' => 'sections',
+        'image' => 'image'
     ];
 
     /**
@@ -210,7 +214,8 @@ class FormApiFormsV1CreateFullFormRequest implements ModelInterface, ArrayAccess
         'anonymous' => 'setAnonymous',
         'tenantId' => 'setTenantId',
         'status' => 'setStatus',
-        'sections' => 'setSections'
+        'sections' => 'setSections',
+        'image' => 'setImage'
     ];
 
     /**
@@ -226,7 +231,8 @@ class FormApiFormsV1CreateFullFormRequest implements ModelInterface, ArrayAccess
         'anonymous' => 'getAnonymous',
         'tenantId' => 'getTenantId',
         'status' => 'getStatus',
-        'sections' => 'getSections'
+        'sections' => 'getSections',
+        'image' => 'getImage'
     ];
 
     /**
@@ -294,6 +300,7 @@ class FormApiFormsV1CreateFullFormRequest implements ModelInterface, ArrayAccess
         $this->setIfExists('tenantId', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('sections', $data ?? [], null);
+        $this->setIfExists('image', $data ?? [], null);
     }
 
     /**
@@ -592,6 +599,40 @@ class FormApiFormsV1CreateFullFormRequest implements ModelInterface, ArrayAccess
             }
         }
         $this->container['sections'] = $sections;
+
+        return $this;
+    }
+
+    /**
+     * Gets image
+     *
+     * @return string|null
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     *
+     * @param string|null $image image
+     *
+     * @return self
+     */
+    public function setImage($image)
+    {
+        if (is_null($image)) {
+            array_push($this->openAPINullablesSetToNull, 'image');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['image'] = $image;
 
         return $this;
     }

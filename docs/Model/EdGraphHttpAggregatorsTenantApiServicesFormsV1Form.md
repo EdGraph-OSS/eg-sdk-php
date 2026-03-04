@@ -20,5 +20,6 @@ Name | Type | Description | Notes
 **deletedBy** | **string** |  | [optional]
 **deletedDateTime** | **string** |  | [optional]
 **isDeleted** | **bool** |  | [optional]
+**image** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

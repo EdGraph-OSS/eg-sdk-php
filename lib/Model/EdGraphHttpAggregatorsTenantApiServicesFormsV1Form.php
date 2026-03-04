@@ -72,7 +72,8 @@ class EdGraphHttpAggregatorsTenantApiServicesFormsV1Form implements ModelInterfa
         'lastModifiedDateTime' => 'string',
         'deletedBy' => 'string',
         'deletedDateTime' => 'string',
-        'isDeleted' => 'bool'
+        'isDeleted' => 'bool',
+        'image' => 'string'
     ];
 
     /**
@@ -98,7 +99,8 @@ class EdGraphHttpAggregatorsTenantApiServicesFormsV1Form implements ModelInterfa
         'lastModifiedDateTime' => null,
         'deletedBy' => null,
         'deletedDateTime' => null,
-        'isDeleted' => null
+        'isDeleted' => null,
+        'image' => null
     ];
 
     /**
@@ -122,7 +124,8 @@ class EdGraphHttpAggregatorsTenantApiServicesFormsV1Form implements ModelInterfa
         'lastModifiedDateTime' => true,
         'deletedBy' => true,
         'deletedDateTime' => true,
-        'isDeleted' => false
+        'isDeleted' => false,
+        'image' => true
     ];
 
     /**
@@ -226,7 +229,8 @@ class EdGraphHttpAggregatorsTenantApiServicesFormsV1Form implements ModelInterfa
         'lastModifiedDateTime' => 'lastModifiedDateTime',
         'deletedBy' => 'deletedBy',
         'deletedDateTime' => 'deletedDateTime',
-        'isDeleted' => 'isDeleted'
+        'isDeleted' => 'isDeleted',
+        'image' => 'image'
     ];
 
     /**
@@ -250,7 +254,8 @@ class EdGraphHttpAggregatorsTenantApiServicesFormsV1Form implements ModelInterfa
         'lastModifiedDateTime' => 'setLastModifiedDateTime',
         'deletedBy' => 'setDeletedBy',
         'deletedDateTime' => 'setDeletedDateTime',
-        'isDeleted' => 'setIsDeleted'
+        'isDeleted' => 'setIsDeleted',
+        'image' => 'setImage'
     ];
 
     /**
@@ -274,7 +279,8 @@ class EdGraphHttpAggregatorsTenantApiServicesFormsV1Form implements ModelInterfa
         'lastModifiedDateTime' => 'getLastModifiedDateTime',
         'deletedBy' => 'getDeletedBy',
         'deletedDateTime' => 'getDeletedDateTime',
-        'isDeleted' => 'getIsDeleted'
+        'isDeleted' => 'getIsDeleted',
+        'image' => 'getImage'
     ];
 
     /**
@@ -350,6 +356,7 @@ class EdGraphHttpAggregatorsTenantApiServicesFormsV1Form implements ModelInterfa
         $this->setIfExists('deletedBy', $data ?? [], null);
         $this->setIfExists('deletedDateTime', $data ?? [], null);
         $this->setIfExists('isDeleted', $data ?? [], null);
+        $this->setIfExists('image', $data ?? [], null);
     }
 
     /**
@@ -899,6 +906,40 @@ class EdGraphHttpAggregatorsTenantApiServicesFormsV1Form implements ModelInterfa
             throw new \InvalidArgumentException('non-nullable isDeleted cannot be null');
         }
         $this->container['isDeleted'] = $isDeleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets image
+     *
+     * @return string|null
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     *
+     * @param string|null $image image
+     *
+     * @return self
+     */
+    public function setImage($image)
+    {
+        if (is_null($image)) {
+            array_push($this->openAPINullablesSetToNull, 'image');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['image'] = $image;
 
         return $this;
     }

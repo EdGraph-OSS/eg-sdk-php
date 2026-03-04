@@ -7,6 +7,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**createEvaluation()**](EvaluationsApi.md#createEvaluation) | **POST** /tenants/{tenantId}/evaluations | Creates a new Evaluation for a given tenant |
 | [**deleteEvaluation()**](EvaluationsApi.md#deleteEvaluation) | **DELETE** /tenants/{tenantId}/evaluations/{evaluationId} | Deletes an Evaluation for a given tenant |
 | [**getEvaluation()**](EvaluationsApi.md#getEvaluation) | **GET** /tenants/{tenantId}/evaluations/{evaluationId} | Get an Evaluation for a given tenant |
+| [**getEvaluationCount()**](EvaluationsApi.md#getEvaluationCount) | **GET** /tenants/{tenantId}/evaluations/count |  |
 | [**searchEvaluationAppraisers()**](EvaluationsApi.md#searchEvaluationAppraisers) | **GET** /tenants/{tenantId}/evaluations/appraisers | Searches the Appraisers associated with an Evaluation for a given Tenant. |
 | [**searchEvaluationCampuses()**](EvaluationsApi.md#searchEvaluationCampuses) | **GET** /tenants/{tenantId}/evaluations/campuses | Searches the Campuses associated with an Evaluation for a given Tenant. |
 | [**searchEvaluationForms()**](EvaluationsApi.md#searchEvaluationForms) | **GET** /tenants/{tenantId}/evaluations/forms | Searches the Forms associated with an Evaluation for a given Tenant. |
@@ -181,6 +182,64 @@ try {
 ### Return type
 
 [**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponse**](../Model/EvaluationApiEvaluationsV1EvaluationResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getEvaluationCount()`
+
+```php
+getEvaluationCount($tenantId): \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCountResponse
+```
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\EvaluationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string
+
+try {
+    $result = $apiInstance->getEvaluationCount($tenantId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EvaluationsApi->getEvaluationCount: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCountResponse**](../Model/EvaluationApiEvaluationsV1EvaluationCountResponse.md)
 
 ### Authorization
 

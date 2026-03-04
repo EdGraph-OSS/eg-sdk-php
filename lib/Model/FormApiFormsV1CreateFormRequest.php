@@ -63,7 +63,8 @@ class FormApiFormsV1CreateFormRequest implements ModelInterface, ArrayAccess, \J
         'version' => 'string',
         'anonymous' => 'bool',
         'tenantId' => 'string',
-        'status' => '\EdGraph\PlatformClient\Model\FormApiFormsV1FormStatus'
+        'status' => '\EdGraph\PlatformClient\Model\FormApiFormsV1FormStatus',
+        'image' => 'string'
     ];
 
     /**
@@ -80,7 +81,8 @@ class FormApiFormsV1CreateFormRequest implements ModelInterface, ArrayAccess, \J
         'version' => null,
         'anonymous' => null,
         'tenantId' => null,
-        'status' => null
+        'status' => null,
+        'image' => null
     ];
 
     /**
@@ -95,7 +97,8 @@ class FormApiFormsV1CreateFormRequest implements ModelInterface, ArrayAccess, \J
         'version' => true,
         'anonymous' => true,
         'tenantId' => true,
-        'status' => false
+        'status' => false,
+        'image' => true
     ];
 
     /**
@@ -190,7 +193,8 @@ class FormApiFormsV1CreateFormRequest implements ModelInterface, ArrayAccess, \J
         'version' => 'version',
         'anonymous' => 'anonymous',
         'tenantId' => 'tenantId',
-        'status' => 'status'
+        'status' => 'status',
+        'image' => 'image'
     ];
 
     /**
@@ -205,7 +209,8 @@ class FormApiFormsV1CreateFormRequest implements ModelInterface, ArrayAccess, \J
         'version' => 'setVersion',
         'anonymous' => 'setAnonymous',
         'tenantId' => 'setTenantId',
-        'status' => 'setStatus'
+        'status' => 'setStatus',
+        'image' => 'setImage'
     ];
 
     /**
@@ -220,7 +225,8 @@ class FormApiFormsV1CreateFormRequest implements ModelInterface, ArrayAccess, \J
         'version' => 'getVersion',
         'anonymous' => 'getAnonymous',
         'tenantId' => 'getTenantId',
-        'status' => 'getStatus'
+        'status' => 'getStatus',
+        'image' => 'getImage'
     ];
 
     /**
@@ -287,6 +293,7 @@ class FormApiFormsV1CreateFormRequest implements ModelInterface, ArrayAccess, \J
         $this->setIfExists('anonymous', $data ?? [], null);
         $this->setIfExists('tenantId', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('image', $data ?? [], null);
     }
 
     /**
@@ -551,6 +558,40 @@ class FormApiFormsV1CreateFormRequest implements ModelInterface, ArrayAccess, \J
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets image
+     *
+     * @return string|null
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     *
+     * @param string|null $image image
+     *
+     * @return self
+     */
+    public function setImage($image)
+    {
+        if (is_null($image)) {
+            array_push($this->openAPINullablesSetToNull, 'image');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['image'] = $image;
 
         return $this;
     }
