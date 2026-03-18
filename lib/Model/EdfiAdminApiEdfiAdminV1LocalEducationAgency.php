@@ -84,7 +84,7 @@ class EdfiAdminApiEdfiAdminV1LocalEducationAgency implements ModelInterface, Arr
     protected static $openAPIFormats = [
         'tenantId' => null,
         'instanceId' => null,
-        'educationOrganizationId' => 'int32',
+        'educationOrganizationId' => 'int64',
         'localEducationAgencyId' => 'int32',
         'nameOfInstitution' => null,
         'shortnameOfInstitution' => null,

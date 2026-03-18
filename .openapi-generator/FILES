@@ -86,6 +86,7 @@ docs/Api/SubmissionsApi.md
 docs/Api/SubscriptionsApi.md
 docs/Api/TagsApi.md
 docs/Api/TenantBrandingApi.md
+docs/Api/TenantDslApi.md
 docs/Api/TenantInstancesApi.md
 docs/Api/TenantSecurityScoreSyncApi.md
 docs/Api/TenantSettingTypesApi.md
@@ -154,6 +155,11 @@ docs/Model/DataSyncApiConnectionV1ConnectionMetadata.md
 docs/Model/DataSyncApiConnectionV1ConnectionProfileResponse.md
 docs/Model/DataSyncApiConnectionV1ConnectionTestedResponse.md
 docs/Model/DataSyncApiConnectionV1TestConnectionRequest.md
+docs/Model/DataSyncApiDslV1CreateJobRequest.md
+docs/Model/DataSyncApiDslV1DslJobExecutedResponse.md
+docs/Model/DataSyncApiDslV1DslProfile.md
+docs/Model/DataSyncApiDslV1JobCreatedResponse.md
+docs/Model/DataSyncApiDslV1UpdateJobRequest.md
 docs/Model/DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobMode.md
 docs/Model/DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile.md
 docs/Model/DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProvider.md
@@ -1030,6 +1036,7 @@ lib/Api/SubmissionsApi.php
 lib/Api/SubscriptionsApi.php
 lib/Api/TagsApi.php
 lib/Api/TenantBrandingApi.php
+lib/Api/TenantDslApi.php
 lib/Api/TenantInstancesApi.php
 lib/Api/TenantSecurityScoreSyncApi.php
 lib/Api/TenantSettingTypesApi.php
@@ -1101,6 +1108,11 @@ lib/Model/DataSyncApiConnectionV1ConnectionMetadata.php
 lib/Model/DataSyncApiConnectionV1ConnectionProfileResponse.php
 lib/Model/DataSyncApiConnectionV1ConnectionTestedResponse.php
 lib/Model/DataSyncApiConnectionV1TestConnectionRequest.php
+lib/Model/DataSyncApiDslV1CreateJobRequest.php
+lib/Model/DataSyncApiDslV1DslJobExecutedResponse.php
+lib/Model/DataSyncApiDslV1DslProfile.php
+lib/Model/DataSyncApiDslV1JobCreatedResponse.php
+lib/Model/DataSyncApiDslV1UpdateJobRequest.php
 lib/Model/DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobMode.php
 lib/Model/DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile.php
 lib/Model/DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProvider.php
@@ -1896,3 +1908,9 @@ lib/Model/ValidationsApiValidationResultsV1FindResponse.php
 lib/Model/ValidationsApiValidationResultsV1ValidationResultDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Api/TenantDslApiTest.php
+test/Model/DataSyncApiDslV1CreateJobRequestTest.php
+test/Model/DataSyncApiDslV1DslJobExecutedResponseTest.php
+test/Model/DataSyncApiDslV1DslProfileTest.php
+test/Model/DataSyncApiDslV1JobCreatedResponseTest.php
+test/Model/DataSyncApiDslV1UpdateJobRequestTest.php

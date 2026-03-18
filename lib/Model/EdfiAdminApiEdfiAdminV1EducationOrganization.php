@@ -80,7 +80,7 @@ class EdfiAdminApiEdfiAdminV1EducationOrganization implements ModelInterface, Ar
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'educationOrganizationId' => 'int32',
+        'educationOrganizationId' => 'int64',
         'nameOfInstitution' => null,
         'shortnameOfInstitution' => null,
         'webSite' => null,
