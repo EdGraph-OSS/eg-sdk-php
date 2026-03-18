@@ -80,32 +80,23 @@ class ObservationsApi
         'deleteObservation' => [
             'application/json',
         ],
-        'getObservation' => [
+        'getObservationById' => [
             'application/json',
         ],
-        'getObservationCount' => [
+        'getPaginatedAvailableCampuses' => [
             'application/json',
         ],
-        'searchObservationCampuses' => [
+        'getPaginatedAvailableForms' => [
             'application/json',
         ],
-        'searchObservationEvaluees' => [
+        'getPaginatedEvaluees' => [
             'application/json',
         ],
-        'searchObservationForms' => [
+        'getPaginatedObservations' => [
             'application/json',
         ],
-        'searchObservationObservers' => [
+        'getSubmittedObservationsCount' => [
             'application/json',
-        ],
-        'searchObservations' => [
-            'application/json',
-        ],
-        'updateObservation' => [
-            'application/json-patch+json',
-            'application/json',
-            'text/json',
-            'application/*+json',
         ],
     ];
 
@@ -161,16 +152,16 @@ class ObservationsApi
      * Creates a new Observation for a given tenant
      *
      * @param  string $tenantId  (required)
-     * @param  \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CreateEvaluationRequest $evaluationApiEvaluationsV1CreateEvaluationRequest  (optional)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObservation'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCreatedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
-    public function createObservation($tenantId, $evaluationApiEvaluationsV1CreateEvaluationRequest = null, string $contentType = self::contentTypes['createObservation'][0])
+    public function createObservation($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest = null, string $contentType = self::contentTypes['createObservation'][0])
     {
-        list($response) = $this->createObservationWithHttpInfo($tenantId, $evaluationApiEvaluationsV1CreateEvaluationRequest, $contentType);
+        list($response) = $this->createObservationWithHttpInfo($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, $contentType);
         return $response;
     }
 
@@ -180,16 +171,16 @@ class ObservationsApi
      * Creates a new Observation for a given tenant
      *
      * @param  string $tenantId  (required)
-     * @param  \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CreateEvaluationRequest $evaluationApiEvaluationsV1CreateEvaluationRequest  (optional)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObservation'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCreatedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createObservationWithHttpInfo($tenantId, $evaluationApiEvaluationsV1CreateEvaluationRequest = null, string $contentType = self::contentTypes['createObservation'][0])
+    public function createObservationWithHttpInfo($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest = null, string $contentType = self::contentTypes['createObservation'][0])
     {
-        $request = $this->createObservationRequest($tenantId, $evaluationApiEvaluationsV1CreateEvaluationRequest, $contentType);
+        $request = $this->createObservationRequest($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -309,11 +300,11 @@ class ObservationsApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCreatedResponse' === '\SplFileObject') {
+                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCreatedResponse' !== 'string') {
+                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -331,7 +322,7 @@ class ObservationsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCreatedResponse', []),
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -364,7 +355,7 @@ class ObservationsApi
                     ];
             }
 
-            $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCreatedResponse';
+            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -421,7 +412,7 @@ class ObservationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCreatedResponse',
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -445,15 +436,15 @@ class ObservationsApi
      * Creates a new Observation for a given tenant
      *
      * @param  string $tenantId  (required)
-     * @param  \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CreateEvaluationRequest $evaluationApiEvaluationsV1CreateEvaluationRequest  (optional)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createObservationAsync($tenantId, $evaluationApiEvaluationsV1CreateEvaluationRequest = null, string $contentType = self::contentTypes['createObservation'][0])
+    public function createObservationAsync($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest = null, string $contentType = self::contentTypes['createObservation'][0])
     {
-        return $this->createObservationAsyncWithHttpInfo($tenantId, $evaluationApiEvaluationsV1CreateEvaluationRequest, $contentType)
+        return $this->createObservationAsyncWithHttpInfo($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -467,16 +458,16 @@ class ObservationsApi
      * Creates a new Observation for a given tenant
      *
      * @param  string $tenantId  (required)
-     * @param  \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CreateEvaluationRequest $evaluationApiEvaluationsV1CreateEvaluationRequest  (optional)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createObservationAsyncWithHttpInfo($tenantId, $evaluationApiEvaluationsV1CreateEvaluationRequest = null, string $contentType = self::contentTypes['createObservation'][0])
+    public function createObservationAsyncWithHttpInfo($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest = null, string $contentType = self::contentTypes['createObservation'][0])
     {
-        $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCreatedResponse';
-        $request = $this->createObservationRequest($tenantId, $evaluationApiEvaluationsV1CreateEvaluationRequest, $contentType);
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse';
+        $request = $this->createObservationRequest($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -518,13 +509,13 @@ class ObservationsApi
      * Create request for operation 'createObservation'
      *
      * @param  string $tenantId  (required)
-     * @param  \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CreateEvaluationRequest $evaluationApiEvaluationsV1CreateEvaluationRequest  (optional)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createObservation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createObservationRequest($tenantId, $evaluationApiEvaluationsV1CreateEvaluationRequest = null, string $contentType = self::contentTypes['createObservation'][0])
+    public function createObservationRequest($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest = null, string $contentType = self::contentTypes['createObservation'][0])
     {
 
         // verify the required parameter 'tenantId' is set
@@ -562,12 +553,12 @@ class ObservationsApi
         );
 
         // for model (json/xml)
-        if (isset($evaluationApiEvaluationsV1CreateEvaluationRequest)) {
+        if (isset($edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($evaluationApiEvaluationsV1CreateEvaluationRequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest));
             } else {
-                $httpBody = $evaluationApiEvaluationsV1CreateEvaluationRequest;
+                $httpBody = $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -630,7 +621,7 @@ class ObservationsApi
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationDeletedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
     public function deleteObservation($tenantId, $observationId, string $contentType = self::contentTypes['deleteObservation'][0])
     {
@@ -649,7 +640,7 @@ class ObservationsApi
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationDeletedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteObservationWithHttpInfo($tenantId, $observationId, string $contentType = self::contentTypes['deleteObservation'][0])
     {
@@ -773,11 +764,11 @@ class ObservationsApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationDeletedResponse' === '\SplFileObject') {
+                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationDeletedResponse' !== 'string') {
+                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -795,7 +786,7 @@ class ObservationsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationDeletedResponse', []),
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -828,7 +819,7 @@ class ObservationsApi
                     ];
             }
 
-            $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationDeletedResponse';
+            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -885,7 +876,7 @@ class ObservationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationDeletedResponse',
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -939,7 +930,7 @@ class ObservationsApi
      */
     public function deleteObservationAsyncWithHttpInfo($tenantId, $observationId, string $contentType = self::contentTypes['deleteObservation'][0])
     {
-        $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationDeletedResponse';
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse';
         $request = $this->deleteObservationRequest($tenantId, $observationId, $contentType);
 
         return $this->client
@@ -1091,40 +1082,40 @@ class ObservationsApi
     }
 
     /**
-     * Operation getObservation
+     * Operation getObservationById
      *
      * Get an Observation for a given tenant
      *
      * @param  string $tenantId  (required)
      * @param  string $observationId  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservation'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservationById'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
-    public function getObservation($tenantId, $observationId, string $contentType = self::contentTypes['getObservation'][0])
+    public function getObservationById($tenantId, $observationId, string $contentType = self::contentTypes['getObservationById'][0])
     {
-        list($response) = $this->getObservationWithHttpInfo($tenantId, $observationId, $contentType);
+        list($response) = $this->getObservationByIdWithHttpInfo($tenantId, $observationId, $contentType);
         return $response;
     }
 
     /**
-     * Operation getObservationWithHttpInfo
+     * Operation getObservationByIdWithHttpInfo
      *
      * Get an Observation for a given tenant
      *
      * @param  string $tenantId  (required)
      * @param  string $observationId  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservation'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservationById'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getObservationWithHttpInfo($tenantId, $observationId, string $contentType = self::contentTypes['getObservation'][0])
+    public function getObservationByIdWithHttpInfo($tenantId, $observationId, string $contentType = self::contentTypes['getObservationById'][0])
     {
-        $request = $this->getObservationRequest($tenantId, $observationId, $contentType);
+        $request = $this->getObservationByIdRequest($tenantId, $observationId, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1244,11 +1235,11 @@ class ObservationsApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponse' === '\SplFileObject') {
+                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponse' !== 'string') {
+                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1266,7 +1257,7 @@ class ObservationsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponse', []),
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1299,7 +1290,7 @@ class ObservationsApi
                     ];
             }
 
-            $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponse';
+            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1356,7 +1347,7 @@ class ObservationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponse',
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1375,20 +1366,20 @@ class ObservationsApi
     }
 
     /**
-     * Operation getObservationAsync
+     * Operation getObservationByIdAsync
      *
      * Get an Observation for a given tenant
      *
      * @param  string $tenantId  (required)
      * @param  string $observationId  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservation'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservationById'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getObservationAsync($tenantId, $observationId, string $contentType = self::contentTypes['getObservation'][0])
+    public function getObservationByIdAsync($tenantId, $observationId, string $contentType = self::contentTypes['getObservationById'][0])
     {
-        return $this->getObservationAsyncWithHttpInfo($tenantId, $observationId, $contentType)
+        return $this->getObservationByIdAsyncWithHttpInfo($tenantId, $observationId, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1397,21 +1388,21 @@ class ObservationsApi
     }
 
     /**
-     * Operation getObservationAsyncWithHttpInfo
+     * Operation getObservationByIdAsyncWithHttpInfo
      *
      * Get an Observation for a given tenant
      *
      * @param  string $tenantId  (required)
      * @param  string $observationId  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservation'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservationById'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getObservationAsyncWithHttpInfo($tenantId, $observationId, string $contentType = self::contentTypes['getObservation'][0])
+    public function getObservationByIdAsyncWithHttpInfo($tenantId, $observationId, string $contentType = self::contentTypes['getObservationById'][0])
     {
-        $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponse';
-        $request = $this->getObservationRequest($tenantId, $observationId, $contentType);
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse';
+        $request = $this->getObservationByIdRequest($tenantId, $observationId, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1450,29 +1441,29 @@ class ObservationsApi
     }
 
     /**
-     * Create request for operation 'getObservation'
+     * Create request for operation 'getObservationById'
      *
      * @param  string $tenantId  (required)
      * @param  string $observationId  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservation'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservationById'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getObservationRequest($tenantId, $observationId, string $contentType = self::contentTypes['getObservation'][0])
+    public function getObservationByIdRequest($tenantId, $observationId, string $contentType = self::contentTypes['getObservationById'][0])
     {
 
         // verify the required parameter 'tenantId' is set
         if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tenantId when calling getObservation'
+                'Missing the required parameter $tenantId when calling getObservationById'
             );
         }
 
         // verify the required parameter 'observationId' is set
         if ($observationId === null || (is_array($observationId) && count($observationId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $observationId when calling getObservation'
+                'Missing the required parameter $observationId when calling getObservationById'
             );
         }
 
@@ -1562,34 +1553,44 @@ class ObservationsApi
     }
 
     /**
-     * Operation getObservationCount
+     * Operation getPaginatedAvailableCampuses
      *
-     * @param  string $tenantId tenantId (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservationCount'] to see the possible values for this operation
+     * Get Available Campuses
+     *
+     * @param  string $tenantId  (required)
+     * @param  int $pageSize  (optional, default to 10)
+     * @param  int $pageIndex  (optional, default to 0)
+     * @param  string $orderBy  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedAvailableCampuses'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCountResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
-    public function getObservationCount($tenantId, string $contentType = self::contentTypes['getObservationCount'][0])
+    public function getPaginatedAvailableCampuses($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', string $contentType = self::contentTypes['getPaginatedAvailableCampuses'][0])
     {
-        list($response) = $this->getObservationCountWithHttpInfo($tenantId, $contentType);
+        list($response) = $this->getPaginatedAvailableCampusesWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $contentType);
         return $response;
     }
 
     /**
-     * Operation getObservationCountWithHttpInfo
+     * Operation getPaginatedAvailableCampusesWithHttpInfo
      *
-     * @param  string $tenantId (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservationCount'] to see the possible values for this operation
+     * Get Available Campuses
+     *
+     * @param  string $tenantId  (required)
+     * @param  int $pageSize  (optional, default to 10)
+     * @param  int $pageIndex  (optional, default to 0)
+     * @param  string $orderBy  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedAvailableCampuses'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCountResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getObservationCountWithHttpInfo($tenantId, string $contentType = self::contentTypes['getObservationCount'][0])
+    public function getPaginatedAvailableCampusesWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', string $contentType = self::contentTypes['getPaginatedAvailableCampuses'][0])
     {
-        $request = $this->getObservationCountRequest($tenantId, $contentType);
+        $request = $this->getPaginatedAvailableCampusesRequest($tenantId, $pageSize, $pageIndex, $orderBy, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1709,11 +1710,11 @@ class ObservationsApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCountResponse' === '\SplFileObject') {
+                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCountResponse' !== 'string') {
+                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1731,7 +1732,7 @@ class ObservationsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCountResponse', []),
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1764,7 +1765,7 @@ class ObservationsApi
                     ];
             }
 
-            $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCountResponse';
+            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1821,7 +1822,7 @@ class ObservationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCountResponse',
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1840,17 +1841,22 @@ class ObservationsApi
     }
 
     /**
-     * Operation getObservationCountAsync
+     * Operation getPaginatedAvailableCampusesAsync
      *
-     * @param  string $tenantId (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservationCount'] to see the possible values for this operation
+     * Get Available Campuses
+     *
+     * @param  string $tenantId  (required)
+     * @param  int $pageSize  (optional, default to 10)
+     * @param  int $pageIndex  (optional, default to 0)
+     * @param  string $orderBy  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedAvailableCampuses'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getObservationCountAsync($tenantId, string $contentType = self::contentTypes['getObservationCount'][0])
+    public function getPaginatedAvailableCampusesAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', string $contentType = self::contentTypes['getPaginatedAvailableCampuses'][0])
     {
-        return $this->getObservationCountAsyncWithHttpInfo($tenantId, $contentType)
+        return $this->getPaginatedAvailableCampusesAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1859,18 +1865,23 @@ class ObservationsApi
     }
 
     /**
-     * Operation getObservationCountAsyncWithHttpInfo
+     * Operation getPaginatedAvailableCampusesAsyncWithHttpInfo
      *
-     * @param  string $tenantId (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservationCount'] to see the possible values for this operation
+     * Get Available Campuses
+     *
+     * @param  string $tenantId  (required)
+     * @param  int $pageSize  (optional, default to 10)
+     * @param  int $pageIndex  (optional, default to 0)
+     * @param  string $orderBy  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedAvailableCampuses'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getObservationCountAsyncWithHttpInfo($tenantId, string $contentType = self::contentTypes['getObservationCount'][0])
+    public function getPaginatedAvailableCampusesAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', string $contentType = self::contentTypes['getPaginatedAvailableCampuses'][0])
     {
-        $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCountResponse';
-        $request = $this->getObservationCountRequest($tenantId, $contentType);
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse';
+        $request = $this->getPaginatedAvailableCampusesRequest($tenantId, $pageSize, $pageIndex, $orderBy, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1909,32 +1920,65 @@ class ObservationsApi
     }
 
     /**
-     * Create request for operation 'getObservationCount'
+     * Create request for operation 'getPaginatedAvailableCampuses'
      *
-     * @param  string $tenantId (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getObservationCount'] to see the possible values for this operation
+     * @param  string $tenantId  (required)
+     * @param  int $pageSize  (optional, default to 10)
+     * @param  int $pageIndex  (optional, default to 0)
+     * @param  string $orderBy  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedAvailableCampuses'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getObservationCountRequest($tenantId, string $contentType = self::contentTypes['getObservationCount'][0])
+    public function getPaginatedAvailableCampusesRequest($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', string $contentType = self::contentTypes['getPaginatedAvailableCampuses'][0])
     {
 
         // verify the required parameter 'tenantId' is set
         if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tenantId when calling getObservationCount'
+                'Missing the required parameter $tenantId when calling getPaginatedAvailableCampuses'
             );
         }
 
 
-        $resourcePath = '/tenants/{tenantId}/observations/count';
+
+
+
+        $resourcePath = '/tenants/{tenantId}/observations/campuses';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pageSize,
+            'pageSize', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pageIndex,
+            'pageIndex', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $orderBy,
+            'orderBy', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -2005,46 +2049,46 @@ class ObservationsApi
     }
 
     /**
-     * Operation searchObservationCampuses
+     * Operation getPaginatedAvailableForms
      *
-     * Searches the Campuses associated with an Observation for a given Tenant.
+     * Get Paginated Available Forms
      *
      * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
+     * @param  int $pageSize  (optional, default to 10)
      * @param  string $orderBy  (optional, default to '')
      * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationCampuses'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedAvailableForms'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
-    public function searchObservationCampuses($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationCampuses'][0])
+    public function getPaginatedAvailableForms($tenantId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedAvailableForms'][0])
     {
-        list($response) = $this->searchObservationCampusesWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        list($response) = $this->getPaginatedAvailableFormsWithHttpInfo($tenantId, $pageIndex, $pageSize, $orderBy, $filter, $contentType);
         return $response;
     }
 
     /**
-     * Operation searchObservationCampusesWithHttpInfo
+     * Operation getPaginatedAvailableFormsWithHttpInfo
      *
-     * Searches the Campuses associated with an Observation for a given Tenant.
+     * Get Paginated Available Forms
      *
      * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
+     * @param  int $pageSize  (optional, default to 10)
      * @param  string $orderBy  (optional, default to '')
      * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationCampuses'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedAvailableForms'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchObservationCampusesWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationCampuses'][0])
+    public function getPaginatedAvailableFormsWithHttpInfo($tenantId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedAvailableForms'][0])
     {
-        $request = $this->searchObservationCampusesRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        $request = $this->getPaginatedAvailableFormsRequest($tenantId, $pageIndex, $pageSize, $orderBy, $filter, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2164,11 +2208,11 @@ class ObservationsApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel' === '\SplFileObject') {
+                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel' !== 'string') {
+                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2186,7 +2230,7 @@ class ObservationsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel', []),
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2219,7 +2263,7 @@ class ObservationsApi
                     ];
             }
 
-            $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel';
+            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2276,7 +2320,7 @@ class ObservationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel',
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2295,23 +2339,23 @@ class ObservationsApi
     }
 
     /**
-     * Operation searchObservationCampusesAsync
+     * Operation getPaginatedAvailableFormsAsync
      *
-     * Searches the Campuses associated with an Observation for a given Tenant.
+     * Get Paginated Available Forms
      *
      * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
+     * @param  int $pageSize  (optional, default to 10)
      * @param  string $orderBy  (optional, default to '')
      * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationCampuses'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedAvailableForms'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchObservationCampusesAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationCampuses'][0])
+    public function getPaginatedAvailableFormsAsync($tenantId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedAvailableForms'][0])
     {
-        return $this->searchObservationCampusesAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType)
+        return $this->getPaginatedAvailableFormsAsyncWithHttpInfo($tenantId, $pageIndex, $pageSize, $orderBy, $filter, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2320,24 +2364,24 @@ class ObservationsApi
     }
 
     /**
-     * Operation searchObservationCampusesAsyncWithHttpInfo
+     * Operation getPaginatedAvailableFormsAsyncWithHttpInfo
      *
-     * Searches the Campuses associated with an Observation for a given Tenant.
+     * Get Paginated Available Forms
      *
      * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
+     * @param  int $pageSize  (optional, default to 10)
      * @param  string $orderBy  (optional, default to '')
      * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationCampuses'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedAvailableForms'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchObservationCampusesAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationCampuses'][0])
+    public function getPaginatedAvailableFormsAsyncWithHttpInfo($tenantId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedAvailableForms'][0])
     {
-        $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel';
-        $request = $this->searchObservationCampusesRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse';
+        $request = $this->getPaginatedAvailableFormsRequest($tenantId, $pageIndex, $pageSize, $orderBy, $filter, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2376,25 +2420,25 @@ class ObservationsApi
     }
 
     /**
-     * Create request for operation 'searchObservationCampuses'
+     * Create request for operation 'getPaginatedAvailableForms'
      *
      * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
+     * @param  int $pageSize  (optional, default to 10)
      * @param  string $orderBy  (optional, default to '')
      * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationCampuses'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedAvailableForms'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchObservationCampusesRequest($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationCampuses'][0])
+    public function getPaginatedAvailableFormsRequest($tenantId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedAvailableForms'][0])
     {
 
         // verify the required parameter 'tenantId' is set
         if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tenantId when calling searchObservationCampuses'
+                'Missing the required parameter $tenantId when calling getPaginatedAvailableForms'
             );
         }
 
@@ -2403,7 +2447,7 @@ class ObservationsApi
 
 
 
-        $resourcePath = '/tenants/{tenantId}/observations/campuses';
+        $resourcePath = '/tenants/{tenantId}/observations/forms/available';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2412,8 +2456,8 @@ class ObservationsApi
 
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $pageSize,
-            'pageSize', // param base name
+            $pageIndex,
+            'pageIndex', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode
@@ -2421,8 +2465,8 @@ class ObservationsApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $pageIndex,
-            'pageIndex', // param base name
+            $pageSize,
+            'pageSize', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode
@@ -2516,46 +2560,48 @@ class ObservationsApi
     }
 
     /**
-     * Operation searchObservationEvaluees
+     * Operation getPaginatedEvaluees
      *
-     * Searches the Staff associated with an Observation for a given Tenant.
+     * Get paginated evaluees
      *
      * @param  string $tenantId  (required)
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationEvaluees'] to see the possible values for this operation
+     * @param  string $campus  (optional, default to '')
+     * @param  string $evalueeId  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedEvaluees'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
-    public function searchObservationEvaluees($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationEvaluees'][0])
+    public function getPaginatedEvaluees($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
     {
-        list($response) = $this->searchObservationEvalueesWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        list($response) = $this->getPaginatedEvalueesWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $contentType);
         return $response;
     }
 
     /**
-     * Operation searchObservationEvalueesWithHttpInfo
+     * Operation getPaginatedEvalueesWithHttpInfo
      *
-     * Searches the Staff associated with an Observation for a given Tenant.
+     * Get paginated evaluees
      *
      * @param  string $tenantId  (required)
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationEvaluees'] to see the possible values for this operation
+     * @param  string $campus  (optional, default to '')
+     * @param  string $evalueeId  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedEvaluees'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchObservationEvalueesWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationEvaluees'][0])
+    public function getPaginatedEvalueesWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
     {
-        $request = $this->searchObservationEvalueesRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        $request = $this->getPaginatedEvalueesRequest($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2675,11 +2721,11 @@ class ObservationsApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse' === '\SplFileObject') {
+                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse' !== 'string') {
+                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2697,7 +2743,7 @@ class ObservationsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse', []),
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2730,7 +2776,7 @@ class ObservationsApi
                     ];
             }
 
-            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse';
+            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2787,7 +2833,7 @@ class ObservationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse',
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2806,23 +2852,24 @@ class ObservationsApi
     }
 
     /**
-     * Operation searchObservationEvalueesAsync
+     * Operation getPaginatedEvalueesAsync
      *
-     * Searches the Staff associated with an Observation for a given Tenant.
+     * Get paginated evaluees
      *
      * @param  string $tenantId  (required)
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationEvaluees'] to see the possible values for this operation
+     * @param  string $campus  (optional, default to '')
+     * @param  string $evalueeId  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedEvaluees'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchObservationEvalueesAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationEvaluees'][0])
+    public function getPaginatedEvalueesAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
     {
-        return $this->searchObservationEvalueesAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType)
+        return $this->getPaginatedEvalueesAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2831,24 +2878,25 @@ class ObservationsApi
     }
 
     /**
-     * Operation searchObservationEvalueesAsyncWithHttpInfo
+     * Operation getPaginatedEvalueesAsyncWithHttpInfo
      *
-     * Searches the Staff associated with an Observation for a given Tenant.
+     * Get paginated evaluees
      *
      * @param  string $tenantId  (required)
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationEvaluees'] to see the possible values for this operation
+     * @param  string $campus  (optional, default to '')
+     * @param  string $evalueeId  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedEvaluees'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchObservationEvalueesAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationEvaluees'][0])
+    public function getPaginatedEvalueesAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
     {
-        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse';
-        $request = $this->searchObservationEvalueesRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse';
+        $request = $this->getPaginatedEvalueesRequest($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2887,27 +2935,29 @@ class ObservationsApi
     }
 
     /**
-     * Create request for operation 'searchObservationEvaluees'
+     * Create request for operation 'getPaginatedEvaluees'
      *
      * @param  string $tenantId  (required)
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationEvaluees'] to see the possible values for this operation
+     * @param  string $campus  (optional, default to '')
+     * @param  string $evalueeId  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedEvaluees'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchObservationEvalueesRequest($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationEvaluees'][0])
+    public function getPaginatedEvalueesRequest($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
     {
 
         // verify the required parameter 'tenantId' is set
         if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tenantId when calling searchObservationEvaluees'
+                'Missing the required parameter $tenantId when calling getPaginatedEvaluees'
             );
         }
+
 
 
 
@@ -2950,8 +3000,17 @@ class ObservationsApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $filter,
-            'filter', // param base name
+            $campus,
+            'campus', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $evalueeId,
+            'evalueeId', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
@@ -3027,46 +3086,58 @@ class ObservationsApi
     }
 
     /**
-     * Operation searchObservationForms
+     * Operation getPaginatedObservations
      *
-     * Searches the Forms associated with an Observation for a given Tenant.
+     * Get Paginated Observations for a given tenant
      *
      * @param  string $tenantId  (required)
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationForms'] to see the possible values for this operation
+     * @param  string $campus  (optional, default to '')
+     * @param  string $evalueeName  (optional, default to '')
+     * @param  string $evalueeId  (optional, default to '')
+     * @param  string $formId  (optional, default to '')
+     * @param  string $status  (optional, default to '')
+     * @param  string $from  (optional, default to '')
+     * @param  string $to  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedObservations'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
-    public function searchObservationForms($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationForms'][0])
+    public function getPaginatedObservations($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeName = '', $evalueeId = '', $formId = '', $status = '', $from = '', $to = '', string $contentType = self::contentTypes['getPaginatedObservations'][0])
     {
-        list($response) = $this->searchObservationFormsWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        list($response) = $this->getPaginatedObservationsWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeName, $evalueeId, $formId, $status, $from, $to, $contentType);
         return $response;
     }
 
     /**
-     * Operation searchObservationFormsWithHttpInfo
+     * Operation getPaginatedObservationsWithHttpInfo
      *
-     * Searches the Forms associated with an Observation for a given Tenant.
+     * Get Paginated Observations for a given tenant
      *
      * @param  string $tenantId  (required)
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationForms'] to see the possible values for this operation
+     * @param  string $campus  (optional, default to '')
+     * @param  string $evalueeName  (optional, default to '')
+     * @param  string $evalueeId  (optional, default to '')
+     * @param  string $formId  (optional, default to '')
+     * @param  string $status  (optional, default to '')
+     * @param  string $from  (optional, default to '')
+     * @param  string $to  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedObservations'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchObservationFormsWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationForms'][0])
+    public function getPaginatedObservationsWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeName = '', $evalueeId = '', $formId = '', $status = '', $from = '', $to = '', string $contentType = self::contentTypes['getPaginatedObservations'][0])
     {
-        $request = $this->searchObservationFormsRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        $request = $this->getPaginatedObservationsRequest($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeName, $evalueeId, $formId, $status, $from, $to, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3186,11 +3257,11 @@ class ObservationsApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel' === '\SplFileObject') {
+                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel' !== 'string') {
+                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3208,7 +3279,7 @@ class ObservationsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel', []),
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3241,7 +3312,7 @@ class ObservationsApi
                     ];
             }
 
-            $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel';
+            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3298,7 +3369,7 @@ class ObservationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel',
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3317,23 +3388,29 @@ class ObservationsApi
     }
 
     /**
-     * Operation searchObservationFormsAsync
+     * Operation getPaginatedObservationsAsync
      *
-     * Searches the Forms associated with an Observation for a given Tenant.
+     * Get Paginated Observations for a given tenant
      *
      * @param  string $tenantId  (required)
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationForms'] to see the possible values for this operation
+     * @param  string $campus  (optional, default to '')
+     * @param  string $evalueeName  (optional, default to '')
+     * @param  string $evalueeId  (optional, default to '')
+     * @param  string $formId  (optional, default to '')
+     * @param  string $status  (optional, default to '')
+     * @param  string $from  (optional, default to '')
+     * @param  string $to  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedObservations'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchObservationFormsAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationForms'][0])
+    public function getPaginatedObservationsAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeName = '', $evalueeId = '', $formId = '', $status = '', $from = '', $to = '', string $contentType = self::contentTypes['getPaginatedObservations'][0])
     {
-        return $this->searchObservationFormsAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType)
+        return $this->getPaginatedObservationsAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeName, $evalueeId, $formId, $status, $from, $to, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3342,24 +3419,30 @@ class ObservationsApi
     }
 
     /**
-     * Operation searchObservationFormsAsyncWithHttpInfo
+     * Operation getPaginatedObservationsAsyncWithHttpInfo
      *
-     * Searches the Forms associated with an Observation for a given Tenant.
+     * Get Paginated Observations for a given tenant
      *
      * @param  string $tenantId  (required)
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationForms'] to see the possible values for this operation
+     * @param  string $campus  (optional, default to '')
+     * @param  string $evalueeName  (optional, default to '')
+     * @param  string $evalueeId  (optional, default to '')
+     * @param  string $formId  (optional, default to '')
+     * @param  string $status  (optional, default to '')
+     * @param  string $from  (optional, default to '')
+     * @param  string $to  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedObservations'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchObservationFormsAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationForms'][0])
+    public function getPaginatedObservationsAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeName = '', $evalueeId = '', $formId = '', $status = '', $from = '', $to = '', string $contentType = self::contentTypes['getPaginatedObservations'][0])
     {
-        $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel';
-        $request = $this->searchObservationFormsRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel';
+        $request = $this->getPaginatedObservationsRequest($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeName, $evalueeId, $formId, $status, $from, $to, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3398,25 +3481,31 @@ class ObservationsApi
     }
 
     /**
-     * Create request for operation 'searchObservationForms'
+     * Create request for operation 'getPaginatedObservations'
      *
      * @param  string $tenantId  (required)
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationForms'] to see the possible values for this operation
+     * @param  string $campus  (optional, default to '')
+     * @param  string $evalueeName  (optional, default to '')
+     * @param  string $evalueeId  (optional, default to '')
+     * @param  string $formId  (optional, default to '')
+     * @param  string $status  (optional, default to '')
+     * @param  string $from  (optional, default to '')
+     * @param  string $to  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedObservations'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function searchObservationFormsRequest($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationForms'][0])
+    public function getPaginatedObservationsRequest($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeName = '', $evalueeId = '', $formId = '', $status = '', $from = '', $to = '', string $contentType = self::contentTypes['getPaginatedObservations'][0])
     {
 
         // verify the required parameter 'tenantId' is set
         if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tenantId when calling searchObservationForms'
+                'Missing the required parameter $tenantId when calling getPaginatedObservations'
             );
         }
 
@@ -3425,1022 +3514,6 @@ class ObservationsApi
 
 
 
-        $resourcePath = '/tenants/{tenantId}/observations/forms';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $pageSize,
-            'pageSize', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $pageIndex,
-            'pageIndex', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $orderBy,
-            'orderBy', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $filter,
-            'filter', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-        // path params
-        if ($tenantId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'tenantId' . '}',
-                ObjectSerializer::toPathValue($tenantId),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation searchObservationObservers
-     *
-     * Searches the Appraisers associated with an Observation for a given Tenant.
-     *
-     * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
-     * @param  int $pageIndex  (optional, default to 0)
-     * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationObservers'] to see the possible values for this operation
-     *
-     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
-     */
-    public function searchObservationObservers($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationObservers'][0])
-    {
-        list($response) = $this->searchObservationObserversWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation searchObservationObserversWithHttpInfo
-     *
-     * Searches the Appraisers associated with an Observation for a given Tenant.
-     *
-     * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
-     * @param  int $pageIndex  (optional, default to 0)
-     * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationObservers'] to see the possible values for this operation
-     *
-     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function searchObservationObserversWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationObservers'][0])
-    {
-        $request = $this->searchObservationObserversRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 401:
-                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 200:
-                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation searchObservationObserversAsync
-     *
-     * Searches the Appraisers associated with an Observation for a given Tenant.
-     *
-     * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
-     * @param  int $pageIndex  (optional, default to 0)
-     * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationObservers'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function searchObservationObserversAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationObservers'][0])
-    {
-        return $this->searchObservationObserversAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation searchObservationObserversAsyncWithHttpInfo
-     *
-     * Searches the Appraisers associated with an Observation for a given Tenant.
-     *
-     * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
-     * @param  int $pageIndex  (optional, default to 0)
-     * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationObservers'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function searchObservationObserversAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationObservers'][0])
-    {
-        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse';
-        $request = $this->searchObservationObserversRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'searchObservationObservers'
-     *
-     * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
-     * @param  int $pageIndex  (optional, default to 0)
-     * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservationObservers'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function searchObservationObserversRequest($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservationObservers'][0])
-    {
-
-        // verify the required parameter 'tenantId' is set
-        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tenantId when calling searchObservationObservers'
-            );
-        }
-
-
-
-
-
-
-        $resourcePath = '/tenants/{tenantId}/observations/observers';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $pageSize,
-            'pageSize', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $pageIndex,
-            'pageIndex', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $orderBy,
-            'orderBy', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $filter,
-            'filter', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-
-
-        // path params
-        if ($tenantId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'tenantId' . '}',
-                ObjectSerializer::toPathValue($tenantId),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation searchObservations
-     *
-     * Searches the Observations for a given tenant
-     *
-     * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
-     * @param  int $pageIndex  (optional, default to 0)
-     * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservations'] to see the possible values for this operation
-     *
-     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
-     */
-    public function searchObservations($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservations'][0])
-    {
-        list($response) = $this->searchObservationsWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation searchObservationsWithHttpInfo
-     *
-     * Searches the Observations for a given tenant
-     *
-     * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
-     * @param  int $pageIndex  (optional, default to 0)
-     * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservations'] to see the possible values for this operation
-     *
-     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function searchObservationsWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservations'][0])
-    {
-        $request = $this->searchObservationsRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            switch($statusCode) {
-                case 401:
-                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 403:
-                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 500:
-                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 200:
-                    if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 400:
-                    if ('\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel';
-            if ($returnType === '\SplFileObject') {
-                $content = $response->getBody(); //stream goes to serializer
-            } else {
-                $content = (string) $response->getBody();
-                if ($returnType !== 'string') {
-                    try {
-                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                    } catch (\JsonException $exception) {
-                        throw new ApiException(
-                            sprintf(
-                                'Error JSON decoding server response (%s)',
-                                $request->getUri()
-                            ),
-                            $statusCode,
-                            $response->getHeaders(),
-                            $content
-                        );
-                    }
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation searchObservationsAsync
-     *
-     * Searches the Observations for a given tenant
-     *
-     * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
-     * @param  int $pageIndex  (optional, default to 0)
-     * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservations'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function searchObservationsAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservations'][0])
-    {
-        return $this->searchObservationsAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation searchObservationsAsyncWithHttpInfo
-     *
-     * Searches the Observations for a given tenant
-     *
-     * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
-     * @param  int $pageIndex  (optional, default to 0)
-     * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservations'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function searchObservationsAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservations'][0])
-    {
-        $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel';
-        $request = $this->searchObservationsRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'searchObservations'
-     *
-     * @param  string $tenantId  (required)
-     * @param  int $pageSize  (optional, default to 10)
-     * @param  int $pageIndex  (optional, default to 0)
-     * @param  string $orderBy  (optional, default to '')
-     * @param  string $filter  (optional, default to '')
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchObservations'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function searchObservationsRequest($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['searchObservations'][0])
-    {
-
-        // verify the required parameter 'tenantId' is set
-        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tenantId when calling searchObservations'
-            );
-        }
 
 
 
@@ -4483,8 +3556,62 @@ class ObservationsApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $filter,
-            'filter', // param base name
+            $campus,
+            'campus', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $evalueeName,
+            'evalueeName', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $evalueeId,
+            'evalueeId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $formId,
+            'formId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $status,
+            'status', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $from,
+            'from', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $to,
+            'to', // param base name
             'string', // openApiType
             'form', // style
             true, // explode
@@ -4560,42 +3687,42 @@ class ObservationsApi
     }
 
     /**
-     * Operation updateObservation
+     * Operation getSubmittedObservationsCount
      *
-     * Updates an Observation for a given tenant
+     * Get submitted Observations count
      *
      * @param  string $tenantId  (required)
-     * @param  string $observationId  (required)
-     * @param  \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1UpdateEvaluationRequest $evaluationApiEvaluationsV1UpdateEvaluationRequest  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObservation'] to see the possible values for this operation
+     * @param  string $evalueeId  (optional)
+     * @param  string $campus  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubmittedObservationsCount'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationUpdatedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
-    public function updateObservation($tenantId, $observationId, $evaluationApiEvaluationsV1UpdateEvaluationRequest = null, string $contentType = self::contentTypes['updateObservation'][0])
+    public function getSubmittedObservationsCount($tenantId, $evalueeId = null, $campus = null, string $contentType = self::contentTypes['getSubmittedObservationsCount'][0])
     {
-        list($response) = $this->updateObservationWithHttpInfo($tenantId, $observationId, $evaluationApiEvaluationsV1UpdateEvaluationRequest, $contentType);
+        list($response) = $this->getSubmittedObservationsCountWithHttpInfo($tenantId, $evalueeId, $campus, $contentType);
         return $response;
     }
 
     /**
-     * Operation updateObservationWithHttpInfo
+     * Operation getSubmittedObservationsCountWithHttpInfo
      *
-     * Updates an Observation for a given tenant
+     * Get submitted Observations count
      *
      * @param  string $tenantId  (required)
-     * @param  string $observationId  (required)
-     * @param  \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1UpdateEvaluationRequest $evaluationApiEvaluationsV1UpdateEvaluationRequest  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObservation'] to see the possible values for this operation
+     * @param  string $evalueeId  (optional)
+     * @param  string $campus  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubmittedObservationsCount'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationUpdatedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateObservationWithHttpInfo($tenantId, $observationId, $evaluationApiEvaluationsV1UpdateEvaluationRequest = null, string $contentType = self::contentTypes['updateObservation'][0])
+    public function getSubmittedObservationsCountWithHttpInfo($tenantId, $evalueeId = null, $campus = null, string $contentType = self::contentTypes['getSubmittedObservationsCount'][0])
     {
-        $request = $this->updateObservationRequest($tenantId, $observationId, $evaluationApiEvaluationsV1UpdateEvaluationRequest, $contentType);
+        $request = $this->getSubmittedObservationsCountRequest($tenantId, $evalueeId, $campus, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4715,11 +3842,11 @@ class ObservationsApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationUpdatedResponse' === '\SplFileObject') {
+                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationUpdatedResponse' !== 'string') {
+                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4737,7 +3864,7 @@ class ObservationsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationUpdatedResponse', []),
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4770,7 +3897,7 @@ class ObservationsApi
                     ];
             }
 
-            $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationUpdatedResponse';
+            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -4827,7 +3954,7 @@ class ObservationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationUpdatedResponse',
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4846,21 +3973,21 @@ class ObservationsApi
     }
 
     /**
-     * Operation updateObservationAsync
+     * Operation getSubmittedObservationsCountAsync
      *
-     * Updates an Observation for a given tenant
+     * Get submitted Observations count
      *
      * @param  string $tenantId  (required)
-     * @param  string $observationId  (required)
-     * @param  \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1UpdateEvaluationRequest $evaluationApiEvaluationsV1UpdateEvaluationRequest  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObservation'] to see the possible values for this operation
+     * @param  string $evalueeId  (optional)
+     * @param  string $campus  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubmittedObservationsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateObservationAsync($tenantId, $observationId, $evaluationApiEvaluationsV1UpdateEvaluationRequest = null, string $contentType = self::contentTypes['updateObservation'][0])
+    public function getSubmittedObservationsCountAsync($tenantId, $evalueeId = null, $campus = null, string $contentType = self::contentTypes['getSubmittedObservationsCount'][0])
     {
-        return $this->updateObservationAsyncWithHttpInfo($tenantId, $observationId, $evaluationApiEvaluationsV1UpdateEvaluationRequest, $contentType)
+        return $this->getSubmittedObservationsCountAsyncWithHttpInfo($tenantId, $evalueeId, $campus, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4869,22 +3996,22 @@ class ObservationsApi
     }
 
     /**
-     * Operation updateObservationAsyncWithHttpInfo
+     * Operation getSubmittedObservationsCountAsyncWithHttpInfo
      *
-     * Updates an Observation for a given tenant
+     * Get submitted Observations count
      *
      * @param  string $tenantId  (required)
-     * @param  string $observationId  (required)
-     * @param  \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1UpdateEvaluationRequest $evaluationApiEvaluationsV1UpdateEvaluationRequest  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObservation'] to see the possible values for this operation
+     * @param  string $evalueeId  (optional)
+     * @param  string $campus  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubmittedObservationsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateObservationAsyncWithHttpInfo($tenantId, $observationId, $evaluationApiEvaluationsV1UpdateEvaluationRequest = null, string $contentType = self::contentTypes['updateObservation'][0])
+    public function getSubmittedObservationsCountAsyncWithHttpInfo($tenantId, $evalueeId = null, $campus = null, string $contentType = self::contentTypes['getSubmittedObservationsCount'][0])
     {
-        $returnType = '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationUpdatedResponse';
-        $request = $this->updateObservationRequest($tenantId, $observationId, $evaluationApiEvaluationsV1UpdateEvaluationRequest, $contentType);
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse';
+        $request = $this->getSubmittedObservationsCountRequest($tenantId, $evalueeId, $campus, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4923,42 +4050,54 @@ class ObservationsApi
     }
 
     /**
-     * Create request for operation 'updateObservation'
+     * Create request for operation 'getSubmittedObservationsCount'
      *
      * @param  string $tenantId  (required)
-     * @param  string $observationId  (required)
-     * @param  \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1UpdateEvaluationRequest $evaluationApiEvaluationsV1UpdateEvaluationRequest  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateObservation'] to see the possible values for this operation
+     * @param  string $evalueeId  (optional)
+     * @param  string $campus  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSubmittedObservationsCount'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateObservationRequest($tenantId, $observationId, $evaluationApiEvaluationsV1UpdateEvaluationRequest = null, string $contentType = self::contentTypes['updateObservation'][0])
+    public function getSubmittedObservationsCountRequest($tenantId, $evalueeId = null, $campus = null, string $contentType = self::contentTypes['getSubmittedObservationsCount'][0])
     {
 
         // verify the required parameter 'tenantId' is set
         if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $tenantId when calling updateObservation'
-            );
-        }
-
-        // verify the required parameter 'observationId' is set
-        if ($observationId === null || (is_array($observationId) && count($observationId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $observationId when calling updateObservation'
+                'Missing the required parameter $tenantId when calling getSubmittedObservationsCount'
             );
         }
 
 
 
-        $resourcePath = '/tenants/{tenantId}/observations/{observationId}';
+
+        $resourcePath = '/tenants/{tenantId}/submittedobservations';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $evalueeId,
+            'evalueeId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $campus,
+            'campus', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -4966,14 +4105,6 @@ class ObservationsApi
             $resourcePath = str_replace(
                 '{' . 'tenantId' . '}',
                 ObjectSerializer::toPathValue($tenantId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($observationId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'observationId' . '}',
-                ObjectSerializer::toPathValue($observationId),
                 $resourcePath
             );
         }
@@ -4986,14 +4117,7 @@ class ObservationsApi
         );
 
         // for model (json/xml)
-        if (isset($evaluationApiEvaluationsV1UpdateEvaluationRequest)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($evaluationApiEvaluationsV1UpdateEvaluationRequest));
-            } else {
-                $httpBody = $evaluationApiEvaluationsV1UpdateEvaluationRequest;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -5036,7 +4160,7 @@ class ObservationsApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'PUT',
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

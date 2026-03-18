@@ -58,7 +58,7 @@ class EvaluationApiEvaluationSettingsV1SetApplicationRequest implements ModelInt
       */
     protected static $openAPITypes = [
         'tenantId' => 'string',
-        'forms' => 'string[]',
+        'forms' => '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest[]',
         'recommendedNumberOfEvaluations' => 'int',
         'reminderEmailSchedule' => '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1ScheduleType'
     ];
@@ -347,7 +347,7 @@ class EvaluationApiEvaluationSettingsV1SetApplicationRequest implements ModelInt
     /**
      * Gets forms
      *
-     * @return string[]|null
+     * @return \EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest[]|null
      */
     public function getForms()
     {
@@ -357,7 +357,7 @@ class EvaluationApiEvaluationSettingsV1SetApplicationRequest implements ModelInt
     /**
      * Sets forms
      *
-     * @param string[]|null $forms forms
+     * @param \EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest[]|null $forms forms
      *
      * @return self
      */

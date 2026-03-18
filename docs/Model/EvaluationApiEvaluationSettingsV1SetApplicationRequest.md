@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tenantId** | **string** |  | [optional]
-**forms** | **string[]** |  | [optional] [readonly]
+**forms** | [**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest[]**](EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest.md) |  | [optional] [readonly]
 **recommendedNumberOfEvaluations** | **int** |  | [optional]
 **reminderEmailSchedule** | [**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1ScheduleType**](EvaluationApiEvaluationSettingsV1ScheduleType.md) |  | [optional]
 

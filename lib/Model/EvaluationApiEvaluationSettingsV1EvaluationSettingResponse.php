@@ -59,7 +59,7 @@ class EvaluationApiEvaluationSettingsV1EvaluationSettingResponse implements Mode
     protected static $openAPITypes = [
         'id' => 'string',
         'tenantId' => 'string',
-        'forms' => 'string[]',
+        'forms' => '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1FormConfigurationResponse[]',
         'recommendedNumberOfEvaluations' => 'int',
         'reminderEmailSchedule' => '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1ScheduleType',
         'createdBy' => 'string',
@@ -70,7 +70,9 @@ class EvaluationApiEvaluationSettingsV1EvaluationSettingResponse implements Mode
         'deletedDateTime' => 'string',
         'isDeleted' => 'bool',
         'appraisers' => 'string[]',
-        'staffClassifications' => 'string[]'
+        'staffClassifications' => 'string[]',
+        'availablePersonas' => '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1PersonaResponse[]',
+        'roleConfigurations' => '\EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1RoleConfigurationResponse[]'
     ];
 
     /**
@@ -94,7 +96,9 @@ class EvaluationApiEvaluationSettingsV1EvaluationSettingResponse implements Mode
         'deletedDateTime' => null,
         'isDeleted' => null,
         'appraisers' => null,
-        'staffClassifications' => null
+        'staffClassifications' => null,
+        'availablePersonas' => null,
+        'roleConfigurations' => null
     ];
 
     /**
@@ -116,7 +120,9 @@ class EvaluationApiEvaluationSettingsV1EvaluationSettingResponse implements Mode
         'deletedDateTime' => true,
         'isDeleted' => true,
         'appraisers' => true,
-        'staffClassifications' => true
+        'staffClassifications' => true,
+        'availablePersonas' => true,
+        'roleConfigurations' => true
     ];
 
     /**
@@ -218,7 +224,9 @@ class EvaluationApiEvaluationSettingsV1EvaluationSettingResponse implements Mode
         'deletedDateTime' => 'deletedDateTime',
         'isDeleted' => 'isDeleted',
         'appraisers' => 'appraisers',
-        'staffClassifications' => 'staffClassifications'
+        'staffClassifications' => 'staffClassifications',
+        'availablePersonas' => 'availablePersonas',
+        'roleConfigurations' => 'roleConfigurations'
     ];
 
     /**
@@ -240,7 +248,9 @@ class EvaluationApiEvaluationSettingsV1EvaluationSettingResponse implements Mode
         'deletedDateTime' => 'setDeletedDateTime',
         'isDeleted' => 'setIsDeleted',
         'appraisers' => 'setAppraisers',
-        'staffClassifications' => 'setStaffClassifications'
+        'staffClassifications' => 'setStaffClassifications',
+        'availablePersonas' => 'setAvailablePersonas',
+        'roleConfigurations' => 'setRoleConfigurations'
     ];
 
     /**
@@ -262,7 +272,9 @@ class EvaluationApiEvaluationSettingsV1EvaluationSettingResponse implements Mode
         'deletedDateTime' => 'getDeletedDateTime',
         'isDeleted' => 'getIsDeleted',
         'appraisers' => 'getAppraisers',
-        'staffClassifications' => 'getStaffClassifications'
+        'staffClassifications' => 'getStaffClassifications',
+        'availablePersonas' => 'getAvailablePersonas',
+        'roleConfigurations' => 'getRoleConfigurations'
     ];
 
     /**
@@ -336,6 +348,8 @@ class EvaluationApiEvaluationSettingsV1EvaluationSettingResponse implements Mode
         $this->setIfExists('isDeleted', $data ?? [], null);
         $this->setIfExists('appraisers', $data ?? [], null);
         $this->setIfExists('staffClassifications', $data ?? [], null);
+        $this->setIfExists('availablePersonas', $data ?? [], null);
+        $this->setIfExists('roleConfigurations', $data ?? [], null);
     }
 
     /**
@@ -451,7 +465,7 @@ class EvaluationApiEvaluationSettingsV1EvaluationSettingResponse implements Mode
     /**
      * Gets forms
      *
-     * @return string[]|null
+     * @return \EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1FormConfigurationResponse[]|null
      */
     public function getForms()
     {
@@ -461,7 +475,7 @@ class EvaluationApiEvaluationSettingsV1EvaluationSettingResponse implements Mode
     /**
      * Sets forms
      *
-     * @param string[]|null $forms forms
+     * @param \EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1FormConfigurationResponse[]|null $forms forms
      *
      * @return self
      */
@@ -845,6 +859,74 @@ class EvaluationApiEvaluationSettingsV1EvaluationSettingResponse implements Mode
             }
         }
         $this->container['staffClassifications'] = $staffClassifications;
+
+        return $this;
+    }
+
+    /**
+     * Gets availablePersonas
+     *
+     * @return \EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1PersonaResponse[]|null
+     */
+    public function getAvailablePersonas()
+    {
+        return $this->container['availablePersonas'];
+    }
+
+    /**
+     * Sets availablePersonas
+     *
+     * @param \EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1PersonaResponse[]|null $availablePersonas availablePersonas
+     *
+     * @return self
+     */
+    public function setAvailablePersonas($availablePersonas)
+    {
+        if (is_null($availablePersonas)) {
+            array_push($this->openAPINullablesSetToNull, 'availablePersonas');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('availablePersonas', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['availablePersonas'] = $availablePersonas;
+
+        return $this;
+    }
+
+    /**
+     * Gets roleConfigurations
+     *
+     * @return \EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1RoleConfigurationResponse[]|null
+     */
+    public function getRoleConfigurations()
+    {
+        return $this->container['roleConfigurations'];
+    }
+
+    /**
+     * Sets roleConfigurations
+     *
+     * @param \EdGraph\PlatformClient\Model\EvaluationApiEvaluationSettingsV1RoleConfigurationResponse[]|null $roleConfigurations roleConfigurations
+     *
+     * @return self
+     */
+    public function setRoleConfigurations($roleConfigurations)
+    {
+        if (is_null($roleConfigurations)) {
+            array_push($this->openAPINullablesSetToNull, 'roleConfigurations');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('roleConfigurations', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['roleConfigurations'] = $roleConfigurations;
 
         return $this;
     }

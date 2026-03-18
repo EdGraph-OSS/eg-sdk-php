@@ -6,20 +6,18 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | ------------- | ------------- | ------------- |
 | [**createObservation()**](ObservationsApi.md#createObservation) | **POST** /tenants/{tenantId}/observations | Creates a new Observation for a given tenant |
 | [**deleteObservation()**](ObservationsApi.md#deleteObservation) | **DELETE** /tenants/{tenantId}/observations/{observationId} | Deletes an Observation for a given tenant |
-| [**getObservation()**](ObservationsApi.md#getObservation) | **GET** /tenants/{tenantId}/observations/{observationId} | Get an Observation for a given tenant |
-| [**getObservationCount()**](ObservationsApi.md#getObservationCount) | **GET** /tenants/{tenantId}/observations/count |  |
-| [**searchObservationCampuses()**](ObservationsApi.md#searchObservationCampuses) | **GET** /tenants/{tenantId}/observations/campuses | Searches the Campuses associated with an Observation for a given Tenant. |
-| [**searchObservationEvaluees()**](ObservationsApi.md#searchObservationEvaluees) | **GET** /tenants/{tenantId}/observations/evaluees | Searches the Staff associated with an Observation for a given Tenant. |
-| [**searchObservationForms()**](ObservationsApi.md#searchObservationForms) | **GET** /tenants/{tenantId}/observations/forms | Searches the Forms associated with an Observation for a given Tenant. |
-| [**searchObservationObservers()**](ObservationsApi.md#searchObservationObservers) | **GET** /tenants/{tenantId}/observations/observers | Searches the Appraisers associated with an Observation for a given Tenant. |
-| [**searchObservations()**](ObservationsApi.md#searchObservations) | **GET** /tenants/{tenantId}/observations | Searches the Observations for a given tenant |
-| [**updateObservation()**](ObservationsApi.md#updateObservation) | **PUT** /tenants/{tenantId}/observations/{observationId} | Updates an Observation for a given tenant |
+| [**getObservationById()**](ObservationsApi.md#getObservationById) | **GET** /tenants/{tenantId}/observations/{observationId} | Get an Observation for a given tenant |
+| [**getPaginatedAvailableCampuses()**](ObservationsApi.md#getPaginatedAvailableCampuses) | **GET** /tenants/{tenantId}/observations/campuses | Get Available Campuses |
+| [**getPaginatedAvailableForms()**](ObservationsApi.md#getPaginatedAvailableForms) | **GET** /tenants/{tenantId}/observations/forms/available | Get Paginated Available Forms |
+| [**getPaginatedEvaluees()**](ObservationsApi.md#getPaginatedEvaluees) | **GET** /tenants/{tenantId}/observations/evaluees | Get paginated evaluees |
+| [**getPaginatedObservations()**](ObservationsApi.md#getPaginatedObservations) | **GET** /tenants/{tenantId}/observations | Get Paginated Observations for a given tenant |
+| [**getSubmittedObservationsCount()**](ObservationsApi.md#getSubmittedObservationsCount) | **GET** /tenants/{tenantId}/submittedobservations | Get submitted Observations count |
 
 
 ## `createObservation()`
 
 ```php
-createObservation($tenantId, $evaluationApiEvaluationsV1CreateEvaluationRequest): \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCreatedResponse
+createObservation($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse
 ```
 
 Creates a new Observation for a given tenant
@@ -42,10 +40,10 @@ $apiInstance = new EdGraph\PlatformClient\Api\ObservationsApi(
     $config
 );
 $tenantId = 'tenantId_example'; // string | 
-$evaluationApiEvaluationsV1CreateEvaluationRequest = new \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CreateEvaluationRequest(); // \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CreateEvaluationRequest | 
+$edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest = new \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest(); // \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest | 
 
 try {
-    $result = $apiInstance->createObservation($tenantId, $evaluationApiEvaluationsV1CreateEvaluationRequest);
+    $result = $apiInstance->createObservation($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObservationsApi->createObservation: ', $e->getMessage(), PHP_EOL;
@@ -57,11 +55,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenantId** | **string**|  | |
-| **evaluationApiEvaluationsV1CreateEvaluationRequest** | [**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CreateEvaluationRequest**](../Model/EvaluationApiEvaluationsV1CreateEvaluationRequest.md)|  | [optional] |
+| **edGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest** | [**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest.md)|  | [optional] |
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCreatedResponse**](../Model/EvaluationApiEvaluationsV1EvaluationCreatedResponse.md)
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse.md)
 
 ### Authorization
 
@@ -79,7 +77,7 @@ try {
 ## `deleteObservation()`
 
 ```php
-deleteObservation($tenantId, $observationId): \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationDeletedResponse
+deleteObservation($tenantId, $observationId): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse
 ```
 
 Deletes an Observation for a given tenant
@@ -121,7 +119,7 @@ try {
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationDeletedResponse**](../Model/EvaluationApiEvaluationsV1EvaluationDeletedResponse.md)
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse.md)
 
 ### Authorization
 
@@ -136,10 +134,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getObservation()`
+## `getObservationById()`
 
 ```php
-getObservation($tenantId, $observationId): \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponse
+getObservationById($tenantId, $observationId): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse
 ```
 
 Get an Observation for a given tenant
@@ -165,10 +163,10 @@ $tenantId = 'tenantId_example'; // string |
 $observationId = 'observationId_example'; // string | 
 
 try {
-    $result = $apiInstance->getObservation($tenantId, $observationId);
+    $result = $apiInstance->getObservationById($tenantId, $observationId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ObservationsApi->getObservation: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ObservationsApi->getObservationById: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -181,7 +179,7 @@ try {
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponse**](../Model/EvaluationApiEvaluationsV1EvaluationResponse.md)
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse.md)
 
 ### Authorization
 
@@ -196,71 +194,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getObservationCount()`
+## `getPaginatedAvailableCampuses()`
 
 ```php
-getObservationCount($tenantId): \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCountResponse
+getPaginatedAvailableCampuses($tenantId, $pageSize, $pageIndex, $orderBy): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse
 ```
 
-
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth2
-$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new EdGraph\PlatformClient\Api\ObservationsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenantId = 'tenantId_example'; // string
-
-try {
-    $result = $apiInstance->getObservationCount($tenantId);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ObservationsApi->getObservationCount: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **string**|  | |
-
-### Return type
-
-[**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationCountResponse**](../Model/EvaluationApiEvaluationsV1EvaluationCountResponse.md)
-
-### Authorization
-
-[oauth2](../../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `searchObservationCampuses()`
-
-```php
-searchObservationCampuses($tenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel
-```
-
-Searches the Campuses associated with an Observation for a given Tenant.
+Get Available Campuses
 
 ### Example
 
@@ -283,13 +223,12 @@ $tenantId = 'tenantId_example'; // string |
 $pageSize = 10; // int | 
 $pageIndex = 0; // int | 
 $orderBy = ''; // string | 
-$filter = ''; // string | 
 
 try {
-    $result = $apiInstance->searchObservationCampuses($tenantId, $pageSize, $pageIndex, $orderBy, $filter);
+    $result = $apiInstance->getPaginatedAvailableCampuses($tenantId, $pageSize, $pageIndex, $orderBy);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ObservationsApi->searchObservationCampuses: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ObservationsApi->getPaginatedAvailableCampuses: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -301,11 +240,10 @@ try {
 | **pageSize** | **int**|  | [optional] [default to 10] |
 | **pageIndex** | **int**|  | [optional] [default to 0] |
 | **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
-| **filter** | **string**|  | [optional] [default to &#39;&#39;] |
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel**](../Model/EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel.md)
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse.md)
 
 ### Authorization
 
@@ -320,13 +258,79 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `searchObservationEvaluees()`
+## `getPaginatedAvailableForms()`
 
 ```php
-searchObservationEvaluees($tenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse
+getPaginatedAvailableForms($tenantId, $pageIndex, $pageSize, $orderBy, $filter): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse
 ```
 
-Searches the Staff associated with an Observation for a given Tenant.
+Get Paginated Available Forms
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\ObservationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$pageIndex = 0; // int | 
+$pageSize = 10; // int | 
+$orderBy = ''; // string | 
+$filter = ''; // string | 
+
+try {
+    $result = $apiInstance->getPaginatedAvailableForms($tenantId, $pageIndex, $pageSize, $orderBy, $filter);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ObservationsApi->getPaginatedAvailableForms: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **pageIndex** | **int**|  | [optional] [default to 0] |
+| **pageSize** | **int**|  | [optional] [default to 10] |
+| **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
+| **filter** | **string**|  | [optional] [default to &#39;&#39;] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPaginatedEvaluees()`
+
+```php
+getPaginatedEvaluees($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse
+```
+
+Get paginated evaluees
 
 ### Example
 
@@ -349,13 +353,14 @@ $tenantId = 'tenantId_example'; // string |
 $pageSize = 10; // int | 
 $pageIndex = 0; // int | 
 $orderBy = ''; // string | 
-$filter = ''; // string | 
+$campus = ''; // string | 
+$evalueeId = ''; // string | 
 
 try {
-    $result = $apiInstance->searchObservationEvaluees($tenantId, $pageSize, $pageIndex, $orderBy, $filter);
+    $result = $apiInstance->getPaginatedEvaluees($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ObservationsApi->searchObservationEvaluees: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ObservationsApi->getPaginatedEvaluees: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -367,11 +372,12 @@ try {
 | **pageSize** | **int**|  | [optional] [default to 10] |
 | **pageIndex** | **int**|  | [optional] [default to 0] |
 | **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
-| **filter** | **string**|  | [optional] [default to &#39;&#39;] |
+| **campus** | **string**|  | [optional] [default to &#39;&#39;] |
+| **evalueeId** | **string**|  | [optional] [default to &#39;&#39;] |
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse**](../Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsStaffSearchedResponse.md)
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse.md)
 
 ### Authorization
 
@@ -386,13 +392,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `searchObservationForms()`
+## `getPaginatedObservations()`
 
 ```php
-searchObservationForms($tenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel
+getPaginatedObservations($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeName, $evalueeId, $formId, $status, $from, $to): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel
 ```
 
-Searches the Forms associated with an Observation for a given Tenant.
+Get Paginated Observations for a given tenant
 
 ### Example
 
@@ -415,13 +421,19 @@ $tenantId = 'tenantId_example'; // string |
 $pageSize = 10; // int | 
 $pageIndex = 0; // int | 
 $orderBy = ''; // string | 
-$filter = ''; // string | 
+$campus = ''; // string | 
+$evalueeName = ''; // string | 
+$evalueeId = ''; // string | 
+$formId = ''; // string | 
+$status = ''; // string | 
+$from = ''; // string | 
+$to = ''; // string | 
 
 try {
-    $result = $apiInstance->searchObservationForms($tenantId, $pageSize, $pageIndex, $orderBy, $filter);
+    $result = $apiInstance->getPaginatedObservations($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeName, $evalueeId, $formId, $status, $from, $to);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ObservationsApi->searchObservationForms: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ObservationsApi->getPaginatedObservations: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -433,11 +445,17 @@ try {
 | **pageSize** | **int**|  | [optional] [default to 10] |
 | **pageIndex** | **int**|  | [optional] [default to 0] |
 | **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
-| **filter** | **string**|  | [optional] [default to &#39;&#39;] |
+| **campus** | **string**|  | [optional] [default to &#39;&#39;] |
+| **evalueeName** | **string**|  | [optional] [default to &#39;&#39;] |
+| **evalueeId** | **string**|  | [optional] [default to &#39;&#39;] |
+| **formId** | **string**|  | [optional] [default to &#39;&#39;] |
+| **status** | **string**|  | [optional] [default to &#39;&#39;] |
+| **from** | **string**|  | [optional] [default to &#39;&#39;] |
+| **to** | **string**|  | [optional] [default to &#39;&#39;] |
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel**](../Model/EvaluationApiEvaluationsV1FormResponsePaginatedItemsViewModel.md)
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel.md)
 
 ### Authorization
 
@@ -452,13 +470,13 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `searchObservationObservers()`
+## `getSubmittedObservationsCount()`
 
 ```php
-searchObservationObservers($tenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse
+getSubmittedObservationsCount($tenantId, $evalueeId, $campus): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse
 ```
 
-Searches the Appraisers associated with an Observation for a given Tenant.
+Get submitted Observations count
 
 ### Example
 
@@ -478,16 +496,14 @@ $apiInstance = new EdGraph\PlatformClient\Api\ObservationsApi(
     $config
 );
 $tenantId = 'tenantId_example'; // string | 
-$pageSize = 10; // int | 
-$pageIndex = 0; // int | 
-$orderBy = ''; // string | 
-$filter = ''; // string | 
+$evalueeId = 'evalueeId_example'; // string | 
+$campus = 'campus_example'; // string | 
 
 try {
-    $result = $apiInstance->searchObservationObservers($tenantId, $pageSize, $pageIndex, $orderBy, $filter);
+    $result = $apiInstance->getSubmittedObservationsCount($tenantId, $evalueeId, $campus);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ObservationsApi->searchObservationObservers: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ObservationsApi->getSubmittedObservationsCount: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -496,14 +512,12 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenantId** | **string**|  | |
-| **pageSize** | **int**|  | [optional] [default to 10] |
-| **pageIndex** | **int**|  | [optional] [default to 0] |
-| **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
-| **filter** | **string**|  | [optional] [default to &#39;&#39;] |
+| **evalueeId** | **string**|  | [optional] |
+| **campus** | **string**|  | [optional] |
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse**](../Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse.md)
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse.md)
 
 ### Authorization
 
@@ -512,134 +526,6 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `searchObservations()`
-
-```php
-searchObservations($tenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel
-```
-
-Searches the Observations for a given tenant
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth2
-$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new EdGraph\PlatformClient\Api\ObservationsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenantId = 'tenantId_example'; // string | 
-$pageSize = 10; // int | 
-$pageIndex = 0; // int | 
-$orderBy = ''; // string | 
-$filter = ''; // string | 
-
-try {
-    $result = $apiInstance->searchObservations($tenantId, $pageSize, $pageIndex, $orderBy, $filter);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ObservationsApi->searchObservations: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **string**|  | |
-| **pageSize** | **int**|  | [optional] [default to 10] |
-| **pageIndex** | **int**|  | [optional] [default to 0] |
-| **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
-| **filter** | **string**|  | [optional] [default to &#39;&#39;] |
-
-### Return type
-
-[**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel**](../Model/EvaluationApiEvaluationsV1EvaluationResponsePaginatedItemsViewModel.md)
-
-### Authorization
-
-[oauth2](../../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `updateObservation()`
-
-```php
-updateObservation($tenantId, $observationId, $evaluationApiEvaluationsV1UpdateEvaluationRequest): \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationUpdatedResponse
-```
-
-Updates an Observation for a given tenant
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth2
-$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new EdGraph\PlatformClient\Api\ObservationsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenantId = 'tenantId_example'; // string | 
-$observationId = 'observationId_example'; // string | 
-$evaluationApiEvaluationsV1UpdateEvaluationRequest = new \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1UpdateEvaluationRequest(); // \EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1UpdateEvaluationRequest | 
-
-try {
-    $result = $apiInstance->updateObservation($tenantId, $observationId, $evaluationApiEvaluationsV1UpdateEvaluationRequest);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ObservationsApi->updateObservation: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **string**|  | |
-| **observationId** | **string**|  | |
-| **evaluationApiEvaluationsV1UpdateEvaluationRequest** | [**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1UpdateEvaluationRequest**](../Model/EvaluationApiEvaluationsV1UpdateEvaluationRequest.md)|  | [optional] |
-
-### Return type
-
-[**\EdGraph\PlatformClient\Model\EvaluationApiEvaluationsV1EvaluationUpdatedResponse**](../Model/EvaluationApiEvaluationsV1EvaluationUpdatedResponse.md)
-
-### Authorization
-
-[oauth2](../../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

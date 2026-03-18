@@ -425,19 +425,21 @@ Class | Method | HTTP request | Description
 *MyTenantsApi* | [**getUserTenants**](docs/Api/MyTenantsApi.md#getusertenants) | **GET** /me/tenants | Retrieves the Tenants of the User that is currently logged in.
 *MyTenantsApi* | [**searchMyLicenses**](docs/Api/MyTenantsApi.md#searchmylicenses) | **GET** /v2/me/tenants/{tenantId}/licenses | Search the user&#39;s licenses.
 *MyTenantsApi* | [**searchMyTenants**](docs/Api/MyTenantsApi.md#searchmytenants) | **GET** /v2/me/tenants | Searches tenants associated to the user.
-*ObservationConfigurationApi* | [**getTenantObservationSettings**](docs/Api/ObservationConfigurationApi.md#gettenantobservationsettings) | **GET** /tenants/{tenantId}/observations/configuration | Gets the Observation Settings for a given tenant
-*ObservationConfigurationApi* | [**setObservationSettingApplicationSetting**](docs/Api/ObservationConfigurationApi.md#setobservationsettingapplicationsetting) | **POST** /tenants/{tenantId}/observations/configuration/application | Sets the Application Settings of an Observation for a given Tenant
-*ObservationConfigurationApi* | [**setObservationSettingUserSetting**](docs/Api/ObservationConfigurationApi.md#setobservationsettingusersetting) | **POST** /tenants/{tenantId}/observations/configuration/users | Sets the User Settings of an Observation for a given Tenant
+*ObservationSettingsApi* | [**addAvailablePersona**](docs/Api/ObservationSettingsApi.md#addavailablepersona) | **POST** /tenants/{tenantId}/observations/settings/personas | Adds a persona for a given Tenant
+*ObservationSettingsApi* | [**getApplicationSettings**](docs/Api/ObservationSettingsApi.md#getapplicationsettings) | **GET** /tenants/{tenantId}/observations/settings/application | Gets the application settings for the tenant
+*ObservationSettingsApi* | [**getPaginatedForms**](docs/Api/ObservationSettingsApi.md#getpaginatedforms) | **GET** /tenants/{tenantId}/observations/forms | Get Paginated Forms
+*ObservationSettingsApi* | [**getPaginatedPersonas**](docs/Api/ObservationSettingsApi.md#getpaginatedpersonas) | **GET** /tenants/{tenantId}/observations/settings/personas | Gets available personas
+*ObservationSettingsApi* | [**getStaffClassificationsSettings**](docs/Api/ObservationSettingsApi.md#getstaffclassificationssettings) | **GET** /tenants/{tenantId}/observations/settings/staffclassifications | Gets the staffClassification settings for the tenant
+*ObservationSettingsApi* | [**setApplicationSettings**](docs/Api/ObservationSettingsApi.md#setapplicationsettings) | **POST** /tenants/{tenantId}/observations/settings/application | Sets the Application Settings of an Observation for a given Tenant
+*ObservationSettingsApi* | [**setRolePersonasSettings**](docs/Api/ObservationSettingsApi.md#setrolepersonassettings) | **POST** /tenants/{tenantId}/observations/settings/rolepersonas | Updates personas assigned to a role configuration of the tenants setting
 *ObservationsApi* | [**createObservation**](docs/Api/ObservationsApi.md#createobservation) | **POST** /tenants/{tenantId}/observations | Creates a new Observation for a given tenant
 *ObservationsApi* | [**deleteObservation**](docs/Api/ObservationsApi.md#deleteobservation) | **DELETE** /tenants/{tenantId}/observations/{observationId} | Deletes an Observation for a given tenant
-*ObservationsApi* | [**getObservation**](docs/Api/ObservationsApi.md#getobservation) | **GET** /tenants/{tenantId}/observations/{observationId} | Get an Observation for a given tenant
-*ObservationsApi* | [**getObservationCount**](docs/Api/ObservationsApi.md#getobservationcount) | **GET** /tenants/{tenantId}/observations/count | 
-*ObservationsApi* | [**searchObservationCampuses**](docs/Api/ObservationsApi.md#searchobservationcampuses) | **GET** /tenants/{tenantId}/observations/campuses | Searches the Campuses associated with an Observation for a given Tenant.
-*ObservationsApi* | [**searchObservationEvaluees**](docs/Api/ObservationsApi.md#searchobservationevaluees) | **GET** /tenants/{tenantId}/observations/evaluees | Searches the Staff associated with an Observation for a given Tenant.
-*ObservationsApi* | [**searchObservationForms**](docs/Api/ObservationsApi.md#searchobservationforms) | **GET** /tenants/{tenantId}/observations/forms | Searches the Forms associated with an Observation for a given Tenant.
-*ObservationsApi* | [**searchObservationObservers**](docs/Api/ObservationsApi.md#searchobservationobservers) | **GET** /tenants/{tenantId}/observations/observers | Searches the Appraisers associated with an Observation for a given Tenant.
-*ObservationsApi* | [**searchObservations**](docs/Api/ObservationsApi.md#searchobservations) | **GET** /tenants/{tenantId}/observations | Searches the Observations for a given tenant
-*ObservationsApi* | [**updateObservation**](docs/Api/ObservationsApi.md#updateobservation) | **PUT** /tenants/{tenantId}/observations/{observationId} | Updates an Observation for a given tenant
+*ObservationsApi* | [**getObservationById**](docs/Api/ObservationsApi.md#getobservationbyid) | **GET** /tenants/{tenantId}/observations/{observationId} | Get an Observation for a given tenant
+*ObservationsApi* | [**getPaginatedAvailableCampuses**](docs/Api/ObservationsApi.md#getpaginatedavailablecampuses) | **GET** /tenants/{tenantId}/observations/campuses | Get Available Campuses
+*ObservationsApi* | [**getPaginatedAvailableForms**](docs/Api/ObservationsApi.md#getpaginatedavailableforms) | **GET** /tenants/{tenantId}/observations/forms/available | Get Paginated Available Forms
+*ObservationsApi* | [**getPaginatedEvaluees**](docs/Api/ObservationsApi.md#getpaginatedevaluees) | **GET** /tenants/{tenantId}/observations/evaluees | Get paginated evaluees
+*ObservationsApi* | [**getPaginatedObservations**](docs/Api/ObservationsApi.md#getpaginatedobservations) | **GET** /tenants/{tenantId}/observations | Get Paginated Observations for a given tenant
+*ObservationsApi* | [**getSubmittedObservationsCount**](docs/Api/ObservationsApi.md#getsubmittedobservationscount) | **GET** /tenants/{tenantId}/submittedobservations | Get submitted Observations count
 *OnboardingStepsApi* | [**createOnboardingStep**](docs/Api/OnboardingStepsApi.md#createonboardingstep) | **POST** /tenants/{tenantId}/onboardingsteps | Creates an Onboarding Step.
 *OnboardingStepsApi* | [**getOnboardingSteps**](docs/Api/OnboardingStepsApi.md#getonboardingsteps) | **GET** /tenants/{tenantId}/onboardingsteps | Gets a list of Onboarding Steps.
 *OnboardingStepsApi* | [**updateOnboardingStep**](docs/Api/OnboardingStepsApi.md#updateonboardingstep) | **PUT** /tenants/{tenantId}/onboardingsteps/{stepNumber} | Updates the status of an Onboarding Step.
@@ -806,6 +808,34 @@ Class | Method | HTTP request | Description
 - [EdGraphHttpAggregatorsTenantApiServicesInstanceApplicationsUseCasesCreateTenantInstanceApplicationRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesInstanceApplicationsUseCasesCreateTenantInstanceApplicationRequest.md)
 - [EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponsePaginatedItemsViewModel](docs/Model/EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponsePaginatedItemsViewModel.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaRequest.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsFormConfigurationRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormConfigurationRequest.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsFormConfigurationResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormConfigurationResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationRequest.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsGetApplicationSettingsResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsGetApplicationSettingsResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsPersonaResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsPersonaResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsPersonaResponseGetPaginatedItemsResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsPersonaResponseGetPaginatedItemsResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsRequest.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceConfiguration](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceConfiguration.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole.md)
 - [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionCreatedResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionCreatedResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionUpdatedResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionUpdatedResponse.md)
@@ -1073,8 +1103,14 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1VendorUpdatedResponse](docs/Model/EdfiAdminApiEdfiAdminV1VendorUpdatedResponse.md)
 - [EvaluationApiEvaluationSettingsV1ApplicationSetResponse](docs/Model/EvaluationApiEvaluationSettingsV1ApplicationSetResponse.md)
 - [EvaluationApiEvaluationSettingsV1EvaluationSettingResponse](docs/Model/EvaluationApiEvaluationSettingsV1EvaluationSettingResponse.md)
+- [EvaluationApiEvaluationSettingsV1FormConfigurationResponse](docs/Model/EvaluationApiEvaluationSettingsV1FormConfigurationResponse.md)
+- [EvaluationApiEvaluationSettingsV1FormVersionConfigurationResponse](docs/Model/EvaluationApiEvaluationSettingsV1FormVersionConfigurationResponse.md)
+- [EvaluationApiEvaluationSettingsV1PersonaResponse](docs/Model/EvaluationApiEvaluationSettingsV1PersonaResponse.md)
+- [EvaluationApiEvaluationSettingsV1RoleConfigurationResponse](docs/Model/EvaluationApiEvaluationSettingsV1RoleConfigurationResponse.md)
 - [EvaluationApiEvaluationSettingsV1ScheduleType](docs/Model/EvaluationApiEvaluationSettingsV1ScheduleType.md)
 - [EvaluationApiEvaluationSettingsV1SetApplicationRequest](docs/Model/EvaluationApiEvaluationSettingsV1SetApplicationRequest.md)
+- [EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest](docs/Model/EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest.md)
+- [EvaluationApiEvaluationSettingsV1SetFormVersionConfigurationRequest](docs/Model/EvaluationApiEvaluationSettingsV1SetFormVersionConfigurationRequest.md)
 - [EvaluationApiEvaluationSettingsV1SetUsersRequest](docs/Model/EvaluationApiEvaluationSettingsV1SetUsersRequest.md)
 - [EvaluationApiEvaluationSettingsV1UsersSetResponse](docs/Model/EvaluationApiEvaluationSettingsV1UsersSetResponse.md)
 - [EvaluationApiEvaluationsV1CampusResponse](docs/Model/EvaluationApiEvaluationsV1CampusResponse.md)
@@ -1503,6 +1539,6 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `v1.0`
-    - Package version: `0.0.20`
+    - Package version: `0.0.21`
     - Generator version: `7.8.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
