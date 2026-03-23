@@ -62,6 +62,8 @@ class TenantApiPartnershipV1TenantType
 
     public const ASSESSMENT_PROVIDER = 'AssessmentProvider';
 
+    public const SERVICE_PROVIDER = 'ServiceProvider';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -78,7 +80,8 @@ class TenantApiPartnershipV1TenantType
             self::LOCAL_EDUCATION_AGENCY,
             self::MANAGED_SERVICE_PROVIDER,
             self::STATE_EDUCATION_AGENCY,
-            self::ASSESSMENT_PROVIDER
+            self::ASSESSMENT_PROVIDER,
+            self::SERVICE_PROVIDER
         ];
     }
 }
