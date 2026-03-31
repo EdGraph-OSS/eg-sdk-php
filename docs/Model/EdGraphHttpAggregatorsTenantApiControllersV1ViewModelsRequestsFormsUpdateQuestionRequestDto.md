@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **options** | **string[]** |  | [optional]
 **order** | **int** |  | [optional]
 **component** | **mixed** |  | [optional]
+**visibilityCondition** | [**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto**](EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

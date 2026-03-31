@@ -65,7 +65,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'validation' => '\EdGraph\PlatformClient\Model\FormApiFormsV1CreateFullQuestionValidationRequest',
         'options' => 'string[]',
         'order' => 'int',
-        'component' => 'string'
+        'component' => 'string',
+        'visibilityCondition' => '\EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityCondition'
     ];
 
     /**
@@ -84,7 +85,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'validation' => null,
         'options' => null,
         'order' => 'int32',
-        'component' => null
+        'component' => null,
+        'visibilityCondition' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'validation' => false,
         'options' => true,
         'order' => true,
-        'component' => true
+        'component' => true,
+        'visibilityCondition' => false
     ];
 
     /**
@@ -198,7 +201,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'validation' => 'validation',
         'options' => 'options',
         'order' => 'order',
-        'component' => 'component'
+        'component' => 'component',
+        'visibilityCondition' => 'visibilityCondition'
     ];
 
     /**
@@ -215,7 +219,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'validation' => 'setValidation',
         'options' => 'setOptions',
         'order' => 'setOrder',
-        'component' => 'setComponent'
+        'component' => 'setComponent',
+        'visibilityCondition' => 'setVisibilityCondition'
     ];
 
     /**
@@ -232,7 +237,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'validation' => 'getValidation',
         'options' => 'getOptions',
         'order' => 'getOrder',
-        'component' => 'getComponent'
+        'component' => 'getComponent',
+        'visibilityCondition' => 'getVisibilityCondition'
     ];
 
     /**
@@ -301,6 +307,7 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         $this->setIfExists('options', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
         $this->setIfExists('component', $data ?? [], null);
+        $this->setIfExists('visibilityCondition', $data ?? [], null);
     }
 
     /**
@@ -633,6 +640,33 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
             }
         }
         $this->container['component'] = $component;
+
+        return $this;
+    }
+
+    /**
+     * Gets visibilityCondition
+     *
+     * @return \EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityCondition|null
+     */
+    public function getVisibilityCondition()
+    {
+        return $this->container['visibilityCondition'];
+    }
+
+    /**
+     * Sets visibilityCondition
+     *
+     * @param \EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityCondition|null $visibilityCondition visibilityCondition
+     *
+     * @return self
+     */
+    public function setVisibilityCondition($visibilityCondition)
+    {
+        if (is_null($visibilityCondition)) {
+            throw new \InvalidArgumentException('non-nullable visibilityCondition cannot be null');
+        }
+        $this->container['visibilityCondition'] = $visibilityCondition;
 
         return $this;
     }

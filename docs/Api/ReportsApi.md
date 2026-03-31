@@ -17,7 +17,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 ## `createReportAsync()`
 
 ```php
-createReportAsync($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired): \EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse
+createReportAsync($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired, $state): \EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse
 ```
 
 Creates a new report (Does not upload pbix file).
@@ -49,9 +49,10 @@ $isVisible = True; // bool
 $version = 'version_example'; // string
 $identityRequired = True; // bool
 $rolesRequired = True; // bool
+$state = 'state_example'; // string
 
 try {
-    $result = $apiInstance->createReportAsync($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired);
+    $result = $apiInstance->createReportAsync($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired, $state);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportsApi->createReportAsync: ', $e->getMessage(), PHP_EOL;
@@ -72,6 +73,7 @@ try {
 | **version** | **string**|  | [optional] |
 | **identityRequired** | **bool**|  | [optional] |
 | **rolesRequired** | **bool**|  | [optional] |
+| **state** | **string**|  | [optional] |
 
 ### Return type
 
@@ -460,7 +462,7 @@ try {
 ## `updateReportAsync()`
 
 ```php
-updateReportAsync($tenantId, $reportId, $file, $id, $name, $shortDescription, $description, $tags, $isVisible, $version, $rolesRequired, $identityRequired): \EdGraph\PlatformClient\Model\AnalyticsApiReportsV1AnalyticsReport
+updateReportAsync($tenantId, $reportId, $file, $id, $name, $shortDescription, $description, $tags, $isVisible, $version, $rolesRequired, $identityRequired, $state): \EdGraph\PlatformClient\Model\AnalyticsApiReportsV1AnalyticsReport
 ```
 
 Updates a report.
@@ -494,9 +496,10 @@ $isVisible = True; // bool
 $version = 'version_example'; // string
 $rolesRequired = True; // bool
 $identityRequired = True; // bool
+$state = 'state_example'; // string
 
 try {
-    $result = $apiInstance->updateReportAsync($tenantId, $reportId, $file, $id, $name, $shortDescription, $description, $tags, $isVisible, $version, $rolesRequired, $identityRequired);
+    $result = $apiInstance->updateReportAsync($tenantId, $reportId, $file, $id, $name, $shortDescription, $description, $tags, $isVisible, $version, $rolesRequired, $identityRequired, $state);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ReportsApi->updateReportAsync: ', $e->getMessage(), PHP_EOL;
@@ -519,6 +522,7 @@ try {
 | **version** | **string**|  | [optional] |
 | **rolesRequired** | **bool**|  | [optional] |
 | **identityRequired** | **bool**|  | [optional] |
+| **state** | **string**|  | [optional] |
 
 ### Return type
 

@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **options** | **string[]** |  | [optional] [readonly]
 **order** | **int** |  | [optional]
 **component** | **string** |  | [optional]
+**visibilityCondition** | [**\EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityCondition**](FormApiQuestionsV1QuestionVisibilityCondition.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -164,15 +164,16 @@ class ReportsApi
      * @param  string $version version (optional)
      * @param  bool $identityRequired identityRequired (optional)
      * @param  bool $rolesRequired rolesRequired (optional)
+     * @param  string $state state (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReportAsync'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails
      */
-    public function createReportAsync($tenantId, $file = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $identityRequired = null, $rolesRequired = null, string $contentType = self::contentTypes['createReportAsync'][0])
+    public function createReportAsync($tenantId, $file = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $identityRequired = null, $rolesRequired = null, $state = null, string $contentType = self::contentTypes['createReportAsync'][0])
     {
-        list($response) = $this->createReportAsyncWithHttpInfo($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired, $contentType);
+        list($response) = $this->createReportAsyncWithHttpInfo($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired, $state, $contentType);
         return $response;
     }
 
@@ -191,15 +192,16 @@ class ReportsApi
      * @param  string $version (optional)
      * @param  bool $identityRequired (optional)
      * @param  bool $rolesRequired (optional)
+     * @param  string $state (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReportAsync'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createReportAsyncWithHttpInfo($tenantId, $file = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $identityRequired = null, $rolesRequired = null, string $contentType = self::contentTypes['createReportAsync'][0])
+    public function createReportAsyncWithHttpInfo($tenantId, $file = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $identityRequired = null, $rolesRequired = null, $state = null, string $contentType = self::contentTypes['createReportAsync'][0])
     {
-        $request = $this->createReportAsyncRequest($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired, $contentType);
+        $request = $this->createReportAsyncRequest($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired, $state, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -464,14 +466,15 @@ class ReportsApi
      * @param  string $version (optional)
      * @param  bool $identityRequired (optional)
      * @param  bool $rolesRequired (optional)
+     * @param  string $state (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReportAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReportAsyncAsync($tenantId, $file = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $identityRequired = null, $rolesRequired = null, string $contentType = self::contentTypes['createReportAsync'][0])
+    public function createReportAsyncAsync($tenantId, $file = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $identityRequired = null, $rolesRequired = null, $state = null, string $contentType = self::contentTypes['createReportAsync'][0])
     {
-        return $this->createReportAsyncAsyncWithHttpInfo($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired, $contentType)
+        return $this->createReportAsyncAsyncWithHttpInfo($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired, $state, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -494,15 +497,16 @@ class ReportsApi
      * @param  string $version (optional)
      * @param  bool $identityRequired (optional)
      * @param  bool $rolesRequired (optional)
+     * @param  string $state (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReportAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createReportAsyncAsyncWithHttpInfo($tenantId, $file = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $identityRequired = null, $rolesRequired = null, string $contentType = self::contentTypes['createReportAsync'][0])
+    public function createReportAsyncAsyncWithHttpInfo($tenantId, $file = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $identityRequired = null, $rolesRequired = null, $state = null, string $contentType = self::contentTypes['createReportAsync'][0])
     {
         $returnType = '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse';
-        $request = $this->createReportAsyncRequest($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired, $contentType);
+        $request = $this->createReportAsyncRequest($tenantId, $file, $name, $shortDescription, $description, $tags, $isVisible, $version, $identityRequired, $rolesRequired, $state, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -553,12 +557,13 @@ class ReportsApi
      * @param  string $version (optional)
      * @param  bool $identityRequired (optional)
      * @param  bool $rolesRequired (optional)
+     * @param  string $state (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createReportAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createReportAsyncRequest($tenantId, $file = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $identityRequired = null, $rolesRequired = null, string $contentType = self::contentTypes['createReportAsync'][0])
+    public function createReportAsyncRequest($tenantId, $file = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $identityRequired = null, $rolesRequired = null, $state = null, string $contentType = self::contentTypes['createReportAsync'][0])
     {
 
         // verify the required parameter 'tenantId' is set
@@ -567,6 +572,7 @@ class ReportsApi
                 'Missing the required parameter $tenantId when calling createReportAsync'
             );
         }
+
 
 
 
@@ -639,6 +645,10 @@ class ReportsApi
         // form params
         if ($rolesRequired !== null) {
             $formParams['RolesRequired'] = ObjectSerializer::toFormValue($rolesRequired);
+        }
+        // form params
+        if ($state !== null) {
+            $formParams['State'] = ObjectSerializer::toFormValue($state);
         }
 
         $headers = $this->headerSelector->selectHeaders(
@@ -3331,15 +3341,16 @@ class ReportsApi
      * @param  string $version version (optional)
      * @param  bool $rolesRequired rolesRequired (optional)
      * @param  bool $identityRequired identityRequired (optional)
+     * @param  string $state state (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReportAsync'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1AnalyticsReport|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails
      */
-    public function updateReportAsync($tenantId, $reportId, $file = null, $id = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $rolesRequired = null, $identityRequired = null, string $contentType = self::contentTypes['updateReportAsync'][0])
+    public function updateReportAsync($tenantId, $reportId, $file = null, $id = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $rolesRequired = null, $identityRequired = null, $state = null, string $contentType = self::contentTypes['updateReportAsync'][0])
     {
-        list($response) = $this->updateReportAsyncWithHttpInfo($tenantId, $reportId, $file, $id, $name, $shortDescription, $description, $tags, $isVisible, $version, $rolesRequired, $identityRequired, $contentType);
+        list($response) = $this->updateReportAsyncWithHttpInfo($tenantId, $reportId, $file, $id, $name, $shortDescription, $description, $tags, $isVisible, $version, $rolesRequired, $identityRequired, $state, $contentType);
         return $response;
     }
 
@@ -3360,15 +3371,16 @@ class ReportsApi
      * @param  string $version (optional)
      * @param  bool $rolesRequired (optional)
      * @param  bool $identityRequired (optional)
+     * @param  string $state (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReportAsync'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1AnalyticsReport|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateReportAsyncWithHttpInfo($tenantId, $reportId, $file = null, $id = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $rolesRequired = null, $identityRequired = null, string $contentType = self::contentTypes['updateReportAsync'][0])
+    public function updateReportAsyncWithHttpInfo($tenantId, $reportId, $file = null, $id = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $rolesRequired = null, $identityRequired = null, $state = null, string $contentType = self::contentTypes['updateReportAsync'][0])
     {
-        $request = $this->updateReportAsyncRequest($tenantId, $reportId, $file, $id, $name, $shortDescription, $description, $tags, $isVisible, $version, $rolesRequired, $identityRequired, $contentType);
+        $request = $this->updateReportAsyncRequest($tenantId, $reportId, $file, $id, $name, $shortDescription, $description, $tags, $isVisible, $version, $rolesRequired, $identityRequired, $state, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3635,14 +3647,15 @@ class ReportsApi
      * @param  string $version (optional)
      * @param  bool $rolesRequired (optional)
      * @param  bool $identityRequired (optional)
+     * @param  string $state (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReportAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateReportAsyncAsync($tenantId, $reportId, $file = null, $id = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $rolesRequired = null, $identityRequired = null, string $contentType = self::contentTypes['updateReportAsync'][0])
+    public function updateReportAsyncAsync($tenantId, $reportId, $file = null, $id = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $rolesRequired = null, $identityRequired = null, $state = null, string $contentType = self::contentTypes['updateReportAsync'][0])
     {
-        return $this->updateReportAsyncAsyncWithHttpInfo($tenantId, $reportId, $file, $id, $name, $shortDescription, $description, $tags, $isVisible, $version, $rolesRequired, $identityRequired, $contentType)
+        return $this->updateReportAsyncAsyncWithHttpInfo($tenantId, $reportId, $file, $id, $name, $shortDescription, $description, $tags, $isVisible, $version, $rolesRequired, $identityRequired, $state, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3667,15 +3680,16 @@ class ReportsApi
      * @param  string $version (optional)
      * @param  bool $rolesRequired (optional)
      * @param  bool $identityRequired (optional)
+     * @param  string $state (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReportAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateReportAsyncAsyncWithHttpInfo($tenantId, $reportId, $file = null, $id = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $rolesRequired = null, $identityRequired = null, string $contentType = self::contentTypes['updateReportAsync'][0])
+    public function updateReportAsyncAsyncWithHttpInfo($tenantId, $reportId, $file = null, $id = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $rolesRequired = null, $identityRequired = null, $state = null, string $contentType = self::contentTypes['updateReportAsync'][0])
     {
         $returnType = '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1AnalyticsReport';
-        $request = $this->updateReportAsyncRequest($tenantId, $reportId, $file, $id, $name, $shortDescription, $description, $tags, $isVisible, $version, $rolesRequired, $identityRequired, $contentType);
+        $request = $this->updateReportAsyncRequest($tenantId, $reportId, $file, $id, $name, $shortDescription, $description, $tags, $isVisible, $version, $rolesRequired, $identityRequired, $state, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3728,12 +3742,13 @@ class ReportsApi
      * @param  string $version (optional)
      * @param  bool $rolesRequired (optional)
      * @param  bool $identityRequired (optional)
+     * @param  string $state (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReportAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateReportAsyncRequest($tenantId, $reportId, $file = null, $id = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $rolesRequired = null, $identityRequired = null, string $contentType = self::contentTypes['updateReportAsync'][0])
+    public function updateReportAsyncRequest($tenantId, $reportId, $file = null, $id = null, $name = null, $shortDescription = null, $description = null, $tags = null, $isVisible = null, $version = null, $rolesRequired = null, $identityRequired = null, $state = null, string $contentType = self::contentTypes['updateReportAsync'][0])
     {
 
         // verify the required parameter 'tenantId' is set
@@ -3749,6 +3764,7 @@ class ReportsApi
                 'Missing the required parameter $reportId when calling updateReportAsync'
             );
         }
+
 
 
 
@@ -3834,6 +3850,10 @@ class ReportsApi
         // form params
         if ($identityRequired !== null) {
             $formParams['IdentityRequired'] = ObjectSerializer::toFormValue($identityRequired);
+        }
+        // form params
+        if ($state !== null) {
+            $formParams['State'] = ObjectSerializer::toFormValue($state);
         }
 
         $headers = $this->headerSelector->selectHeaders(

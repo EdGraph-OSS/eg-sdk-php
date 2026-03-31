@@ -44,11 +44,21 @@ class EvaluationApiEvaluationsV1OrganizationDiscriminator
      */
     public const UNKNOWN = 'Unknown';
 
-    public const STATE_EDUCATION_AGENCY = 'StateEducationAgency';
+    public const EDUCATION_ORGANIZATION_NETWORK = 'EducationOrganizationNetwork';
+
+    public const EDUCATION_SERVICE_CENTER = 'EducationServiceCenter';
 
     public const LOCAL_EDUCATION_AGENCY = 'LocalEducationAgency';
 
+    public const ORGANIZATION_DEPARTMENT = 'OrganizationDepartment';
+
+    public const OTHER = 'Other';
+
+    public const POST_SECONDARY_INSTITUTION = 'PostSecondaryInstitution';
+
     public const SCHOOL = 'School';
+
+    public const STATE_EDUCATION_AGENCY = 'StateEducationAgency';
 
     /**
      * Gets allowable values of the enum
@@ -58,9 +68,14 @@ class EvaluationApiEvaluationsV1OrganizationDiscriminator
     {
         return [
             self::UNKNOWN,
-            self::STATE_EDUCATION_AGENCY,
+            self::EDUCATION_ORGANIZATION_NETWORK,
+            self::EDUCATION_SERVICE_CENTER,
             self::LOCAL_EDUCATION_AGENCY,
-            self::SCHOOL
+            self::ORGANIZATION_DEPARTMENT,
+            self::OTHER,
+            self::POST_SECONDARY_INSTITUTION,
+            self::SCHOOL,
+            self::STATE_EDUCATION_AGENCY
         ];
     }
 }

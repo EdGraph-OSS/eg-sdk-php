@@ -83,7 +83,8 @@ class AnalyticsApiReportsV1AnalyticsReport implements ModelInterface, ArrayAcces
         'downloadUri' => 'string',
         'version' => 'string',
         'rolesRequired' => 'bool',
-        'identityRequired' => 'bool'
+        'identityRequired' => 'bool',
+        'state' => 'string'
     ];
 
     /**
@@ -119,7 +120,8 @@ class AnalyticsApiReportsV1AnalyticsReport implements ModelInterface, ArrayAcces
         'downloadUri' => null,
         'version' => null,
         'rolesRequired' => null,
-        'identityRequired' => null
+        'identityRequired' => null,
+        'state' => null
     ];
 
     /**
@@ -153,7 +155,8 @@ class AnalyticsApiReportsV1AnalyticsReport implements ModelInterface, ArrayAcces
         'downloadUri' => true,
         'version' => true,
         'rolesRequired' => true,
-        'identityRequired' => true
+        'identityRequired' => true,
+        'state' => true
     ];
 
     /**
@@ -267,7 +270,8 @@ class AnalyticsApiReportsV1AnalyticsReport implements ModelInterface, ArrayAcces
         'downloadUri' => 'downloadUri',
         'version' => 'version',
         'rolesRequired' => 'rolesRequired',
-        'identityRequired' => 'identityRequired'
+        'identityRequired' => 'identityRequired',
+        'state' => 'state'
     ];
 
     /**
@@ -301,7 +305,8 @@ class AnalyticsApiReportsV1AnalyticsReport implements ModelInterface, ArrayAcces
         'downloadUri' => 'setDownloadUri',
         'version' => 'setVersion',
         'rolesRequired' => 'setRolesRequired',
-        'identityRequired' => 'setIdentityRequired'
+        'identityRequired' => 'setIdentityRequired',
+        'state' => 'setState'
     ];
 
     /**
@@ -335,7 +340,8 @@ class AnalyticsApiReportsV1AnalyticsReport implements ModelInterface, ArrayAcces
         'downloadUri' => 'getDownloadUri',
         'version' => 'getVersion',
         'rolesRequired' => 'getRolesRequired',
-        'identityRequired' => 'getIdentityRequired'
+        'identityRequired' => 'getIdentityRequired',
+        'state' => 'getState'
     ];
 
     /**
@@ -421,6 +427,7 @@ class AnalyticsApiReportsV1AnalyticsReport implements ModelInterface, ArrayAcces
         $this->setIfExists('version', $data ?? [], null);
         $this->setIfExists('rolesRequired', $data ?? [], null);
         $this->setIfExists('identityRequired', $data ?? [], null);
+        $this->setIfExists('state', $data ?? [], null);
     }
 
     /**
@@ -1331,6 +1338,40 @@ class AnalyticsApiReportsV1AnalyticsReport implements ModelInterface, ArrayAcces
             }
         }
         $this->container['identityRequired'] = $identityRequired;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state state
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        if (is_null($state)) {
+            array_push($this->openAPINullablesSetToNull, 'state');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('state', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['state'] = $state;
 
         return $this;
     }

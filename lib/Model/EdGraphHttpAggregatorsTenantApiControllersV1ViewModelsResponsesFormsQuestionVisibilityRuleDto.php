@@ -1,6 +1,6 @@
 <?php
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole
+ * EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityRuleDto
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \EdGraph\PlatformClient\ObjectSerializer;
 
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole Class Doc Comment
+ * EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityRuleDto Class Doc Comment
  *
  * @category Class
  * @package  EdGraph\PlatformClient
@@ -40,7 +40,7 @@ use \EdGraph\PlatformClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole implements ModelInterface, ArrayAccess, \JsonSerializable
+class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityRuleDto implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.StaffClassificationNamespaceRole';
+    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Controllers.v1.ViewModels.Responses.Forms.QuestionVisibilityRuleDto';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,9 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
       * @var string[]
       */
     protected static $openAPITypes = [
-        'role' => 'string',
-        'assignedPersonaIdentifiers' => 'string[]'
+        'fieldId' => 'string',
+        'operator' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -69,8 +70,9 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'role' => null,
-        'assignedPersonaIdentifiers' => null
+        'fieldId' => null,
+        'operator' => null,
+        'value' => null
     ];
 
     /**
@@ -79,8 +81,9 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'role' => true,
-        'assignedPersonaIdentifiers' => true
+        'fieldId' => true,
+        'operator' => true,
+        'value' => true
     ];
 
     /**
@@ -169,8 +172,9 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
      * @var string[]
      */
     protected static $attributeMap = [
-        'role' => 'role',
-        'assignedPersonaIdentifiers' => 'assignedPersonaIdentifiers'
+        'fieldId' => 'fieldId',
+        'operator' => 'operator',
+        'value' => 'value'
     ];
 
     /**
@@ -179,8 +183,9 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
      * @var string[]
      */
     protected static $setters = [
-        'role' => 'setRole',
-        'assignedPersonaIdentifiers' => 'setAssignedPersonaIdentifiers'
+        'fieldId' => 'setFieldId',
+        'operator' => 'setOperator',
+        'value' => 'setValue'
     ];
 
     /**
@@ -189,8 +194,9 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
      * @var string[]
      */
     protected static $getters = [
-        'role' => 'getRole',
-        'assignedPersonaIdentifiers' => 'getAssignedPersonaIdentifiers'
+        'fieldId' => 'getFieldId',
+        'operator' => 'getOperator',
+        'value' => 'getValue'
     ];
 
     /**
@@ -250,8 +256,9 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('role', $data ?? [], null);
-        $this->setIfExists('assignedPersonaIdentifiers', $data ?? [], null);
+        $this->setIfExists('fieldId', $data ?? [], null);
+        $this->setIfExists('operator', $data ?? [], null);
+        $this->setIfExists('value', $data ?? [], null);
     }
 
     /**
@@ -297,69 +304,103 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
 
 
     /**
-     * Gets role
+     * Gets fieldId
      *
      * @return string|null
      */
-    public function getRole()
+    public function getFieldId()
     {
-        return $this->container['role'];
+        return $this->container['fieldId'];
     }
 
     /**
-     * Sets role
+     * Sets fieldId
      *
-     * @param string|null $role role
+     * @param string|null $fieldId fieldId
      *
      * @return self
      */
-    public function setRole($role)
+    public function setFieldId($fieldId)
     {
-        if (is_null($role)) {
-            array_push($this->openAPINullablesSetToNull, 'role');
+        if (is_null($fieldId)) {
+            array_push($this->openAPINullablesSetToNull, 'fieldId');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('role', $nullablesSetToNull);
+            $index = array_search('fieldId', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['role'] = $role;
+        $this->container['fieldId'] = $fieldId;
 
         return $this;
     }
 
     /**
-     * Gets assignedPersonaIdentifiers
+     * Gets operator
      *
-     * @return string[]|null
+     * @return string|null
      */
-    public function getAssignedPersonaIdentifiers()
+    public function getOperator()
     {
-        return $this->container['assignedPersonaIdentifiers'];
+        return $this->container['operator'];
     }
 
     /**
-     * Sets assignedPersonaIdentifiers
+     * Sets operator
      *
-     * @param string[]|null $assignedPersonaIdentifiers assignedPersonaIdentifiers
+     * @param string|null $operator operator
      *
      * @return self
      */
-    public function setAssignedPersonaIdentifiers($assignedPersonaIdentifiers)
+    public function setOperator($operator)
     {
-        if (is_null($assignedPersonaIdentifiers)) {
-            array_push($this->openAPINullablesSetToNull, 'assignedPersonaIdentifiers');
+        if (is_null($operator)) {
+            array_push($this->openAPINullablesSetToNull, 'operator');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('assignedPersonaIdentifiers', $nullablesSetToNull);
+            $index = array_search('operator', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['assignedPersonaIdentifiers'] = $assignedPersonaIdentifiers;
+        $this->container['operator'] = $operator;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string|null
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string|null $value value
+     *
+     * @return self
+     */
+    public function setValue($value)
+    {
+        if (is_null($value)) {
+            array_push($this->openAPINullablesSetToNull, 'value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['value'] = $value;
 
         return $this;
     }

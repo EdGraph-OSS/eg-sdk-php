@@ -1,6 +1,6 @@
 <?php
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole
+ * FormApiQuestionsV1QuestionVisibilityCondition
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \EdGraph\PlatformClient\ObjectSerializer;
 
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole Class Doc Comment
+ * FormApiQuestionsV1QuestionVisibilityCondition Class Doc Comment
  *
  * @category Class
  * @package  EdGraph\PlatformClient
@@ -40,7 +40,7 @@ use \EdGraph\PlatformClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole implements ModelInterface, ArrayAccess, \JsonSerializable
+class FormApiQuestionsV1QuestionVisibilityCondition implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.StaffClassificationNamespaceRole';
+    protected static $openAPIModelName = 'FormApi.Questions.V1.QuestionVisibilityCondition';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
       * @var string[]
       */
     protected static $openAPITypes = [
-        'role' => 'string',
-        'assignedPersonaIdentifiers' => 'string[]'
+        'logic' => 'string',
+        'rules' => '\EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityRule[]'
     ];
 
     /**
@@ -69,8 +69,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'role' => null,
-        'assignedPersonaIdentifiers' => null
+        'logic' => null,
+        'rules' => null
     ];
 
     /**
@@ -79,8 +79,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'role' => true,
-        'assignedPersonaIdentifiers' => true
+        'logic' => true,
+        'rules' => true
     ];
 
     /**
@@ -169,8 +169,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
      * @var string[]
      */
     protected static $attributeMap = [
-        'role' => 'role',
-        'assignedPersonaIdentifiers' => 'assignedPersonaIdentifiers'
+        'logic' => 'logic',
+        'rules' => 'rules'
     ];
 
     /**
@@ -179,8 +179,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
      * @var string[]
      */
     protected static $setters = [
-        'role' => 'setRole',
-        'assignedPersonaIdentifiers' => 'setAssignedPersonaIdentifiers'
+        'logic' => 'setLogic',
+        'rules' => 'setRules'
     ];
 
     /**
@@ -189,8 +189,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
      * @var string[]
      */
     protected static $getters = [
-        'role' => 'getRole',
-        'assignedPersonaIdentifiers' => 'getAssignedPersonaIdentifiers'
+        'logic' => 'getLogic',
+        'rules' => 'getRules'
     ];
 
     /**
@@ -250,8 +250,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('role', $data ?? [], null);
-        $this->setIfExists('assignedPersonaIdentifiers', $data ?? [], null);
+        $this->setIfExists('logic', $data ?? [], null);
+        $this->setIfExists('rules', $data ?? [], null);
     }
 
     /**
@@ -297,69 +297,69 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationName
 
 
     /**
-     * Gets role
+     * Gets logic
      *
      * @return string|null
      */
-    public function getRole()
+    public function getLogic()
     {
-        return $this->container['role'];
+        return $this->container['logic'];
     }
 
     /**
-     * Sets role
+     * Sets logic
      *
-     * @param string|null $role role
+     * @param string|null $logic logic
      *
      * @return self
      */
-    public function setRole($role)
+    public function setLogic($logic)
     {
-        if (is_null($role)) {
-            array_push($this->openAPINullablesSetToNull, 'role');
+        if (is_null($logic)) {
+            array_push($this->openAPINullablesSetToNull, 'logic');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('role', $nullablesSetToNull);
+            $index = array_search('logic', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['role'] = $role;
+        $this->container['logic'] = $logic;
 
         return $this;
     }
 
     /**
-     * Gets assignedPersonaIdentifiers
+     * Gets rules
      *
-     * @return string[]|null
+     * @return \EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityRule[]|null
      */
-    public function getAssignedPersonaIdentifiers()
+    public function getRules()
     {
-        return $this->container['assignedPersonaIdentifiers'];
+        return $this->container['rules'];
     }
 
     /**
-     * Sets assignedPersonaIdentifiers
+     * Sets rules
      *
-     * @param string[]|null $assignedPersonaIdentifiers assignedPersonaIdentifiers
+     * @param \EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityRule[]|null $rules rules
      *
      * @return self
      */
-    public function setAssignedPersonaIdentifiers($assignedPersonaIdentifiers)
+    public function setRules($rules)
     {
-        if (is_null($assignedPersonaIdentifiers)) {
-            array_push($this->openAPINullablesSetToNull, 'assignedPersonaIdentifiers');
+        if (is_null($rules)) {
+            array_push($this->openAPINullablesSetToNull, 'rules');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('assignedPersonaIdentifiers', $nullablesSetToNull);
+            $index = array_search('rules', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['assignedPersonaIdentifiers'] = $assignedPersonaIdentifiers;
+        $this->container['rules'] = $rules;
 
         return $this;
     }

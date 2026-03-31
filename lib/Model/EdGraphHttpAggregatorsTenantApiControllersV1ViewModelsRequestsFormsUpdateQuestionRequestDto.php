@@ -69,7 +69,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQ
         'validation' => '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQuestionValidationRequestDto',
         'options' => 'string[]',
         'order' => 'int',
-        'component' => 'mixed'
+        'component' => 'mixed',
+        'visibilityCondition' => '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto'
     ];
 
     /**
@@ -92,7 +93,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQ
         'validation' => null,
         'options' => null,
         'order' => 'int32',
-        'component' => null
+        'component' => null,
+        'visibilityCondition' => null
     ];
 
     /**
@@ -113,7 +115,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQ
         'validation' => false,
         'options' => true,
         'order' => false,
-        'component' => true
+        'component' => true,
+        'visibilityCondition' => false
     ];
 
     /**
@@ -214,7 +217,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQ
         'validation' => 'validation',
         'options' => 'options',
         'order' => 'order',
-        'component' => 'component'
+        'component' => 'component',
+        'visibilityCondition' => 'visibilityCondition'
     ];
 
     /**
@@ -235,7 +239,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQ
         'validation' => 'setValidation',
         'options' => 'setOptions',
         'order' => 'setOrder',
-        'component' => 'setComponent'
+        'component' => 'setComponent',
+        'visibilityCondition' => 'setVisibilityCondition'
     ];
 
     /**
@@ -256,7 +261,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQ
         'validation' => 'getValidation',
         'options' => 'getOptions',
         'order' => 'getOrder',
-        'component' => 'getComponent'
+        'component' => 'getComponent',
+        'visibilityCondition' => 'getVisibilityCondition'
     ];
 
     /**
@@ -329,6 +335,7 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQ
         $this->setIfExists('options', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
         $this->setIfExists('component', $data ?? [], null);
+        $this->setIfExists('visibilityCondition', $data ?? [], null);
     }
 
     /**
@@ -755,6 +762,33 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQ
             }
         }
         $this->container['component'] = $component;
+
+        return $this;
+    }
+
+    /**
+     * Gets visibilityCondition
+     *
+     * @return \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto|null
+     */
+    public function getVisibilityCondition()
+    {
+        return $this->container['visibilityCondition'];
+    }
+
+    /**
+     * Sets visibilityCondition
+     *
+     * @param \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto|null $visibilityCondition visibilityCondition
+     *
+     * @return self
+     */
+    public function setVisibilityCondition($visibilityCondition)
+    {
+        if (is_null($visibilityCondition)) {
+            throw new \InvalidArgumentException('non-nullable visibilityCondition cannot be null');
+        }
+        $this->container['visibilityCondition'] = $visibilityCondition;
 
         return $this;
     }
