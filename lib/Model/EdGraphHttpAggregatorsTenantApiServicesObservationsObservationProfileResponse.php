@@ -69,14 +69,14 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileRespo
         'status' => 'string',
         'createdBy' => 'string',
         'isDeleted' => 'bool',
-        'class' => 'string',
         'observationDate' => 'string',
         'submissionDate' => 'string',
         'createdDateTime' => 'string',
         'lastModifiedBy' => 'string',
         'lastModifiedDateTime' => 'string',
         'deletedBy' => 'string',
-        'deletedDateTime' => 'string'
+        'deletedDateTime' => 'string',
+        'campusClassId' => 'string'
     ];
 
     /**
@@ -99,14 +99,14 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileRespo
         'status' => null,
         'createdBy' => null,
         'isDeleted' => null,
-        'class' => null,
         'observationDate' => null,
         'submissionDate' => null,
         'createdDateTime' => null,
         'lastModifiedBy' => null,
         'lastModifiedDateTime' => null,
         'deletedBy' => null,
-        'deletedDateTime' => null
+        'deletedDateTime' => null,
+        'campusClassId' => null
     ];
 
     /**
@@ -127,14 +127,14 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileRespo
         'status' => true,
         'createdBy' => true,
         'isDeleted' => false,
-        'class' => true,
         'observationDate' => true,
         'submissionDate' => true,
         'createdDateTime' => true,
         'lastModifiedBy' => true,
         'lastModifiedDateTime' => true,
         'deletedBy' => true,
-        'deletedDateTime' => true
+        'deletedDateTime' => true,
+        'campusClassId' => true
     ];
 
     /**
@@ -235,14 +235,14 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileRespo
         'status' => 'status',
         'createdBy' => 'createdBy',
         'isDeleted' => 'isDeleted',
-        'class' => 'class',
         'observationDate' => 'observationDate',
         'submissionDate' => 'submissionDate',
         'createdDateTime' => 'createdDateTime',
         'lastModifiedBy' => 'lastModifiedBy',
         'lastModifiedDateTime' => 'lastModifiedDateTime',
         'deletedBy' => 'deletedBy',
-        'deletedDateTime' => 'deletedDateTime'
+        'deletedDateTime' => 'deletedDateTime',
+        'campusClassId' => 'campusClassId'
     ];
 
     /**
@@ -263,14 +263,14 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileRespo
         'status' => 'setStatus',
         'createdBy' => 'setCreatedBy',
         'isDeleted' => 'setIsDeleted',
-        'class' => 'setClass',
         'observationDate' => 'setObservationDate',
         'submissionDate' => 'setSubmissionDate',
         'createdDateTime' => 'setCreatedDateTime',
         'lastModifiedBy' => 'setLastModifiedBy',
         'lastModifiedDateTime' => 'setLastModifiedDateTime',
         'deletedBy' => 'setDeletedBy',
-        'deletedDateTime' => 'setDeletedDateTime'
+        'deletedDateTime' => 'setDeletedDateTime',
+        'campusClassId' => 'setCampusClassId'
     ];
 
     /**
@@ -291,14 +291,14 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileRespo
         'status' => 'getStatus',
         'createdBy' => 'getCreatedBy',
         'isDeleted' => 'getIsDeleted',
-        'class' => 'getClass',
         'observationDate' => 'getObservationDate',
         'submissionDate' => 'getSubmissionDate',
         'createdDateTime' => 'getCreatedDateTime',
         'lastModifiedBy' => 'getLastModifiedBy',
         'lastModifiedDateTime' => 'getLastModifiedDateTime',
         'deletedBy' => 'getDeletedBy',
-        'deletedDateTime' => 'getDeletedDateTime'
+        'deletedDateTime' => 'getDeletedDateTime',
+        'campusClassId' => 'getCampusClassId'
     ];
 
     /**
@@ -370,7 +370,6 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileRespo
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('createdBy', $data ?? [], null);
         $this->setIfExists('isDeleted', $data ?? [], null);
-        $this->setIfExists('class', $data ?? [], null);
         $this->setIfExists('observationDate', $data ?? [], null);
         $this->setIfExists('submissionDate', $data ?? [], null);
         $this->setIfExists('createdDateTime', $data ?? [], null);
@@ -378,6 +377,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileRespo
         $this->setIfExists('lastModifiedDateTime', $data ?? [], null);
         $this->setIfExists('deletedBy', $data ?? [], null);
         $this->setIfExists('deletedDateTime', $data ?? [], null);
+        $this->setIfExists('campusClassId', $data ?? [], null);
     }
 
     /**
@@ -824,40 +824,6 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileRespo
     }
 
     /**
-     * Gets class
-     *
-     * @return string|null
-     */
-    public function getClass()
-    {
-        return $this->container['class'];
-    }
-
-    /**
-     * Sets class
-     *
-     * @param string|null $class class
-     *
-     * @return self
-     */
-    public function setClass($class)
-    {
-        if (is_null($class)) {
-            array_push($this->openAPINullablesSetToNull, 'class');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('class', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['class'] = $class;
-
-        return $this;
-    }
-
-    /**
      * Gets observationDate
      *
      * @return string|null
@@ -1091,6 +1057,40 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileRespo
             }
         }
         $this->container['deletedDateTime'] = $deletedDateTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets campusClassId
+     *
+     * @return string|null
+     */
+    public function getCampusClassId()
+    {
+        return $this->container['campusClassId'];
+    }
+
+    /**
+     * Sets campusClassId
+     *
+     * @param string|null $campusClassId campusClassId
+     *
+     * @return self
+     */
+    public function setCampusClassId($campusClassId)
+    {
+        if (is_null($campusClassId)) {
+            array_push($this->openAPINullablesSetToNull, 'campusClassId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campusClassId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['campusClassId'] = $campusClassId;
 
         return $this;
     }

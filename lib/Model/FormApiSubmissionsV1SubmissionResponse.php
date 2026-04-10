@@ -70,7 +70,8 @@ class FormApiSubmissionsV1SubmissionResponse implements ModelInterface, ArrayAcc
         'deletedDateTime' => 'string',
         'isDeleted' => 'bool',
         'name' => 'string',
-        'email' => 'string'
+        'email' => 'string',
+        'evaluationId' => 'string'
     ];
 
     /**
@@ -94,7 +95,8 @@ class FormApiSubmissionsV1SubmissionResponse implements ModelInterface, ArrayAcc
         'deletedDateTime' => null,
         'isDeleted' => null,
         'name' => null,
-        'email' => null
+        'email' => null,
+        'evaluationId' => null
     ];
 
     /**
@@ -116,7 +118,8 @@ class FormApiSubmissionsV1SubmissionResponse implements ModelInterface, ArrayAcc
         'deletedDateTime' => true,
         'isDeleted' => true,
         'name' => true,
-        'email' => true
+        'email' => true,
+        'evaluationId' => true
     ];
 
     /**
@@ -218,7 +221,8 @@ class FormApiSubmissionsV1SubmissionResponse implements ModelInterface, ArrayAcc
         'deletedDateTime' => 'deletedDateTime',
         'isDeleted' => 'isDeleted',
         'name' => 'name',
-        'email' => 'email'
+        'email' => 'email',
+        'evaluationId' => 'evaluationId'
     ];
 
     /**
@@ -240,7 +244,8 @@ class FormApiSubmissionsV1SubmissionResponse implements ModelInterface, ArrayAcc
         'deletedDateTime' => 'setDeletedDateTime',
         'isDeleted' => 'setIsDeleted',
         'name' => 'setName',
-        'email' => 'setEmail'
+        'email' => 'setEmail',
+        'evaluationId' => 'setEvaluationId'
     ];
 
     /**
@@ -262,7 +267,8 @@ class FormApiSubmissionsV1SubmissionResponse implements ModelInterface, ArrayAcc
         'deletedDateTime' => 'getDeletedDateTime',
         'isDeleted' => 'getIsDeleted',
         'name' => 'getName',
-        'email' => 'getEmail'
+        'email' => 'getEmail',
+        'evaluationId' => 'getEvaluationId'
     ];
 
     /**
@@ -336,6 +342,7 @@ class FormApiSubmissionsV1SubmissionResponse implements ModelInterface, ArrayAcc
         $this->setIfExists('isDeleted', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('evaluationId', $data ?? [], null);
     }
 
     /**
@@ -852,6 +859,40 @@ class FormApiSubmissionsV1SubmissionResponse implements ModelInterface, ArrayAcc
             }
         }
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationId
+     *
+     * @return string|null
+     */
+    public function getEvaluationId()
+    {
+        return $this->container['evaluationId'];
+    }
+
+    /**
+     * Sets evaluationId
+     *
+     * @param string|null $evaluationId evaluationId
+     *
+     * @return self
+     */
+    public function setEvaluationId($evaluationId)
+    {
+        if (is_null($evaluationId)) {
+            array_push($this->openAPINullablesSetToNull, 'evaluationId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('evaluationId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['evaluationId'] = $evaluationId;
 
         return $this;
     }

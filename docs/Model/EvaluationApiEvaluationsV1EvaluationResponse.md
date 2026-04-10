@@ -23,5 +23,6 @@ Name | Type | Description | Notes
 **isDeleted** | **bool** |  | [optional]
 **appraiserFullName** | **string** |  | [optional]
 **staffFullName** | **string** |  | [optional]
+**campusClassId** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -75,7 +75,8 @@ class EvaluationApiEvaluationsV1EvaluationResponse implements ModelInterface, Ar
         'deletedDateTime' => 'string',
         'isDeleted' => 'bool',
         'appraiserFullName' => 'string',
-        'staffFullName' => 'string'
+        'staffFullName' => 'string',
+        'campusClassId' => 'string'
     ];
 
     /**
@@ -104,7 +105,8 @@ class EvaluationApiEvaluationsV1EvaluationResponse implements ModelInterface, Ar
         'deletedDateTime' => null,
         'isDeleted' => null,
         'appraiserFullName' => null,
-        'staffFullName' => null
+        'staffFullName' => null,
+        'campusClassId' => null
     ];
 
     /**
@@ -131,7 +133,8 @@ class EvaluationApiEvaluationsV1EvaluationResponse implements ModelInterface, Ar
         'deletedDateTime' => true,
         'isDeleted' => true,
         'appraiserFullName' => true,
-        'staffFullName' => true
+        'staffFullName' => true,
+        'campusClassId' => true
     ];
 
     /**
@@ -238,7 +241,8 @@ class EvaluationApiEvaluationsV1EvaluationResponse implements ModelInterface, Ar
         'deletedDateTime' => 'deletedDateTime',
         'isDeleted' => 'isDeleted',
         'appraiserFullName' => 'appraiserFullName',
-        'staffFullName' => 'staffFullName'
+        'staffFullName' => 'staffFullName',
+        'campusClassId' => 'campusClassId'
     ];
 
     /**
@@ -265,7 +269,8 @@ class EvaluationApiEvaluationsV1EvaluationResponse implements ModelInterface, Ar
         'deletedDateTime' => 'setDeletedDateTime',
         'isDeleted' => 'setIsDeleted',
         'appraiserFullName' => 'setAppraiserFullName',
-        'staffFullName' => 'setStaffFullName'
+        'staffFullName' => 'setStaffFullName',
+        'campusClassId' => 'setCampusClassId'
     ];
 
     /**
@@ -292,7 +297,8 @@ class EvaluationApiEvaluationsV1EvaluationResponse implements ModelInterface, Ar
         'deletedDateTime' => 'getDeletedDateTime',
         'isDeleted' => 'getIsDeleted',
         'appraiserFullName' => 'getAppraiserFullName',
-        'staffFullName' => 'getStaffFullName'
+        'staffFullName' => 'getStaffFullName',
+        'campusClassId' => 'getCampusClassId'
     ];
 
     /**
@@ -371,6 +377,7 @@ class EvaluationApiEvaluationsV1EvaluationResponse implements ModelInterface, Ar
         $this->setIfExists('isDeleted', $data ?? [], null);
         $this->setIfExists('appraiserFullName', $data ?? [], null);
         $this->setIfExists('staffFullName', $data ?? [], null);
+        $this->setIfExists('campusClassId', $data ?? [], null);
     }
 
     /**
@@ -1050,6 +1057,40 @@ class EvaluationApiEvaluationsV1EvaluationResponse implements ModelInterface, Ar
             }
         }
         $this->container['staffFullName'] = $staffFullName;
+
+        return $this;
+    }
+
+    /**
+     * Gets campusClassId
+     *
+     * @return string|null
+     */
+    public function getCampusClassId()
+    {
+        return $this->container['campusClassId'];
+    }
+
+    /**
+     * Sets campusClassId
+     *
+     * @param string|null $campusClassId campusClassId
+     *
+     * @return self
+     */
+    public function setCampusClassId($campusClassId)
+    {
+        if (is_null($campusClassId)) {
+            array_push($this->openAPINullablesSetToNull, 'campusClassId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campusClassId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['campusClassId'] = $campusClassId;
 
         return $this;
     }

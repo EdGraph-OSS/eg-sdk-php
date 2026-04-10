@@ -8,10 +8,11 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**getApplicationSettings()**](ObservationSettingsApi.md#getApplicationSettings) | **GET** /tenants/{tenantId}/observations/settings/application | Gets the application settings for the tenant |
 | [**getPaginatedForms()**](ObservationSettingsApi.md#getPaginatedForms) | **GET** /tenants/{tenantId}/observations/forms | Get Paginated Forms |
 | [**getPaginatedPersonas()**](ObservationSettingsApi.md#getPaginatedPersonas) | **GET** /tenants/{tenantId}/observations/settings/personas | Gets available personas |
-| [**getPaginatedStaffClassifications()**](ObservationSettingsApi.md#getPaginatedStaffClassifications) | **GET** /tenants/{tenantId}/observations/settings/available-staffclassifications | Get Paginated Available Forms |
+| [**getPaginatedStaffClassifications()**](ObservationSettingsApi.md#getPaginatedStaffClassifications) | **GET** /tenants/{tenantId}/observations/settings/available-staffclassifications | Get Paginated Available StaffClassifications |
 | [**getStaffClassificationsSettings()**](ObservationSettingsApi.md#getStaffClassificationsSettings) | **GET** /tenants/{tenantId}/observations/settings/staffclassifications | Gets the staffClassification settings for the tenant |
 | [**setApplicationSettings()**](ObservationSettingsApi.md#setApplicationSettings) | **POST** /tenants/{tenantId}/observations/settings/application | Sets the Application Settings of an Observation for a given Tenant |
 | [**setRolePersonasSettings()**](ObservationSettingsApi.md#setRolePersonasSettings) | **POST** /tenants/{tenantId}/observations/settings/rolepersonas | Updates personas assigned to a role configuration of the tenants setting |
+| [**verifySysAdminCredentials()**](ObservationSettingsApi.md#verifySysAdminCredentials) | **GET** /tenants/{tenantId}/observations/settings/verify-credentials | Gets the staffClassification settings for the tenant |
 
 
 ## `addAvailablePersona()`
@@ -262,7 +263,7 @@ try {
 getPaginatedStaffClassifications($tenantId, $pageIndex, $pageSize, $orderBy, $filter): \EdGraph\PlatformClient\Model\IdentityApiStaffClassificationV1GetStaffClassificationsResponse
 ```
 
-Get Paginated Available Forms
+Get Paginated Available StaffClassifications
 
 ### Example
 
@@ -494,6 +495,64 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `verifySysAdminCredentials()`
+
+```php
+verifySysAdminCredentials($tenantId): object
+```
+
+Gets the staffClassification settings for the tenant
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\ObservationSettingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+
+try {
+    $result = $apiInstance->verifySysAdminCredentials($tenantId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ObservationSettingsApi->verifySysAdminCredentials: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+
+### Return type
+
+**object**
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

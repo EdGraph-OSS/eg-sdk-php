@@ -63,7 +63,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationReques
         'observerId' => 'string',
         'evalueeId' => 'string',
         'formId' => 'string',
-        'formVersion' => 'string'
+        'formVersion' => 'string',
+        'campusClassId' => 'string'
     ];
 
     /**
@@ -80,7 +81,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationReques
         'observerId' => null,
         'evalueeId' => null,
         'formId' => null,
-        'formVersion' => null
+        'formVersion' => null,
+        'campusClassId' => null
     ];
 
     /**
@@ -95,7 +97,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationReques
         'observerId' => true,
         'evalueeId' => true,
         'formId' => true,
-        'formVersion' => true
+        'formVersion' => true,
+        'campusClassId' => true
     ];
 
     /**
@@ -190,7 +193,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationReques
         'observerId' => 'observerId',
         'evalueeId' => 'evalueeId',
         'formId' => 'formId',
-        'formVersion' => 'formVersion'
+        'formVersion' => 'formVersion',
+        'campusClassId' => 'campusClassId'
     ];
 
     /**
@@ -205,7 +209,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationReques
         'observerId' => 'setObserverId',
         'evalueeId' => 'setEvalueeId',
         'formId' => 'setFormId',
-        'formVersion' => 'setFormVersion'
+        'formVersion' => 'setFormVersion',
+        'campusClassId' => 'setCampusClassId'
     ];
 
     /**
@@ -220,7 +225,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationReques
         'observerId' => 'getObserverId',
         'evalueeId' => 'getEvalueeId',
         'formId' => 'getFormId',
-        'formVersion' => 'getFormVersion'
+        'formVersion' => 'getFormVersion',
+        'campusClassId' => 'getCampusClassId'
     ];
 
     /**
@@ -287,6 +293,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationReques
         $this->setIfExists('evalueeId', $data ?? [], null);
         $this->setIfExists('formId', $data ?? [], null);
         $this->setIfExists('formVersion', $data ?? [], null);
+        $this->setIfExists('campusClassId', $data ?? [], null);
     }
 
     /**
@@ -565,6 +572,40 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationReques
             }
         }
         $this->container['formVersion'] = $formVersion;
+
+        return $this;
+    }
+
+    /**
+     * Gets campusClassId
+     *
+     * @return string|null
+     */
+    public function getCampusClassId()
+    {
+        return $this->container['campusClassId'];
+    }
+
+    /**
+     * Sets campusClassId
+     *
+     * @param string|null $campusClassId campusClassId
+     *
+     * @return self
+     */
+    public function setCampusClassId($campusClassId)
+    {
+        if (is_null($campusClassId)) {
+            array_push($this->openAPINullablesSetToNull, 'campusClassId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campusClassId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['campusClassId'] = $campusClassId;
 
         return $this;
     }

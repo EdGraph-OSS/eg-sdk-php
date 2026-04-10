@@ -1,6 +1,6 @@
 <?php
 /**
- * EvaluationApiEvaluationsV1CreateEvaluationRequest
+ * EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \EdGraph\PlatformClient\ObjectSerializer;
 
 /**
- * EvaluationApiEvaluationsV1CreateEvaluationRequest Class Doc Comment
+ * EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest Class Doc Comment
  *
  * @category Class
  * @package  EdGraph\PlatformClient
@@ -40,7 +40,7 @@ use \EdGraph\PlatformClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EvaluationApiEvaluationsV1CreateEvaluationRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EvaluationApiEvaluationsV1CreateEvaluationRequest implements ModelInterfac
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EvaluationApi.Evaluations.V1.CreateEvaluationRequest';
+    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.UpdateObservationRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,9 @@ class EvaluationApiEvaluationsV1CreateEvaluationRequest implements ModelInterfac
       */
     protected static $openAPITypes = [
         'tenantId' => 'string',
-        'evaluationDate' => 'string',
-        'campus' => 'string',
-        'appraiserUserId' => 'string',
-        'staffUserId' => 'string',
-        'formId' => 'string',
-        'formVersion' => 'string',
-        'campusClassId' => 'string'
+        'observationId' => 'string',
+        'observationDate' => 'string',
+        'formId' => 'string'
     ];
 
     /**
@@ -76,13 +72,9 @@ class EvaluationApiEvaluationsV1CreateEvaluationRequest implements ModelInterfac
       */
     protected static $openAPIFormats = [
         'tenantId' => null,
-        'evaluationDate' => null,
-        'campus' => null,
-        'appraiserUserId' => null,
-        'staffUserId' => null,
-        'formId' => null,
-        'formVersion' => null,
-        'campusClassId' => null
+        'observationId' => null,
+        'observationDate' => null,
+        'formId' => null
     ];
 
     /**
@@ -92,13 +84,9 @@ class EvaluationApiEvaluationsV1CreateEvaluationRequest implements ModelInterfac
       */
     protected static array $openAPINullables = [
         'tenantId' => true,
-        'evaluationDate' => true,
-        'campus' => true,
-        'appraiserUserId' => true,
-        'staffUserId' => true,
-        'formId' => true,
-        'formVersion' => true,
-        'campusClassId' => true
+        'observationId' => true,
+        'observationDate' => true,
+        'formId' => true
     ];
 
     /**
@@ -188,13 +176,9 @@ class EvaluationApiEvaluationsV1CreateEvaluationRequest implements ModelInterfac
      */
     protected static $attributeMap = [
         'tenantId' => 'tenantId',
-        'evaluationDate' => 'evaluationDate',
-        'campus' => 'campus',
-        'appraiserUserId' => 'appraiserUserId',
-        'staffUserId' => 'staffUserId',
-        'formId' => 'formId',
-        'formVersion' => 'formVersion',
-        'campusClassId' => 'campusClassId'
+        'observationId' => 'observationId',
+        'observationDate' => 'observationDate',
+        'formId' => 'formId'
     ];
 
     /**
@@ -204,13 +188,9 @@ class EvaluationApiEvaluationsV1CreateEvaluationRequest implements ModelInterfac
      */
     protected static $setters = [
         'tenantId' => 'setTenantId',
-        'evaluationDate' => 'setEvaluationDate',
-        'campus' => 'setCampus',
-        'appraiserUserId' => 'setAppraiserUserId',
-        'staffUserId' => 'setStaffUserId',
-        'formId' => 'setFormId',
-        'formVersion' => 'setFormVersion',
-        'campusClassId' => 'setCampusClassId'
+        'observationId' => 'setObservationId',
+        'observationDate' => 'setObservationDate',
+        'formId' => 'setFormId'
     ];
 
     /**
@@ -220,13 +200,9 @@ class EvaluationApiEvaluationsV1CreateEvaluationRequest implements ModelInterfac
      */
     protected static $getters = [
         'tenantId' => 'getTenantId',
-        'evaluationDate' => 'getEvaluationDate',
-        'campus' => 'getCampus',
-        'appraiserUserId' => 'getAppraiserUserId',
-        'staffUserId' => 'getStaffUserId',
-        'formId' => 'getFormId',
-        'formVersion' => 'getFormVersion',
-        'campusClassId' => 'getCampusClassId'
+        'observationId' => 'getObservationId',
+        'observationDate' => 'getObservationDate',
+        'formId' => 'getFormId'
     ];
 
     /**
@@ -287,13 +263,9 @@ class EvaluationApiEvaluationsV1CreateEvaluationRequest implements ModelInterfac
     public function __construct(array $data = null)
     {
         $this->setIfExists('tenantId', $data ?? [], null);
-        $this->setIfExists('evaluationDate', $data ?? [], null);
-        $this->setIfExists('campus', $data ?? [], null);
-        $this->setIfExists('appraiserUserId', $data ?? [], null);
-        $this->setIfExists('staffUserId', $data ?? [], null);
+        $this->setIfExists('observationId', $data ?? [], null);
+        $this->setIfExists('observationDate', $data ?? [], null);
         $this->setIfExists('formId', $data ?? [], null);
-        $this->setIfExists('formVersion', $data ?? [], null);
-        $this->setIfExists('campusClassId', $data ?? [], null);
     }
 
     /**
@@ -373,137 +345,69 @@ class EvaluationApiEvaluationsV1CreateEvaluationRequest implements ModelInterfac
     }
 
     /**
-     * Gets evaluationDate
+     * Gets observationId
      *
      * @return string|null
      */
-    public function getEvaluationDate()
+    public function getObservationId()
     {
-        return $this->container['evaluationDate'];
+        return $this->container['observationId'];
     }
 
     /**
-     * Sets evaluationDate
+     * Sets observationId
      *
-     * @param string|null $evaluationDate evaluationDate
+     * @param string|null $observationId observationId
      *
      * @return self
      */
-    public function setEvaluationDate($evaluationDate)
+    public function setObservationId($observationId)
     {
-        if (is_null($evaluationDate)) {
-            array_push($this->openAPINullablesSetToNull, 'evaluationDate');
+        if (is_null($observationId)) {
+            array_push($this->openAPINullablesSetToNull, 'observationId');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('evaluationDate', $nullablesSetToNull);
+            $index = array_search('observationId', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['evaluationDate'] = $evaluationDate;
+        $this->container['observationId'] = $observationId;
 
         return $this;
     }
 
     /**
-     * Gets campus
+     * Gets observationDate
      *
      * @return string|null
      */
-    public function getCampus()
+    public function getObservationDate()
     {
-        return $this->container['campus'];
+        return $this->container['observationDate'];
     }
 
     /**
-     * Sets campus
+     * Sets observationDate
      *
-     * @param string|null $campus campus
+     * @param string|null $observationDate observationDate
      *
      * @return self
      */
-    public function setCampus($campus)
+    public function setObservationDate($observationDate)
     {
-        if (is_null($campus)) {
-            array_push($this->openAPINullablesSetToNull, 'campus');
+        if (is_null($observationDate)) {
+            array_push($this->openAPINullablesSetToNull, 'observationDate');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('campus', $nullablesSetToNull);
+            $index = array_search('observationDate', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['campus'] = $campus;
-
-        return $this;
-    }
-
-    /**
-     * Gets appraiserUserId
-     *
-     * @return string|null
-     */
-    public function getAppraiserUserId()
-    {
-        return $this->container['appraiserUserId'];
-    }
-
-    /**
-     * Sets appraiserUserId
-     *
-     * @param string|null $appraiserUserId appraiserUserId
-     *
-     * @return self
-     */
-    public function setAppraiserUserId($appraiserUserId)
-    {
-        if (is_null($appraiserUserId)) {
-            array_push($this->openAPINullablesSetToNull, 'appraiserUserId');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('appraiserUserId', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['appraiserUserId'] = $appraiserUserId;
-
-        return $this;
-    }
-
-    /**
-     * Gets staffUserId
-     *
-     * @return string|null
-     */
-    public function getStaffUserId()
-    {
-        return $this->container['staffUserId'];
-    }
-
-    /**
-     * Sets staffUserId
-     *
-     * @param string|null $staffUserId staffUserId
-     *
-     * @return self
-     */
-    public function setStaffUserId($staffUserId)
-    {
-        if (is_null($staffUserId)) {
-            array_push($this->openAPINullablesSetToNull, 'staffUserId');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('staffUserId', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['staffUserId'] = $staffUserId;
+        $this->container['observationDate'] = $observationDate;
 
         return $this;
     }
@@ -538,74 +442,6 @@ class EvaluationApiEvaluationsV1CreateEvaluationRequest implements ModelInterfac
             }
         }
         $this->container['formId'] = $formId;
-
-        return $this;
-    }
-
-    /**
-     * Gets formVersion
-     *
-     * @return string|null
-     */
-    public function getFormVersion()
-    {
-        return $this->container['formVersion'];
-    }
-
-    /**
-     * Sets formVersion
-     *
-     * @param string|null $formVersion formVersion
-     *
-     * @return self
-     */
-    public function setFormVersion($formVersion)
-    {
-        if (is_null($formVersion)) {
-            array_push($this->openAPINullablesSetToNull, 'formVersion');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('formVersion', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['formVersion'] = $formVersion;
-
-        return $this;
-    }
-
-    /**
-     * Gets campusClassId
-     *
-     * @return string|null
-     */
-    public function getCampusClassId()
-    {
-        return $this->container['campusClassId'];
-    }
-
-    /**
-     * Sets campusClassId
-     *
-     * @param string|null $campusClassId campusClassId
-     *
-     * @return self
-     */
-    public function setCampusClassId($campusClassId)
-    {
-        if (is_null($campusClassId)) {
-            array_push($this->openAPINullablesSetToNull, 'campusClassId');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('campusClassId', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['campusClassId'] = $campusClassId;
 
         return $this;
     }

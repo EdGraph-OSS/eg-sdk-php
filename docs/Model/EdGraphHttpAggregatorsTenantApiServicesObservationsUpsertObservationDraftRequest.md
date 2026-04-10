@@ -1,13 +1,14 @@
-# # FormApiSubmissionsV1CreateSubmissionRequest
+# # EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **string** |  | [optional]
 **formId** | **string** |  | [optional]
 **tenantId** | **string** |  | [optional]
 **currentStep** | **int** |  | [optional]
 **data** | **string** |  | [optional]
-**evaluationId** | **string** |  | [optional]
+**observationId** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

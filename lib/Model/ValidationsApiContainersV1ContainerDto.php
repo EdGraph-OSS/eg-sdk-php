@@ -69,7 +69,8 @@ class ValidationsApiContainersV1ContainerDto implements ModelInterface, ArrayAcc
         'childContainersCount' => 'int',
         'tags' => '\EdGraph\PlatformClient\Model\ValidationsApiContainersV1ContainerDtoTypesTagDto[]',
         'rulesCount' => 'int',
-        'certificationStatus' => 'string'
+        'certificationStatus' => 'string',
+        'state' => 'string'
     ];
 
     /**
@@ -92,7 +93,8 @@ class ValidationsApiContainersV1ContainerDto implements ModelInterface, ArrayAcc
         'childContainersCount' => 'int32',
         'tags' => null,
         'rulesCount' => 'int32',
-        'certificationStatus' => null
+        'certificationStatus' => null,
+        'state' => null
     ];
 
     /**
@@ -113,7 +115,8 @@ class ValidationsApiContainersV1ContainerDto implements ModelInterface, ArrayAcc
         'childContainersCount' => true,
         'tags' => true,
         'rulesCount' => true,
-        'certificationStatus' => true
+        'certificationStatus' => true,
+        'state' => true
     ];
 
     /**
@@ -214,7 +217,8 @@ class ValidationsApiContainersV1ContainerDto implements ModelInterface, ArrayAcc
         'childContainersCount' => 'childContainersCount',
         'tags' => 'tags',
         'rulesCount' => 'rulesCount',
-        'certificationStatus' => 'certificationStatus'
+        'certificationStatus' => 'certificationStatus',
+        'state' => 'state'
     ];
 
     /**
@@ -235,7 +239,8 @@ class ValidationsApiContainersV1ContainerDto implements ModelInterface, ArrayAcc
         'childContainersCount' => 'setChildContainersCount',
         'tags' => 'setTags',
         'rulesCount' => 'setRulesCount',
-        'certificationStatus' => 'setCertificationStatus'
+        'certificationStatus' => 'setCertificationStatus',
+        'state' => 'setState'
     ];
 
     /**
@@ -256,7 +261,8 @@ class ValidationsApiContainersV1ContainerDto implements ModelInterface, ArrayAcc
         'childContainersCount' => 'getChildContainersCount',
         'tags' => 'getTags',
         'rulesCount' => 'getRulesCount',
-        'certificationStatus' => 'getCertificationStatus'
+        'certificationStatus' => 'getCertificationStatus',
+        'state' => 'getState'
     ];
 
     /**
@@ -329,6 +335,7 @@ class ValidationsApiContainersV1ContainerDto implements ModelInterface, ArrayAcc
         $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('rulesCount', $data ?? [], null);
         $this->setIfExists('certificationStatus', $data ?? [], null);
+        $this->setIfExists('state', $data ?? [], null);
     }
 
     /**
@@ -804,6 +811,40 @@ class ValidationsApiContainersV1ContainerDto implements ModelInterface, ArrayAcc
             }
         }
         $this->container['certificationStatus'] = $certificationStatus;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state state
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        if (is_null($state)) {
+            array_push($this->openAPINullablesSetToNull, 'state');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('state', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['state'] = $state;
 
         return $this;
     }

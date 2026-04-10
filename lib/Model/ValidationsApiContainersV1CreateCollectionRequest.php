@@ -63,7 +63,8 @@ class ValidationsApiContainersV1CreateCollectionRequest implements ModelInterfac
         'environmentType' => 'string',
         'tags' => 'string[]',
         'environmentId' => 'string',
-        'urls' => '\EdGraph\PlatformClient\Model\ValidationsApiContainersV1Url[]'
+        'urls' => '\EdGraph\PlatformClient\Model\ValidationsApiContainersV1Url[]',
+        'state' => 'string'
     ];
 
     /**
@@ -80,7 +81,8 @@ class ValidationsApiContainersV1CreateCollectionRequest implements ModelInterfac
         'environmentType' => null,
         'tags' => null,
         'environmentId' => null,
-        'urls' => null
+        'urls' => null,
+        'state' => null
     ];
 
     /**
@@ -95,7 +97,8 @@ class ValidationsApiContainersV1CreateCollectionRequest implements ModelInterfac
         'environmentType' => true,
         'tags' => true,
         'environmentId' => true,
-        'urls' => true
+        'urls' => true,
+        'state' => true
     ];
 
     /**
@@ -190,7 +193,8 @@ class ValidationsApiContainersV1CreateCollectionRequest implements ModelInterfac
         'environmentType' => 'environmentType',
         'tags' => 'tags',
         'environmentId' => 'environmentId',
-        'urls' => 'urls'
+        'urls' => 'urls',
+        'state' => 'state'
     ];
 
     /**
@@ -205,7 +209,8 @@ class ValidationsApiContainersV1CreateCollectionRequest implements ModelInterfac
         'environmentType' => 'setEnvironmentType',
         'tags' => 'setTags',
         'environmentId' => 'setEnvironmentId',
-        'urls' => 'setUrls'
+        'urls' => 'setUrls',
+        'state' => 'setState'
     ];
 
     /**
@@ -220,7 +225,8 @@ class ValidationsApiContainersV1CreateCollectionRequest implements ModelInterfac
         'environmentType' => 'getEnvironmentType',
         'tags' => 'getTags',
         'environmentId' => 'getEnvironmentId',
-        'urls' => 'getUrls'
+        'urls' => 'getUrls',
+        'state' => 'getState'
     ];
 
     /**
@@ -287,6 +293,7 @@ class ValidationsApiContainersV1CreateCollectionRequest implements ModelInterfac
         $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('environmentId', $data ?? [], null);
         $this->setIfExists('urls', $data ?? [], null);
+        $this->setIfExists('state', $data ?? [], null);
     }
 
     /**
@@ -565,6 +572,40 @@ class ValidationsApiContainersV1CreateCollectionRequest implements ModelInterfac
             }
         }
         $this->container['urls'] = $urls;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state state
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        if (is_null($state)) {
+            array_push($this->openAPINullablesSetToNull, 'state');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('state', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['state'] = $state;
 
         return $this;
     }

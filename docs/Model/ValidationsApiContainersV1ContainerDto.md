@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **tags** | [**\EdGraph\PlatformClient\Model\ValidationsApiContainersV1ContainerDtoTypesTagDto[]**](ValidationsApiContainersV1ContainerDtoTypesTagDto.md) |  | [optional] [readonly]
 **rulesCount** | **int** |  | [optional]
 **certificationStatus** | **string** |  | [optional]
+**state** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

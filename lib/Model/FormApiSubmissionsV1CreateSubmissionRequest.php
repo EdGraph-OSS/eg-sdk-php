@@ -60,7 +60,8 @@ class FormApiSubmissionsV1CreateSubmissionRequest implements ModelInterface, Arr
         'formId' => 'string',
         'tenantId' => 'string',
         'currentStep' => 'int',
-        'data' => 'string'
+        'data' => 'string',
+        'evaluationId' => 'string'
     ];
 
     /**
@@ -74,7 +75,8 @@ class FormApiSubmissionsV1CreateSubmissionRequest implements ModelInterface, Arr
         'formId' => null,
         'tenantId' => null,
         'currentStep' => 'int32',
-        'data' => null
+        'data' => null,
+        'evaluationId' => null
     ];
 
     /**
@@ -86,7 +88,8 @@ class FormApiSubmissionsV1CreateSubmissionRequest implements ModelInterface, Arr
         'formId' => true,
         'tenantId' => true,
         'currentStep' => true,
-        'data' => true
+        'data' => true,
+        'evaluationId' => true
     ];
 
     /**
@@ -178,7 +181,8 @@ class FormApiSubmissionsV1CreateSubmissionRequest implements ModelInterface, Arr
         'formId' => 'formId',
         'tenantId' => 'tenantId',
         'currentStep' => 'currentStep',
-        'data' => 'data'
+        'data' => 'data',
+        'evaluationId' => 'evaluationId'
     ];
 
     /**
@@ -190,7 +194,8 @@ class FormApiSubmissionsV1CreateSubmissionRequest implements ModelInterface, Arr
         'formId' => 'setFormId',
         'tenantId' => 'setTenantId',
         'currentStep' => 'setCurrentStep',
-        'data' => 'setData'
+        'data' => 'setData',
+        'evaluationId' => 'setEvaluationId'
     ];
 
     /**
@@ -202,7 +207,8 @@ class FormApiSubmissionsV1CreateSubmissionRequest implements ModelInterface, Arr
         'formId' => 'getFormId',
         'tenantId' => 'getTenantId',
         'currentStep' => 'getCurrentStep',
-        'data' => 'getData'
+        'data' => 'getData',
+        'evaluationId' => 'getEvaluationId'
     ];
 
     /**
@@ -266,6 +272,7 @@ class FormApiSubmissionsV1CreateSubmissionRequest implements ModelInterface, Arr
         $this->setIfExists('tenantId', $data ?? [], null);
         $this->setIfExists('currentStep', $data ?? [], null);
         $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('evaluationId', $data ?? [], null);
     }
 
     /**
@@ -442,6 +449,40 @@ class FormApiSubmissionsV1CreateSubmissionRequest implements ModelInterface, Arr
             }
         }
         $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets evaluationId
+     *
+     * @return string|null
+     */
+    public function getEvaluationId()
+    {
+        return $this->container['evaluationId'];
+    }
+
+    /**
+     * Sets evaluationId
+     *
+     * @param string|null $evaluationId evaluationId
+     *
+     * @return self
+     */
+    public function setEvaluationId($evaluationId)
+    {
+        if (is_null($evaluationId)) {
+            array_push($this->openAPINullablesSetToNull, 'evaluationId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('evaluationId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['evaluationId'] = $evaluationId;
 
         return $this;
     }

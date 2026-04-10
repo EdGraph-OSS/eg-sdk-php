@@ -62,7 +62,8 @@ class ValidationsApiContainersV1UpdateCollectionRequest implements ModelInterfac
         'name' => 'string',
         'description' => 'string',
         'environmentType' => 'string',
-        'tags' => 'string[]'
+        'tags' => 'string[]',
+        'state' => 'string'
     ];
 
     /**
@@ -78,7 +79,8 @@ class ValidationsApiContainersV1UpdateCollectionRequest implements ModelInterfac
         'name' => null,
         'description' => null,
         'environmentType' => null,
-        'tags' => null
+        'tags' => null,
+        'state' => null
     ];
 
     /**
@@ -92,7 +94,8 @@ class ValidationsApiContainersV1UpdateCollectionRequest implements ModelInterfac
         'name' => true,
         'description' => true,
         'environmentType' => true,
-        'tags' => true
+        'tags' => true,
+        'state' => true
     ];
 
     /**
@@ -186,7 +189,8 @@ class ValidationsApiContainersV1UpdateCollectionRequest implements ModelInterfac
         'name' => 'name',
         'description' => 'description',
         'environmentType' => 'environmentType',
-        'tags' => 'tags'
+        'tags' => 'tags',
+        'state' => 'state'
     ];
 
     /**
@@ -200,7 +204,8 @@ class ValidationsApiContainersV1UpdateCollectionRequest implements ModelInterfac
         'name' => 'setName',
         'description' => 'setDescription',
         'environmentType' => 'setEnvironmentType',
-        'tags' => 'setTags'
+        'tags' => 'setTags',
+        'state' => 'setState'
     ];
 
     /**
@@ -214,7 +219,8 @@ class ValidationsApiContainersV1UpdateCollectionRequest implements ModelInterfac
         'name' => 'getName',
         'description' => 'getDescription',
         'environmentType' => 'getEnvironmentType',
-        'tags' => 'getTags'
+        'tags' => 'getTags',
+        'state' => 'getState'
     ];
 
     /**
@@ -280,6 +286,7 @@ class ValidationsApiContainersV1UpdateCollectionRequest implements ModelInterfac
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('environmentType', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
+        $this->setIfExists('state', $data ?? [], null);
     }
 
     /**
@@ -524,6 +531,40 @@ class ValidationsApiContainersV1UpdateCollectionRequest implements ModelInterfac
             }
         }
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state state
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        if (is_null($state)) {
+            array_push($this->openAPINullablesSetToNull, 'state');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('state', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['state'] = $state;
 
         return $this;
     }
