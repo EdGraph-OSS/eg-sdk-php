@@ -328,7 +328,7 @@ try {
 ## `getObservationSubmission()`
 
 ```php
-getObservationSubmission($tenantId, $observationId, $formId): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponseGetPaginatedItemsResponse
+getObservationSubmission($tenantId, $observationId, $formId): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponse
 ```
 
 Gets a submission for a specific observation
@@ -372,7 +372,7 @@ try {
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponseGetPaginatedItemsResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponseGetPaginatedItemsResponse.md)
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponse.md)
 
 ### Authorization
 
