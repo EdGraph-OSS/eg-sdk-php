@@ -1,6 +1,6 @@
 <?php
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse
+ * IdentityApiInstructionalInsightsV1CreateInstructionalInsightsSecuritySyncJobRequest
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \EdGraph\PlatformClient\ObjectSerializer;
 
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse Class Doc Comment
+ * IdentityApiInstructionalInsightsV1CreateInstructionalInsightsSecuritySyncJobRequest Class Doc Comment
  *
  * @category Class
  * @package  EdGraph\PlatformClient
@@ -40,7 +40,7 @@ use \EdGraph\PlatformClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class IdentityApiInstructionalInsightsV1CreateInstructionalInsightsSecuritySyncJobRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.FormResponse';
+    protected static $openAPIModelName = 'IdentityApi.InstructionalInsights.V1.CreateInstructionalInsightsSecuritySyncJobRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,13 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'version' => 'string',
         'tenantId' => 'string',
-        'description' => 'string',
-        'source' => 'string',
-        'image' => 'string',
-        'isDeleted' => 'bool'
+        'jobId' => 'string',
+        'name' => 'string',
+        'input' => '\EdGraph\PlatformClient\Model\IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage',
+        'schedule' => '\EdGraph\PlatformClient\Model\IdentityApiInstructionalInsightsV1ScheduleMessage',
+        'retryPolicy' => '\EdGraph\PlatformClient\Model\IdentityApiInstructionalInsightsV1RetryPolicyMessage',
+        'callbackNotifications' => '\EdGraph\PlatformClient\Model\IdentityApiInstructionalInsightsV1CallbackNotificationMessage[]'
     ];
 
     /**
@@ -75,14 +74,13 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'version' => null,
         'tenantId' => null,
-        'description' => null,
-        'source' => null,
-        'image' => null,
-        'isDeleted' => null
+        'jobId' => null,
+        'name' => null,
+        'input' => null,
+        'schedule' => null,
+        'retryPolicy' => null,
+        'callbackNotifications' => null
     ];
 
     /**
@@ -91,14 +89,13 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
-        'name' => true,
-        'version' => true,
         'tenantId' => true,
-        'description' => true,
-        'source' => true,
-        'image' => true,
-        'isDeleted' => false
+        'jobId' => true,
+        'name' => true,
+        'input' => false,
+        'schedule' => false,
+        'retryPolicy' => false,
+        'callbackNotifications' => true
     ];
 
     /**
@@ -187,14 +184,13 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'version' => 'version',
         'tenantId' => 'tenantId',
-        'description' => 'description',
-        'source' => 'source',
-        'image' => 'image',
-        'isDeleted' => 'isDeleted'
+        'jobId' => 'jobId',
+        'name' => 'name',
+        'input' => 'input',
+        'schedule' => 'schedule',
+        'retryPolicy' => 'retryPolicy',
+        'callbackNotifications' => 'callbackNotifications'
     ];
 
     /**
@@ -203,14 +199,13 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'version' => 'setVersion',
         'tenantId' => 'setTenantId',
-        'description' => 'setDescription',
-        'source' => 'setSource',
-        'image' => 'setImage',
-        'isDeleted' => 'setIsDeleted'
+        'jobId' => 'setJobId',
+        'name' => 'setName',
+        'input' => 'setInput',
+        'schedule' => 'setSchedule',
+        'retryPolicy' => 'setRetryPolicy',
+        'callbackNotifications' => 'setCallbackNotifications'
     ];
 
     /**
@@ -219,14 +214,13 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'version' => 'getVersion',
         'tenantId' => 'getTenantId',
-        'description' => 'getDescription',
-        'source' => 'getSource',
-        'image' => 'getImage',
-        'isDeleted' => 'getIsDeleted'
+        'jobId' => 'getJobId',
+        'name' => 'getName',
+        'input' => 'getInput',
+        'schedule' => 'getSchedule',
+        'retryPolicy' => 'getRetryPolicy',
+        'callbackNotifications' => 'getCallbackNotifications'
     ];
 
     /**
@@ -286,14 +280,13 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('version', $data ?? [], null);
         $this->setIfExists('tenantId', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('source', $data ?? [], null);
-        $this->setIfExists('image', $data ?? [], null);
-        $this->setIfExists('isDeleted', $data ?? [], null);
+        $this->setIfExists('jobId', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('input', $data ?? [], null);
+        $this->setIfExists('schedule', $data ?? [], null);
+        $this->setIfExists('retryPolicy', $data ?? [], null);
+        $this->setIfExists('callbackNotifications', $data ?? [], null);
     }
 
     /**
@@ -339,35 +332,69 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
 
 
     /**
-     * Gets id
+     * Gets tenantId
      *
      * @return string|null
      */
-    public function getId()
+    public function getTenantId()
     {
-        return $this->container['id'];
+        return $this->container['tenantId'];
     }
 
     /**
-     * Sets id
+     * Sets tenantId
      *
-     * @param string|null $id id
+     * @param string|null $tenantId tenantId
      *
      * @return self
      */
-    public function setId($id)
+    public function setTenantId($tenantId)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($tenantId)) {
+            array_push($this->openAPINullablesSetToNull, 'tenantId');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('tenantId', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
+        $this->container['tenantId'] = $tenantId;
+
+        return $this;
+    }
+
+    /**
+     * Gets jobId
+     *
+     * @return string|null
+     */
+    public function getJobId()
+    {
+        return $this->container['jobId'];
+    }
+
+    /**
+     * Sets jobId
+     *
+     * @param string|null $jobId jobId
+     *
+     * @return self
+     */
+    public function setJobId($jobId)
+    {
+        if (is_null($jobId)) {
+            array_push($this->openAPINullablesSetToNull, 'jobId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('jobId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['jobId'] = $jobId;
 
         return $this;
     }
@@ -407,198 +434,116 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
     }
 
     /**
-     * Gets version
+     * Gets input
      *
-     * @return string|null
+     * @return \EdGraph\PlatformClient\Model\IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage|null
      */
-    public function getVersion()
+    public function getInput()
     {
-        return $this->container['version'];
+        return $this->container['input'];
     }
 
     /**
-     * Sets version
+     * Sets input
      *
-     * @param string|null $version version
+     * @param \EdGraph\PlatformClient\Model\IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage|null $input input
      *
      * @return self
      */
-    public function setVersion($version)
+    public function setInput($input)
     {
-        if (is_null($version)) {
-            array_push($this->openAPINullablesSetToNull, 'version');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('version', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($input)) {
+            throw new \InvalidArgumentException('non-nullable input cannot be null');
         }
-        $this->container['version'] = $version;
+        $this->container['input'] = $input;
 
         return $this;
     }
 
     /**
-     * Gets tenantId
+     * Gets schedule
      *
-     * @return string|null
+     * @return \EdGraph\PlatformClient\Model\IdentityApiInstructionalInsightsV1ScheduleMessage|null
      */
-    public function getTenantId()
+    public function getSchedule()
     {
-        return $this->container['tenantId'];
+        return $this->container['schedule'];
     }
 
     /**
-     * Sets tenantId
+     * Sets schedule
      *
-     * @param string|null $tenantId tenantId
+     * @param \EdGraph\PlatformClient\Model\IdentityApiInstructionalInsightsV1ScheduleMessage|null $schedule schedule
      *
      * @return self
      */
-    public function setTenantId($tenantId)
+    public function setSchedule($schedule)
     {
-        if (is_null($tenantId)) {
-            array_push($this->openAPINullablesSetToNull, 'tenantId');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenantId', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($schedule)) {
+            throw new \InvalidArgumentException('non-nullable schedule cannot be null');
         }
-        $this->container['tenantId'] = $tenantId;
+        $this->container['schedule'] = $schedule;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets retryPolicy
      *
-     * @return string|null
+     * @return \EdGraph\PlatformClient\Model\IdentityApiInstructionalInsightsV1RetryPolicyMessage|null
      */
-    public function getDescription()
+    public function getRetryPolicy()
     {
-        return $this->container['description'];
+        return $this->container['retryPolicy'];
     }
 
     /**
-     * Sets description
+     * Sets retryPolicy
      *
-     * @param string|null $description description
+     * @param \EdGraph\PlatformClient\Model\IdentityApiInstructionalInsightsV1RetryPolicyMessage|null $retryPolicy retryPolicy
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setRetryPolicy($retryPolicy)
     {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($retryPolicy)) {
+            throw new \InvalidArgumentException('non-nullable retryPolicy cannot be null');
         }
-        $this->container['description'] = $description;
+        $this->container['retryPolicy'] = $retryPolicy;
 
         return $this;
     }
 
     /**
-     * Gets source
+     * Gets callbackNotifications
      *
-     * @return string|null
+     * @return \EdGraph\PlatformClient\Model\IdentityApiInstructionalInsightsV1CallbackNotificationMessage[]|null
      */
-    public function getSource()
+    public function getCallbackNotifications()
     {
-        return $this->container['source'];
+        return $this->container['callbackNotifications'];
     }
 
     /**
-     * Sets source
+     * Sets callbackNotifications
      *
-     * @param string|null $source source
+     * @param \EdGraph\PlatformClient\Model\IdentityApiInstructionalInsightsV1CallbackNotificationMessage[]|null $callbackNotifications callbackNotifications
      *
      * @return self
      */
-    public function setSource($source)
+    public function setCallbackNotifications($callbackNotifications)
     {
-        if (is_null($source)) {
-            array_push($this->openAPINullablesSetToNull, 'source');
+        if (is_null($callbackNotifications)) {
+            array_push($this->openAPINullablesSetToNull, 'callbackNotifications');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('source', $nullablesSetToNull);
+            $index = array_search('callbackNotifications', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets image
-     *
-     * @return string|null
-     */
-    public function getImage()
-    {
-        return $this->container['image'];
-    }
-
-    /**
-     * Sets image
-     *
-     * @param string|null $image image
-     *
-     * @return self
-     */
-    public function setImage($image)
-    {
-        if (is_null($image)) {
-            array_push($this->openAPINullablesSetToNull, 'image');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['image'] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Gets isDeleted
-     *
-     * @return bool|null
-     */
-    public function getIsDeleted()
-    {
-        return $this->container['isDeleted'];
-    }
-
-    /**
-     * Sets isDeleted
-     *
-     * @param bool|null $isDeleted isDeleted
-     *
-     * @return self
-     */
-    public function setIsDeleted($isDeleted)
-    {
-        if (is_null($isDeleted)) {
-            throw new \InvalidArgumentException('non-nullable isDeleted cannot be null');
-        }
-        $this->container['isDeleted'] = $isDeleted;
+        $this->container['callbackNotifications'] = $callbackNotifications;
 
         return $this;
     }

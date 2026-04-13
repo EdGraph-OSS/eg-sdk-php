@@ -1,6 +1,6 @@
 <?php
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse
+ * IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \EdGraph\PlatformClient\ObjectSerializer;
 
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse Class Doc Comment
+ * IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage Class Doc Comment
  *
  * @category Class
  * @package  EdGraph\PlatformClient
@@ -40,7 +40,7 @@ use \EdGraph\PlatformClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.FormResponse';
+    protected static $openAPIModelName = 'IdentityApi.InstructionalInsights.V1.InstructionalInsightsSecuritySyncJobInputMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'version' => 'string',
-        'tenantId' => 'string',
-        'description' => 'string',
-        'source' => 'string',
-        'image' => 'string',
-        'isDeleted' => 'bool'
+        'tenant' => 'string',
+        'pageSize' => 'int',
+        'orderBy' => 'string',
+        'filter' => 'string',
+        'loadBatchSize' => 'int',
+        'loadBatchThrottle' => 'string'
     ];
 
     /**
@@ -75,14 +73,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'version' => null,
-        'tenantId' => null,
-        'description' => null,
-        'source' => null,
-        'image' => null,
-        'isDeleted' => null
+        'tenant' => null,
+        'pageSize' => 'int32',
+        'orderBy' => null,
+        'filter' => null,
+        'loadBatchSize' => 'int32',
+        'loadBatchThrottle' => null
     ];
 
     /**
@@ -91,14 +87,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
-        'name' => true,
-        'version' => true,
-        'tenantId' => true,
-        'description' => true,
-        'source' => true,
-        'image' => true,
-        'isDeleted' => false
+        'tenant' => true,
+        'pageSize' => true,
+        'orderBy' => true,
+        'filter' => true,
+        'loadBatchSize' => true,
+        'loadBatchThrottle' => true
     ];
 
     /**
@@ -187,14 +181,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'version' => 'version',
-        'tenantId' => 'tenantId',
-        'description' => 'description',
-        'source' => 'source',
-        'image' => 'image',
-        'isDeleted' => 'isDeleted'
+        'tenant' => 'tenant',
+        'pageSize' => 'pageSize',
+        'orderBy' => 'orderBy',
+        'filter' => 'filter',
+        'loadBatchSize' => 'loadBatchSize',
+        'loadBatchThrottle' => 'loadBatchThrottle'
     ];
 
     /**
@@ -203,14 +195,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'version' => 'setVersion',
-        'tenantId' => 'setTenantId',
-        'description' => 'setDescription',
-        'source' => 'setSource',
-        'image' => 'setImage',
-        'isDeleted' => 'setIsDeleted'
+        'tenant' => 'setTenant',
+        'pageSize' => 'setPageSize',
+        'orderBy' => 'setOrderBy',
+        'filter' => 'setFilter',
+        'loadBatchSize' => 'setLoadBatchSize',
+        'loadBatchThrottle' => 'setLoadBatchThrottle'
     ];
 
     /**
@@ -219,14 +209,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'version' => 'getVersion',
-        'tenantId' => 'getTenantId',
-        'description' => 'getDescription',
-        'source' => 'getSource',
-        'image' => 'getImage',
-        'isDeleted' => 'getIsDeleted'
+        'tenant' => 'getTenant',
+        'pageSize' => 'getPageSize',
+        'orderBy' => 'getOrderBy',
+        'filter' => 'getFilter',
+        'loadBatchSize' => 'getLoadBatchSize',
+        'loadBatchThrottle' => 'getLoadBatchThrottle'
     ];
 
     /**
@@ -286,14 +274,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('version', $data ?? [], null);
-        $this->setIfExists('tenantId', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('source', $data ?? [], null);
-        $this->setIfExists('image', $data ?? [], null);
-        $this->setIfExists('isDeleted', $data ?? [], null);
+        $this->setIfExists('tenant', $data ?? [], null);
+        $this->setIfExists('pageSize', $data ?? [], null);
+        $this->setIfExists('orderBy', $data ?? [], null);
+        $this->setIfExists('filter', $data ?? [], null);
+        $this->setIfExists('loadBatchSize', $data ?? [], null);
+        $this->setIfExists('loadBatchThrottle', $data ?? [], null);
     }
 
     /**
@@ -339,266 +325,205 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
 
 
     /**
-     * Gets id
+     * Gets tenant
      *
      * @return string|null
      */
-    public function getId()
+    public function getTenant()
     {
-        return $this->container['id'];
+        return $this->container['tenant'];
     }
 
     /**
-     * Sets id
+     * Sets tenant
      *
-     * @param string|null $id id
+     * @param string|null $tenant tenant
      *
      * @return self
      */
-    public function setId($id)
+    public function setTenant($tenant)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($tenant)) {
+            array_push($this->openAPINullablesSetToNull, 'tenant');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('tenant', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
+        $this->container['tenant'] = $tenant;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets pageSize
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getName()
+    public function getPageSize()
     {
-        return $this->container['name'];
+        return $this->container['pageSize'];
     }
 
     /**
-     * Sets name
+     * Sets pageSize
      *
-     * @param string|null $name name
+     * @param int|null $pageSize pageSize
      *
      * @return self
      */
-    public function setName($name)
+    public function setPageSize($pageSize)
     {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
+        if (is_null($pageSize)) {
+            array_push($this->openAPINullablesSetToNull, 'pageSize');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
+            $index = array_search('pageSize', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['name'] = $name;
+        $this->container['pageSize'] = $pageSize;
 
         return $this;
     }
 
     /**
-     * Gets version
+     * Gets orderBy
      *
      * @return string|null
      */
-    public function getVersion()
+    public function getOrderBy()
     {
-        return $this->container['version'];
+        return $this->container['orderBy'];
     }
 
     /**
-     * Sets version
+     * Sets orderBy
      *
-     * @param string|null $version version
+     * @param string|null $orderBy orderBy
      *
      * @return self
      */
-    public function setVersion($version)
+    public function setOrderBy($orderBy)
     {
-        if (is_null($version)) {
-            array_push($this->openAPINullablesSetToNull, 'version');
+        if (is_null($orderBy)) {
+            array_push($this->openAPINullablesSetToNull, 'orderBy');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('version', $nullablesSetToNull);
+            $index = array_search('orderBy', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['version'] = $version;
+        $this->container['orderBy'] = $orderBy;
 
         return $this;
     }
 
     /**
-     * Gets tenantId
+     * Gets filter
      *
      * @return string|null
      */
-    public function getTenantId()
+    public function getFilter()
     {
-        return $this->container['tenantId'];
+        return $this->container['filter'];
     }
 
     /**
-     * Sets tenantId
+     * Sets filter
      *
-     * @param string|null $tenantId tenantId
+     * @param string|null $filter filter
      *
      * @return self
      */
-    public function setTenantId($tenantId)
+    public function setFilter($filter)
     {
-        if (is_null($tenantId)) {
-            array_push($this->openAPINullablesSetToNull, 'tenantId');
+        if (is_null($filter)) {
+            array_push($this->openAPINullablesSetToNull, 'filter');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenantId', $nullablesSetToNull);
+            $index = array_search('filter', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['tenantId'] = $tenantId;
+        $this->container['filter'] = $filter;
 
         return $this;
     }
 
     /**
-     * Gets description
+     * Gets loadBatchSize
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getDescription()
+    public function getLoadBatchSize()
     {
-        return $this->container['description'];
+        return $this->container['loadBatchSize'];
     }
 
     /**
-     * Sets description
+     * Sets loadBatchSize
      *
-     * @param string|null $description description
+     * @param int|null $loadBatchSize loadBatchSize
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setLoadBatchSize($loadBatchSize)
     {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
+        if (is_null($loadBatchSize)) {
+            array_push($this->openAPINullablesSetToNull, 'loadBatchSize');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
+            $index = array_search('loadBatchSize', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['description'] = $description;
+        $this->container['loadBatchSize'] = $loadBatchSize;
 
         return $this;
     }
 
     /**
-     * Gets source
+     * Gets loadBatchThrottle
      *
      * @return string|null
      */
-    public function getSource()
+    public function getLoadBatchThrottle()
     {
-        return $this->container['source'];
+        return $this->container['loadBatchThrottle'];
     }
 
     /**
-     * Sets source
+     * Sets loadBatchThrottle
      *
-     * @param string|null $source source
+     * @param string|null $loadBatchThrottle loadBatchThrottle
      *
      * @return self
      */
-    public function setSource($source)
+    public function setLoadBatchThrottle($loadBatchThrottle)
     {
-        if (is_null($source)) {
-            array_push($this->openAPINullablesSetToNull, 'source');
+        if (is_null($loadBatchThrottle)) {
+            array_push($this->openAPINullablesSetToNull, 'loadBatchThrottle');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('source', $nullablesSetToNull);
+            $index = array_search('loadBatchThrottle', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets image
-     *
-     * @return string|null
-     */
-    public function getImage()
-    {
-        return $this->container['image'];
-    }
-
-    /**
-     * Sets image
-     *
-     * @param string|null $image image
-     *
-     * @return self
-     */
-    public function setImage($image)
-    {
-        if (is_null($image)) {
-            array_push($this->openAPINullablesSetToNull, 'image');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['image'] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Gets isDeleted
-     *
-     * @return bool|null
-     */
-    public function getIsDeleted()
-    {
-        return $this->container['isDeleted'];
-    }
-
-    /**
-     * Sets isDeleted
-     *
-     * @param bool|null $isDeleted isDeleted
-     *
-     * @return self
-     */
-    public function setIsDeleted($isDeleted)
-    {
-        if (is_null($isDeleted)) {
-            throw new \InvalidArgumentException('non-nullable isDeleted cannot be null');
-        }
-        $this->container['isDeleted'] = $isDeleted;
+        $this->container['loadBatchThrottle'] = $loadBatchThrottle;
 
         return $this;
     }

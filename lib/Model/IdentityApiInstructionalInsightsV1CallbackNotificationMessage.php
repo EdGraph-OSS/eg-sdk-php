@@ -1,6 +1,6 @@
 <?php
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse
+ * IdentityApiInstructionalInsightsV1CallbackNotificationMessage
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \EdGraph\PlatformClient\ObjectSerializer;
 
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse Class Doc Comment
+ * IdentityApiInstructionalInsightsV1CallbackNotificationMessage Class Doc Comment
  *
  * @category Class
  * @package  EdGraph\PlatformClient
@@ -40,7 +40,7 @@ use \EdGraph\PlatformClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class IdentityApiInstructionalInsightsV1CallbackNotificationMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.FormResponse';
+    protected static $openAPIModelName = 'IdentityApi.InstructionalInsights.V1.CallbackNotificationMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'version' => 'string',
-        'tenantId' => 'string',
-        'description' => 'string',
-        'source' => 'string',
-        'image' => 'string',
-        'isDeleted' => 'bool'
+        'notificationType' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -75,14 +69,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'version' => null,
-        'tenantId' => null,
-        'description' => null,
-        'source' => null,
-        'image' => null,
-        'isDeleted' => null
+        'notificationType' => null,
+        'value' => null
     ];
 
     /**
@@ -91,14 +79,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
-        'name' => true,
-        'version' => true,
-        'tenantId' => true,
-        'description' => true,
-        'source' => true,
-        'image' => true,
-        'isDeleted' => false
+        'notificationType' => true,
+        'value' => true
     ];
 
     /**
@@ -187,14 +169,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'version' => 'version',
-        'tenantId' => 'tenantId',
-        'description' => 'description',
-        'source' => 'source',
-        'image' => 'image',
-        'isDeleted' => 'isDeleted'
+        'notificationType' => 'notificationType',
+        'value' => 'value'
     ];
 
     /**
@@ -203,14 +179,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'version' => 'setVersion',
-        'tenantId' => 'setTenantId',
-        'description' => 'setDescription',
-        'source' => 'setSource',
-        'image' => 'setImage',
-        'isDeleted' => 'setIsDeleted'
+        'notificationType' => 'setNotificationType',
+        'value' => 'setValue'
     ];
 
     /**
@@ -219,14 +189,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'version' => 'getVersion',
-        'tenantId' => 'getTenantId',
-        'description' => 'getDescription',
-        'source' => 'getSource',
-        'image' => 'getImage',
-        'isDeleted' => 'getIsDeleted'
+        'notificationType' => 'getNotificationType',
+        'value' => 'getValue'
     ];
 
     /**
@@ -286,14 +250,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('version', $data ?? [], null);
-        $this->setIfExists('tenantId', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('source', $data ?? [], null);
-        $this->setIfExists('image', $data ?? [], null);
-        $this->setIfExists('isDeleted', $data ?? [], null);
+        $this->setIfExists('notificationType', $data ?? [], null);
+        $this->setIfExists('value', $data ?? [], null);
     }
 
     /**
@@ -339,266 +297,69 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
 
 
     /**
-     * Gets id
+     * Gets notificationType
      *
      * @return string|null
      */
-    public function getId()
+    public function getNotificationType()
     {
-        return $this->container['id'];
+        return $this->container['notificationType'];
     }
 
     /**
-     * Sets id
+     * Sets notificationType
      *
-     * @param string|null $id id
+     * @param string|null $notificationType notificationType
      *
      * @return self
      */
-    public function setId($id)
+    public function setNotificationType($notificationType)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
+        if (is_null($notificationType)) {
+            array_push($this->openAPINullablesSetToNull, 'notificationType');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
+            $index = array_search('notificationType', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['id'] = $id;
+        $this->container['notificationType'] = $notificationType;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets value
      *
      * @return string|null
      */
-    public function getName()
+    public function getValue()
     {
-        return $this->container['name'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets name
+     * Sets value
      *
-     * @param string|null $name name
+     * @param string|null $value value
      *
      * @return self
      */
-    public function setName($name)
+    public function setValue($value)
     {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
+        if (is_null($value)) {
+            array_push($this->openAPINullablesSetToNull, 'value');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
+            $index = array_search('value', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets version
-     *
-     * @return string|null
-     */
-    public function getVersion()
-    {
-        return $this->container['version'];
-    }
-
-    /**
-     * Sets version
-     *
-     * @param string|null $version version
-     *
-     * @return self
-     */
-    public function setVersion($version)
-    {
-        if (is_null($version)) {
-            array_push($this->openAPINullablesSetToNull, 'version');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('version', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['version'] = $version;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenantId
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenantId'];
-    }
-
-    /**
-     * Sets tenantId
-     *
-     * @param string|null $tenantId tenantId
-     *
-     * @return self
-     */
-    public function setTenantId($tenantId)
-    {
-        if (is_null($tenantId)) {
-            array_push($this->openAPINullablesSetToNull, 'tenantId');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenantId', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenantId'] = $tenantId;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description description
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return string|null
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param string|null $source source
-     *
-     * @return self
-     */
-    public function setSource($source)
-    {
-        if (is_null($source)) {
-            array_push($this->openAPINullablesSetToNull, 'source');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('source', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets image
-     *
-     * @return string|null
-     */
-    public function getImage()
-    {
-        return $this->container['image'];
-    }
-
-    /**
-     * Sets image
-     *
-     * @param string|null $image image
-     *
-     * @return self
-     */
-    public function setImage($image)
-    {
-        if (is_null($image)) {
-            array_push($this->openAPINullablesSetToNull, 'image');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['image'] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Gets isDeleted
-     *
-     * @return bool|null
-     */
-    public function getIsDeleted()
-    {
-        return $this->container['isDeleted'];
-    }
-
-    /**
-     * Sets isDeleted
-     *
-     * @param bool|null $isDeleted isDeleted
-     *
-     * @return self
-     */
-    public function setIsDeleted($isDeleted)
-    {
-        if (is_null($isDeleted)) {
-            throw new \InvalidArgumentException('non-nullable isDeleted cannot be null');
-        }
-        $this->container['isDeleted'] = $isDeleted;
+        $this->container['value'] = $value;
 
         return $this;
     }

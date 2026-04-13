@@ -7,5 +7,10 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional]
 **name** | **string** |  | [optional]
 **version** | **string** |  | [optional]
+**tenantId** | **string** |  | [optional]
+**description** | **string** |  | [optional]
+**source** | **string** |  | [optional]
+**image** | **string** |  | [optional]
+**isDeleted** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

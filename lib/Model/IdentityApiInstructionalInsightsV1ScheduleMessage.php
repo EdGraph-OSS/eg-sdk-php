@@ -1,6 +1,6 @@
 <?php
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse
+ * IdentityApiInstructionalInsightsV1ScheduleMessage
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \EdGraph\PlatformClient\ObjectSerializer;
 
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse Class Doc Comment
+ * IdentityApiInstructionalInsightsV1ScheduleMessage Class Doc Comment
  *
  * @category Class
  * @package  EdGraph\PlatformClient
@@ -40,7 +40,7 @@ use \EdGraph\PlatformClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class IdentityApiInstructionalInsightsV1ScheduleMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.FormResponse';
+    protected static $openAPIModelName = 'IdentityApi.InstructionalInsights.V1.ScheduleMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'version' => 'string',
-        'tenantId' => 'string',
-        'description' => 'string',
-        'source' => 'string',
-        'image' => 'string',
-        'isDeleted' => 'bool'
+        'enabled' => 'bool',
+        'beginDate' => 'string',
+        'endDate' => 'string',
+        'cronExpression' => 'string',
+        'timeZone' => 'string'
     ];
 
     /**
@@ -75,14 +72,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'version' => null,
-        'tenantId' => null,
-        'description' => null,
-        'source' => null,
-        'image' => null,
-        'isDeleted' => null
+        'enabled' => null,
+        'beginDate' => null,
+        'endDate' => null,
+        'cronExpression' => null,
+        'timeZone' => null
     ];
 
     /**
@@ -91,14 +85,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
-        'name' => true,
-        'version' => true,
-        'tenantId' => true,
-        'description' => true,
-        'source' => true,
-        'image' => true,
-        'isDeleted' => false
+        'enabled' => false,
+        'beginDate' => true,
+        'endDate' => true,
+        'cronExpression' => true,
+        'timeZone' => true
     ];
 
     /**
@@ -187,14 +178,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'version' => 'version',
-        'tenantId' => 'tenantId',
-        'description' => 'description',
-        'source' => 'source',
-        'image' => 'image',
-        'isDeleted' => 'isDeleted'
+        'enabled' => 'enabled',
+        'beginDate' => 'beginDate',
+        'endDate' => 'endDate',
+        'cronExpression' => 'cronExpression',
+        'timeZone' => 'timeZone'
     ];
 
     /**
@@ -203,14 +191,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'version' => 'setVersion',
-        'tenantId' => 'setTenantId',
-        'description' => 'setDescription',
-        'source' => 'setSource',
-        'image' => 'setImage',
-        'isDeleted' => 'setIsDeleted'
+        'enabled' => 'setEnabled',
+        'beginDate' => 'setBeginDate',
+        'endDate' => 'setEndDate',
+        'cronExpression' => 'setCronExpression',
+        'timeZone' => 'setTimeZone'
     ];
 
     /**
@@ -219,14 +204,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'version' => 'getVersion',
-        'tenantId' => 'getTenantId',
-        'description' => 'getDescription',
-        'source' => 'getSource',
-        'image' => 'getImage',
-        'isDeleted' => 'getIsDeleted'
+        'enabled' => 'getEnabled',
+        'beginDate' => 'getBeginDate',
+        'endDate' => 'getEndDate',
+        'cronExpression' => 'getCronExpression',
+        'timeZone' => 'getTimeZone'
     ];
 
     /**
@@ -286,14 +268,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('version', $data ?? [], null);
-        $this->setIfExists('tenantId', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('source', $data ?? [], null);
-        $this->setIfExists('image', $data ?? [], null);
-        $this->setIfExists('isDeleted', $data ?? [], null);
+        $this->setIfExists('enabled', $data ?? [], null);
+        $this->setIfExists('beginDate', $data ?? [], null);
+        $this->setIfExists('endDate', $data ?? [], null);
+        $this->setIfExists('cronExpression', $data ?? [], null);
+        $this->setIfExists('timeZone', $data ?? [], null);
     }
 
     /**
@@ -339,266 +318,164 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
 
 
     /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id id
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets version
-     *
-     * @return string|null
-     */
-    public function getVersion()
-    {
-        return $this->container['version'];
-    }
-
-    /**
-     * Sets version
-     *
-     * @param string|null $version version
-     *
-     * @return self
-     */
-    public function setVersion($version)
-    {
-        if (is_null($version)) {
-            array_push($this->openAPINullablesSetToNull, 'version');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('version', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['version'] = $version;
-
-        return $this;
-    }
-
-    /**
-     * Gets tenantId
-     *
-     * @return string|null
-     */
-    public function getTenantId()
-    {
-        return $this->container['tenantId'];
-    }
-
-    /**
-     * Sets tenantId
-     *
-     * @param string|null $tenantId tenantId
-     *
-     * @return self
-     */
-    public function setTenantId($tenantId)
-    {
-        if (is_null($tenantId)) {
-            array_push($this->openAPINullablesSetToNull, 'tenantId');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenantId', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['tenantId'] = $tenantId;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description description
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return string|null
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param string|null $source source
-     *
-     * @return self
-     */
-    public function setSource($source)
-    {
-        if (is_null($source)) {
-            array_push($this->openAPINullablesSetToNull, 'source');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('source', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets image
-     *
-     * @return string|null
-     */
-    public function getImage()
-    {
-        return $this->container['image'];
-    }
-
-    /**
-     * Sets image
-     *
-     * @param string|null $image image
-     *
-     * @return self
-     */
-    public function setImage($image)
-    {
-        if (is_null($image)) {
-            array_push($this->openAPINullablesSetToNull, 'image');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['image'] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Gets isDeleted
+     * Gets enabled
      *
      * @return bool|null
      */
-    public function getIsDeleted()
+    public function getEnabled()
     {
-        return $this->container['isDeleted'];
+        return $this->container['enabled'];
     }
 
     /**
-     * Sets isDeleted
+     * Sets enabled
      *
-     * @param bool|null $isDeleted isDeleted
+     * @param bool|null $enabled enabled
      *
      * @return self
      */
-    public function setIsDeleted($isDeleted)
+    public function setEnabled($enabled)
     {
-        if (is_null($isDeleted)) {
-            throw new \InvalidArgumentException('non-nullable isDeleted cannot be null');
+        if (is_null($enabled)) {
+            throw new \InvalidArgumentException('non-nullable enabled cannot be null');
         }
-        $this->container['isDeleted'] = $isDeleted;
+        $this->container['enabled'] = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets beginDate
+     *
+     * @return string|null
+     */
+    public function getBeginDate()
+    {
+        return $this->container['beginDate'];
+    }
+
+    /**
+     * Sets beginDate
+     *
+     * @param string|null $beginDate beginDate
+     *
+     * @return self
+     */
+    public function setBeginDate($beginDate)
+    {
+        if (is_null($beginDate)) {
+            array_push($this->openAPINullablesSetToNull, 'beginDate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('beginDate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['beginDate'] = $beginDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets endDate
+     *
+     * @return string|null
+     */
+    public function getEndDate()
+    {
+        return $this->container['endDate'];
+    }
+
+    /**
+     * Sets endDate
+     *
+     * @param string|null $endDate endDate
+     *
+     * @return self
+     */
+    public function setEndDate($endDate)
+    {
+        if (is_null($endDate)) {
+            array_push($this->openAPINullablesSetToNull, 'endDate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('endDate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['endDate'] = $endDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets cronExpression
+     *
+     * @return string|null
+     */
+    public function getCronExpression()
+    {
+        return $this->container['cronExpression'];
+    }
+
+    /**
+     * Sets cronExpression
+     *
+     * @param string|null $cronExpression cronExpression
+     *
+     * @return self
+     */
+    public function setCronExpression($cronExpression)
+    {
+        if (is_null($cronExpression)) {
+            array_push($this->openAPINullablesSetToNull, 'cronExpression');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('cronExpression', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['cronExpression'] = $cronExpression;
+
+        return $this;
+    }
+
+    /**
+     * Gets timeZone
+     *
+     * @return string|null
+     */
+    public function getTimeZone()
+    {
+        return $this->container['timeZone'];
+    }
+
+    /**
+     * Sets timeZone
+     *
+     * @param string|null $timeZone timeZone
+     *
+     * @return self
+     */
+    public function setTimeZone($timeZone)
+    {
+        if (is_null($timeZone)) {
+            array_push($this->openAPINullablesSetToNull, 'timeZone');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('timeZone', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['timeZone'] = $timeZone;
 
         return $this;
     }

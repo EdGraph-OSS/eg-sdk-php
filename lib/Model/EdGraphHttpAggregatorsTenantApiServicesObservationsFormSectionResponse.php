@@ -1,6 +1,6 @@
 <?php
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse
+ * EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \EdGraph\PlatformClient\ObjectSerializer;
 
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse Class Doc Comment
+ * EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse Class Doc Comment
  *
  * @category Class
  * @package  EdGraph\PlatformClient
@@ -40,7 +40,7 @@ use \EdGraph\PlatformClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.FormResponse';
+    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.FormSectionResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,18 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'name' => 'string',
-        'version' => 'string',
+        'formId' => 'string',
         'tenantId' => 'string',
+        'title' => 'string',
         'description' => 'string',
-        'source' => 'string',
-        'image' => 'string',
-        'isDeleted' => 'bool'
+        'createdBy' => 'string',
+        'createdDateTime' => 'string',
+        'lastModifiedBy' => 'string',
+        'lastModifiedDateTime' => 'string',
+        'deletedBy' => 'string',
+        'deletedDateTime' => 'string',
+        'isDeleted' => 'bool',
+        'order' => 'int'
     ];
 
     /**
@@ -76,13 +81,18 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'name' => null,
-        'version' => null,
+        'formId' => null,
         'tenantId' => null,
+        'title' => null,
         'description' => null,
-        'source' => null,
-        'image' => null,
-        'isDeleted' => null
+        'createdBy' => null,
+        'createdDateTime' => null,
+        'lastModifiedBy' => null,
+        'lastModifiedDateTime' => null,
+        'deletedBy' => null,
+        'deletedDateTime' => null,
+        'isDeleted' => null,
+        'order' => 'int32'
     ];
 
     /**
@@ -92,13 +102,18 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       */
     protected static array $openAPINullables = [
         'id' => true,
-        'name' => true,
-        'version' => true,
+        'formId' => true,
         'tenantId' => true,
+        'title' => true,
         'description' => true,
-        'source' => true,
-        'image' => true,
-        'isDeleted' => false
+        'createdBy' => true,
+        'createdDateTime' => true,
+        'lastModifiedBy' => true,
+        'lastModifiedDateTime' => true,
+        'deletedBy' => true,
+        'deletedDateTime' => true,
+        'isDeleted' => false,
+        'order' => false
     ];
 
     /**
@@ -188,13 +203,18 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name',
-        'version' => 'version',
+        'formId' => 'formId',
         'tenantId' => 'tenantId',
+        'title' => 'title',
         'description' => 'description',
-        'source' => 'source',
-        'image' => 'image',
-        'isDeleted' => 'isDeleted'
+        'createdBy' => 'createdBy',
+        'createdDateTime' => 'createdDateTime',
+        'lastModifiedBy' => 'lastModifiedBy',
+        'lastModifiedDateTime' => 'lastModifiedDateTime',
+        'deletedBy' => 'deletedBy',
+        'deletedDateTime' => 'deletedDateTime',
+        'isDeleted' => 'isDeleted',
+        'order' => 'order'
     ];
 
     /**
@@ -204,13 +224,18 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName',
-        'version' => 'setVersion',
+        'formId' => 'setFormId',
         'tenantId' => 'setTenantId',
+        'title' => 'setTitle',
         'description' => 'setDescription',
-        'source' => 'setSource',
-        'image' => 'setImage',
-        'isDeleted' => 'setIsDeleted'
+        'createdBy' => 'setCreatedBy',
+        'createdDateTime' => 'setCreatedDateTime',
+        'lastModifiedBy' => 'setLastModifiedBy',
+        'lastModifiedDateTime' => 'setLastModifiedDateTime',
+        'deletedBy' => 'setDeletedBy',
+        'deletedDateTime' => 'setDeletedDateTime',
+        'isDeleted' => 'setIsDeleted',
+        'order' => 'setOrder'
     ];
 
     /**
@@ -220,13 +245,18 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName',
-        'version' => 'getVersion',
+        'formId' => 'getFormId',
         'tenantId' => 'getTenantId',
+        'title' => 'getTitle',
         'description' => 'getDescription',
-        'source' => 'getSource',
-        'image' => 'getImage',
-        'isDeleted' => 'getIsDeleted'
+        'createdBy' => 'getCreatedBy',
+        'createdDateTime' => 'getCreatedDateTime',
+        'lastModifiedBy' => 'getLastModifiedBy',
+        'lastModifiedDateTime' => 'getLastModifiedDateTime',
+        'deletedBy' => 'getDeletedBy',
+        'deletedDateTime' => 'getDeletedDateTime',
+        'isDeleted' => 'getIsDeleted',
+        'order' => 'getOrder'
     ];
 
     /**
@@ -287,13 +317,18 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('version', $data ?? [], null);
+        $this->setIfExists('formId', $data ?? [], null);
         $this->setIfExists('tenantId', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('source', $data ?? [], null);
-        $this->setIfExists('image', $data ?? [], null);
+        $this->setIfExists('createdBy', $data ?? [], null);
+        $this->setIfExists('createdDateTime', $data ?? [], null);
+        $this->setIfExists('lastModifiedBy', $data ?? [], null);
+        $this->setIfExists('lastModifiedDateTime', $data ?? [], null);
+        $this->setIfExists('deletedBy', $data ?? [], null);
+        $this->setIfExists('deletedDateTime', $data ?? [], null);
         $this->setIfExists('isDeleted', $data ?? [], null);
+        $this->setIfExists('order', $data ?? [], null);
     }
 
     /**
@@ -373,69 +408,35 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
     }
 
     /**
-     * Gets name
+     * Gets formId
      *
      * @return string|null
      */
-    public function getName()
+    public function getFormId()
     {
-        return $this->container['name'];
+        return $this->container['formId'];
     }
 
     /**
-     * Sets name
+     * Sets formId
      *
-     * @param string|null $name name
+     * @param string|null $formId formId
      *
      * @return self
      */
-    public function setName($name)
+    public function setFormId($formId)
     {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
+        if (is_null($formId)) {
+            array_push($this->openAPINullablesSetToNull, 'formId');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
+            $index = array_search('formId', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets version
-     *
-     * @return string|null
-     */
-    public function getVersion()
-    {
-        return $this->container['version'];
-    }
-
-    /**
-     * Sets version
-     *
-     * @param string|null $version version
-     *
-     * @return self
-     */
-    public function setVersion($version)
-    {
-        if (is_null($version)) {
-            array_push($this->openAPINullablesSetToNull, 'version');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('version', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['version'] = $version;
+        $this->container['formId'] = $formId;
 
         return $this;
     }
@@ -475,6 +476,40 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
     }
 
     /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        if (is_null($title)) {
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
      * Gets description
      *
      * @return string|null
@@ -509,69 +544,205 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
     }
 
     /**
-     * Gets source
+     * Gets createdBy
      *
      * @return string|null
      */
-    public function getSource()
+    public function getCreatedBy()
     {
-        return $this->container['source'];
+        return $this->container['createdBy'];
     }
 
     /**
-     * Sets source
+     * Sets createdBy
      *
-     * @param string|null $source source
+     * @param string|null $createdBy createdBy
      *
      * @return self
      */
-    public function setSource($source)
+    public function setCreatedBy($createdBy)
     {
-        if (is_null($source)) {
-            array_push($this->openAPINullablesSetToNull, 'source');
+        if (is_null($createdBy)) {
+            array_push($this->openAPINullablesSetToNull, 'createdBy');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('source', $nullablesSetToNull);
+            $index = array_search('createdBy', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['source'] = $source;
+        $this->container['createdBy'] = $createdBy;
 
         return $this;
     }
 
     /**
-     * Gets image
+     * Gets createdDateTime
      *
      * @return string|null
      */
-    public function getImage()
+    public function getCreatedDateTime()
     {
-        return $this->container['image'];
+        return $this->container['createdDateTime'];
     }
 
     /**
-     * Sets image
+     * Sets createdDateTime
      *
-     * @param string|null $image image
+     * @param string|null $createdDateTime createdDateTime
      *
      * @return self
      */
-    public function setImage($image)
+    public function setCreatedDateTime($createdDateTime)
     {
-        if (is_null($image)) {
-            array_push($this->openAPINullablesSetToNull, 'image');
+        if (is_null($createdDateTime)) {
+            array_push($this->openAPINullablesSetToNull, 'createdDateTime');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image', $nullablesSetToNull);
+            $index = array_search('createdDateTime', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['image'] = $image;
+        $this->container['createdDateTime'] = $createdDateTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets lastModifiedBy
+     *
+     * @return string|null
+     */
+    public function getLastModifiedBy()
+    {
+        return $this->container['lastModifiedBy'];
+    }
+
+    /**
+     * Sets lastModifiedBy
+     *
+     * @param string|null $lastModifiedBy lastModifiedBy
+     *
+     * @return self
+     */
+    public function setLastModifiedBy($lastModifiedBy)
+    {
+        if (is_null($lastModifiedBy)) {
+            array_push($this->openAPINullablesSetToNull, 'lastModifiedBy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('lastModifiedBy', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['lastModifiedBy'] = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * Gets lastModifiedDateTime
+     *
+     * @return string|null
+     */
+    public function getLastModifiedDateTime()
+    {
+        return $this->container['lastModifiedDateTime'];
+    }
+
+    /**
+     * Sets lastModifiedDateTime
+     *
+     * @param string|null $lastModifiedDateTime lastModifiedDateTime
+     *
+     * @return self
+     */
+    public function setLastModifiedDateTime($lastModifiedDateTime)
+    {
+        if (is_null($lastModifiedDateTime)) {
+            array_push($this->openAPINullablesSetToNull, 'lastModifiedDateTime');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('lastModifiedDateTime', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['lastModifiedDateTime'] = $lastModifiedDateTime;
+
+        return $this;
+    }
+
+    /**
+     * Gets deletedBy
+     *
+     * @return string|null
+     */
+    public function getDeletedBy()
+    {
+        return $this->container['deletedBy'];
+    }
+
+    /**
+     * Sets deletedBy
+     *
+     * @param string|null $deletedBy deletedBy
+     *
+     * @return self
+     */
+    public function setDeletedBy($deletedBy)
+    {
+        if (is_null($deletedBy)) {
+            array_push($this->openAPINullablesSetToNull, 'deletedBy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('deletedBy', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['deletedBy'] = $deletedBy;
+
+        return $this;
+    }
+
+    /**
+     * Gets deletedDateTime
+     *
+     * @return string|null
+     */
+    public function getDeletedDateTime()
+    {
+        return $this->container['deletedDateTime'];
+    }
+
+    /**
+     * Sets deletedDateTime
+     *
+     * @param string|null $deletedDateTime deletedDateTime
+     *
+     * @return self
+     */
+    public function setDeletedDateTime($deletedDateTime)
+    {
+        if (is_null($deletedDateTime)) {
+            array_push($this->openAPINullablesSetToNull, 'deletedDateTime');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('deletedDateTime', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['deletedDateTime'] = $deletedDateTime;
 
         return $this;
     }
@@ -599,6 +770,33 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
             throw new \InvalidArgumentException('non-nullable isDeleted cannot be null');
         }
         $this->container['isDeleted'] = $isDeleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets order
+     *
+     * @return int|null
+     */
+    public function getOrder()
+    {
+        return $this->container['order'];
+    }
+
+    /**
+     * Sets order
+     *
+     * @param int|null $order order
+     *
+     * @return self
+     */
+    public function setOrder($order)
+    {
+        if (is_null($order)) {
+            throw new \InvalidArgumentException('non-nullable order cannot be null');
+        }
+        $this->container['order'] = $order;
 
         return $this;
     }

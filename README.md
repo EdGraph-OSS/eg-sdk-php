@@ -438,6 +438,8 @@ Class | Method | HTTP request | Description
 *ObservationsApi* | [**createObservation**](docs/Api/ObservationsApi.md#createobservation) | **POST** /tenants/{tenantId}/observations | Creates a new Observation for a given tenant
 *ObservationsApi* | [**createObservationSubmission**](docs/Api/ObservationsApi.md#createobservationsubmission) | **POST** /tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/submit | Creates a submission for an available form referencing an existing observation
 *ObservationsApi* | [**deleteObservation**](docs/Api/ObservationsApi.md#deleteobservation) | **DELETE** /tenants/{tenantId}/observations/{observationId} | Deletes an Observation for a given tenant
+*ObservationsApi* | [**getFormQuestions**](docs/Api/ObservationsApi.md#getformquestions) | **GET** /tenants/{tenantId}/observations/available-forms/{formId}/sections/{sectionId}/questions | Search Questions
+*ObservationsApi* | [**getFormSections**](docs/Api/ObservationsApi.md#getformsections) | **GET** /tenants/{tenantId}/observations/available-forms/{formId}/sections | Search Observation Form Sections
 *ObservationsApi* | [**getObservationById**](docs/Api/ObservationsApi.md#getobservationbyid) | **GET** /tenants/{tenantId}/observations/{observationId} | Get an Observation for a given tenant
 *ObservationsApi* | [**getObservationDraft**](docs/Api/ObservationsApi.md#getobservationdraft) | **GET** /tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/draft | Get an observation form&#39;s draft
 *ObservationsApi* | [**getObservationSubmission**](docs/Api/ObservationsApi.md#getobservationsubmission) | **GET** /tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/submission | Gets a submission for a specific observation
@@ -562,6 +564,12 @@ Class | Method | HTTP request | Description
 *TenantJobsDSLApi* | [**executeDslJob**](docs/Api/TenantJobsDSLApi.md#executedsljob) | **PUT** /tenants/{tenantId}/jobs/dsl/{jobId}/execute | Executes a DSL Sync Job for a given tenant
 *TenantJobsDSLApi* | [**getDslJob**](docs/Api/TenantJobsDSLApi.md#getdsljob) | **GET** /tenants/{tenantId}/jobs/dsl/{jobId} | Retrieves a DSL jobs profile for a given tenant
 *TenantJobsDSLApi* | [**updateDslJob**](docs/Api/TenantJobsDSLApi.md#updatedsljob) | **PUT** /tenants/{tenantId}/jobs/dsl/{jobId} | Updates a DSL Sync Job for a given tenant
+*TenantJobsInstructionalInsightsApi* | [**createInstructionalInsightsSecuritySyncJob**](docs/Api/TenantJobsInstructionalInsightsApi.md#createinstructionalinsightssecuritysyncjob) | **POST** /tenants/{tenantId}/jobs/instructionalinsights | Creates an Instructional Insights Security Sync Job for a given tenant
+*TenantJobsInstructionalInsightsApi* | [**executeInstructionalInsightsSecuritySyncJob**](docs/Api/TenantJobsInstructionalInsightsApi.md#executeinstructionalinsightssecuritysyncjob) | **POST** /tenants/{tenantId}/jobs/instructionalinsights/execute | Executes an Instructional Insights Security Sync Job
+*TenantJobsInstructionalInsightsApi* | [**getInstructionalInsightsSecuritySyncJob**](docs/Api/TenantJobsInstructionalInsightsApi.md#getinstructionalinsightssecuritysyncjob) | **GET** /tenants/{tenantId}/jobs/instructionalinsights | Retrieves an Instructional Insights Security Sync Job for a given tenant
+*TenantJobsInstructionalInsightsApi* | [**searchInstructionalInsightsSecuritySyncJobExecutionLogs**](docs/Api/TenantJobsInstructionalInsightsApi.md#searchinstructionalinsightssecuritysyncjobexecutionlogs) | **GET** /tenants/{tenantId}/jobs/instructionalinsights/executions/{executionId}/logs | Searches Instructional Insights Security Sync Job Execution Logs for a given tenant and execution
+*TenantJobsInstructionalInsightsApi* | [**searchInstructionalInsightsSecuritySyncJobExecutions**](docs/Api/TenantJobsInstructionalInsightsApi.md#searchinstructionalinsightssecuritysyncjobexecutions) | **GET** /tenants/{tenantId}/jobs/instructionalinsights/executions | Searches Instructional Insights Security Sync Job Executions for a given tenant
+*TenantJobsInstructionalInsightsApi* | [**updateInstructionalInsightsSecuritySyncJob**](docs/Api/TenantJobsInstructionalInsightsApi.md#updateinstructionalinsightssecuritysyncjob) | **PUT** /tenants/{tenantId}/jobs/instructionalinsights | Updates an Instructional Insights Security Sync Job for a given tenant
 *TenantSecurityScoreSyncApi* | [**createSecurityScoreSyncJob**](docs/Api/TenantSecurityScoreSyncApi.md#createsecurityscoresyncjob) | **POST** /tenants/{tenantId}/jobs/securityscore | Creates an Security Score Sync Job for a given tenant
 *TenantSecurityScoreSyncApi* | [**executeSecurityScoreSyncJob**](docs/Api/TenantSecurityScoreSyncApi.md#executesecurityscoresyncjob) | **POST** /tenants/{tenantId}/jobs/securityscore/execute | Executes an Security Score Sync Job
 *TenantSecurityScoreSyncApi* | [**getSecurityScoreSyncJob**](docs/Api/TenantSecurityScoreSyncApi.md#getsecurityscoresyncjob) | **GET** /tenants/{tenantId}/jobs/securityscore | Retrieves a Security Score Sync Job for a given tenant
@@ -831,8 +839,13 @@ Class | Method | HTTP request | Description
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsFormConfigurationRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormConfigurationRequest.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsFormConfigurationResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormConfigurationResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionValidationResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionValidationResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponsePaginatedItemsViewModel](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponsePaginatedItemsViewModel.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationRequest.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetApplicationSettingsResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsGetApplicationSettingsResponse.md)
@@ -1256,6 +1269,21 @@ Class | Method | HTTP request | Description
 - [IdentityApiApiClientV1UpdateApiClientRequest](docs/Model/IdentityApiApiClientV1UpdateApiClientRequest.md)
 - [IdentityApiClientSettingsTypeV1ClientSettingsTypeResponse](docs/Model/IdentityApiClientSettingsTypeV1ClientSettingsTypeResponse.md)
 - [IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse](docs/Model/IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse.md)
+- [IdentityApiInstructionalInsightsV1CallbackNotificationMessage](docs/Model/IdentityApiInstructionalInsightsV1CallbackNotificationMessage.md)
+- [IdentityApiInstructionalInsightsV1CreateInstructionalInsightsSecuritySyncJobRequest](docs/Model/IdentityApiInstructionalInsightsV1CreateInstructionalInsightsSecuritySyncJobRequest.md)
+- [IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobCreatedResponse](docs/Model/IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobCreatedResponse.md)
+- [IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutedResponse](docs/Model/IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutedResponse.md)
+- [IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionLogMessage](docs/Model/IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionLogMessage.md)
+- [IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage](docs/Model/IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMessage.md)
+- [IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMetricMessage](docs/Model/IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionMetricMessage.md)
+- [IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage](docs/Model/IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobInputMessage.md)
+- [IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse](docs/Model/IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobResponse.md)
+- [IdentityApiInstructionalInsightsV1JobExecutionMessage](docs/Model/IdentityApiInstructionalInsightsV1JobExecutionMessage.md)
+- [IdentityApiInstructionalInsightsV1RetryPolicyMessage](docs/Model/IdentityApiInstructionalInsightsV1RetryPolicyMessage.md)
+- [IdentityApiInstructionalInsightsV1ScheduleMessage](docs/Model/IdentityApiInstructionalInsightsV1ScheduleMessage.md)
+- [IdentityApiInstructionalInsightsV1SearchInstructionalInsightsSecuritySyncJobExecutionLogsResponse](docs/Model/IdentityApiInstructionalInsightsV1SearchInstructionalInsightsSecuritySyncJobExecutionLogsResponse.md)
+- [IdentityApiInstructionalInsightsV1SearchInstructionalInsightsSecuritySyncJobExecutionsResponse](docs/Model/IdentityApiInstructionalInsightsV1SearchInstructionalInsightsSecuritySyncJobExecutionsResponse.md)
+- [IdentityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest](docs/Model/IdentityApiInstructionalInsightsV1UpdateInstructionalInsightsSecuritySyncJobRequest.md)
 - [IdentityApiInvitationV1AssignLicenseRequest](docs/Model/IdentityApiInvitationV1AssignLicenseRequest.md)
 - [IdentityApiInvitationV1InvitationListResponse](docs/Model/IdentityApiInvitationV1InvitationListResponse.md)
 - [IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel](docs/Model/IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel.md)
@@ -1561,6 +1589,6 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `v1.0`
-    - Package version: `0.0.25`
+    - Package version: `0.0.26`
     - Generator version: `7.8.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

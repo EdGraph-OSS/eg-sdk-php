@@ -1,6 +1,6 @@
 <?php
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse
+ * IdentityApiInstructionalInsightsV1RetryPolicyMessage
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \EdGraph\PlatformClient\ObjectSerializer;
 
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse Class Doc Comment
+ * IdentityApiInstructionalInsightsV1RetryPolicyMessage Class Doc Comment
  *
  * @category Class
  * @package  EdGraph\PlatformClient
@@ -40,7 +40,7 @@ use \EdGraph\PlatformClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class IdentityApiInstructionalInsightsV1RetryPolicyMessage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.FormResponse';
+    protected static $openAPIModelName = 'IdentityApi.InstructionalInsights.V1.RetryPolicyMessage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'version' => 'string',
-        'tenantId' => 'string',
-        'description' => 'string',
-        'source' => 'string',
-        'image' => 'string',
-        'isDeleted' => 'bool'
+        'backoffMultiplier' => 'float',
+        'initialDelay' => 'string',
+        'maxAttempts' => 'int',
+        'maxBackoff' => 'string',
+        'timeout' => 'string'
     ];
 
     /**
@@ -75,14 +72,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'version' => null,
-        'tenantId' => null,
-        'description' => null,
-        'source' => null,
-        'image' => null,
-        'isDeleted' => null
+        'backoffMultiplier' => 'float',
+        'initialDelay' => null,
+        'maxAttempts' => 'int32',
+        'maxBackoff' => null,
+        'timeout' => null
     ];
 
     /**
@@ -91,14 +85,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'id' => true,
-        'name' => true,
-        'version' => true,
-        'tenantId' => true,
-        'description' => true,
-        'source' => true,
-        'image' => true,
-        'isDeleted' => false
+        'backoffMultiplier' => false,
+        'initialDelay' => true,
+        'maxAttempts' => false,
+        'maxBackoff' => true,
+        'timeout' => true
     ];
 
     /**
@@ -187,14 +178,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'version' => 'version',
-        'tenantId' => 'tenantId',
-        'description' => 'description',
-        'source' => 'source',
-        'image' => 'image',
-        'isDeleted' => 'isDeleted'
+        'backoffMultiplier' => 'backoffMultiplier',
+        'initialDelay' => 'initialDelay',
+        'maxAttempts' => 'maxAttempts',
+        'maxBackoff' => 'maxBackoff',
+        'timeout' => 'timeout'
     ];
 
     /**
@@ -203,14 +191,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'version' => 'setVersion',
-        'tenantId' => 'setTenantId',
-        'description' => 'setDescription',
-        'source' => 'setSource',
-        'image' => 'setImage',
-        'isDeleted' => 'setIsDeleted'
+        'backoffMultiplier' => 'setBackoffMultiplier',
+        'initialDelay' => 'setInitialDelay',
+        'maxAttempts' => 'setMaxAttempts',
+        'maxBackoff' => 'setMaxBackoff',
+        'timeout' => 'setTimeout'
     ];
 
     /**
@@ -219,14 +204,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'version' => 'getVersion',
-        'tenantId' => 'getTenantId',
-        'description' => 'getDescription',
-        'source' => 'getSource',
-        'image' => 'getImage',
-        'isDeleted' => 'getIsDeleted'
+        'backoffMultiplier' => 'getBackoffMultiplier',
+        'initialDelay' => 'getInitialDelay',
+        'maxAttempts' => 'getMaxAttempts',
+        'maxBackoff' => 'getMaxBackoff',
+        'timeout' => 'getTimeout'
     ];
 
     /**
@@ -286,14 +268,11 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('version', $data ?? [], null);
-        $this->setIfExists('tenantId', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('source', $data ?? [], null);
-        $this->setIfExists('image', $data ?? [], null);
-        $this->setIfExists('isDeleted', $data ?? [], null);
+        $this->setIfExists('backoffMultiplier', $data ?? [], null);
+        $this->setIfExists('initialDelay', $data ?? [], null);
+        $this->setIfExists('maxAttempts', $data ?? [], null);
+        $this->setIfExists('maxBackoff', $data ?? [], null);
+        $this->setIfExists('timeout', $data ?? [], null);
     }
 
     /**
@@ -339,266 +318,157 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponse implements
 
 
     /**
-     * Gets id
+     * Gets backoffMultiplier
      *
-     * @return string|null
+     * @return float|null
      */
-    public function getId()
+    public function getBackoffMultiplier()
     {
-        return $this->container['id'];
+        return $this->container['backoffMultiplier'];
     }
 
     /**
-     * Sets id
+     * Sets backoffMultiplier
      *
-     * @param string|null $id id
+     * @param float|null $backoffMultiplier backoffMultiplier
      *
      * @return self
      */
-    public function setId($id)
+    public function setBackoffMultiplier($backoffMultiplier)
     {
-        if (is_null($id)) {
-            array_push($this->openAPINullablesSetToNull, 'id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($backoffMultiplier)) {
+            throw new \InvalidArgumentException('non-nullable backoffMultiplier cannot be null');
         }
-        $this->container['id'] = $id;
+        $this->container['backoffMultiplier'] = $backoffMultiplier;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets initialDelay
      *
      * @return string|null
      */
-    public function getName()
+    public function getInitialDelay()
     {
-        return $this->container['name'];
+        return $this->container['initialDelay'];
     }
 
     /**
-     * Sets name
+     * Sets initialDelay
      *
-     * @param string|null $name name
+     * @param string|null $initialDelay initialDelay
      *
      * @return self
      */
-    public function setName($name)
+    public function setInitialDelay($initialDelay)
     {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
+        if (is_null($initialDelay)) {
+            array_push($this->openAPINullablesSetToNull, 'initialDelay');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
+            $index = array_search('initialDelay', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['name'] = $name;
+        $this->container['initialDelay'] = $initialDelay;
 
         return $this;
     }
 
     /**
-     * Gets version
+     * Gets maxAttempts
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getVersion()
+    public function getMaxAttempts()
     {
-        return $this->container['version'];
+        return $this->container['maxAttempts'];
     }
 
     /**
-     * Sets version
+     * Sets maxAttempts
      *
-     * @param string|null $version version
+     * @param int|null $maxAttempts maxAttempts
      *
      * @return self
      */
-    public function setVersion($version)
+    public function setMaxAttempts($maxAttempts)
     {
-        if (is_null($version)) {
-            array_push($this->openAPINullablesSetToNull, 'version');
+        if (is_null($maxAttempts)) {
+            throw new \InvalidArgumentException('non-nullable maxAttempts cannot be null');
+        }
+        $this->container['maxAttempts'] = $maxAttempts;
+
+        return $this;
+    }
+
+    /**
+     * Gets maxBackoff
+     *
+     * @return string|null
+     */
+    public function getMaxBackoff()
+    {
+        return $this->container['maxBackoff'];
+    }
+
+    /**
+     * Sets maxBackoff
+     *
+     * @param string|null $maxBackoff maxBackoff
+     *
+     * @return self
+     */
+    public function setMaxBackoff($maxBackoff)
+    {
+        if (is_null($maxBackoff)) {
+            array_push($this->openAPINullablesSetToNull, 'maxBackoff');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('version', $nullablesSetToNull);
+            $index = array_search('maxBackoff', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['version'] = $version;
+        $this->container['maxBackoff'] = $maxBackoff;
 
         return $this;
     }
 
     /**
-     * Gets tenantId
+     * Gets timeout
      *
      * @return string|null
      */
-    public function getTenantId()
+    public function getTimeout()
     {
-        return $this->container['tenantId'];
+        return $this->container['timeout'];
     }
 
     /**
-     * Sets tenantId
+     * Sets timeout
      *
-     * @param string|null $tenantId tenantId
+     * @param string|null $timeout timeout
      *
      * @return self
      */
-    public function setTenantId($tenantId)
+    public function setTimeout($timeout)
     {
-        if (is_null($tenantId)) {
-            array_push($this->openAPINullablesSetToNull, 'tenantId');
+        if (is_null($timeout)) {
+            array_push($this->openAPINullablesSetToNull, 'timeout');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('tenantId', $nullablesSetToNull);
+            $index = array_search('timeout', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['tenantId'] = $tenantId;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description description
-     *
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets source
-     *
-     * @return string|null
-     */
-    public function getSource()
-    {
-        return $this->container['source'];
-    }
-
-    /**
-     * Sets source
-     *
-     * @param string|null $source source
-     *
-     * @return self
-     */
-    public function setSource($source)
-    {
-        if (is_null($source)) {
-            array_push($this->openAPINullablesSetToNull, 'source');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('source', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['source'] = $source;
-
-        return $this;
-    }
-
-    /**
-     * Gets image
-     *
-     * @return string|null
-     */
-    public function getImage()
-    {
-        return $this->container['image'];
-    }
-
-    /**
-     * Sets image
-     *
-     * @param string|null $image image
-     *
-     * @return self
-     */
-    public function setImage($image)
-    {
-        if (is_null($image)) {
-            array_push($this->openAPINullablesSetToNull, 'image');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('image', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['image'] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Gets isDeleted
-     *
-     * @return bool|null
-     */
-    public function getIsDeleted()
-    {
-        return $this->container['isDeleted'];
-    }
-
-    /**
-     * Sets isDeleted
-     *
-     * @param bool|null $isDeleted isDeleted
-     *
-     * @return self
-     */
-    public function setIsDeleted($isDeleted)
-    {
-        if (is_null($isDeleted)) {
-            throw new \InvalidArgumentException('non-nullable isDeleted cannot be null');
-        }
-        $this->container['isDeleted'] = $isDeleted;
+        $this->container['timeout'] = $timeout;
 
         return $this;
     }
