@@ -522,7 +522,7 @@ try {
 ## `getPaginatedAvailableCampuses()`
 
 ```php
-getPaginatedAvailableCampuses($tenantId, $pageSize, $pageIndex, $orderBy): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse
+getPaginatedAvailableCampuses($tenantId, $pageSize, $pageIndex, $orderBy, $nameOfInstitution): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse
 ```
 
 Get Available Campuses
@@ -548,9 +548,10 @@ $tenantId = 'tenantId_example'; // string |
 $pageSize = 10; // int | 
 $pageIndex = 0; // int | 
 $orderBy = ''; // string | 
+$nameOfInstitution = ''; // string | 
 
 try {
-    $result = $apiInstance->getPaginatedAvailableCampuses($tenantId, $pageSize, $pageIndex, $orderBy);
+    $result = $apiInstance->getPaginatedAvailableCampuses($tenantId, $pageSize, $pageIndex, $orderBy, $nameOfInstitution);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObservationsApi->getPaginatedAvailableCampuses: ', $e->getMessage(), PHP_EOL;
@@ -565,6 +566,7 @@ try {
 | **pageSize** | **int**|  | [optional] [default to 10] |
 | **pageIndex** | **int**|  | [optional] [default to 0] |
 | **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
+| **nameOfInstitution** | **string**|  | [optional] [default to &#39;&#39;] |
 
 ### Return type
 

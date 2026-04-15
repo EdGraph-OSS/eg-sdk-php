@@ -66,6 +66,7 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'options' => 'string[]',
         'order' => 'int',
         'component' => 'string',
+        'customId' => 'string',
         'visibilityCondition' => '\EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityCondition'
     ];
 
@@ -86,6 +87,7 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'options' => null,
         'order' => 'int32',
         'component' => null,
+        'customId' => null,
         'visibilityCondition' => null
     ];
 
@@ -104,6 +106,7 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'options' => true,
         'order' => true,
         'component' => true,
+        'customId' => true,
         'visibilityCondition' => false
     ];
 
@@ -202,6 +205,7 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'options' => 'options',
         'order' => 'order',
         'component' => 'component',
+        'customId' => 'customId',
         'visibilityCondition' => 'visibilityCondition'
     ];
 
@@ -220,6 +224,7 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'options' => 'setOptions',
         'order' => 'setOrder',
         'component' => 'setComponent',
+        'customId' => 'setCustomId',
         'visibilityCondition' => 'setVisibilityCondition'
     ];
 
@@ -238,6 +243,7 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'options' => 'getOptions',
         'order' => 'getOrder',
         'component' => 'getComponent',
+        'customId' => 'getCustomId',
         'visibilityCondition' => 'getVisibilityCondition'
     ];
 
@@ -307,6 +313,7 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         $this->setIfExists('options', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
         $this->setIfExists('component', $data ?? [], null);
+        $this->setIfExists('customId', $data ?? [], null);
         $this->setIfExists('visibilityCondition', $data ?? [], null);
     }
 
@@ -640,6 +647,40 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
             }
         }
         $this->container['component'] = $component;
+
+        return $this;
+    }
+
+    /**
+     * Gets customId
+     *
+     * @return string|null
+     */
+    public function getCustomId()
+    {
+        return $this->container['customId'];
+    }
+
+    /**
+     * Sets customId
+     *
+     * @param string|null $customId customId
+     *
+     * @return self
+     */
+    public function setCustomId($customId)
+    {
+        if (is_null($customId)) {
+            array_push($this->openAPINullablesSetToNull, 'customId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['customId'] = $customId;
 
         return $this;
     }

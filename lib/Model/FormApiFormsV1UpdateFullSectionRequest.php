@@ -62,7 +62,8 @@ class FormApiFormsV1UpdateFullSectionRequest implements ModelInterface, ArrayAcc
         'description' => 'string',
         'questions' => '\EdGraph\PlatformClient\Model\FormApiFormsV1UpdateFullQuestionRequest[]',
         'order' => 'int',
-        'subHeading' => 'string'
+        'subHeading' => 'string',
+        'customId' => 'string'
     ];
 
     /**
@@ -78,7 +79,8 @@ class FormApiFormsV1UpdateFullSectionRequest implements ModelInterface, ArrayAcc
         'description' => null,
         'questions' => null,
         'order' => 'int32',
-        'subHeading' => null
+        'subHeading' => null,
+        'customId' => null
     ];
 
     /**
@@ -92,7 +94,8 @@ class FormApiFormsV1UpdateFullSectionRequest implements ModelInterface, ArrayAcc
         'description' => true,
         'questions' => true,
         'order' => true,
-        'subHeading' => true
+        'subHeading' => true,
+        'customId' => true
     ];
 
     /**
@@ -186,7 +189,8 @@ class FormApiFormsV1UpdateFullSectionRequest implements ModelInterface, ArrayAcc
         'description' => 'description',
         'questions' => 'questions',
         'order' => 'order',
-        'subHeading' => 'subHeading'
+        'subHeading' => 'subHeading',
+        'customId' => 'customId'
     ];
 
     /**
@@ -200,7 +204,8 @@ class FormApiFormsV1UpdateFullSectionRequest implements ModelInterface, ArrayAcc
         'description' => 'setDescription',
         'questions' => 'setQuestions',
         'order' => 'setOrder',
-        'subHeading' => 'setSubHeading'
+        'subHeading' => 'setSubHeading',
+        'customId' => 'setCustomId'
     ];
 
     /**
@@ -214,7 +219,8 @@ class FormApiFormsV1UpdateFullSectionRequest implements ModelInterface, ArrayAcc
         'description' => 'getDescription',
         'questions' => 'getQuestions',
         'order' => 'getOrder',
-        'subHeading' => 'getSubHeading'
+        'subHeading' => 'getSubHeading',
+        'customId' => 'getCustomId'
     ];
 
     /**
@@ -280,6 +286,7 @@ class FormApiFormsV1UpdateFullSectionRequest implements ModelInterface, ArrayAcc
         $this->setIfExists('questions', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
         $this->setIfExists('subHeading', $data ?? [], null);
+        $this->setIfExists('customId', $data ?? [], null);
     }
 
     /**
@@ -524,6 +531,40 @@ class FormApiFormsV1UpdateFullSectionRequest implements ModelInterface, ArrayAcc
             }
         }
         $this->container['subHeading'] = $subHeading;
+
+        return $this;
+    }
+
+    /**
+     * Gets customId
+     *
+     * @return string|null
+     */
+    public function getCustomId()
+    {
+        return $this->container['customId'];
+    }
+
+    /**
+     * Sets customId
+     *
+     * @param string|null $customId customId
+     *
+     * @return self
+     */
+    public function setCustomId($customId)
+    {
+        if (is_null($customId)) {
+            array_push($this->openAPINullablesSetToNull, 'customId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['customId'] = $customId;
 
         return $this;
     }

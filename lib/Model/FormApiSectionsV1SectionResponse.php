@@ -70,7 +70,8 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         'deletedDateTime' => 'string',
         'isDeleted' => 'bool',
         'order' => 'int',
-        'subHeading' => 'string'
+        'subHeading' => 'string',
+        'customId' => 'string'
     ];
 
     /**
@@ -94,7 +95,8 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         'deletedDateTime' => null,
         'isDeleted' => null,
         'order' => 'int32',
-        'subHeading' => null
+        'subHeading' => null,
+        'customId' => null
     ];
 
     /**
@@ -116,7 +118,8 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         'deletedDateTime' => true,
         'isDeleted' => true,
         'order' => true,
-        'subHeading' => true
+        'subHeading' => true,
+        'customId' => true
     ];
 
     /**
@@ -218,7 +221,8 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         'deletedDateTime' => 'deletedDateTime',
         'isDeleted' => 'isDeleted',
         'order' => 'order',
-        'subHeading' => 'subHeading'
+        'subHeading' => 'subHeading',
+        'customId' => 'customId'
     ];
 
     /**
@@ -240,7 +244,8 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         'deletedDateTime' => 'setDeletedDateTime',
         'isDeleted' => 'setIsDeleted',
         'order' => 'setOrder',
-        'subHeading' => 'setSubHeading'
+        'subHeading' => 'setSubHeading',
+        'customId' => 'setCustomId'
     ];
 
     /**
@@ -262,7 +267,8 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         'deletedDateTime' => 'getDeletedDateTime',
         'isDeleted' => 'getIsDeleted',
         'order' => 'getOrder',
-        'subHeading' => 'getSubHeading'
+        'subHeading' => 'getSubHeading',
+        'customId' => 'getCustomId'
     ];
 
     /**
@@ -336,6 +342,7 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
         $this->setIfExists('isDeleted', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
         $this->setIfExists('subHeading', $data ?? [], null);
+        $this->setIfExists('customId', $data ?? [], null);
     }
 
     /**
@@ -852,6 +859,40 @@ class FormApiSectionsV1SectionResponse implements ModelInterface, ArrayAccess, \
             }
         }
         $this->container['subHeading'] = $subHeading;
+
+        return $this;
+    }
+
+    /**
+     * Gets customId
+     *
+     * @return string|null
+     */
+    public function getCustomId()
+    {
+        return $this->container['customId'];
+    }
+
+    /**
+     * Sets customId
+     *
+     * @param string|null $customId customId
+     *
+     * @return self
+     */
+    public function setCustomId($customId)
+    {
+        if (is_null($customId)) {
+            array_push($this->openAPINullablesSetToNull, 'customId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['customId'] = $customId;
 
         return $this;
     }

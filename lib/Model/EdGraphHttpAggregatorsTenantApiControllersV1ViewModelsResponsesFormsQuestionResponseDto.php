@@ -77,7 +77,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuesti
         'isDeleted' => 'bool',
         'order' => 'int',
         'component' => 'mixed',
-        'visibilityCondition' => '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto'
+        'visibilityCondition' => '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto',
+        'customId' => 'string'
     ];
 
     /**
@@ -108,7 +109,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuesti
         'isDeleted' => null,
         'order' => 'int32',
         'component' => null,
-        'visibilityCondition' => null
+        'visibilityCondition' => null,
+        'customId' => null
     ];
 
     /**
@@ -137,7 +139,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuesti
         'isDeleted' => false,
         'order' => false,
         'component' => true,
-        'visibilityCondition' => false
+        'visibilityCondition' => false,
+        'customId' => true
     ];
 
     /**
@@ -246,7 +249,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuesti
         'isDeleted' => 'isDeleted',
         'order' => 'order',
         'component' => 'component',
-        'visibilityCondition' => 'visibilityCondition'
+        'visibilityCondition' => 'visibilityCondition',
+        'customId' => 'customId'
     ];
 
     /**
@@ -275,7 +279,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuesti
         'isDeleted' => 'setIsDeleted',
         'order' => 'setOrder',
         'component' => 'setComponent',
-        'visibilityCondition' => 'setVisibilityCondition'
+        'visibilityCondition' => 'setVisibilityCondition',
+        'customId' => 'setCustomId'
     ];
 
     /**
@@ -304,7 +309,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuesti
         'isDeleted' => 'getIsDeleted',
         'order' => 'getOrder',
         'component' => 'getComponent',
-        'visibilityCondition' => 'getVisibilityCondition'
+        'visibilityCondition' => 'getVisibilityCondition',
+        'customId' => 'getCustomId'
     ];
 
     /**
@@ -385,6 +391,7 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuesti
         $this->setIfExists('order', $data ?? [], null);
         $this->setIfExists('component', $data ?? [], null);
         $this->setIfExists('visibilityCondition', $data ?? [], null);
+        $this->setIfExists('customId', $data ?? [], null);
     }
 
     /**
@@ -1062,6 +1069,40 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuesti
             throw new \InvalidArgumentException('non-nullable visibilityCondition cannot be null');
         }
         $this->container['visibilityCondition'] = $visibilityCondition;
+
+        return $this;
+    }
+
+    /**
+     * Gets customId
+     *
+     * @return string|null
+     */
+    public function getCustomId()
+    {
+        return $this->container['customId'];
+    }
+
+    /**
+     * Sets customId
+     *
+     * @param string|null $customId customId
+     *
+     * @return self
+     */
+    public function setCustomId($customId)
+    {
+        if (is_null($customId)) {
+            array_push($this->openAPINullablesSetToNull, 'customId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['customId'] = $customId;
 
         return $this;
     }
