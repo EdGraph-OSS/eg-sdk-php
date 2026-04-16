@@ -1629,7 +1629,7 @@ class ObservationsApi
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
     public function getFormQuestions($tenantId, $formId, $sectionId, $pageIndex = 0, $pageSize = 10, string $contentType = self::contentTypes['getFormQuestions'][0])
     {
@@ -1651,7 +1651,7 @@ class ObservationsApi
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFormQuestionsWithHttpInfo($tenantId, $formId, $sectionId, $pageIndex = 0, $pageSize = 10, string $contentType = self::contentTypes['getFormQuestions'][0])
     {
@@ -1775,11 +1775,11 @@ class ObservationsApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel' === '\SplFileObject') {
+                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel' !== 'string') {
+                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1797,7 +1797,7 @@ class ObservationsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel', []),
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1830,7 +1830,7 @@ class ObservationsApi
                     ];
             }
 
-            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel';
+            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1887,7 +1887,7 @@ class ObservationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel',
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1947,7 +1947,7 @@ class ObservationsApi
      */
     public function getFormQuestionsAsyncWithHttpInfo($tenantId, $formId, $sectionId, $pageIndex = 0, $pageSize = 10, string $contentType = self::contentTypes['getFormQuestions'][0])
     {
-        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel';
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel';
         $request = $this->getFormQuestionsRequest($tenantId, $formId, $sectionId, $pageIndex, $pageSize, $contentType);
 
         return $this->client

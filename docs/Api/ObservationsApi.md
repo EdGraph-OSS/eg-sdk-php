@@ -208,7 +208,7 @@ try {
 ## `getFormQuestions()`
 
 ```php
-getFormQuestions($tenantId, $formId, $sectionId, $pageIndex, $pageSize): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel
+getFormQuestions($tenantId, $formId, $sectionId, $pageIndex, $pageSize): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel
 ```
 
 Search Questions
@@ -256,7 +256,7 @@ try {
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponsePaginatedItemsViewModel.md)
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel**](../Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionResponseDtoPaginatedItemsViewModel.md)
 
 ### Authorization
 
