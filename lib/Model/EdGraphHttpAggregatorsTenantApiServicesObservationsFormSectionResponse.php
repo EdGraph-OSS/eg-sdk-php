@@ -69,7 +69,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse imp
         'deletedBy' => 'string',
         'deletedDateTime' => 'string',
         'isDeleted' => 'bool',
-        'order' => 'int'
+        'order' => 'int',
+        'customId' => 'string'
     ];
 
     /**
@@ -92,7 +93,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse imp
         'deletedBy' => null,
         'deletedDateTime' => null,
         'isDeleted' => null,
-        'order' => 'int32'
+        'order' => 'int32',
+        'customId' => null
     ];
 
     /**
@@ -113,7 +115,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse imp
         'deletedBy' => true,
         'deletedDateTime' => true,
         'isDeleted' => false,
-        'order' => false
+        'order' => false,
+        'customId' => true
     ];
 
     /**
@@ -214,7 +217,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse imp
         'deletedBy' => 'deletedBy',
         'deletedDateTime' => 'deletedDateTime',
         'isDeleted' => 'isDeleted',
-        'order' => 'order'
+        'order' => 'order',
+        'customId' => 'customId'
     ];
 
     /**
@@ -235,7 +239,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse imp
         'deletedBy' => 'setDeletedBy',
         'deletedDateTime' => 'setDeletedDateTime',
         'isDeleted' => 'setIsDeleted',
-        'order' => 'setOrder'
+        'order' => 'setOrder',
+        'customId' => 'setCustomId'
     ];
 
     /**
@@ -256,7 +261,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse imp
         'deletedBy' => 'getDeletedBy',
         'deletedDateTime' => 'getDeletedDateTime',
         'isDeleted' => 'getIsDeleted',
-        'order' => 'getOrder'
+        'order' => 'getOrder',
+        'customId' => 'getCustomId'
     ];
 
     /**
@@ -329,6 +335,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse imp
         $this->setIfExists('deletedDateTime', $data ?? [], null);
         $this->setIfExists('isDeleted', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
+        $this->setIfExists('customId', $data ?? [], null);
     }
 
     /**
@@ -797,6 +804,40 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponse imp
             throw new \InvalidArgumentException('non-nullable order cannot be null');
         }
         $this->container['order'] = $order;
+
+        return $this;
+    }
+
+    /**
+     * Gets customId
+     *
+     * @return string|null
+     */
+    public function getCustomId()
+    {
+        return $this->container['customId'];
+    }
+
+    /**
+     * Sets customId
+     *
+     * @param string|null $customId customId
+     *
+     * @return self
+     */
+    public function setCustomId($customId)
+    {
+        if (is_null($customId)) {
+            array_push($this->openAPINullablesSetToNull, 'customId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['customId'] = $customId;
 
         return $this;
     }
