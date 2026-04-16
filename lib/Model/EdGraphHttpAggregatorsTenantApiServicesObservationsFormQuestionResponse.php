@@ -66,7 +66,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse im
         'type' => 'string',
         'required' => 'bool',
         'defaultValue' => 'string',
-        'validation' => '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionValidationResponse',
+        'validation' => '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionValidationResponseDto',
         'options' => 'string[]',
         'createdBy' => 'string',
         'createdDateTime' => 'string',
@@ -76,7 +76,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse im
         'deletedDateTime' => 'string',
         'isDeleted' => 'bool',
         'order' => 'int',
-        'component' => 'mixed'
+        'component' => 'mixed',
+        'visibilityCondition' => '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto'
     ];
 
     /**
@@ -106,7 +107,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse im
         'deletedDateTime' => null,
         'isDeleted' => null,
         'order' => 'int32',
-        'component' => null
+        'component' => null,
+        'visibilityCondition' => null
     ];
 
     /**
@@ -134,7 +136,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse im
         'deletedDateTime' => true,
         'isDeleted' => false,
         'order' => false,
-        'component' => true
+        'component' => true,
+        'visibilityCondition' => false
     ];
 
     /**
@@ -242,7 +245,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse im
         'deletedDateTime' => 'deletedDateTime',
         'isDeleted' => 'isDeleted',
         'order' => 'order',
-        'component' => 'component'
+        'component' => 'component',
+        'visibilityCondition' => 'visibilityCondition'
     ];
 
     /**
@@ -270,7 +274,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse im
         'deletedDateTime' => 'setDeletedDateTime',
         'isDeleted' => 'setIsDeleted',
         'order' => 'setOrder',
-        'component' => 'setComponent'
+        'component' => 'setComponent',
+        'visibilityCondition' => 'setVisibilityCondition'
     ];
 
     /**
@@ -298,7 +303,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse im
         'deletedDateTime' => 'getDeletedDateTime',
         'isDeleted' => 'getIsDeleted',
         'order' => 'getOrder',
-        'component' => 'getComponent'
+        'component' => 'getComponent',
+        'visibilityCondition' => 'getVisibilityCondition'
     ];
 
     /**
@@ -378,6 +384,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse im
         $this->setIfExists('isDeleted', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
         $this->setIfExists('component', $data ?? [], null);
+        $this->setIfExists('visibilityCondition', $data ?? [], null);
     }
 
     /**
@@ -724,7 +731,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse im
     /**
      * Gets validation
      *
-     * @return \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionValidationResponse|null
+     * @return \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionValidationResponseDto|null
      */
     public function getValidation()
     {
@@ -734,7 +741,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse im
     /**
      * Sets validation
      *
-     * @param \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionValidationResponse|null $validation validation
+     * @param \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionValidationResponseDto|null $validation validation
      *
      * @return self
      */
@@ -1070,6 +1077,33 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsFormQuestionResponse im
             }
         }
         $this->container['component'] = $component;
+
+        return $this;
+    }
+
+    /**
+     * Gets visibilityCondition
+     *
+     * @return \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto|null
+     */
+    public function getVisibilityCondition()
+    {
+        return $this->container['visibilityCondition'];
+    }
+
+    /**
+     * Sets visibilityCondition
+     *
+     * @param \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto|null $visibilityCondition visibilityCondition
+     *
+     * @return self
+     */
+    public function setVisibilityCondition($visibilityCondition)
+    {
+        if (is_null($visibilityCondition)) {
+            throw new \InvalidArgumentException('non-nullable visibilityCondition cannot be null');
+        }
+        $this->container['visibilityCondition'] = $visibilityCondition;
 
         return $this;
     }
