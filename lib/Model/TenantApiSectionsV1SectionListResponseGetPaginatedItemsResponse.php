@@ -1,6 +1,6 @@
 <?php
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse
+ * TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \EdGraph\PlatformClient\ObjectSerializer;
 
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse Class Doc Comment
+ * TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse Class Doc Comment
  *
  * @category Class
  * @package  EdGraph\PlatformClient
@@ -40,7 +40,7 @@ use \EdGraph\PlatformClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse implemen
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.CampusResponse';
+    protected static $openAPIModelName = 'TenantApi.Sections.V1.SectionListResponseGetPaginatedItemsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse implemen
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'identifierType' => 'string',
-        'discriminator' => 'string',
-        'campusId' => 'string'
+        'pageIndex' => 'int',
+        'pageSize' => 'int',
+        'data' => '\EdGraph\PlatformClient\Model\TenantApiSectionsV1SectionListResponse[]',
+        'count' => 'int'
     ];
 
     /**
@@ -71,10 +71,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse implemen
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'identifierType' => null,
-        'discriminator' => null,
-        'campusId' => null
+        'pageIndex' => 'int32',
+        'pageSize' => 'int32',
+        'data' => null,
+        'count' => 'int64'
     ];
 
     /**
@@ -83,10 +83,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse implemen
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'name' => true,
-        'identifierType' => true,
-        'discriminator' => true,
-        'campusId' => true
+        'pageIndex' => false,
+        'pageSize' => false,
+        'data' => true,
+        'count' => false
     ];
 
     /**
@@ -175,10 +175,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse implemen
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'identifierType' => 'identifierType',
-        'discriminator' => 'discriminator',
-        'campusId' => 'campusId'
+        'pageIndex' => 'pageIndex',
+        'pageSize' => 'pageSize',
+        'data' => 'data',
+        'count' => 'count'
     ];
 
     /**
@@ -187,10 +187,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse implemen
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'identifierType' => 'setIdentifierType',
-        'discriminator' => 'setDiscriminator',
-        'campusId' => 'setCampusId'
+        'pageIndex' => 'setPageIndex',
+        'pageSize' => 'setPageSize',
+        'data' => 'setData',
+        'count' => 'setCount'
     ];
 
     /**
@@ -199,10 +199,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse implemen
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'identifierType' => 'getIdentifierType',
-        'discriminator' => 'getDiscriminator',
-        'campusId' => 'getCampusId'
+        'pageIndex' => 'getPageIndex',
+        'pageSize' => 'getPageSize',
+        'data' => 'getData',
+        'count' => 'getCount'
     ];
 
     /**
@@ -262,10 +262,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse implemen
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('identifierType', $data ?? [], null);
-        $this->setIfExists('discriminator', $data ?? [], null);
-        $this->setIfExists('campusId', $data ?? [], null);
+        $this->setIfExists('pageIndex', $data ?? [], null);
+        $this->setIfExists('pageSize', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
+        $this->setIfExists('count', $data ?? [], null);
     }
 
     /**
@@ -311,137 +311,116 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse implemen
 
 
     /**
-     * Gets name
+     * Gets pageIndex
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getName()
+    public function getPageIndex()
     {
-        return $this->container['name'];
+        return $this->container['pageIndex'];
     }
 
     /**
-     * Sets name
+     * Sets pageIndex
      *
-     * @param string|null $name name
+     * @param int|null $pageIndex pageIndex
      *
      * @return self
      */
-    public function setName($name)
+    public function setPageIndex($pageIndex)
     {
-        if (is_null($name)) {
-            array_push($this->openAPINullablesSetToNull, 'name');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('name', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($pageIndex)) {
+            throw new \InvalidArgumentException('non-nullable pageIndex cannot be null');
         }
-        $this->container['name'] = $name;
+        $this->container['pageIndex'] = $pageIndex;
 
         return $this;
     }
 
     /**
-     * Gets identifierType
+     * Gets pageSize
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getIdentifierType()
+    public function getPageSize()
     {
-        return $this->container['identifierType'];
+        return $this->container['pageSize'];
     }
 
     /**
-     * Sets identifierType
+     * Sets pageSize
      *
-     * @param string|null $identifierType identifierType
+     * @param int|null $pageSize pageSize
      *
      * @return self
      */
-    public function setIdentifierType($identifierType)
+    public function setPageSize($pageSize)
     {
-        if (is_null($identifierType)) {
-            array_push($this->openAPINullablesSetToNull, 'identifierType');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('identifierType', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($pageSize)) {
+            throw new \InvalidArgumentException('non-nullable pageSize cannot be null');
         }
-        $this->container['identifierType'] = $identifierType;
+        $this->container['pageSize'] = $pageSize;
 
         return $this;
     }
 
     /**
-     * Gets discriminator
+     * Gets data
      *
-     * @return string|null
+     * @return \EdGraph\PlatformClient\Model\TenantApiSectionsV1SectionListResponse[]|null
      */
-    public function getDiscriminator()
+    public function getData()
     {
-        return $this->container['discriminator'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets discriminator
+     * Sets data
      *
-     * @param string|null $discriminator discriminator
+     * @param \EdGraph\PlatformClient\Model\TenantApiSectionsV1SectionListResponse[]|null $data data
      *
      * @return self
      */
-    public function setDiscriminator($discriminator)
+    public function setData($data)
     {
-        if (is_null($discriminator)) {
-            array_push($this->openAPINullablesSetToNull, 'discriminator');
+        if (is_null($data)) {
+            array_push($this->openAPINullablesSetToNull, 'data');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('discriminator', $nullablesSetToNull);
+            $index = array_search('data', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['discriminator'] = $discriminator;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets campusId
+     * Gets count
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getCampusId()
+    public function getCount()
     {
-        return $this->container['campusId'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets campusId
+     * Sets count
      *
-     * @param string|null $campusId campusId
+     * @param int|null $count count
      *
      * @return self
      */
-    public function setCampusId($campusId)
+    public function setCount($count)
     {
-        if (is_null($campusId)) {
-            array_push($this->openAPINullablesSetToNull, 'campusId');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('campusId', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($count)) {
+            throw new \InvalidArgumentException('non-nullable count cannot be null');
         }
-        $this->container['campusId'] = $campusId;
+        $this->container['count'] = $count;
 
         return $this;
     }

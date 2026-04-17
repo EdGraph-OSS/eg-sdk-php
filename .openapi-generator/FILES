@@ -851,6 +851,7 @@ docs/Model/TenantApiSectionsV1PaginatedSessionsResponse.md
 docs/Model/TenantApiSectionsV1PaginatedTermsResponse.md
 docs/Model/TenantApiSectionsV1SchoolListResponse.md
 docs/Model/TenantApiSectionsV1SectionListResponse.md
+docs/Model/TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse.md
 docs/Model/TenantApiSectionsV1SectionProfileResponse.md
 docs/Model/TenantApiSectionsV1SectionSource.md
 docs/Model/TenantApiSectionsV1SessionListResponse.md
@@ -1871,6 +1872,7 @@ lib/Model/TenantApiSectionsV1PaginatedSessionsResponse.php
 lib/Model/TenantApiSectionsV1PaginatedTermsResponse.php
 lib/Model/TenantApiSectionsV1SchoolListResponse.php
 lib/Model/TenantApiSectionsV1SectionListResponse.php
+lib/Model/TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse.php
 lib/Model/TenantApiSectionsV1SectionProfileResponse.php
 lib/Model/TenantApiSectionsV1SectionSource.php
 lib/Model/TenantApiSectionsV1SessionListResponse.php
@@ -2040,3 +2042,4 @@ lib/Model/ValidationsApiValidationResultsV1FindResponse.php
 lib/Model/ValidationsApiValidationResultsV1ValidationResultDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponseTest.php
