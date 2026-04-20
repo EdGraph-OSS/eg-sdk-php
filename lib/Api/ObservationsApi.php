@@ -5657,15 +5657,17 @@ class ObservationsApi
      * @param  string $orderBy  (optional, default to '')
      * @param  string $campus  (optional, default to '')
      * @param  string $evalueeId  (optional, default to '')
+     * @param  string $firstName  (optional, default to '')
+     * @param  string $lastName  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedEvaluees'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
-    public function getPaginatedEvaluees($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
+    public function getPaginatedEvaluees($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', $firstName = '', $lastName = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
     {
-        list($response) = $this->getPaginatedEvalueesWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $contentType);
+        list($response) = $this->getPaginatedEvalueesWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $firstName, $lastName, $contentType);
         return $response;
     }
 
@@ -5680,15 +5682,17 @@ class ObservationsApi
      * @param  string $orderBy  (optional, default to '')
      * @param  string $campus  (optional, default to '')
      * @param  string $evalueeId  (optional, default to '')
+     * @param  string $firstName  (optional, default to '')
+     * @param  string $lastName  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedEvaluees'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPaginatedEvalueesWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
+    public function getPaginatedEvalueesWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', $firstName = '', $lastName = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
     {
-        $request = $this->getPaginatedEvalueesRequest($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $contentType);
+        $request = $this->getPaginatedEvalueesRequest($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $firstName, $lastName, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5949,14 +5953,16 @@ class ObservationsApi
      * @param  string $orderBy  (optional, default to '')
      * @param  string $campus  (optional, default to '')
      * @param  string $evalueeId  (optional, default to '')
+     * @param  string $firstName  (optional, default to '')
+     * @param  string $lastName  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedEvaluees'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaginatedEvalueesAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
+    public function getPaginatedEvalueesAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', $firstName = '', $lastName = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
     {
-        return $this->getPaginatedEvalueesAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $contentType)
+        return $this->getPaginatedEvalueesAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $firstName, $lastName, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5975,15 +5981,17 @@ class ObservationsApi
      * @param  string $orderBy  (optional, default to '')
      * @param  string $campus  (optional, default to '')
      * @param  string $evalueeId  (optional, default to '')
+     * @param  string $firstName  (optional, default to '')
+     * @param  string $lastName  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedEvaluees'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaginatedEvalueesAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
+    public function getPaginatedEvalueesAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', $firstName = '', $lastName = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
     {
         $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse';
-        $request = $this->getPaginatedEvalueesRequest($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $contentType);
+        $request = $this->getPaginatedEvalueesRequest($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $firstName, $lastName, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6030,12 +6038,14 @@ class ObservationsApi
      * @param  string $orderBy  (optional, default to '')
      * @param  string $campus  (optional, default to '')
      * @param  string $evalueeId  (optional, default to '')
+     * @param  string $firstName  (optional, default to '')
+     * @param  string $lastName  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedEvaluees'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPaginatedEvalueesRequest($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
+    public function getPaginatedEvalueesRequest($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $campus = '', $evalueeId = '', $firstName = '', $lastName = '', string $contentType = self::contentTypes['getPaginatedEvaluees'][0])
     {
 
         // verify the required parameter 'tenantId' is set
@@ -6044,6 +6054,8 @@ class ObservationsApi
                 'Missing the required parameter $tenantId when calling getPaginatedEvaluees'
             );
         }
+
+
 
 
 
@@ -6098,6 +6110,24 @@ class ObservationsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $evalueeId,
             'evalueeId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $firstName,
+            'firstName', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $lastName,
+            'lastName', // param base name
             'string', // openApiType
             'form', // style
             true, // explode

@@ -723,7 +723,7 @@ try {
 ## `getPaginatedEvaluees()`
 
 ```php
-getPaginatedEvaluees($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse
+getPaginatedEvaluees($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $firstName, $lastName): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponseGetPaginatedItemsResponse
 ```
 
 Get paginated evaluees
@@ -751,9 +751,11 @@ $pageIndex = 0; // int |
 $orderBy = ''; // string | 
 $campus = ''; // string | 
 $evalueeId = ''; // string | 
+$firstName = ''; // string | 
+$lastName = ''; // string | 
 
 try {
-    $result = $apiInstance->getPaginatedEvaluees($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId);
+    $result = $apiInstance->getPaginatedEvaluees($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeId, $firstName, $lastName);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObservationsApi->getPaginatedEvaluees: ', $e->getMessage(), PHP_EOL;
@@ -770,6 +772,8 @@ try {
 | **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
 | **campus** | **string**|  | [optional] [default to &#39;&#39;] |
 | **evalueeId** | **string**|  | [optional] [default to &#39;&#39;] |
+| **firstName** | **string**|  | [optional] [default to &#39;&#39;] |
+| **lastName** | **string**|  | [optional] [default to &#39;&#39;] |
 
 ### Return type
 

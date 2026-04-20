@@ -2042,4 +2042,3 @@ lib/Model/ValidationsApiValidationResultsV1FindResponse.php
 lib/Model/ValidationsApiValidationResultsV1ValidationResultDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponseTest.php

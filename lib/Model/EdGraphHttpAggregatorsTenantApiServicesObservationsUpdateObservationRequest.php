@@ -60,7 +60,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationReques
         'tenantId' => 'string',
         'observationId' => 'string',
         'observationDate' => 'string',
-        'formId' => 'string'
+        'campus' => 'string',
+        'observerId' => 'string',
+        'evalueeId' => 'string',
+        'formId' => 'string',
+        'formVersion' => 'string',
+        'campusClassId' => 'string'
     ];
 
     /**
@@ -74,7 +79,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationReques
         'tenantId' => null,
         'observationId' => null,
         'observationDate' => null,
-        'formId' => null
+        'campus' => null,
+        'observerId' => null,
+        'evalueeId' => null,
+        'formId' => null,
+        'formVersion' => null,
+        'campusClassId' => null
     ];
 
     /**
@@ -86,7 +96,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationReques
         'tenantId' => true,
         'observationId' => true,
         'observationDate' => true,
-        'formId' => true
+        'campus' => true,
+        'observerId' => true,
+        'evalueeId' => true,
+        'formId' => true,
+        'formVersion' => true,
+        'campusClassId' => true
     ];
 
     /**
@@ -178,7 +193,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationReques
         'tenantId' => 'tenantId',
         'observationId' => 'observationId',
         'observationDate' => 'observationDate',
-        'formId' => 'formId'
+        'campus' => 'campus',
+        'observerId' => 'observerId',
+        'evalueeId' => 'evalueeId',
+        'formId' => 'formId',
+        'formVersion' => 'formVersion',
+        'campusClassId' => 'campusClassId'
     ];
 
     /**
@@ -190,7 +210,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationReques
         'tenantId' => 'setTenantId',
         'observationId' => 'setObservationId',
         'observationDate' => 'setObservationDate',
-        'formId' => 'setFormId'
+        'campus' => 'setCampus',
+        'observerId' => 'setObserverId',
+        'evalueeId' => 'setEvalueeId',
+        'formId' => 'setFormId',
+        'formVersion' => 'setFormVersion',
+        'campusClassId' => 'setCampusClassId'
     ];
 
     /**
@@ -202,7 +227,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationReques
         'tenantId' => 'getTenantId',
         'observationId' => 'getObservationId',
         'observationDate' => 'getObservationDate',
-        'formId' => 'getFormId'
+        'campus' => 'getCampus',
+        'observerId' => 'getObserverId',
+        'evalueeId' => 'getEvalueeId',
+        'formId' => 'getFormId',
+        'formVersion' => 'getFormVersion',
+        'campusClassId' => 'getCampusClassId'
     ];
 
     /**
@@ -265,7 +295,12 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationReques
         $this->setIfExists('tenantId', $data ?? [], null);
         $this->setIfExists('observationId', $data ?? [], null);
         $this->setIfExists('observationDate', $data ?? [], null);
+        $this->setIfExists('campus', $data ?? [], null);
+        $this->setIfExists('observerId', $data ?? [], null);
+        $this->setIfExists('evalueeId', $data ?? [], null);
         $this->setIfExists('formId', $data ?? [], null);
+        $this->setIfExists('formVersion', $data ?? [], null);
+        $this->setIfExists('campusClassId', $data ?? [], null);
     }
 
     /**
@@ -413,6 +448,108 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationReques
     }
 
     /**
+     * Gets campus
+     *
+     * @return string|null
+     */
+    public function getCampus()
+    {
+        return $this->container['campus'];
+    }
+
+    /**
+     * Sets campus
+     *
+     * @param string|null $campus campus
+     *
+     * @return self
+     */
+    public function setCampus($campus)
+    {
+        if (is_null($campus)) {
+            array_push($this->openAPINullablesSetToNull, 'campus');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campus', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['campus'] = $campus;
+
+        return $this;
+    }
+
+    /**
+     * Gets observerId
+     *
+     * @return string|null
+     */
+    public function getObserverId()
+    {
+        return $this->container['observerId'];
+    }
+
+    /**
+     * Sets observerId
+     *
+     * @param string|null $observerId observerId
+     *
+     * @return self
+     */
+    public function setObserverId($observerId)
+    {
+        if (is_null($observerId)) {
+            array_push($this->openAPINullablesSetToNull, 'observerId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('observerId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['observerId'] = $observerId;
+
+        return $this;
+    }
+
+    /**
+     * Gets evalueeId
+     *
+     * @return string|null
+     */
+    public function getEvalueeId()
+    {
+        return $this->container['evalueeId'];
+    }
+
+    /**
+     * Sets evalueeId
+     *
+     * @param string|null $evalueeId evalueeId
+     *
+     * @return self
+     */
+    public function setEvalueeId($evalueeId)
+    {
+        if (is_null($evalueeId)) {
+            array_push($this->openAPINullablesSetToNull, 'evalueeId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('evalueeId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['evalueeId'] = $evalueeId;
+
+        return $this;
+    }
+
+    /**
      * Gets formId
      *
      * @return string|null
@@ -442,6 +579,74 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationReques
             }
         }
         $this->container['formId'] = $formId;
+
+        return $this;
+    }
+
+    /**
+     * Gets formVersion
+     *
+     * @return string|null
+     */
+    public function getFormVersion()
+    {
+        return $this->container['formVersion'];
+    }
+
+    /**
+     * Sets formVersion
+     *
+     * @param string|null $formVersion formVersion
+     *
+     * @return self
+     */
+    public function setFormVersion($formVersion)
+    {
+        if (is_null($formVersion)) {
+            array_push($this->openAPINullablesSetToNull, 'formVersion');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('formVersion', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['formVersion'] = $formVersion;
+
+        return $this;
+    }
+
+    /**
+     * Gets campusClassId
+     *
+     * @return string|null
+     */
+    public function getCampusClassId()
+    {
+        return $this->container['campusClassId'];
+    }
+
+    /**
+     * Sets campusClassId
+     *
+     * @param string|null $campusClassId campusClassId
+     *
+     * @return self
+     */
+    public function setCampusClassId($campusClassId)
+    {
+        if (is_null($campusClassId)) {
+            array_push($this->openAPINullablesSetToNull, 'campusClassId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campusClassId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['campusClassId'] = $campusClassId;
 
         return $this;
     }

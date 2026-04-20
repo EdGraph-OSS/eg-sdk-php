@@ -64,7 +64,8 @@ class EvaluationApiEvaluationsV1UpdateEvaluationRequest implements ModelInterfac
         'appraiserUserId' => 'string',
         'staffUserId' => 'string',
         'formId' => 'string',
-        'formVersion' => 'string'
+        'formVersion' => 'string',
+        'campusClassId' => 'string'
     ];
 
     /**
@@ -82,7 +83,8 @@ class EvaluationApiEvaluationsV1UpdateEvaluationRequest implements ModelInterfac
         'appraiserUserId' => null,
         'staffUserId' => null,
         'formId' => null,
-        'formVersion' => null
+        'formVersion' => null,
+        'campusClassId' => null
     ];
 
     /**
@@ -98,7 +100,8 @@ class EvaluationApiEvaluationsV1UpdateEvaluationRequest implements ModelInterfac
         'appraiserUserId' => true,
         'staffUserId' => true,
         'formId' => true,
-        'formVersion' => true
+        'formVersion' => true,
+        'campusClassId' => true
     ];
 
     /**
@@ -194,7 +197,8 @@ class EvaluationApiEvaluationsV1UpdateEvaluationRequest implements ModelInterfac
         'appraiserUserId' => 'appraiserUserId',
         'staffUserId' => 'staffUserId',
         'formId' => 'formId',
-        'formVersion' => 'formVersion'
+        'formVersion' => 'formVersion',
+        'campusClassId' => 'campusClassId'
     ];
 
     /**
@@ -210,7 +214,8 @@ class EvaluationApiEvaluationsV1UpdateEvaluationRequest implements ModelInterfac
         'appraiserUserId' => 'setAppraiserUserId',
         'staffUserId' => 'setStaffUserId',
         'formId' => 'setFormId',
-        'formVersion' => 'setFormVersion'
+        'formVersion' => 'setFormVersion',
+        'campusClassId' => 'setCampusClassId'
     ];
 
     /**
@@ -226,7 +231,8 @@ class EvaluationApiEvaluationsV1UpdateEvaluationRequest implements ModelInterfac
         'appraiserUserId' => 'getAppraiserUserId',
         'staffUserId' => 'getStaffUserId',
         'formId' => 'getFormId',
-        'formVersion' => 'getFormVersion'
+        'formVersion' => 'getFormVersion',
+        'campusClassId' => 'getCampusClassId'
     ];
 
     /**
@@ -294,6 +300,7 @@ class EvaluationApiEvaluationsV1UpdateEvaluationRequest implements ModelInterfac
         $this->setIfExists('staffUserId', $data ?? [], null);
         $this->setIfExists('formId', $data ?? [], null);
         $this->setIfExists('formVersion', $data ?? [], null);
+        $this->setIfExists('campusClassId', $data ?? [], null);
     }
 
     /**
@@ -606,6 +613,40 @@ class EvaluationApiEvaluationsV1UpdateEvaluationRequest implements ModelInterfac
             }
         }
         $this->container['formVersion'] = $formVersion;
+
+        return $this;
+    }
+
+    /**
+     * Gets campusClassId
+     *
+     * @return string|null
+     */
+    public function getCampusClassId()
+    {
+        return $this->container['campusClassId'];
+    }
+
+    /**
+     * Sets campusClassId
+     *
+     * @param string|null $campusClassId campusClassId
+     *
+     * @return self
+     */
+    public function setCampusClassId($campusClassId)
+    {
+        if (is_null($campusClassId)) {
+            array_push($this->openAPINullablesSetToNull, 'campusClassId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('campusClassId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['campusClassId'] = $campusClassId;
 
         return $this;
     }
