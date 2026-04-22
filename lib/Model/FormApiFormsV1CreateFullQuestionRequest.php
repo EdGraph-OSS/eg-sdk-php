@@ -67,7 +67,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'order' => 'int',
         'component' => 'string',
         'customId' => 'string',
-        'visibilityCondition' => '\EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityCondition'
+        'visibilityCondition' => '\EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityCondition',
+        'originalQuestionId' => 'string'
     ];
 
     /**
@@ -88,7 +89,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'order' => 'int32',
         'component' => null,
         'customId' => null,
-        'visibilityCondition' => null
+        'visibilityCondition' => null,
+        'originalQuestionId' => null
     ];
 
     /**
@@ -107,7 +109,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'order' => true,
         'component' => true,
         'customId' => true,
-        'visibilityCondition' => false
+        'visibilityCondition' => false,
+        'originalQuestionId' => true
     ];
 
     /**
@@ -206,7 +209,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'order' => 'order',
         'component' => 'component',
         'customId' => 'customId',
-        'visibilityCondition' => 'visibilityCondition'
+        'visibilityCondition' => 'visibilityCondition',
+        'originalQuestionId' => 'originalQuestionId'
     ];
 
     /**
@@ -225,7 +229,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'order' => 'setOrder',
         'component' => 'setComponent',
         'customId' => 'setCustomId',
-        'visibilityCondition' => 'setVisibilityCondition'
+        'visibilityCondition' => 'setVisibilityCondition',
+        'originalQuestionId' => 'setOriginalQuestionId'
     ];
 
     /**
@@ -244,7 +249,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'order' => 'getOrder',
         'component' => 'getComponent',
         'customId' => 'getCustomId',
-        'visibilityCondition' => 'getVisibilityCondition'
+        'visibilityCondition' => 'getVisibilityCondition',
+        'originalQuestionId' => 'getOriginalQuestionId'
     ];
 
     /**
@@ -315,6 +321,7 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         $this->setIfExists('component', $data ?? [], null);
         $this->setIfExists('customId', $data ?? [], null);
         $this->setIfExists('visibilityCondition', $data ?? [], null);
+        $this->setIfExists('originalQuestionId', $data ?? [], null);
     }
 
     /**
@@ -708,6 +715,40 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
             throw new \InvalidArgumentException('non-nullable visibilityCondition cannot be null');
         }
         $this->container['visibilityCondition'] = $visibilityCondition;
+
+        return $this;
+    }
+
+    /**
+     * Gets originalQuestionId
+     *
+     * @return string|null
+     */
+    public function getOriginalQuestionId()
+    {
+        return $this->container['originalQuestionId'];
+    }
+
+    /**
+     * Sets originalQuestionId
+     *
+     * @param string|null $originalQuestionId originalQuestionId
+     *
+     * @return self
+     */
+    public function setOriginalQuestionId($originalQuestionId)
+    {
+        if (is_null($originalQuestionId)) {
+            array_push($this->openAPINullablesSetToNull, 'originalQuestionId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('originalQuestionId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['originalQuestionId'] = $originalQuestionId;
 
         return $this;
     }

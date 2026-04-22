@@ -5694,16 +5694,16 @@ class ObservationsApi
      * @param  int $pageIndex  (optional, default to 0)
      * @param  int $pageSize  (optional, default to 10)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $courseTitle  (optional, default to '')
+     * @param  string $filter  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedCampusSections'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
-    public function getPaginatedCampusSections($tenantId, $campusId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $courseTitle = '', string $contentType = self::contentTypes['getPaginatedCampusSections'][0])
+    public function getPaginatedCampusSections($tenantId, $campusId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedCampusSections'][0])
     {
-        list($response) = $this->getPaginatedCampusSectionsWithHttpInfo($tenantId, $campusId, $pageIndex, $pageSize, $orderBy, $courseTitle, $contentType);
+        list($response) = $this->getPaginatedCampusSectionsWithHttpInfo($tenantId, $campusId, $pageIndex, $pageSize, $orderBy, $filter, $contentType);
         return $response;
     }
 
@@ -5717,16 +5717,16 @@ class ObservationsApi
      * @param  int $pageIndex  (optional, default to 0)
      * @param  int $pageSize  (optional, default to 10)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $courseTitle  (optional, default to '')
+     * @param  string $filter  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedCampusSections'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getPaginatedCampusSectionsWithHttpInfo($tenantId, $campusId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $courseTitle = '', string $contentType = self::contentTypes['getPaginatedCampusSections'][0])
+    public function getPaginatedCampusSectionsWithHttpInfo($tenantId, $campusId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedCampusSections'][0])
     {
-        $request = $this->getPaginatedCampusSectionsRequest($tenantId, $campusId, $pageIndex, $pageSize, $orderBy, $courseTitle, $contentType);
+        $request = $this->getPaginatedCampusSectionsRequest($tenantId, $campusId, $pageIndex, $pageSize, $orderBy, $filter, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5986,15 +5986,15 @@ class ObservationsApi
      * @param  int $pageIndex  (optional, default to 0)
      * @param  int $pageSize  (optional, default to 10)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $courseTitle  (optional, default to '')
+     * @param  string $filter  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedCampusSections'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaginatedCampusSectionsAsync($tenantId, $campusId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $courseTitle = '', string $contentType = self::contentTypes['getPaginatedCampusSections'][0])
+    public function getPaginatedCampusSectionsAsync($tenantId, $campusId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedCampusSections'][0])
     {
-        return $this->getPaginatedCampusSectionsAsyncWithHttpInfo($tenantId, $campusId, $pageIndex, $pageSize, $orderBy, $courseTitle, $contentType)
+        return $this->getPaginatedCampusSectionsAsyncWithHttpInfo($tenantId, $campusId, $pageIndex, $pageSize, $orderBy, $filter, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6012,16 +6012,16 @@ class ObservationsApi
      * @param  int $pageIndex  (optional, default to 0)
      * @param  int $pageSize  (optional, default to 10)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $courseTitle  (optional, default to '')
+     * @param  string $filter  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedCampusSections'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getPaginatedCampusSectionsAsyncWithHttpInfo($tenantId, $campusId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $courseTitle = '', string $contentType = self::contentTypes['getPaginatedCampusSections'][0])
+    public function getPaginatedCampusSectionsAsyncWithHttpInfo($tenantId, $campusId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedCampusSections'][0])
     {
         $returnType = '\EdGraph\PlatformClient\Model\TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse';
-        $request = $this->getPaginatedCampusSectionsRequest($tenantId, $campusId, $pageIndex, $pageSize, $orderBy, $courseTitle, $contentType);
+        $request = $this->getPaginatedCampusSectionsRequest($tenantId, $campusId, $pageIndex, $pageSize, $orderBy, $filter, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6067,13 +6067,13 @@ class ObservationsApi
      * @param  int $pageIndex  (optional, default to 0)
      * @param  int $pageSize  (optional, default to 10)
      * @param  string $orderBy  (optional, default to '')
-     * @param  string $courseTitle  (optional, default to '')
+     * @param  string $filter  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedCampusSections'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getPaginatedCampusSectionsRequest($tenantId, $campusId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $courseTitle = '', string $contentType = self::contentTypes['getPaginatedCampusSections'][0])
+    public function getPaginatedCampusSectionsRequest($tenantId, $campusId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedCampusSections'][0])
     {
 
         // verify the required parameter 'tenantId' is set
@@ -6131,8 +6131,8 @@ class ObservationsApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $courseTitle,
-            'courseTitle', // param base name
+            $filter,
+            'filter', // param base name
             'string', // openApiType
             'form', // style
             true, // explode

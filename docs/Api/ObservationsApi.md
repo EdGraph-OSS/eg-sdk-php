@@ -724,7 +724,7 @@ try {
 ## `getPaginatedCampusSections()`
 
 ```php
-getPaginatedCampusSections($tenantId, $campusId, $pageIndex, $pageSize, $orderBy, $courseTitle): \EdGraph\PlatformClient\Model\TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse
+getPaginatedCampusSections($tenantId, $campusId, $pageIndex, $pageSize, $orderBy, $filter): \EdGraph\PlatformClient\Model\TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse
 ```
 
 Retrieves a list of Sections for a given available campus.
@@ -751,10 +751,10 @@ $campusId = 'campusId_example'; // string |
 $pageIndex = 0; // int | 
 $pageSize = 10; // int | 
 $orderBy = ''; // string | 
-$courseTitle = ''; // string | 
+$filter = ''; // string | 
 
 try {
-    $result = $apiInstance->getPaginatedCampusSections($tenantId, $campusId, $pageIndex, $pageSize, $orderBy, $courseTitle);
+    $result = $apiInstance->getPaginatedCampusSections($tenantId, $campusId, $pageIndex, $pageSize, $orderBy, $filter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObservationsApi->getPaginatedCampusSections: ', $e->getMessage(), PHP_EOL;
@@ -770,7 +770,7 @@ try {
 | **pageIndex** | **int**|  | [optional] [default to 0] |
 | **pageSize** | **int**|  | [optional] [default to 10] |
 | **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
-| **courseTitle** | **string**|  | [optional] [default to &#39;&#39;] |
+| **filter** | **string**|  | [optional] [default to &#39;&#39;] |
 
 ### Return type
 
