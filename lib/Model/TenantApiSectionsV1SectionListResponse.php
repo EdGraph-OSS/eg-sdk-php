@@ -80,7 +80,8 @@ class TenantApiSectionsV1SectionListResponse implements ModelInterface, ArrayAcc
         'edFiInstanceId' => 'string',
         'jobId' => 'string',
         'jobExecutionId' => 'string',
-        'schoolYear' => 'int'
+        'schoolYear' => 'int',
+        'classPeriods' => 'string[]'
     ];
 
     /**
@@ -114,7 +115,8 @@ class TenantApiSectionsV1SectionListResponse implements ModelInterface, ArrayAcc
         'edFiInstanceId' => null,
         'jobId' => null,
         'jobExecutionId' => null,
-        'schoolYear' => 'int32'
+        'schoolYear' => 'int32',
+        'classPeriods' => null
     ];
 
     /**
@@ -146,7 +148,8 @@ class TenantApiSectionsV1SectionListResponse implements ModelInterface, ArrayAcc
         'edFiInstanceId' => true,
         'jobId' => true,
         'jobExecutionId' => true,
-        'schoolYear' => false
+        'schoolYear' => false,
+        'classPeriods' => true
     ];
 
     /**
@@ -258,7 +261,8 @@ class TenantApiSectionsV1SectionListResponse implements ModelInterface, ArrayAcc
         'edFiInstanceId' => 'edFiInstanceId',
         'jobId' => 'jobId',
         'jobExecutionId' => 'jobExecutionId',
-        'schoolYear' => 'schoolYear'
+        'schoolYear' => 'schoolYear',
+        'classPeriods' => 'classPeriods'
     ];
 
     /**
@@ -290,7 +294,8 @@ class TenantApiSectionsV1SectionListResponse implements ModelInterface, ArrayAcc
         'edFiInstanceId' => 'setEdFiInstanceId',
         'jobId' => 'setJobId',
         'jobExecutionId' => 'setJobExecutionId',
-        'schoolYear' => 'setSchoolYear'
+        'schoolYear' => 'setSchoolYear',
+        'classPeriods' => 'setClassPeriods'
     ];
 
     /**
@@ -322,7 +327,8 @@ class TenantApiSectionsV1SectionListResponse implements ModelInterface, ArrayAcc
         'edFiInstanceId' => 'getEdFiInstanceId',
         'jobId' => 'getJobId',
         'jobExecutionId' => 'getJobExecutionId',
-        'schoolYear' => 'getSchoolYear'
+        'schoolYear' => 'getSchoolYear',
+        'classPeriods' => 'getClassPeriods'
     ];
 
     /**
@@ -406,6 +412,7 @@ class TenantApiSectionsV1SectionListResponse implements ModelInterface, ArrayAcc
         $this->setIfExists('jobId', $data ?? [], null);
         $this->setIfExists('jobExecutionId', $data ?? [], null);
         $this->setIfExists('schoolYear', $data ?? [], null);
+        $this->setIfExists('classPeriods', $data ?? [], null);
     }
 
     /**
@@ -1241,6 +1248,40 @@ class TenantApiSectionsV1SectionListResponse implements ModelInterface, ArrayAcc
             throw new \InvalidArgumentException('non-nullable schoolYear cannot be null');
         }
         $this->container['schoolYear'] = $schoolYear;
+
+        return $this;
+    }
+
+    /**
+     * Gets classPeriods
+     *
+     * @return string[]|null
+     */
+    public function getClassPeriods()
+    {
+        return $this->container['classPeriods'];
+    }
+
+    /**
+     * Sets classPeriods
+     *
+     * @param string[]|null $classPeriods classPeriods
+     *
+     * @return self
+     */
+    public function setClassPeriods($classPeriods)
+    {
+        if (is_null($classPeriods)) {
+            array_push($this->openAPINullablesSetToNull, 'classPeriods');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('classPeriods', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['classPeriods'] = $classPeriods;
 
         return $this;
     }

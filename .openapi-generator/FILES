@@ -792,6 +792,7 @@ docs/Model/IdentityApiUserV1SectionAddedResponse.md
 docs/Model/IdentityApiUserV1SectionRemovedBulkResponse.md
 docs/Model/IdentityApiUserV1SectionRemovedResponse.md
 docs/Model/IdentityApiUserV1SectionResponse.md
+docs/Model/IdentityApiUserV1SectionResponseGetPaginatedItemsResponse.md
 docs/Model/IdentityApiUserV1SectionUpdatedBulkResponse.md
 docs/Model/IdentityApiUserV1SectionUpdatedResponse.md
 docs/Model/IdentityApiUserV1SetUserExtensionRequest.md
@@ -1812,6 +1813,7 @@ lib/Model/IdentityApiUserV1SectionAddedResponse.php
 lib/Model/IdentityApiUserV1SectionRemovedBulkResponse.php
 lib/Model/IdentityApiUserV1SectionRemovedResponse.php
 lib/Model/IdentityApiUserV1SectionResponse.php
+lib/Model/IdentityApiUserV1SectionResponseGetPaginatedItemsResponse.php
 lib/Model/IdentityApiUserV1SectionUpdatedBulkResponse.php
 lib/Model/IdentityApiUserV1SectionUpdatedResponse.php
 lib/Model/IdentityApiUserV1SetUserExtensionRequest.php
@@ -2042,3 +2044,4 @@ lib/Model/ValidationsApiValidationResultsV1FindResponse.php
 lib/Model/ValidationsApiValidationResultsV1ValidationResultDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
+test/Model/IdentityApiUserV1SectionResponseGetPaginatedItemsResponseTest.php
