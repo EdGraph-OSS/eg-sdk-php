@@ -70,7 +70,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQ
         'order' => 'int',
         'component' => 'mixed',
         'visibilityCondition' => '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesFormsQuestionVisibilityConditionDto',
-        'customId' => 'string'
+        'customId' => 'string',
+        'multiline' => 'bool'
     ];
 
     /**
@@ -94,7 +95,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQ
         'order' => 'int32',
         'component' => null,
         'visibilityCondition' => null,
-        'customId' => null
+        'customId' => null,
+        'multiline' => null
     ];
 
     /**
@@ -116,7 +118,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQ
         'order' => false,
         'component' => true,
         'visibilityCondition' => false,
-        'customId' => true
+        'customId' => true,
+        'multiline' => true
     ];
 
     /**
@@ -218,7 +221,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQ
         'order' => 'order',
         'component' => 'component',
         'visibilityCondition' => 'visibilityCondition',
-        'customId' => 'customId'
+        'customId' => 'customId',
+        'multiline' => 'multiline'
     ];
 
     /**
@@ -240,7 +244,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQ
         'order' => 'setOrder',
         'component' => 'setComponent',
         'visibilityCondition' => 'setVisibilityCondition',
-        'customId' => 'setCustomId'
+        'customId' => 'setCustomId',
+        'multiline' => 'setMultiline'
     ];
 
     /**
@@ -262,7 +267,8 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQ
         'order' => 'getOrder',
         'component' => 'getComponent',
         'visibilityCondition' => 'getVisibilityCondition',
-        'customId' => 'getCustomId'
+        'customId' => 'getCustomId',
+        'multiline' => 'getMultiline'
     ];
 
     /**
@@ -336,6 +342,7 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQ
         $this->setIfExists('component', $data ?? [], null);
         $this->setIfExists('visibilityCondition', $data ?? [], null);
         $this->setIfExists('customId', $data ?? [], null);
+        $this->setIfExists('multiline', $data ?? [], null);
     }
 
     /**
@@ -796,6 +803,40 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQ
             }
         }
         $this->container['customId'] = $customId;
+
+        return $this;
+    }
+
+    /**
+     * Gets multiline
+     *
+     * @return bool|null
+     */
+    public function getMultiline()
+    {
+        return $this->container['multiline'];
+    }
+
+    /**
+     * Sets multiline
+     *
+     * @param bool|null $multiline multiline
+     *
+     * @return self
+     */
+    public function setMultiline($multiline)
+    {
+        if (is_null($multiline)) {
+            array_push($this->openAPINullablesSetToNull, 'multiline');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('multiline', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['multiline'] = $multiline;
 
         return $this;
     }

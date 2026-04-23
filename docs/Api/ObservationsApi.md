@@ -7,6 +7,8 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**createObservation()**](ObservationsApi.md#createObservation) | **POST** /tenants/{tenantId}/observations | Creates a new Observation for a given tenant |
 | [**createObservationSubmission()**](ObservationsApi.md#createObservationSubmission) | **POST** /tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/submit | Creates a submission for an available form referencing an existing observation |
 | [**deleteObservation()**](ObservationsApi.md#deleteObservation) | **DELETE** /tenants/{tenantId}/observations/{observationId} | Deletes an Observation for a given tenant |
+| [**getDashboard()**](ObservationsApi.md#getDashboard) | **GET** /tenants/{tenantId}/observations/dashboards/{dashboardId} | Get Observation Dashboard |
+| [**getDashboardPreferences()**](ObservationsApi.md#getDashboardPreferences) | **GET** /tenants/{tenantId}/observations/dashboards/{dashboardId}/preferences | Save user preferences for a given Dashboard |
 | [**getEvalueeSections()**](ObservationsApi.md#getEvalueeSections) | **GET** /tenants/{tenantId}/observations/evaluees/{evalueeId}/sections | Gets the Sections of an evaluee. |
 | [**getFormQuestions()**](ObservationsApi.md#getFormQuestions) | **GET** /tenants/{tenantId}/observations/available-forms/{formId}/sections/{sectionId}/questions | Search Questions |
 | [**getFormSections()**](ObservationsApi.md#getFormSections) | **GET** /tenants/{tenantId}/observations/available-forms/{formId}/sections | Search Observation Form Sections |
@@ -19,8 +21,10 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**getPaginatedEvaluees()**](ObservationsApi.md#getPaginatedEvaluees) | **GET** /tenants/{tenantId}/observations/evaluees | Get paginated evaluees |
 | [**getPaginatedObservations()**](ObservationsApi.md#getPaginatedObservations) | **GET** /tenants/{tenantId}/observations | Get Paginated Observations for a given tenant |
 | [**getSubmittedObservationsCount()**](ObservationsApi.md#getSubmittedObservationsCount) | **GET** /tenants/{tenantId}/submittedobservations | Get submitted Observations count |
+| [**saveDashboardPreferences()**](ObservationsApi.md#saveDashboardPreferences) | **POST** /tenants/{tenantId}/observations/dashboards/{dashboardId}/preferences | Save user preferences for a given Dashboard |
 | [**updateObservation()**](ObservationsApi.md#updateObservation) | **PUT** /tenants/{tenantId}/observations/{observationId} | Update an Observation for a given tenant |
 | [**upsertObservationDraft()**](ObservationsApi.md#upsertObservationDraft) | **POST** /tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/draft | Creates a draft for an observation forms |
+| [**verifyDashboardAccess()**](ObservationsApi.md#verifyDashboardAccess) | **POST** /tenants/{tenantId}/observations/dashboards/access | Verify user access to dashboards |
 
 
 ## `createObservation()`
@@ -193,6 +197,128 @@ try {
 ### Return type
 
 [**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsDeleteObservationResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDashboard()`
+
+```php
+getDashboard($tenantId, $dashboardId, $personaIdentifier): \EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse
+```
+
+Get Observation Dashboard
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\ObservationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$dashboardId = 'dashboardId_example'; // string | 
+$personaIdentifier = 'personaIdentifier_example'; // string | 
+
+try {
+    $result = $apiInstance->getDashboard($tenantId, $dashboardId, $personaIdentifier);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ObservationsApi->getDashboard: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **dashboardId** | **string**|  | |
+| **personaIdentifier** | **string**|  | [optional] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse**](../Model/AnalyticsApiReportsV1ReportResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getDashboardPreferences()`
+
+```php
+getDashboardPreferences($tenantId, $dashboardId): \EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesResponse
+```
+
+Save user preferences for a given Dashboard
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\ObservationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$dashboardId = 'dashboardId_example'; // string | 
+
+try {
+    $result = $apiInstance->getDashboardPreferences($tenantId, $dashboardId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ObservationsApi->getDashboardPreferences: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **dashboardId** | **string**|  | |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesResponse**](../Model/AnalyticsApiReportsV1ReportPreferencesResponse.md)
 
 ### Authorization
 
@@ -1001,6 +1127,68 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `saveDashboardPreferences()`
+
+```php
+saveDashboardPreferences($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest): \EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse
+```
+
+Save user preferences for a given Dashboard
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\ObservationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$dashboardId = 'dashboardId_example'; // string | 
+$edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest = new \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest(); // \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest | 
+
+try {
+    $result = $apiInstance->saveDashboardPreferences($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ObservationsApi->saveDashboardPreferences: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **dashboardId** | **string**|  | |
+| **edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest** | [**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest.md)|  | [optional] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse**](../Model/AnalyticsApiReportsV1ReportResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `updateObservation()`
 
 ```php
@@ -1113,6 +1301,68 @@ try {
 ### Return type
 
 [**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `verifyDashboardAccess()`
+
+```php
+verifyDashboardAccess($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse
+```
+
+Verify user access to dashboards
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\ObservationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$reportId = 'reportId_example'; // string | 
+$edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = new \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest(); // \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest | 
+
+try {
+    $result = $apiInstance->verifyDashboardAccess($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ObservationsApi->verifyDashboardAccess: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **reportId** | **string**|  | |
+| **edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest** | [**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest.md)|  | [optional] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse.md)
 
 ### Authorization
 

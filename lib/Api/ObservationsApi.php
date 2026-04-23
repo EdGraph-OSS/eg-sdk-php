@@ -86,6 +86,12 @@ class ObservationsApi
         'deleteObservation' => [
             'application/json',
         ],
+        'getDashboard' => [
+            'application/json',
+        ],
+        'getDashboardPreferences' => [
+            'application/json',
+        ],
         'getEvalueeSections' => [
             'application/json',
         ],
@@ -122,6 +128,12 @@ class ObservationsApi
         'getSubmittedObservationsCount' => [
             'application/json',
         ],
+        'saveDashboardPreferences' => [
+            'application/json-patch+json',
+            'application/json',
+            'text/json',
+            'application/*+json',
+        ],
         'updateObservation' => [
             'application/json-patch+json',
             'application/json',
@@ -129,6 +141,12 @@ class ObservationsApi
             'application/*+json',
         ],
         'upsertObservationDraft' => [
+            'application/json-patch+json',
+            'application/json',
+            'text/json',
+            'application/*+json',
+        ],
+        'verifyDashboardAccess' => [
             'application/json-patch+json',
             'application/json',
             'text/json',
@@ -1615,6 +1633,963 @@ class ObservationsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'DELETE',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDashboard
+     *
+     * Get Observation Dashboard
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  string $personaIdentifier  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDashboard'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     */
+    public function getDashboard($tenantId, $dashboardId, $personaIdentifier = null, string $contentType = self::contentTypes['getDashboard'][0])
+    {
+        list($response) = $this->getDashboardWithHttpInfo($tenantId, $dashboardId, $personaIdentifier, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getDashboardWithHttpInfo
+     *
+     * Get Observation Dashboard
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  string $personaIdentifier  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDashboard'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDashboardWithHttpInfo($tenantId, $dashboardId, $personaIdentifier = null, string $contentType = self::contentTypes['getDashboard'][0])
+    {
+        $request = $this->getDashboardRequest($tenantId, $dashboardId, $personaIdentifier, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 401:
+                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDashboardAsync
+     *
+     * Get Observation Dashboard
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  string $personaIdentifier  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDashboard'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDashboardAsync($tenantId, $dashboardId, $personaIdentifier = null, string $contentType = self::contentTypes['getDashboard'][0])
+    {
+        return $this->getDashboardAsyncWithHttpInfo($tenantId, $dashboardId, $personaIdentifier, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDashboardAsyncWithHttpInfo
+     *
+     * Get Observation Dashboard
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  string $personaIdentifier  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDashboard'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDashboardAsyncWithHttpInfo($tenantId, $dashboardId, $personaIdentifier = null, string $contentType = self::contentTypes['getDashboard'][0])
+    {
+        $returnType = '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse';
+        $request = $this->getDashboardRequest($tenantId, $dashboardId, $personaIdentifier, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDashboard'
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  string $personaIdentifier  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDashboard'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDashboardRequest($tenantId, $dashboardId, $personaIdentifier = null, string $contentType = self::contentTypes['getDashboard'][0])
+    {
+
+        // verify the required parameter 'tenantId' is set
+        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenantId when calling getDashboard'
+            );
+        }
+
+        // verify the required parameter 'dashboardId' is set
+        if ($dashboardId === null || (is_array($dashboardId) && count($dashboardId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $dashboardId when calling getDashboard'
+            );
+        }
+
+
+
+        $resourcePath = '/tenants/{tenantId}/observations/dashboards/{dashboardId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $personaIdentifier,
+            'personaIdentifier', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($tenantId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'tenantId' . '}',
+                ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($dashboardId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'dashboardId' . '}',
+                ObjectSerializer::toPathValue($dashboardId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getDashboardPreferences
+     *
+     * Save user preferences for a given Dashboard
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDashboardPreferences'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     */
+    public function getDashboardPreferences($tenantId, $dashboardId, string $contentType = self::contentTypes['getDashboardPreferences'][0])
+    {
+        list($response) = $this->getDashboardPreferencesWithHttpInfo($tenantId, $dashboardId, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getDashboardPreferencesWithHttpInfo
+     *
+     * Save user preferences for a given Dashboard
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDashboardPreferences'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getDashboardPreferencesWithHttpInfo($tenantId, $dashboardId, string $contentType = self::contentTypes['getDashboardPreferences'][0])
+    {
+        $request = $this->getDashboardPreferencesRequest($tenantId, $dashboardId, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 401:
+                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getDashboardPreferencesAsync
+     *
+     * Save user preferences for a given Dashboard
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDashboardPreferences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDashboardPreferencesAsync($tenantId, $dashboardId, string $contentType = self::contentTypes['getDashboardPreferences'][0])
+    {
+        return $this->getDashboardPreferencesAsyncWithHttpInfo($tenantId, $dashboardId, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getDashboardPreferencesAsyncWithHttpInfo
+     *
+     * Save user preferences for a given Dashboard
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDashboardPreferences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getDashboardPreferencesAsyncWithHttpInfo($tenantId, $dashboardId, string $contentType = self::contentTypes['getDashboardPreferences'][0])
+    {
+        $returnType = '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesResponse';
+        $request = $this->getDashboardPreferencesRequest($tenantId, $dashboardId, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getDashboardPreferences'
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getDashboardPreferences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getDashboardPreferencesRequest($tenantId, $dashboardId, string $contentType = self::contentTypes['getDashboardPreferences'][0])
+    {
+
+        // verify the required parameter 'tenantId' is set
+        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenantId when calling getDashboardPreferences'
+            );
+        }
+
+        // verify the required parameter 'dashboardId' is set
+        if ($dashboardId === null || (is_array($dashboardId) && count($dashboardId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $dashboardId when calling getDashboardPreferences'
+            );
+        }
+
+
+        $resourcePath = '/tenants/{tenantId}/observations/dashboards/{dashboardId}/preferences';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($tenantId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'tenantId' . '}',
+                ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($dashboardId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'dashboardId' . '}',
+                ObjectSerializer::toPathValue($dashboardId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -7854,6 +8829,490 @@ class ObservationsApi
     }
 
     /**
+     * Operation saveDashboardPreferences
+     *
+     * Save user preferences for a given Dashboard
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['saveDashboardPreferences'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     */
+    public function saveDashboardPreferences($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest = null, string $contentType = self::contentTypes['saveDashboardPreferences'][0])
+    {
+        list($response) = $this->saveDashboardPreferencesWithHttpInfo($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation saveDashboardPreferencesWithHttpInfo
+     *
+     * Save user preferences for a given Dashboard
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['saveDashboardPreferences'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function saveDashboardPreferencesWithHttpInfo($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest = null, string $contentType = self::contentTypes['saveDashboardPreferences'][0])
+    {
+        $request = $this->saveDashboardPreferencesRequest($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 401:
+                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation saveDashboardPreferencesAsync
+     *
+     * Save user preferences for a given Dashboard
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['saveDashboardPreferences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function saveDashboardPreferencesAsync($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest = null, string $contentType = self::contentTypes['saveDashboardPreferences'][0])
+    {
+        return $this->saveDashboardPreferencesAsyncWithHttpInfo($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation saveDashboardPreferencesAsyncWithHttpInfo
+     *
+     * Save user preferences for a given Dashboard
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['saveDashboardPreferences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function saveDashboardPreferencesAsyncWithHttpInfo($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest = null, string $contentType = self::contentTypes['saveDashboardPreferences'][0])
+    {
+        $returnType = '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse';
+        $request = $this->saveDashboardPreferencesRequest($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'saveDashboardPreferences'
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $dashboardId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['saveDashboardPreferences'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function saveDashboardPreferencesRequest($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest = null, string $contentType = self::contentTypes['saveDashboardPreferences'][0])
+    {
+
+        // verify the required parameter 'tenantId' is set
+        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenantId when calling saveDashboardPreferences'
+            );
+        }
+
+        // verify the required parameter 'dashboardId' is set
+        if ($dashboardId === null || (is_array($dashboardId) && count($dashboardId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $dashboardId when calling saveDashboardPreferences'
+            );
+        }
+
+
+
+        $resourcePath = '/tenants/{tenantId}/observations/dashboards/{dashboardId}/preferences';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($tenantId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'tenantId' . '}',
+                ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($dashboardId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'dashboardId' . '}',
+                ObjectSerializer::toPathValue($dashboardId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest));
+            } else {
+                $httpBody = $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation updateObservation
      *
      * Update an Observation for a given tenant
@@ -8790,6 +10249,490 @@ class ObservationsApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest));
             } else {
                 $httpBody = $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation verifyDashboardAccess
+     *
+     * Verify user access to dashboards
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyDashboardAccess'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     */
+    public function verifyDashboardAccess($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
+    {
+        list($response) = $this->verifyDashboardAccessWithHttpInfo($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation verifyDashboardAccessWithHttpInfo
+     *
+     * Verify user access to dashboards
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyDashboardAccess'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function verifyDashboardAccessWithHttpInfo($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
+    {
+        $request = $this->verifyDashboardAccessRequest($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 401:
+                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 403:
+                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 500:
+                    if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 200:
+                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation verifyDashboardAccessAsync
+     *
+     * Verify user access to dashboards
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyDashboardAccess'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function verifyDashboardAccessAsync($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
+    {
+        return $this->verifyDashboardAccessAsyncWithHttpInfo($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation verifyDashboardAccessAsyncWithHttpInfo
+     *
+     * Verify user access to dashboards
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyDashboardAccess'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function verifyDashboardAccessAsyncWithHttpInfo($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
+    {
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse';
+        $request = $this->verifyDashboardAccessRequest($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'verifyDashboardAccess'
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyDashboardAccess'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function verifyDashboardAccessRequest($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
+    {
+
+        // verify the required parameter 'tenantId' is set
+        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenantId when calling verifyDashboardAccess'
+            );
+        }
+
+        // verify the required parameter 'reportId' is set
+        if ($reportId === null || (is_array($reportId) && count($reportId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $reportId when calling verifyDashboardAccess'
+            );
+        }
+
+
+
+        $resourcePath = '/tenants/{tenantId}/observations/dashboards/access';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($tenantId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'tenantId' . '}',
+                ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($reportId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'reportId' . '}',
+                ObjectSerializer::toPathValue($reportId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest));
+            } else {
+                $httpBody = $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

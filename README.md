@@ -438,6 +438,8 @@ Class | Method | HTTP request | Description
 *ObservationsApi* | [**createObservation**](docs/Api/ObservationsApi.md#createobservation) | **POST** /tenants/{tenantId}/observations | Creates a new Observation for a given tenant
 *ObservationsApi* | [**createObservationSubmission**](docs/Api/ObservationsApi.md#createobservationsubmission) | **POST** /tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/submit | Creates a submission for an available form referencing an existing observation
 *ObservationsApi* | [**deleteObservation**](docs/Api/ObservationsApi.md#deleteobservation) | **DELETE** /tenants/{tenantId}/observations/{observationId} | Deletes an Observation for a given tenant
+*ObservationsApi* | [**getDashboard**](docs/Api/ObservationsApi.md#getdashboard) | **GET** /tenants/{tenantId}/observations/dashboards/{dashboardId} | Get Observation Dashboard
+*ObservationsApi* | [**getDashboardPreferences**](docs/Api/ObservationsApi.md#getdashboardpreferences) | **GET** /tenants/{tenantId}/observations/dashboards/{dashboardId}/preferences | Save user preferences for a given Dashboard
 *ObservationsApi* | [**getEvalueeSections**](docs/Api/ObservationsApi.md#getevalueesections) | **GET** /tenants/{tenantId}/observations/evaluees/{evalueeId}/sections | Gets the Sections of an evaluee.
 *ObservationsApi* | [**getFormQuestions**](docs/Api/ObservationsApi.md#getformquestions) | **GET** /tenants/{tenantId}/observations/available-forms/{formId}/sections/{sectionId}/questions | Search Questions
 *ObservationsApi* | [**getFormSections**](docs/Api/ObservationsApi.md#getformsections) | **GET** /tenants/{tenantId}/observations/available-forms/{formId}/sections | Search Observation Form Sections
@@ -450,8 +452,10 @@ Class | Method | HTTP request | Description
 *ObservationsApi* | [**getPaginatedEvaluees**](docs/Api/ObservationsApi.md#getpaginatedevaluees) | **GET** /tenants/{tenantId}/observations/evaluees | Get paginated evaluees
 *ObservationsApi* | [**getPaginatedObservations**](docs/Api/ObservationsApi.md#getpaginatedobservations) | **GET** /tenants/{tenantId}/observations | Get Paginated Observations for a given tenant
 *ObservationsApi* | [**getSubmittedObservationsCount**](docs/Api/ObservationsApi.md#getsubmittedobservationscount) | **GET** /tenants/{tenantId}/submittedobservations | Get submitted Observations count
+*ObservationsApi* | [**saveDashboardPreferences**](docs/Api/ObservationsApi.md#savedashboardpreferences) | **POST** /tenants/{tenantId}/observations/dashboards/{dashboardId}/preferences | Save user preferences for a given Dashboard
 *ObservationsApi* | [**updateObservation**](docs/Api/ObservationsApi.md#updateobservation) | **PUT** /tenants/{tenantId}/observations/{observationId} | Update an Observation for a given tenant
 *ObservationsApi* | [**upsertObservationDraft**](docs/Api/ObservationsApi.md#upsertobservationdraft) | **POST** /tenants/{tenantId}/observations/{observationId}/available-forms/{formId}/draft | Creates a draft for an observation forms
+*ObservationsApi* | [**verifyDashboardAccess**](docs/Api/ObservationsApi.md#verifydashboardaccess) | **POST** /tenants/{tenantId}/observations/dashboards/access | Verify user access to dashboards
 *OnboardingStepsApi* | [**createOnboardingStep**](docs/Api/OnboardingStepsApi.md#createonboardingstep) | **POST** /tenants/{tenantId}/onboardingsteps | Creates an Onboarding Step.
 *OnboardingStepsApi* | [**getOnboardingSteps**](docs/Api/OnboardingStepsApi.md#getonboardingsteps) | **GET** /tenants/{tenantId}/onboardingsteps | Gets a list of Onboarding Steps.
 *OnboardingStepsApi* | [**updateOnboardingStep**](docs/Api/OnboardingStepsApi.md#updateonboardingstep) | **PUT** /tenants/{tenantId}/onboardingsteps/{stepNumber} | Updates the status of an Onboarding Step.
@@ -672,6 +676,8 @@ Class | Method | HTTP request | Description
 - [AnalyticsApiReportsV1DownloadReportResponse](docs/Model/AnalyticsApiReportsV1DownloadReportResponse.md)
 - [AnalyticsApiReportsV1ReportIdResponse](docs/Model/AnalyticsApiReportsV1ReportIdResponse.md)
 - [AnalyticsApiReportsV1ReportPaginatedItemsResponse](docs/Model/AnalyticsApiReportsV1ReportPaginatedItemsResponse.md)
+- [AnalyticsApiReportsV1ReportPreferenceDetailsResponse](docs/Model/AnalyticsApiReportsV1ReportPreferenceDetailsResponse.md)
+- [AnalyticsApiReportsV1ReportPreferencesResponse](docs/Model/AnalyticsApiReportsV1ReportPreferencesResponse.md)
 - [AnalyticsApiReportsV1ReportResponse](docs/Model/AnalyticsApiReportsV1ReportResponse.md)
 - [AnalyticsApiReportsV1ReportSource](docs/Model/AnalyticsApiReportsV1ReportSource.md)
 - [AnalyticsApiReportsV1SyncLatestVersionRequest](docs/Model/AnalyticsApiReportsV1SyncLatestVersionRequest.md)
@@ -864,8 +870,12 @@ Class | Method | HTTP request | Description
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsStaffClassificationNamespaceRole.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationRequest.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsUpdateObservationResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftRequest.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertObservationDraftResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertReportPreferenceDetails](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsUpsertReportPreferenceDetails.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionCreatedResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionCreatedResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionUpdatedResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionUpdatedResponse.md)
@@ -1590,6 +1600,6 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `v1.0`
-    - Package version: `0.0.34`
+    - Package version: `0.0.35`
     - Generator version: `7.8.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
