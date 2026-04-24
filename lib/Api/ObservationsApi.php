@@ -8840,7 +8840,7 @@ class ObservationsApi
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesSavedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
     public function saveDashboardPreferences($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest = null, string $contentType = self::contentTypes['saveDashboardPreferences'][0])
     {
@@ -8860,7 +8860,7 @@ class ObservationsApi
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesSavedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function saveDashboardPreferencesWithHttpInfo($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest = null, string $contentType = self::contentTypes['saveDashboardPreferences'][0])
     {
@@ -8984,11 +8984,11 @@ class ObservationsApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse' === '\SplFileObject') {
+                    if ('\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesSavedResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse' !== 'string') {
+                        if ('\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesSavedResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -9006,7 +9006,7 @@ class ObservationsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse', []),
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesSavedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -9039,7 +9039,7 @@ class ObservationsApi
                     ];
             }
 
-            $returnType = '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse';
+            $returnType = '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesSavedResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -9096,7 +9096,7 @@ class ObservationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse',
+                        '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesSavedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9152,7 +9152,7 @@ class ObservationsApi
      */
     public function saveDashboardPreferencesAsyncWithHttpInfo($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest = null, string $contentType = self::contentTypes['saveDashboardPreferences'][0])
     {
-        $returnType = '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse';
+        $returnType = '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesSavedResponse';
         $request = $this->saveDashboardPreferencesRequest($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest, $contentType);
 
         return $this->client
@@ -10306,7 +10306,6 @@ class ObservationsApi
      * Verify user access to dashboards
      *
      * @param  string $tenantId  (required)
-     * @param  string $reportId  (required)
      * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyDashboardAccess'] to see the possible values for this operation
      *
@@ -10314,9 +10313,9 @@ class ObservationsApi
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
-    public function verifyDashboardAccess($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
+    public function verifyDashboardAccess($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
     {
-        list($response) = $this->verifyDashboardAccessWithHttpInfo($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, $contentType);
+        list($response) = $this->verifyDashboardAccessWithHttpInfo($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, $contentType);
         return $response;
     }
 
@@ -10326,7 +10325,6 @@ class ObservationsApi
      * Verify user access to dashboards
      *
      * @param  string $tenantId  (required)
-     * @param  string $reportId  (required)
      * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyDashboardAccess'] to see the possible values for this operation
      *
@@ -10334,9 +10332,9 @@ class ObservationsApi
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function verifyDashboardAccessWithHttpInfo($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
+    public function verifyDashboardAccessWithHttpInfo($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
     {
-        $request = $this->verifyDashboardAccessRequest($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, $contentType);
+        $request = $this->verifyDashboardAccessRequest($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -10592,16 +10590,15 @@ class ObservationsApi
      * Verify user access to dashboards
      *
      * @param  string $tenantId  (required)
-     * @param  string $reportId  (required)
      * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyDashboardAccess'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function verifyDashboardAccessAsync($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
+    public function verifyDashboardAccessAsync($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
     {
-        return $this->verifyDashboardAccessAsyncWithHttpInfo($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, $contentType)
+        return $this->verifyDashboardAccessAsyncWithHttpInfo($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -10615,17 +10612,16 @@ class ObservationsApi
      * Verify user access to dashboards
      *
      * @param  string $tenantId  (required)
-     * @param  string $reportId  (required)
      * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyDashboardAccess'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function verifyDashboardAccessAsyncWithHttpInfo($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
+    public function verifyDashboardAccessAsyncWithHttpInfo($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
     {
         $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse';
-        $request = $this->verifyDashboardAccessRequest($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, $contentType);
+        $request = $this->verifyDashboardAccessRequest($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -10667,27 +10663,19 @@ class ObservationsApi
      * Create request for operation 'verifyDashboardAccess'
      *
      * @param  string $tenantId  (required)
-     * @param  string $reportId  (required)
      * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['verifyDashboardAccess'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function verifyDashboardAccessRequest($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
+    public function verifyDashboardAccessRequest($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = null, string $contentType = self::contentTypes['verifyDashboardAccess'][0])
     {
 
         // verify the required parameter 'tenantId' is set
         if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $tenantId when calling verifyDashboardAccess'
-            );
-        }
-
-        // verify the required parameter 'reportId' is set
-        if ($reportId === null || (is_array($reportId) && count($reportId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $reportId when calling verifyDashboardAccess'
             );
         }
 
@@ -10707,14 +10695,6 @@ class ObservationsApi
             $resourcePath = str_replace(
                 '{' . 'tenantId' . '}',
                 ObjectSerializer::toPathValue($tenantId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($reportId !== null) {
-            $resourcePath = str_replace(
-                '{' . 'reportId' . '}',
-                ObjectSerializer::toPathValue($reportId),
                 $resourcePath
             );
         }

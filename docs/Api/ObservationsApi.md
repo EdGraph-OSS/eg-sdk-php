@@ -1130,7 +1130,7 @@ try {
 ## `saveDashboardPreferences()`
 
 ```php
-saveDashboardPreferences($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest): \EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse
+saveDashboardPreferences($tenantId, $dashboardId, $edGraphHttpAggregatorsTenantApiServicesObservationsUpsertDashboardPreferencesRequest): \EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesSavedResponse
 ```
 
 Save user preferences for a given Dashboard
@@ -1174,7 +1174,7 @@ try {
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportResponse**](../Model/AnalyticsApiReportsV1ReportResponse.md)
+[**\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPreferencesSavedResponse**](../Model/AnalyticsApiReportsV1ReportPreferencesSavedResponse.md)
 
 ### Authorization
 
@@ -1318,7 +1318,7 @@ try {
 ## `verifyDashboardAccess()`
 
 ```php
-verifyDashboardAccess($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse
+verifyDashboardAccess($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessResponse
 ```
 
 Verify user access to dashboards
@@ -1341,11 +1341,10 @@ $apiInstance = new EdGraph\PlatformClient\Api\ObservationsApi(
     $config
 );
 $tenantId = 'tenantId_example'; // string | 
-$reportId = 'reportId_example'; // string | 
 $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest = new \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest(); // \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest | 
 
 try {
-    $result = $apiInstance->verifyDashboardAccess($tenantId, $reportId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest);
+    $result = $apiInstance->verifyDashboardAccess($tenantId, $edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObservationsApi->verifyDashboardAccess: ', $e->getMessage(), PHP_EOL;
@@ -1357,7 +1356,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenantId** | **string**|  | |
-| **reportId** | **string**|  | |
 | **edGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest** | [**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsUseCasesCommandsDashboardAccessRequest.md)|  | [optional] |
 
 ### Return type
