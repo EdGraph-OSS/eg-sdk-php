@@ -1,6 +1,6 @@
 <?php
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse
+ * EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponsePaginatedItemsViewModel
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \EdGraph\PlatformClient\ObjectSerializer;
 
 /**
- * EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse Class Doc Comment
+ * EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponsePaginatedItemsViewModel Class Doc Comment
  *
  * @category Class
  * @package  EdGraph\PlatformClient
@@ -40,7 +40,7 @@ use \EdGraph\PlatformClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponsePaginatedItemsViewModel implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse impleme
       *
       * @var string
       */
-    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.EvalueeResponse';
+    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.EvalueeResponsePaginatedItemsViewModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse impleme
       * @var string[]
       */
     protected static $openAPITypes = [
-        'userId' => 'string',
-        'firstName' => 'string',
-        'lastName' => 'string',
-        'email' => 'string',
-        'campus' => 'string'
+        'pageIndex' => 'int',
+        'pageSize' => 'int',
+        'count' => 'int',
+        'data' => '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse[]'
     ];
 
     /**
@@ -72,11 +71,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse impleme
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'userId' => null,
-        'firstName' => null,
-        'lastName' => null,
-        'email' => null,
-        'campus' => null
+        'pageIndex' => 'int32',
+        'pageSize' => 'int32',
+        'count' => 'int64',
+        'data' => null
     ];
 
     /**
@@ -85,11 +83,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse impleme
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'userId' => true,
-        'firstName' => true,
-        'lastName' => true,
-        'email' => true,
-        'campus' => true
+        'pageIndex' => false,
+        'pageSize' => false,
+        'count' => false,
+        'data' => true
     ];
 
     /**
@@ -178,11 +175,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse impleme
      * @var string[]
      */
     protected static $attributeMap = [
-        'userId' => 'userId',
-        'firstName' => 'firstName',
-        'lastName' => 'lastName',
-        'email' => 'email',
-        'campus' => 'campus'
+        'pageIndex' => 'pageIndex',
+        'pageSize' => 'pageSize',
+        'count' => 'count',
+        'data' => 'data'
     ];
 
     /**
@@ -191,11 +187,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse impleme
      * @var string[]
      */
     protected static $setters = [
-        'userId' => 'setUserId',
-        'firstName' => 'setFirstName',
-        'lastName' => 'setLastName',
-        'email' => 'setEmail',
-        'campus' => 'setCampus'
+        'pageIndex' => 'setPageIndex',
+        'pageSize' => 'setPageSize',
+        'count' => 'setCount',
+        'data' => 'setData'
     ];
 
     /**
@@ -204,11 +199,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse impleme
      * @var string[]
      */
     protected static $getters = [
-        'userId' => 'getUserId',
-        'firstName' => 'getFirstName',
-        'lastName' => 'getLastName',
-        'email' => 'getEmail',
-        'campus' => 'getCampus'
+        'pageIndex' => 'getPageIndex',
+        'pageSize' => 'getPageSize',
+        'count' => 'getCount',
+        'data' => 'getData'
     ];
 
     /**
@@ -268,11 +262,10 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse impleme
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('userId', $data ?? [], null);
-        $this->setIfExists('firstName', $data ?? [], null);
-        $this->setIfExists('lastName', $data ?? [], null);
-        $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('campus', $data ?? [], null);
+        $this->setIfExists('pageIndex', $data ?? [], null);
+        $this->setIfExists('pageSize', $data ?? [], null);
+        $this->setIfExists('count', $data ?? [], null);
+        $this->setIfExists('data', $data ?? [], null);
     }
 
     /**
@@ -318,171 +311,116 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse impleme
 
 
     /**
-     * Gets userId
+     * Gets pageIndex
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getUserId()
+    public function getPageIndex()
     {
-        return $this->container['userId'];
+        return $this->container['pageIndex'];
     }
 
     /**
-     * Sets userId
+     * Sets pageIndex
      *
-     * @param string|null $userId userId
+     * @param int|null $pageIndex pageIndex
      *
      * @return self
      */
-    public function setUserId($userId)
+    public function setPageIndex($pageIndex)
     {
-        if (is_null($userId)) {
-            array_push($this->openAPINullablesSetToNull, 'userId');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('userId', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($pageIndex)) {
+            throw new \InvalidArgumentException('non-nullable pageIndex cannot be null');
         }
-        $this->container['userId'] = $userId;
+        $this->container['pageIndex'] = $pageIndex;
 
         return $this;
     }
 
     /**
-     * Gets firstName
+     * Gets pageSize
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getFirstName()
+    public function getPageSize()
     {
-        return $this->container['firstName'];
+        return $this->container['pageSize'];
     }
 
     /**
-     * Sets firstName
+     * Sets pageSize
      *
-     * @param string|null $firstName firstName
+     * @param int|null $pageSize pageSize
      *
      * @return self
      */
-    public function setFirstName($firstName)
+    public function setPageSize($pageSize)
     {
-        if (is_null($firstName)) {
-            array_push($this->openAPINullablesSetToNull, 'firstName');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('firstName', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($pageSize)) {
+            throw new \InvalidArgumentException('non-nullable pageSize cannot be null');
         }
-        $this->container['firstName'] = $firstName;
+        $this->container['pageSize'] = $pageSize;
 
         return $this;
     }
 
     /**
-     * Gets lastName
+     * Gets count
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getLastName()
+    public function getCount()
     {
-        return $this->container['lastName'];
+        return $this->container['count'];
     }
 
     /**
-     * Sets lastName
+     * Sets count
      *
-     * @param string|null $lastName lastName
+     * @param int|null $count count
      *
      * @return self
      */
-    public function setLastName($lastName)
+    public function setCount($count)
     {
-        if (is_null($lastName)) {
-            array_push($this->openAPINullablesSetToNull, 'lastName');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('lastName', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($count)) {
+            throw new \InvalidArgumentException('non-nullable count cannot be null');
         }
-        $this->container['lastName'] = $lastName;
+        $this->container['count'] = $count;
 
         return $this;
     }
 
     /**
-     * Gets email
+     * Gets data
      *
-     * @return string|null
+     * @return \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse[]|null
      */
-    public function getEmail()
+    public function getData()
     {
-        return $this->container['email'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets email
+     * Sets data
      *
-     * @param string|null $email email
+     * @param \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse[]|null $data data
      *
      * @return self
      */
-    public function setEmail($email)
+    public function setData($data)
     {
-        if (is_null($email)) {
-            array_push($this->openAPINullablesSetToNull, 'email');
+        if (is_null($data)) {
+            array_push($this->openAPINullablesSetToNull, 'data');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('email', $nullablesSetToNull);
+            $index = array_search('data', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets campus
-     *
-     * @return string|null
-     */
-    public function getCampus()
-    {
-        return $this->container['campus'];
-    }
-
-    /**
-     * Sets campus
-     *
-     * @param string|null $campus campus
-     *
-     * @return self
-     */
-    public function setCampus($campus)
-    {
-        if (is_null($campus)) {
-            array_push($this->openAPINullablesSetToNull, 'campus');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('campus', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['campus'] = $campus;
+        $this->container['data'] = $data;
 
         return $this;
     }
