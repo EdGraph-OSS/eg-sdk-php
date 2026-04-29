@@ -885,6 +885,7 @@ docs/Model/TenantApiTenantV1OnboardingStepsReponse.md
 docs/Model/TenantApiTenantV1Organization.md
 docs/Model/TenantApiTenantV1OrganizationCreatedResponse.md
 docs/Model/TenantApiTenantV1OrganizationDeletedResponse.md
+docs/Model/TenantApiTenantV1OrganizationGetPaginatedItemsResponse.md
 docs/Model/TenantApiTenantV1OrganizationUpdatedResponse.md
 docs/Model/TenantApiTenantV1SetAppSettingsRequest.md
 docs/Model/TenantApiTenantV1SetAppSettingsResponse.md
@@ -1915,6 +1916,7 @@ lib/Model/TenantApiTenantV1OnboardingStepsReponse.php
 lib/Model/TenantApiTenantV1Organization.php
 lib/Model/TenantApiTenantV1OrganizationCreatedResponse.php
 lib/Model/TenantApiTenantV1OrganizationDeletedResponse.php
+lib/Model/TenantApiTenantV1OrganizationGetPaginatedItemsResponse.php
 lib/Model/TenantApiTenantV1OrganizationUpdatedResponse.php
 lib/Model/TenantApiTenantV1SetAppSettingsRequest.php
 lib/Model/TenantApiTenantV1SetAppSettingsResponse.php
@@ -2060,4 +2062,4 @@ lib/Model/ValidationsApiValidationResultsV1FindResponse.php
 lib/Model/ValidationsApiValidationResultsV1ValidationResultDto.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponsePaginatedItemsViewModelTest.php
+test/Model/TenantApiTenantV1OrganizationGetPaginatedItemsResponseTest.php

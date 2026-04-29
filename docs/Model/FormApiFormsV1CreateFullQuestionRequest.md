@@ -16,5 +16,6 @@ Name | Type | Description | Notes
 **customId** | **string** |  | [optional]
 **visibilityCondition** | [**\EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityCondition**](FormApiQuestionsV1QuestionVisibilityCondition.md) |  | [optional]
 **originalQuestionId** | **string** |  | [optional]
+**multiline** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

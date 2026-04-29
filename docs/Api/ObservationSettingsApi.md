@@ -10,6 +10,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**getPaginatedPersonas()**](ObservationSettingsApi.md#getPaginatedPersonas) | **GET** /tenants/{tenantId}/observations/settings/personas | Gets available personas |
 | [**getPaginatedStaffClassifications()**](ObservationSettingsApi.md#getPaginatedStaffClassifications) | **GET** /tenants/{tenantId}/observations/settings/available-staffclassifications | Get Paginated Available StaffClassifications |
 | [**getStaffClassificationsSettings()**](ObservationSettingsApi.md#getStaffClassificationsSettings) | **GET** /tenants/{tenantId}/observations/settings/staffclassifications | Gets the staffClassification settings for the tenant |
+| [**getTEATenantOrganizations()**](ObservationSettingsApi.md#getTEATenantOrganizations) | **GET** /tenants/{tenantId}/observations/tenantorganizations | Get TEA tenant organizations |
 | [**setApplicationSettings()**](ObservationSettingsApi.md#setApplicationSettings) | **POST** /tenants/{tenantId}/observations/settings/application | Sets the Application Settings of an Observation for a given Tenant |
 | [**setRolePersonasSettings()**](ObservationSettingsApi.md#setRolePersonasSettings) | **POST** /tenants/{tenantId}/observations/settings/rolepersonas | Updates personas assigned to a role configuration of the tenants setting |
 | [**verifySysAdminCredentials()**](ObservationSettingsApi.md#verifySysAdminCredentials) | **GET** /tenants/{tenantId}/observations/settings/verify-credentials | Gets the staffClassification settings for the tenant |
@@ -367,6 +368,72 @@ try {
 ### Return type
 
 [**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTEATenantOrganizations()`
+
+```php
+getTEATenantOrganizations($tenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\TenantApiTenantV1OrganizationGetPaginatedItemsResponse
+```
+
+Get TEA tenant organizations
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\ObservationSettingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$pageSize = 10; // int | 
+$pageIndex = 0; // int | 
+$orderBy = ''; // string | 
+$filter = ''; // string | 
+
+try {
+    $result = $apiInstance->getTEATenantOrganizations($tenantId, $pageSize, $pageIndex, $orderBy, $filter);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ObservationSettingsApi->getTEATenantOrganizations: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **pageSize** | **int**|  | [optional] [default to 10] |
+| **pageIndex** | **int**|  | [optional] [default to 0] |
+| **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
+| **filter** | **string**|  | [optional] [default to &#39;&#39;] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\TenantApiTenantV1OrganizationGetPaginatedItemsResponse**](../Model/TenantApiTenantV1OrganizationGetPaginatedItemsResponse.md)
 
 ### Authorization
 

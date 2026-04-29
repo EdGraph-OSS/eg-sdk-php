@@ -68,7 +68,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'component' => 'string',
         'customId' => 'string',
         'visibilityCondition' => '\EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityCondition',
-        'originalQuestionId' => 'string'
+        'originalQuestionId' => 'string',
+        'multiline' => 'bool'
     ];
 
     /**
@@ -90,7 +91,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'component' => null,
         'customId' => null,
         'visibilityCondition' => null,
-        'originalQuestionId' => null
+        'originalQuestionId' => null,
+        'multiline' => null
     ];
 
     /**
@@ -110,7 +112,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'component' => true,
         'customId' => true,
         'visibilityCondition' => false,
-        'originalQuestionId' => true
+        'originalQuestionId' => true,
+        'multiline' => true
     ];
 
     /**
@@ -210,7 +213,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'component' => 'component',
         'customId' => 'customId',
         'visibilityCondition' => 'visibilityCondition',
-        'originalQuestionId' => 'originalQuestionId'
+        'originalQuestionId' => 'originalQuestionId',
+        'multiline' => 'multiline'
     ];
 
     /**
@@ -230,7 +234,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'component' => 'setComponent',
         'customId' => 'setCustomId',
         'visibilityCondition' => 'setVisibilityCondition',
-        'originalQuestionId' => 'setOriginalQuestionId'
+        'originalQuestionId' => 'setOriginalQuestionId',
+        'multiline' => 'setMultiline'
     ];
 
     /**
@@ -250,7 +255,8 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         'component' => 'getComponent',
         'customId' => 'getCustomId',
         'visibilityCondition' => 'getVisibilityCondition',
-        'originalQuestionId' => 'getOriginalQuestionId'
+        'originalQuestionId' => 'getOriginalQuestionId',
+        'multiline' => 'getMultiline'
     ];
 
     /**
@@ -322,6 +328,7 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
         $this->setIfExists('customId', $data ?? [], null);
         $this->setIfExists('visibilityCondition', $data ?? [], null);
         $this->setIfExists('originalQuestionId', $data ?? [], null);
+        $this->setIfExists('multiline', $data ?? [], null);
     }
 
     /**
@@ -749,6 +756,40 @@ class FormApiFormsV1CreateFullQuestionRequest implements ModelInterface, ArrayAc
             }
         }
         $this->container['originalQuestionId'] = $originalQuestionId;
+
+        return $this;
+    }
+
+    /**
+     * Gets multiline
+     *
+     * @return bool|null
+     */
+    public function getMultiline()
+    {
+        return $this->container['multiline'];
+    }
+
+    /**
+     * Sets multiline
+     *
+     * @param bool|null $multiline multiline
+     *
+     * @return self
+     */
+    public function setMultiline($multiline)
+    {
+        if (is_null($multiline)) {
+            array_push($this->openAPINullablesSetToNull, 'multiline');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('multiline', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['multiline'] = $multiline;
 
         return $this;
     }

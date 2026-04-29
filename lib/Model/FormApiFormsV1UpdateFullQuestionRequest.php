@@ -68,7 +68,8 @@ class FormApiFormsV1UpdateFullQuestionRequest implements ModelInterface, ArrayAc
         'order' => 'int',
         'component' => 'string',
         'customId' => 'string',
-        'visibilityCondition' => '\EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityCondition'
+        'visibilityCondition' => '\EdGraph\PlatformClient\Model\FormApiQuestionsV1QuestionVisibilityCondition',
+        'multiline' => 'bool'
     ];
 
     /**
@@ -90,7 +91,8 @@ class FormApiFormsV1UpdateFullQuestionRequest implements ModelInterface, ArrayAc
         'order' => 'int32',
         'component' => null,
         'customId' => null,
-        'visibilityCondition' => null
+        'visibilityCondition' => null,
+        'multiline' => null
     ];
 
     /**
@@ -110,7 +112,8 @@ class FormApiFormsV1UpdateFullQuestionRequest implements ModelInterface, ArrayAc
         'order' => true,
         'component' => true,
         'customId' => true,
-        'visibilityCondition' => false
+        'visibilityCondition' => false,
+        'multiline' => true
     ];
 
     /**
@@ -210,7 +213,8 @@ class FormApiFormsV1UpdateFullQuestionRequest implements ModelInterface, ArrayAc
         'order' => 'order',
         'component' => 'component',
         'customId' => 'customId',
-        'visibilityCondition' => 'visibilityCondition'
+        'visibilityCondition' => 'visibilityCondition',
+        'multiline' => 'multiline'
     ];
 
     /**
@@ -230,7 +234,8 @@ class FormApiFormsV1UpdateFullQuestionRequest implements ModelInterface, ArrayAc
         'order' => 'setOrder',
         'component' => 'setComponent',
         'customId' => 'setCustomId',
-        'visibilityCondition' => 'setVisibilityCondition'
+        'visibilityCondition' => 'setVisibilityCondition',
+        'multiline' => 'setMultiline'
     ];
 
     /**
@@ -250,7 +255,8 @@ class FormApiFormsV1UpdateFullQuestionRequest implements ModelInterface, ArrayAc
         'order' => 'getOrder',
         'component' => 'getComponent',
         'customId' => 'getCustomId',
-        'visibilityCondition' => 'getVisibilityCondition'
+        'visibilityCondition' => 'getVisibilityCondition',
+        'multiline' => 'getMultiline'
     ];
 
     /**
@@ -322,6 +328,7 @@ class FormApiFormsV1UpdateFullQuestionRequest implements ModelInterface, ArrayAc
         $this->setIfExists('component', $data ?? [], null);
         $this->setIfExists('customId', $data ?? [], null);
         $this->setIfExists('visibilityCondition', $data ?? [], null);
+        $this->setIfExists('multiline', $data ?? [], null);
     }
 
     /**
@@ -749,6 +756,40 @@ class FormApiFormsV1UpdateFullQuestionRequest implements ModelInterface, ArrayAc
             throw new \InvalidArgumentException('non-nullable visibilityCondition cannot be null');
         }
         $this->container['visibilityCondition'] = $visibilityCondition;
+
+        return $this;
+    }
+
+    /**
+     * Gets multiline
+     *
+     * @return bool|null
+     */
+    public function getMultiline()
+    {
+        return $this->container['multiline'];
+    }
+
+    /**
+     * Sets multiline
+     *
+     * @param bool|null $multiline multiline
+     *
+     * @return self
+     */
+    public function setMultiline($multiline)
+    {
+        if (is_null($multiline)) {
+            array_push($this->openAPINullablesSetToNull, 'multiline');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('multiline', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['multiline'] = $multiline;
 
         return $this;
     }
