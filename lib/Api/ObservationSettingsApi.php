@@ -3003,6 +3003,7 @@ class ObservationSettingsApi
      * Get TEA tenant organizations
      *
      * @param  string $tenantId  (required)
+     * @param  string $teaTenantId  (optional, default to '')
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
@@ -3013,9 +3014,9 @@ class ObservationSettingsApi
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1OrganizationGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
-    public function getTEATenantOrganizations($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTEATenantOrganizations'][0])
+    public function getTEATenantOrganizations($tenantId, $teaTenantId = '', $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTEATenantOrganizations'][0])
     {
-        list($response) = $this->getTEATenantOrganizationsWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        list($response) = $this->getTEATenantOrganizationsWithHttpInfo($tenantId, $teaTenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
         return $response;
     }
 
@@ -3025,6 +3026,7 @@ class ObservationSettingsApi
      * Get TEA tenant organizations
      *
      * @param  string $tenantId  (required)
+     * @param  string $teaTenantId  (optional, default to '')
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
@@ -3035,9 +3037,9 @@ class ObservationSettingsApi
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1OrganizationGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTEATenantOrganizationsWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTEATenantOrganizations'][0])
+    public function getTEATenantOrganizationsWithHttpInfo($tenantId, $teaTenantId = '', $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTEATenantOrganizations'][0])
     {
-        $request = $this->getTEATenantOrganizationsRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        $request = $this->getTEATenantOrganizationsRequest($tenantId, $teaTenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3293,6 +3295,7 @@ class ObservationSettingsApi
      * Get TEA tenant organizations
      *
      * @param  string $tenantId  (required)
+     * @param  string $teaTenantId  (optional, default to '')
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
@@ -3302,9 +3305,9 @@ class ObservationSettingsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTEATenantOrganizationsAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTEATenantOrganizations'][0])
+    public function getTEATenantOrganizationsAsync($tenantId, $teaTenantId = '', $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTEATenantOrganizations'][0])
     {
-        return $this->getTEATenantOrganizationsAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType)
+        return $this->getTEATenantOrganizationsAsyncWithHttpInfo($tenantId, $teaTenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3318,6 +3321,7 @@ class ObservationSettingsApi
      * Get TEA tenant organizations
      *
      * @param  string $tenantId  (required)
+     * @param  string $teaTenantId  (optional, default to '')
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
@@ -3327,10 +3331,10 @@ class ObservationSettingsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTEATenantOrganizationsAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTEATenantOrganizations'][0])
+    public function getTEATenantOrganizationsAsyncWithHttpInfo($tenantId, $teaTenantId = '', $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTEATenantOrganizations'][0])
     {
         $returnType = '\EdGraph\PlatformClient\Model\TenantApiTenantV1OrganizationGetPaginatedItemsResponse';
-        $request = $this->getTEATenantOrganizationsRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        $request = $this->getTEATenantOrganizationsRequest($tenantId, $teaTenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3372,6 +3376,7 @@ class ObservationSettingsApi
      * Create request for operation 'getTEATenantOrganizations'
      *
      * @param  string $tenantId  (required)
+     * @param  string $teaTenantId  (optional, default to '')
      * @param  int $pageSize  (optional, default to 10)
      * @param  int $pageIndex  (optional, default to 0)
      * @param  string $orderBy  (optional, default to '')
@@ -3381,7 +3386,7 @@ class ObservationSettingsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTEATenantOrganizationsRequest($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTEATenantOrganizations'][0])
+    public function getTEATenantOrganizationsRequest($tenantId, $teaTenantId = '', $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTEATenantOrganizations'][0])
     {
 
         // verify the required parameter 'tenantId' is set
@@ -3396,6 +3401,7 @@ class ObservationSettingsApi
 
 
 
+
         $resourcePath = '/tenants/{tenantId}/observations/tenantorganizations';
         $formParams = [];
         $queryParams = [];
@@ -3403,6 +3409,15 @@ class ObservationSettingsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $teaTenantId,
+            'teaTenantId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $pageSize,

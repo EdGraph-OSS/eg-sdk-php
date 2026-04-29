@@ -385,7 +385,7 @@ try {
 ## `getTEATenantOrganizations()`
 
 ```php
-getTEATenantOrganizations($tenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\TenantApiTenantV1OrganizationGetPaginatedItemsResponse
+getTEATenantOrganizations($tenantId, $teaTenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\TenantApiTenantV1OrganizationGetPaginatedItemsResponse
 ```
 
 Get TEA tenant organizations
@@ -408,13 +408,14 @@ $apiInstance = new EdGraph\PlatformClient\Api\ObservationSettingsApi(
     $config
 );
 $tenantId = 'tenantId_example'; // string | 
+$teaTenantId = ''; // string | 
 $pageSize = 10; // int | 
 $pageIndex = 0; // int | 
 $orderBy = ''; // string | 
 $filter = ''; // string | 
 
 try {
-    $result = $apiInstance->getTEATenantOrganizations($tenantId, $pageSize, $pageIndex, $orderBy, $filter);
+    $result = $apiInstance->getTEATenantOrganizations($tenantId, $teaTenantId, $pageSize, $pageIndex, $orderBy, $filter);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObservationSettingsApi->getTEATenantOrganizations: ', $e->getMessage(), PHP_EOL;
@@ -426,6 +427,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenantId** | **string**|  | |
+| **teaTenantId** | **string**|  | [optional] [default to &#39;&#39;] |
 | **pageSize** | **int**|  | [optional] [default to 10] |
 | **pageIndex** | **int**|  | [optional] [default to 0] |
 | **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
