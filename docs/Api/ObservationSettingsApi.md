@@ -137,7 +137,7 @@ try {
 ## `getPaginatedForms()`
 
 ```php
-getPaginatedForms($tenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse
+getPaginatedForms($tenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse
 ```
 
 Get Paginated Forms
@@ -185,7 +185,7 @@ try {
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse.md)
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse.md)
 
 ### Authorization
 

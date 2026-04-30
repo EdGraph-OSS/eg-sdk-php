@@ -471,7 +471,7 @@ try {
 ## `getFormSections()`
 
 ```php
-getFormSections($tenantId, $formId, $pageIndex, $pageSize): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponsePaginatedItemsViewModel
+getFormSections($tenantId, $formId, $pageIndex, $pageSize): \EdGraph\PlatformClient\Model\FormApiSectionsV1SectionResponsePaginatedItemsViewModel
 ```
 
 Search Observation Form Sections
@@ -517,7 +517,7 @@ try {
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponsePaginatedItemsViewModel**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormSectionResponsePaginatedItemsViewModel.md)
+[**\EdGraph\PlatformClient\Model\FormApiSectionsV1SectionResponsePaginatedItemsViewModel**](../Model/FormApiSectionsV1SectionResponsePaginatedItemsViewModel.md)
 
 ### Authorization
 
@@ -785,7 +785,7 @@ try {
 ## `getPaginatedAvailableForms()`
 
 ```php
-getPaginatedAvailableForms($tenantId, $pageIndex, $pageSize, $orderBy, $filter): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse
+getPaginatedAvailableForms($tenantId, $pageIndex, $pageSize, $orderBy, $filter): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse
 ```
 
 Get Paginated Available Forms
@@ -833,7 +833,7 @@ try {
 
 ### Return type
 
-[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse.md)
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse.md)
 
 ### Authorization
 

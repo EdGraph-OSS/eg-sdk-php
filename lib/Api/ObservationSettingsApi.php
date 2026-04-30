@@ -1087,7 +1087,7 @@ class ObservationSettingsApi
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
     public function getPaginatedForms($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedForms'][0])
     {
@@ -1109,7 +1109,7 @@ class ObservationSettingsApi
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaginatedFormsWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedForms'][0])
     {
@@ -1233,11 +1233,11 @@ class ObservationSettingsApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse' === '\SplFileObject') {
+                    if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse' !== 'string') {
+                        if ('\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1255,7 +1255,7 @@ class ObservationSettingsApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse', []),
+                        ObjectSerializer::deserialize($content, '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1288,7 +1288,7 @@ class ObservationSettingsApi
                     ];
             }
 
-            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse';
+            $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1345,7 +1345,7 @@ class ObservationSettingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse',
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1405,7 +1405,7 @@ class ObservationSettingsApi
      */
     public function getPaginatedFormsAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedForms'][0])
     {
-        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsFormResponseGetPaginatedItemsResponse';
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse';
         $request = $this->getPaginatedFormsRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
 
         return $this->client
