@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1CertificationReminderRequestedResponse
+# ValidationsApiContainersV1CertificationReminderRequestedResponse
 
 ## Properties
 

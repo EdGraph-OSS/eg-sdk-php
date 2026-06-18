@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiServicesSecurityScoreSyncJobCreatedResult
+# EdGraphHttpAggregatorsTenantApiServicesSecurityScoreSyncJobCreatedResult
 
 ## Properties
 

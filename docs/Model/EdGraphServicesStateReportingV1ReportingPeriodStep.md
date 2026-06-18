@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1ReportingPeriodStep
+# EdGraphServicesStateReportingV1ReportingPeriodStep
 
 ## Properties
 

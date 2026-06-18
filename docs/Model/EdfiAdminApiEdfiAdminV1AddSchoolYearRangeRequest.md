@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequest
+# EdfiAdminApiEdfiAdminV1AddSchoolYearRangeRequest
 
 ## Properties
 

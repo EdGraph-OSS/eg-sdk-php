@@ -1,4 +1,4 @@
-# # IdentityApiInvitationV1AssignLicenseRequest
+# IdentityApiInvitationV1AssignLicenseRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1ToggledResponse
+# ValidationsApiReportingPeriodsV1ToggledResponse
 
 ## Properties
 

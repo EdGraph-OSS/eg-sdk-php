@@ -1,4 +1,4 @@
-# # TenantApiTenantV1TenantSettingTypesListResponse
+# TenantApiTenantV1TenantSettingTypesListResponse
 
 ## Properties
 

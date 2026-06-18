@@ -1,4 +1,4 @@
-# # DataSyncApiJobV1Schedule
+# DataSyncApiJobV1Schedule
 
 ## Properties
 

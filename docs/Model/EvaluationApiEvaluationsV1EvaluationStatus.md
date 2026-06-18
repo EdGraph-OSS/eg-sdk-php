@@ -1,4 +1,4 @@
-# # EvaluationApiEvaluationsV1EvaluationStatus
+# EvaluationApiEvaluationsV1EvaluationStatus
 
 ## Properties
 

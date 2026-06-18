@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1PaginatedCategories
+# EdGraphServicesStateReportingV1PaginatedCategories
 
 ## Properties
 

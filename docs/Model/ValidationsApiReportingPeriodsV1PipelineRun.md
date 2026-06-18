@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1PipelineRun
+# ValidationsApiReportingPeriodsV1PipelineRun
 
 ## Properties
 

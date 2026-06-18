@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1AddDataStewardBulkRequestTypesCollection
+# ValidationsApiContainersV1AddDataStewardBulkRequestTypesCollection
 
 ## Properties
 

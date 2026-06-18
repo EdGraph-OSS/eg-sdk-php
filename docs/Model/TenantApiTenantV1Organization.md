@@ -1,4 +1,4 @@
-# # TenantApiTenantV1Organization
+# TenantApiTenantV1Organization
 
 ## Properties
 

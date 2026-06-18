@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1StudentEconomicSituationRepresentation
+# EdfiAdminApiEdfiAdminV1StudentEconomicSituationRepresentation
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1SecretEncryptionMetadata
+# EdfiAdminApiEdfiAdminV1SecretEncryptionMetadata
 
 ## Properties
 

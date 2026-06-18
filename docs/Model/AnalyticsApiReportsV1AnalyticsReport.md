@@ -1,4 +1,4 @@
-# # AnalyticsApiReportsV1AnalyticsReport
+# AnalyticsApiReportsV1AnalyticsReport
 
 ## Properties
 

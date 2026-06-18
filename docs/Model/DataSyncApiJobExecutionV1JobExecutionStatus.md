@@ -1,4 +1,4 @@
-# # DataSyncApiJobExecutionV1JobExecutionStatus
+# DataSyncApiJobExecutionV1JobExecutionStatus
 
 ## Properties
 

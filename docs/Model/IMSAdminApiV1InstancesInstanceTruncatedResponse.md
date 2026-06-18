@@ -1,4 +1,4 @@
-# # IMSAdminApiV1InstancesInstanceTruncatedResponse
+# IMSAdminApiV1InstancesInstanceTruncatedResponse
 
 ## Properties
 

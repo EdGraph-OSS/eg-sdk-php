@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1GetLocalEducationAgencyProfileResponse
+# EdfiAdminApiEdfiAdminV1GetLocalEducationAgencyProfileResponse
 
 ## Properties
 

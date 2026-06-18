@@ -1,4 +1,4 @@
-# # ChangeLogChangeV1ChangeLogResponse
+# ChangeLogChangeV1ChangeLogResponse
 
 ## Properties
 

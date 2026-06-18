@@ -1,4 +1,4 @@
-# # DataSyncApiJobExecutionLogV1JobExecutionLogEntryPaginatedItemsViewModel
+# DataSyncApiJobExecutionLogV1JobExecutionLogEntryPaginatedItemsViewModel
 
 ## Properties
 

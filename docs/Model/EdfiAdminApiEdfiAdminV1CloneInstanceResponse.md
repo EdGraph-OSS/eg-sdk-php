@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1CloneInstanceResponse
+# EdfiAdminApiEdfiAdminV1CloneInstanceResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # IdentityApiUserV1LicenseRevokedResponse
+# IdentityApiUserV1LicenseRevokedResponse
 
 ## Properties
 

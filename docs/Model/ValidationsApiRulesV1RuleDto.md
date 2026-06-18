@@ -1,4 +1,4 @@
-# # ValidationsApiRulesV1RuleDto
+# ValidationsApiRulesV1RuleDto
 
 ## Properties
 

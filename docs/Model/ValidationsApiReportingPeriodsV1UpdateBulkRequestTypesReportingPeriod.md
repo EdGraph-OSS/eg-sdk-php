@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1UpdateBulkRequestTypesReportingPeriod
+# ValidationsApiReportingPeriodsV1UpdateBulkRequestTypesReportingPeriod
 
 ## Properties
 

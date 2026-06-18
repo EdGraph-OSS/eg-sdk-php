@@ -1,4 +1,4 @@
-# # IMSAdminApiV1ClientsTokenExpiration
+# IMSAdminApiV1ClientsTokenExpiration
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1PaginatedContainers
+# ValidationsApiContainersV1PaginatedContainers
 
 ## Properties
 

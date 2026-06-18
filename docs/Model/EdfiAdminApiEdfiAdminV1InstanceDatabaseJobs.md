@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs
+# EdfiAdminApiEdfiAdminV1InstanceDatabaseJobs
 
 ## Properties
 

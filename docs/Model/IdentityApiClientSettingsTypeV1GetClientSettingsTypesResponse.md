@@ -1,4 +1,4 @@
-# # IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse
+# IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # MicrosoftAspNetCoreMvcProblemDetails
+# MicrosoftAspNetCoreMvcProblemDetails
 
 ## Properties
 

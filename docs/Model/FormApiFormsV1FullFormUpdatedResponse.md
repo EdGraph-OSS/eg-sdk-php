@@ -1,4 +1,4 @@
-# # FormApiFormsV1FullFormUpdatedResponse
+# FormApiFormsV1FullFormUpdatedResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # TenantApiPartnershipV1PaginatedItemsResponse
+# TenantApiPartnershipV1PaginatedItemsResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1OnboardingStep
+# EdfiAdminApiEdfiAdminV1OnboardingStep
 
 ## Properties
 

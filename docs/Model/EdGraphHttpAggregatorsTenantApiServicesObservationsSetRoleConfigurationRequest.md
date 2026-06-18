@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest
+# EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationRequest
 
 ## Properties
 

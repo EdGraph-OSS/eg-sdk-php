@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1ValidationSummaryCategory
+# EdGraphServicesStateReportingV1ValidationSummaryCategory
 
 ## Properties
 

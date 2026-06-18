@@ -1,4 +1,4 @@
-# # ChangeLogChangeV1ChangeLogResponsePaginatedItemsViewModel
+# ChangeLogChangeV1ChangeLogResponsePaginatedItemsViewModel
 
 ## Properties
 

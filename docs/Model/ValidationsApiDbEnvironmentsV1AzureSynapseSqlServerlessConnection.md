@@ -1,4 +1,4 @@
-# # ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection
+# ValidationsApiDbEnvironmentsV1AzureSynapseSqlServerlessConnection
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EvaluationApiEvaluationsV1CreateEvaluationRequest
+# EvaluationApiEvaluationsV1CreateEvaluationRequest
 
 ## Properties
 

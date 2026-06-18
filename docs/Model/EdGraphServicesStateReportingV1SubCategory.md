@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1SubCategory
+# EdGraphServicesStateReportingV1SubCategory
 
 ## Properties
 

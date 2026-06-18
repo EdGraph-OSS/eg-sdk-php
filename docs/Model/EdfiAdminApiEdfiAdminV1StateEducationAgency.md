@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1StateEducationAgency
+# EdfiAdminApiEdfiAdminV1StateEducationAgency
 
 ## Properties
 

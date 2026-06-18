@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1ContainerDtoTypesTagDto
+# ValidationsApiContainersV1ContainerDtoTypesTagDto
 
 ## Properties
 

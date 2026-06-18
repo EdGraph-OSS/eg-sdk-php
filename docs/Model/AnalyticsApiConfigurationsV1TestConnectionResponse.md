@@ -1,4 +1,4 @@
-# # AnalyticsApiConfigurationsV1TestConnectionResponse
+# AnalyticsApiConfigurationsV1TestConnectionResponse
 
 ## Properties
 

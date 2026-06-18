@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1ValidationSummaryCategory
+# ValidationsApiReportingPeriodsV1ValidationSummaryCategory
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1UpdateVendorRequest
+# EdfiAdminApiEdfiAdminV1UpdateVendorRequest
 
 ## Properties
 

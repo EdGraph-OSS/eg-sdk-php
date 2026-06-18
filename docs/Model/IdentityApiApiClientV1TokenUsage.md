@@ -1,4 +1,4 @@
-# # IdentityApiApiClientV1TokenUsage
+# IdentityApiApiClientV1TokenUsage
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # TenantApiSectionsV1PaginatedSchoolsResponse
+# TenantApiSectionsV1PaginatedSchoolsResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # AnalyticsApiUserAuthorizationsV1UserAuthorizationsPaginatedItemsResponse
+# AnalyticsApiUserAuthorizationsV1UserAuthorizationsPaginatedItemsResponse
 
 ## Properties
 

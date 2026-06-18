@@ -1,4 +1,4 @@
-# # IdentityApiInvitationV1InvitationSentResponse
+# IdentityApiInvitationV1InvitationSentResponse
 
 ## Properties
 

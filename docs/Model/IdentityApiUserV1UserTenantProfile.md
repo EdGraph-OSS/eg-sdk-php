@@ -1,4 +1,4 @@
-# # IdentityApiUserV1UserTenantProfile
+# IdentityApiUserV1UserTenantProfile
 
 ## Properties
 

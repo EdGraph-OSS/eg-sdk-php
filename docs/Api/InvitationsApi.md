@@ -1,5 +1,7 @@
 # EdGraph\PlatformClient\InvitationsApi
 
+
+
 All URIs are relative to https://api.dev.edgraph.com/tenant, except if the operation defines another base path.
 
 | Method | HTTP request | Description |

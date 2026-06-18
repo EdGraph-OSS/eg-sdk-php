@@ -1,4 +1,4 @@
-# # TenantApiTenantV1OnboardingStepsReponse
+# TenantApiTenantV1OnboardingStepsReponse
 
 ## Properties
 

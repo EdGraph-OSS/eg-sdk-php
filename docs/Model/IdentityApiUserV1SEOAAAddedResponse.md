@@ -1,4 +1,4 @@
-# # IdentityApiUserV1SEOAAAddedResponse
+# IdentityApiUserV1SEOAAAddedResponse
 
 ## Properties
 

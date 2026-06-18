@@ -1,4 +1,4 @@
-# # AnalyticsApiConfigurationsV1AnalyticsTriggerOption
+# AnalyticsApiConfigurationsV1AnalyticsTriggerOption
 
 ## Properties
 

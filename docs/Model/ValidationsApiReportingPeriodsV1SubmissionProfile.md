@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1SubmissionProfile
+# ValidationsApiReportingPeriodsV1SubmissionProfile
 
 ## Properties
 

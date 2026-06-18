@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense
+# EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense
 
 ## Properties
 

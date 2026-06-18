@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1PostRequest
+# ValidationsApiReportingPeriodsV1PostRequest
 
 ## Properties
 

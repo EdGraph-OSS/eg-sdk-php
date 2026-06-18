@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse
+# EdfiAdminApiEdfiAdminV1TestInstanceConnectionResponse
 
 ## Properties
 

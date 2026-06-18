@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1ClaimSetPaginatedItemsViewModel
+# EdfiAdminApiEdfiAdminV1ClaimSetPaginatedItemsViewModel
 
 ## Properties
 

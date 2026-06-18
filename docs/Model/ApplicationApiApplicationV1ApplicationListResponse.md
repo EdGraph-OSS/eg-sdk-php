@@ -1,4 +1,4 @@
-# # ApplicationApiApplicationV1ApplicationListResponse
+# ApplicationApiApplicationV1ApplicationListResponse
 
 ## Properties
 

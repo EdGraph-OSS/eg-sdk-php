@@ -1,4 +1,4 @@
-# # IdentityApiUserV1UserExtensionSetResponse
+# IdentityApiUserV1UserExtensionSetResponse
 
 ## Properties
 

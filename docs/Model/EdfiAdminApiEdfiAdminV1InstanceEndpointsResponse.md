@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1InstanceEndpointsResponse
+# EdfiAdminApiEdfiAdminV1InstanceEndpointsResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse
+# EdGraphHttpAggregatorsTenantApiServicesFormsV1FormGetPaginatedItemsResponse
 
 ## Properties
 

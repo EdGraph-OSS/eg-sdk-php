@@ -1,4 +1,4 @@
-# # TenantApiTenantV1UpdateOrganizationRequest
+# TenantApiTenantV1UpdateOrganizationRequest
 
 ## Properties
 

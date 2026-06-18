@@ -1,4 +1,4 @@
-# # FormApiFormsV1UpdateFullQuestionRequest
+# FormApiFormsV1UpdateFullQuestionRequest
 
 ## Properties
 

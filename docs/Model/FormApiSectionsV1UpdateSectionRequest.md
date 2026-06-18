@@ -1,4 +1,4 @@
-# # FormApiSectionsV1UpdateSectionRequest
+# FormApiSectionsV1UpdateSectionRequest
 
 ## Properties
 

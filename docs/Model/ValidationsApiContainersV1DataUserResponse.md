@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1DataUserResponse
+# ValidationsApiContainersV1DataUserResponse
 
 ## Properties
 

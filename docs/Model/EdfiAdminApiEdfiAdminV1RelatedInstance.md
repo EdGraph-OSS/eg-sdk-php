@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1RelatedInstance
+# EdfiAdminApiEdfiAdminV1RelatedInstance
 
 ## Properties
 

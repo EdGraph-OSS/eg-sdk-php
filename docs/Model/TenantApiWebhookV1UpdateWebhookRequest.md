@@ -1,4 +1,4 @@
-# # TenantApiWebhookV1UpdateWebhookRequest
+# TenantApiWebhookV1UpdateWebhookRequest
 
 ## Properties
 

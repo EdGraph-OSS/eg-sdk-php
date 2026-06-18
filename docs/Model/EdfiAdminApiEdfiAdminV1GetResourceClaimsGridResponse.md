@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1GetResourceClaimsGridResponse
+# EdfiAdminApiEdfiAdminV1GetResourceClaimsGridResponse
 
 ## Properties
 

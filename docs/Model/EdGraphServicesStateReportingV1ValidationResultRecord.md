@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1ValidationResultRecord
+# EdGraphServicesStateReportingV1ValidationResultRecord
 
 ## Properties
 

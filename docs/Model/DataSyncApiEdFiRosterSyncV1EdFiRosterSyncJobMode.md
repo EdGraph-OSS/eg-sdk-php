@@ -1,4 +1,4 @@
-# # DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobMode
+# DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobMode
 
 ## Properties
 

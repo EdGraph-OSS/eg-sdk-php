@@ -1,4 +1,4 @@
-# # EvaluationApiEvaluationsV1OrganizationDiscriminator
+# EvaluationApiEvaluationsV1OrganizationDiscriminator
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1SetReportingPeriodCurrentStepRequest
+# EdGraphServicesStateReportingV1SetReportingPeriodCurrentStepRequest
 
 ## Properties
 

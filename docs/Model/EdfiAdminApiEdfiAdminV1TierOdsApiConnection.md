@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1TierOdsApiConnection
+# EdfiAdminApiEdfiAdminV1TierOdsApiConnection
 
 ## Properties
 

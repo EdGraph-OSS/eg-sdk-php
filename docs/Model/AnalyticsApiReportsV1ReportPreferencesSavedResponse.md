@@ -1,4 +1,4 @@
-# # AnalyticsApiReportsV1ReportPreferencesSavedResponse
+# AnalyticsApiReportsV1ReportPreferencesSavedResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1SubmissionCancelledResponse
+# ValidationsApiReportingPeriodsV1SubmissionCancelledResponse
 
 ## Properties
 

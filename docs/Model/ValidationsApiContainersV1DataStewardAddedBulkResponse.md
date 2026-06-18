@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1DataStewardAddedBulkResponse
+# ValidationsApiContainersV1DataStewardAddedBulkResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1DescriptorCreatedResponse
+# EdfiAdminApiEdfiAdminV1DescriptorCreatedResponse
 
 ## Properties
 

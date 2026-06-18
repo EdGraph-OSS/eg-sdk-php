@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1EnvironmentDeletedResponse
+# EdGraphServicesStateReportingV1EnvironmentDeletedResponse
 
 ## Properties
 

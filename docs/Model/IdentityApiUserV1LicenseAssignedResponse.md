@@ -1,4 +1,4 @@
-# # IdentityApiUserV1LicenseAssignedResponse
+# IdentityApiUserV1LicenseAssignedResponse
 
 ## Properties
 

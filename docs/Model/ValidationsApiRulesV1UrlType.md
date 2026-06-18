@@ -1,4 +1,4 @@
-# # ValidationsApiRulesV1UrlType
+# ValidationsApiRulesV1UrlType
 
 ## Properties
 

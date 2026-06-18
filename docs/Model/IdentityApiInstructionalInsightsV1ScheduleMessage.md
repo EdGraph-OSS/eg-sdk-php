@@ -1,4 +1,4 @@
-# # IdentityApiInstructionalInsightsV1ScheduleMessage
+# IdentityApiInstructionalInsightsV1ScheduleMessage
 
 ## Properties
 

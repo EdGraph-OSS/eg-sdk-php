@@ -1,4 +1,4 @@
-# # DataSyncApiProviderV1ProviderListResponse
+# DataSyncApiProviderV1ProviderListResponse
 
 ## Properties
 

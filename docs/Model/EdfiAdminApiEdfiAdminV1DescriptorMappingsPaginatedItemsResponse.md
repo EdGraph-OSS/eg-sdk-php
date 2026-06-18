@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1DescriptorMappingsPaginatedItemsResponse
+# EdfiAdminApiEdfiAdminV1DescriptorMappingsPaginatedItemsResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsDataRefreshType
+# EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsJobsDataRefreshType
 
 ## Properties
 

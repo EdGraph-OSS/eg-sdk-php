@@ -1,4 +1,4 @@
-# # IdentityApiUserV1SectionResponseGetPaginatedItemsResponse
+# IdentityApiUserV1SectionResponseGetPaginatedItemsResponse
 
 ## Properties
 

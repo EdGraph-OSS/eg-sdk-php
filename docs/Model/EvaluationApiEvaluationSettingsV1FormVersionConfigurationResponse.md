@@ -1,4 +1,4 @@
-# # EvaluationApiEvaluationSettingsV1FormVersionConfigurationResponse
+# EvaluationApiEvaluationSettingsV1FormVersionConfigurationResponse
 
 ## Properties
 

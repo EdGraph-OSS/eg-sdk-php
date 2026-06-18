@@ -1,5 +1,7 @@
 # EdGraph\PlatformClient\SubmissionsApi
 
+
+
 All URIs are relative to https://api.dev.edgraph.com/tenant, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -163,7 +165,7 @@ $apiInstance = new EdGraph\PlatformClient\Api\SubmissionsApi(
 );
 $tenantId = 'tenantId_example'; // string | 
 $formId = 'formId_example'; // string | 
-$type = new \EdGraph\PlatformClient\Model\FormApiSubmissionsV1ExportType(); // FormApiSubmissionsV1ExportType | 
+$type = new \EdGraph\PlatformClient\Model\\EdGraph\PlatformClient\Model\FormApiSubmissionsV1ExportType(); // \EdGraph\PlatformClient\Model\FormApiSubmissionsV1ExportType | 
 
 try {
     $result = $apiInstance->exportSubmissions($tenantId, $formId, $type);
@@ -179,7 +181,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenantId** | **string**|  | |
 | **formId** | **string**|  | |
-| **type** | [**FormApiSubmissionsV1ExportType**](../Model/.md)|  | [optional] |
+| **type** | [**\EdGraph\PlatformClient\Model\FormApiSubmissionsV1ExportType**](../Model/.md)|  | [optional] |
 
 ### Return type
 

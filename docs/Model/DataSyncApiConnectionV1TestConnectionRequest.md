@@ -1,4 +1,4 @@
-# # DataSyncApiConnectionV1TestConnectionRequest
+# DataSyncApiConnectionV1TestConnectionRequest
 
 ## Properties
 

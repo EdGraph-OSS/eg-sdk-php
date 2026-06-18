@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse
+# EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse
 
 ## Properties
 

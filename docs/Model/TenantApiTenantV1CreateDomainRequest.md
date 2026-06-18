@@ -1,4 +1,4 @@
-# # TenantApiTenantV1CreateDomainRequest
+# TenantApiTenantV1CreateDomainRequest
 
 ## Properties
 

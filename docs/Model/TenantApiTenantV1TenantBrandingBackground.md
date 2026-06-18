@@ -1,4 +1,4 @@
-# # TenantApiTenantV1TenantBrandingBackground
+# TenantApiTenantV1TenantBrandingBackground
 
 ## Properties
 

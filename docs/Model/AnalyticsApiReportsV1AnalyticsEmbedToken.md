@@ -1,4 +1,4 @@
-# # AnalyticsApiReportsV1AnalyticsEmbedToken
+# AnalyticsApiReportsV1AnalyticsEmbedToken
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1ResetInstanceResponse
+# EdfiAdminApiEdfiAdminV1ResetInstanceResponse
 
 ## Properties
 

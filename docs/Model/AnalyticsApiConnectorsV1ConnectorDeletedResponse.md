@@ -1,4 +1,4 @@
-# # AnalyticsApiConnectorsV1ConnectorDeletedResponse
+# AnalyticsApiConnectorsV1ConnectorDeletedResponse
 
 ## Properties
 

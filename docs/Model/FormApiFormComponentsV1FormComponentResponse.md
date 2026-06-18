@@ -1,4 +1,4 @@
-# # FormApiFormComponentsV1FormComponentResponse
+# FormApiFormComponentsV1FormComponentResponse
 
 ## Properties
 

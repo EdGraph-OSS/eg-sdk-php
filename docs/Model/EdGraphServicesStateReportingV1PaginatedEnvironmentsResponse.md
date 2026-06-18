@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1PaginatedEnvironmentsResponse
+# EdGraphServicesStateReportingV1PaginatedEnvironmentsResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # DataSyncApiJobExecutionV1Metric
+# DataSyncApiJobExecutionV1Metric
 
 ## Properties
 

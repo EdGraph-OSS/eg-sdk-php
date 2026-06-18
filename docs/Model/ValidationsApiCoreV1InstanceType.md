@@ -1,4 +1,4 @@
-# # ValidationsApiCoreV1InstanceType
+# ValidationsApiCoreV1InstanceType
 
 ## Properties
 

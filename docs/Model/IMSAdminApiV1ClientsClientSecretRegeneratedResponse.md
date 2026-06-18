@@ -1,4 +1,4 @@
-# # IMSAdminApiV1ClientsClientSecretRegeneratedResponse
+# IMSAdminApiV1ClientsClientSecretRegeneratedResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # IMSAdminApiV1DbBackupCodesDbBackupCode
+# IMSAdminApiV1DbBackupCodesDbBackupCode
 
 ## Properties
 

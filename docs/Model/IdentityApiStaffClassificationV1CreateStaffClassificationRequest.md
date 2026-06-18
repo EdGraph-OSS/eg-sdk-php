@@ -1,4 +1,4 @@
-# # IdentityApiStaffClassificationV1CreateStaffClassificationRequest
+# IdentityApiStaffClassificationV1CreateStaffClassificationRequest
 
 ## Properties
 

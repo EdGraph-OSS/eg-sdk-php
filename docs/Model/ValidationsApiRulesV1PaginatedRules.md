@@ -1,4 +1,4 @@
-# # ValidationsApiRulesV1PaginatedRules
+# ValidationsApiRulesV1PaginatedRules
 
 ## Properties
 

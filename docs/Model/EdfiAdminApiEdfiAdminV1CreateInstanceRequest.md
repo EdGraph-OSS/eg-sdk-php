@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1CreateInstanceRequest
+# EdfiAdminApiEdfiAdminV1CreateInstanceRequest
 
 ## Properties
 

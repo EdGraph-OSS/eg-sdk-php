@@ -1,4 +1,4 @@
-# # FormApiSubmissionsV1SubmissionResponsePaginatedItemsViewModel
+# FormApiSubmissionsV1SubmissionResponsePaginatedItemsViewModel
 
 ## Properties
 

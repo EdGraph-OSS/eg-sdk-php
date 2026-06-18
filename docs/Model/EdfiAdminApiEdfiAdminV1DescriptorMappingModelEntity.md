@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1DescriptorMappingModelEntity
+# EdfiAdminApiEdfiAdminV1DescriptorMappingModelEntity
 
 ## Properties
 

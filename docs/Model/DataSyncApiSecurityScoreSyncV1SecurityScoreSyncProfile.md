@@ -1,4 +1,4 @@
-# # DataSyncApiSecurityScoreSyncV1SecurityScoreSyncProfile
+# DataSyncApiSecurityScoreSyncV1SecurityScoreSyncProfile
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1StudentEnrollmentByEthnicityReportResponse
+# EdfiAdminApiEdfiAdminV1StudentEnrollmentByEthnicityReportResponse
 
 ## Properties
 

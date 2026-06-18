@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1SchoolCountRepresentation
+# EdfiAdminApiEdfiAdminV1SchoolCountRepresentation
 
 ## Properties
 

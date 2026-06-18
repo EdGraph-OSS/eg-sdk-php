@@ -1,4 +1,4 @@
-# # IdentityApiUserV1RevokeStrategy
+# IdentityApiUserV1RevokeStrategy
 
 ## Properties
 

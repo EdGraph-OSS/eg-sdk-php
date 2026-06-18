@@ -1,4 +1,4 @@
-# # EvaluationApiEvaluationsV1OrganizationIdentifierType
+# EvaluationApiEvaluationsV1OrganizationIdentifierType
 
 ## Properties
 

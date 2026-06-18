@@ -1,4 +1,4 @@
-# # ValidationsApiTagsV1UpdateRequest
+# ValidationsApiTagsV1UpdateRequest
 
 ## Properties
 

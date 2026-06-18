@@ -1,4 +1,4 @@
-# # AnalyticsApiConfigurationsV1AnalyticsConfigurationPaginatedItemsViewModel
+# AnalyticsApiConfigurationsV1AnalyticsConfigurationPaginatedItemsViewModel
 
 ## Properties
 

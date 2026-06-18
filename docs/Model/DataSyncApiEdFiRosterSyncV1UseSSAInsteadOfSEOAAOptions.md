@@ -1,4 +1,4 @@
-# # DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions
+# DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # IdentityApiInstructionalInsightsV1CallbackNotificationMessage
+# IdentityApiInstructionalInsightsV1CallbackNotificationMessage
 
 ## Properties
 

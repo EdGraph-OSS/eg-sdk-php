@@ -1,4 +1,4 @@
-# # IdentityApiApiClientV1ApiClientListResponse
+# IdentityApiApiClientV1ApiClientListResponse
 
 ## Properties
 

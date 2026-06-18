@@ -1,4 +1,4 @@
-# # DataSyncApiJobExecutionLogV1MessageType
+# DataSyncApiJobExecutionLogV1MessageType
 
 ## Properties
 

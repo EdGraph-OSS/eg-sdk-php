@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1PaginatedCategoryTreeResponseTypesCategoryTree
+# ValidationsApiContainersV1PaginatedCategoryTreeResponseTypesCategoryTree
 
 ## Properties
 

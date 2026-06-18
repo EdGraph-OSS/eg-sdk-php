@@ -1,4 +1,4 @@
-# # ValidationsApiJobsV1JobMetadata
+# ValidationsApiJobsV1JobMetadata
 
 ## Properties
 

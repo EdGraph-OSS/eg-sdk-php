@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1Url
+# ValidationsApiContainersV1Url
 
 ## Properties
 

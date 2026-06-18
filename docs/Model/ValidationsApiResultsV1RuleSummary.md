@@ -1,4 +1,4 @@
-# # ValidationsApiResultsV1RuleSummary
+# ValidationsApiResultsV1RuleSummary
 
 ## Properties
 

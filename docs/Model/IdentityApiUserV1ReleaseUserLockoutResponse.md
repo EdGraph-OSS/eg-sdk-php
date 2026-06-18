@@ -1,4 +1,4 @@
-# # IdentityApiUserV1ReleaseUserLockoutResponse
+# IdentityApiUserV1ReleaseUserLockoutResponse
 
 ## Properties
 

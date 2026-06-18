@@ -1,4 +1,4 @@
-# # GoogleProtobufWellKnownTypesStruct
+# GoogleProtobufWellKnownTypesStruct
 
 ## Properties
 

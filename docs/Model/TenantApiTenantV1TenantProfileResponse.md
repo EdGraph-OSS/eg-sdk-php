@@ -1,4 +1,4 @@
-# # TenantApiTenantV1TenantProfileResponse
+# TenantApiTenantV1TenantProfileResponse
 
 ## Properties
 

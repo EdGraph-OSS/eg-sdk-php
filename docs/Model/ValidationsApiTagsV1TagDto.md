@@ -1,4 +1,4 @@
-# # ValidationsApiTagsV1TagDto
+# ValidationsApiTagsV1TagDto
 
 ## Properties
 

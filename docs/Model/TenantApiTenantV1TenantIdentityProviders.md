@@ -1,4 +1,4 @@
-# # TenantApiTenantV1TenantIdentityProviders
+# TenantApiTenantV1TenantIdentityProviders
 
 ## Properties
 

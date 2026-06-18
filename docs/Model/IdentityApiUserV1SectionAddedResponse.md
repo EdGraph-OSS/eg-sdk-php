@@ -1,4 +1,4 @@
-# # IdentityApiUserV1SectionAddedResponse
+# IdentityApiUserV1SectionAddedResponse
 
 ## Properties
 

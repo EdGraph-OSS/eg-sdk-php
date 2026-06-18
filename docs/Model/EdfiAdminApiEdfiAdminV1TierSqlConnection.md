@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1TierSqlConnection
+# EdfiAdminApiEdfiAdminV1TierSqlConnection
 
 ## Properties
 

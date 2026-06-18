@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1DescriptorMappingCreatedResponse
+# EdfiAdminApiEdfiAdminV1DescriptorMappingCreatedResponse
 
 ## Properties
 

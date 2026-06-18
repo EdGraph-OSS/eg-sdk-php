@@ -1,4 +1,4 @@
-# # TenantApiTenantV1SubscriptionCreatedResponse
+# TenantApiTenantV1SubscriptionCreatedResponse
 
 ## Properties
 

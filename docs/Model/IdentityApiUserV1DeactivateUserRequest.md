@@ -1,4 +1,4 @@
-# # IdentityApiUserV1DeactivateUserRequest
+# IdentityApiUserV1DeactivateUserRequest
 
 ## Properties
 

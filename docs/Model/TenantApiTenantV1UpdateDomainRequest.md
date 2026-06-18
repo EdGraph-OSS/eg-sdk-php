@@ -1,4 +1,4 @@
-# # TenantApiTenantV1UpdateDomainRequest
+# TenantApiTenantV1UpdateDomainRequest
 
 ## Properties
 

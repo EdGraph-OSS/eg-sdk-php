@@ -1,4 +1,4 @@
-# # IdentityApiInstructionalInsightsV1CreateInstructionalInsightsSecuritySyncJobRequest
+# IdentityApiInstructionalInsightsV1CreateInstructionalInsightsSecuritySyncJobRequest
 
 ## Properties
 

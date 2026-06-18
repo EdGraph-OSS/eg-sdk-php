@@ -1,4 +1,4 @@
-# # FormApiQuestionsV1QuestionVisibilityRule
+# FormApiQuestionsV1QuestionVisibilityRule
 
 ## Properties
 

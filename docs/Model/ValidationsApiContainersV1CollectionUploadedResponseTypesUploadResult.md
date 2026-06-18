@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1CollectionUploadedResponseTypesUploadResult
+# ValidationsApiContainersV1CollectionUploadedResponseTypesUploadResult
 
 ## Properties
 

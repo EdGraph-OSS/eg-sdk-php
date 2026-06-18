@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1SyncEntry
+# EdfiAdminApiEdfiAdminV1SyncEntry
 
 ## Properties
 

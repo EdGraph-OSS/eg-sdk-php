@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1CertificationStatusSetResponse
+# ValidationsApiContainersV1CertificationStatusSetResponse
 
 ## Properties
 

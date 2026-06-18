@@ -1,4 +1,4 @@
-# # TenantApiTenantV1DomainStatus
+# TenantApiTenantV1DomainStatus
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # IdentityApiUserV1AddSectionBulkRequest
+# IdentityApiUserV1AddSectionBulkRequest
 
 ## Properties
 

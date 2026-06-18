@@ -1,4 +1,4 @@
-# # TenantApiWebhookV1WebhookEventResponse
+# TenantApiWebhookV1WebhookEventResponse
 
 ## Properties
 

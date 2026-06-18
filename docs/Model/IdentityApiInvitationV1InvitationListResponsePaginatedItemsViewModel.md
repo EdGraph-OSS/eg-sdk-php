@@ -1,4 +1,4 @@
-# # IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel
+# IdentityApiInvitationV1InvitationListResponsePaginatedItemsViewModel
 
 ## Properties
 

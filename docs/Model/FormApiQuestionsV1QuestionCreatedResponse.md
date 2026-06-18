@@ -1,4 +1,4 @@
-# # FormApiQuestionsV1QuestionCreatedResponse
+# FormApiQuestionsV1QuestionCreatedResponse
 
 ## Properties
 

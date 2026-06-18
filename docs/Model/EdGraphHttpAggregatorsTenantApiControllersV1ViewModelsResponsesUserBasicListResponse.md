@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserBasicListResponse
+# EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserBasicListResponse
 
 ## Properties
 

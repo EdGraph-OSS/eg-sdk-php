@@ -1,4 +1,4 @@
-# # IMSAdminApiV1InstancesPagedInstancesResponse
+# IMSAdminApiV1InstancesPagedInstancesResponse
 
 ## Properties
 

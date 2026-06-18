@@ -1,4 +1,4 @@
-# # AnalyticsApiUserAuthorizationsV1UserAuthorizationsListResponse
+# AnalyticsApiUserAuthorizationsV1UserAuthorizationsListResponse
 
 ## Properties
 

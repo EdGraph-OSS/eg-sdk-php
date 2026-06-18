@@ -1,4 +1,4 @@
-# # EvaluationApiEvaluationSettingsV1RoleConfigurationResponse
+# EvaluationApiEvaluationSettingsV1RoleConfigurationResponse
 
 ## Properties
 

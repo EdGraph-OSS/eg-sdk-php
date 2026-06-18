@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor
+# EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor
 
 ## Properties
 

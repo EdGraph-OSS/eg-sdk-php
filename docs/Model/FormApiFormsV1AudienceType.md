@@ -1,4 +1,4 @@
-# # FormApiFormsV1AudienceType
+# FormApiFormsV1AudienceType
 
 ## Properties
 

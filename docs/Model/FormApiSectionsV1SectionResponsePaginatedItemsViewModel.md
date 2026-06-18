@@ -1,4 +1,4 @@
-# # FormApiSectionsV1SectionResponsePaginatedItemsViewModel
+# FormApiSectionsV1SectionResponsePaginatedItemsViewModel
 
 ## Properties
 

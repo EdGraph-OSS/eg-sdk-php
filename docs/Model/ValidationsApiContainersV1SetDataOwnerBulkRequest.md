@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1SetDataOwnerBulkRequest
+# ValidationsApiContainersV1SetDataOwnerBulkRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ValidationsApiStateReportingStepsV1GetStateReportingStepsResponse
+# ValidationsApiStateReportingStepsV1GetStateReportingStepsResponse
 
 ## Properties
 

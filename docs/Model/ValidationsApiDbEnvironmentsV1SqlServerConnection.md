@@ -1,4 +1,4 @@
-# # ValidationsApiDbEnvironmentsV1SqlServerConnection
+# ValidationsApiDbEnvironmentsV1SqlServerConnection
 
 ## Properties
 

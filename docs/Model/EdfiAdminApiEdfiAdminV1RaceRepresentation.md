@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1RaceRepresentation
+# EdfiAdminApiEdfiAdminV1RaceRepresentation
 
 ## Properties
 

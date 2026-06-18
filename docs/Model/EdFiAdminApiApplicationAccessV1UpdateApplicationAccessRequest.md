@@ -1,4 +1,4 @@
-# # EdFiAdminApiApplicationAccessV1UpdateApplicationAccessRequest
+# EdFiAdminApiApplicationAccessV1UpdateApplicationAccessRequest
 
 ## Properties
 

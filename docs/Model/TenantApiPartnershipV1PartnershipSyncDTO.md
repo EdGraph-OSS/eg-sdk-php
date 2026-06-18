@@ -1,4 +1,4 @@
-# # TenantApiPartnershipV1PartnershipSyncDTO
+# TenantApiPartnershipV1PartnershipSyncDTO
 
 ## Properties
 

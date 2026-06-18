@@ -1,4 +1,4 @@
-# # AnalyticsApiUserAuthorizationsV1UserAuthorizationSoftDeletedResponse
+# AnalyticsApiUserAuthorizationsV1UserAuthorizationSoftDeletedResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1ReportingPeriodValidationsCancelledResponse
+# EdGraphServicesStateReportingV1ReportingPeriodValidationsCancelledResponse
 
 ## Properties
 

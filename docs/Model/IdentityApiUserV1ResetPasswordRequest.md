@@ -1,4 +1,4 @@
-# # IdentityApiUserV1ResetPasswordRequest
+# IdentityApiUserV1ResetPasswordRequest
 
 ## Properties
 

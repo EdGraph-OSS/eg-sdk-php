@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1RuleRecordPostFlagSetBulkResponse
+# ValidationsApiReportingPeriodsV1RuleRecordPostFlagSetBulkResponse
 
 ## Properties
 

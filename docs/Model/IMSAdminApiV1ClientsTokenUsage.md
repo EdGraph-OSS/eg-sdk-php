@@ -1,4 +1,4 @@
-# # IMSAdminApiV1ClientsTokenUsage
+# IMSAdminApiV1ClientsTokenUsage
 
 ## Properties
 

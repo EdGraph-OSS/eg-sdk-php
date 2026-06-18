@@ -1,4 +1,4 @@
-# # IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel
+# IdentityApiApiClientV1ApiClientPaginatedItemsResponsePaginatedItemsViewModel
 
 ## Properties
 

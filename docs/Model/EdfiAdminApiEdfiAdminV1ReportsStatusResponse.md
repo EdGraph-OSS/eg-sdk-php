@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1ReportsStatusResponse
+# EdfiAdminApiEdfiAdminV1ReportsStatusResponse
 
 ## Properties
 

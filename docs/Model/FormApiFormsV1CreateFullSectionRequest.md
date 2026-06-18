@@ -1,4 +1,4 @@
-# # FormApiFormsV1CreateFullSectionRequest
+# FormApiFormsV1CreateFullSectionRequest
 
 ## Properties
 

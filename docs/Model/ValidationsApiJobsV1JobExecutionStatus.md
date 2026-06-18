@@ -1,4 +1,4 @@
-# # ValidationsApiJobsV1JobExecutionStatus
+# ValidationsApiJobsV1JobExecutionStatus
 
 ## Properties
 

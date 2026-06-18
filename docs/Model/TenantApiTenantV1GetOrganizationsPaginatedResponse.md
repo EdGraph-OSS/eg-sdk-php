@@ -1,4 +1,4 @@
-# # TenantApiTenantV1GetOrganizationsPaginatedResponse
+# TenantApiTenantV1GetOrganizationsPaginatedResponse
 
 ## Properties
 

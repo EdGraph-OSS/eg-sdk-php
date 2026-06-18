@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto
+# EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto
 
 ## Properties
 

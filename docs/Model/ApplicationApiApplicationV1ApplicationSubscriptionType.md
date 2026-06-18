@@ -1,4 +1,4 @@
-# # ApplicationApiApplicationV1ApplicationSubscriptionType
+# ApplicationApiApplicationV1ApplicationSubscriptionType
 
 ## Properties
 

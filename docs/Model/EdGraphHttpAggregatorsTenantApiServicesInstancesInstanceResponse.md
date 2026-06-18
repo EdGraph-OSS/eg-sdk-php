@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse
+# EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse
 
 ## Properties
 

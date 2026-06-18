@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsResponse
+# EdGraphHttpAggregatorsTenantApiServicesObservationsSetApplicationSettingsResponse
 
 ## Properties
 

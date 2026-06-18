@@ -1,4 +1,4 @@
-# # DataSyncApiJobV1DataRefreshType
+# DataSyncApiJobV1DataRefreshType
 
 ## Properties
 

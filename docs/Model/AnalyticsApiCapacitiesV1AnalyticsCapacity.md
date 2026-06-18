@@ -1,4 +1,4 @@
-# # AnalyticsApiCapacitiesV1AnalyticsCapacity
+# AnalyticsApiCapacitiesV1AnalyticsCapacity
 
 ## Properties
 

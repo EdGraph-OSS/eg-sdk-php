@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1GetJsonResponse
+# ValidationsApiContainersV1GetJsonResponse
 
 ## Properties
 

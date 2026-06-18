@@ -1,4 +1,4 @@
-# # FormApiSubmissionsV1SubmissionResponse
+# FormApiSubmissionsV1SubmissionResponse
 
 ## Properties
 

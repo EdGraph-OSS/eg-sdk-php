@@ -1,4 +1,4 @@
-# # IdentityApiUserV1LicenseAssignedBulkResponse
+# IdentityApiUserV1LicenseAssignedBulkResponse
 
 ## Properties
 

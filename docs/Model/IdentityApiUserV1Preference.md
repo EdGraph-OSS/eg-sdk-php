@@ -1,4 +1,4 @@
-# # IdentityApiUserV1Preference
+# IdentityApiUserV1Preference
 
 ## Properties
 

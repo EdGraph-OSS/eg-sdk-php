@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1RunResponse
+# ValidationsApiReportingPeriodsV1RunResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # TenantApiSectionsV1SectionListResponse
+# TenantApiSectionsV1SectionListResponse
 
 ## Properties
 

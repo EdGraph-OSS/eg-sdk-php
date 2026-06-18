@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1Rule
+# EdGraphServicesStateReportingV1Rule
 
 ## Properties
 

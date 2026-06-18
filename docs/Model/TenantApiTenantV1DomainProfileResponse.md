@@ -1,4 +1,4 @@
-# # TenantApiTenantV1DomainProfileResponse
+# TenantApiTenantV1DomainProfileResponse
 
 ## Properties
 

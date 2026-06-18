@@ -1,4 +1,4 @@
-# # IdentityApiInvitationV1InvitationStatus
+# IdentityApiInvitationV1InvitationStatus
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # DataSyncApiJobExecutionV1ChildJob
+# DataSyncApiJobExecutionV1ChildJob
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # AnalyticsApiLakehousesV1PaginatedLakehouseRecordsResponse
+# AnalyticsApiLakehousesV1PaginatedLakehouseRecordsResponse
 
 ## Properties
 

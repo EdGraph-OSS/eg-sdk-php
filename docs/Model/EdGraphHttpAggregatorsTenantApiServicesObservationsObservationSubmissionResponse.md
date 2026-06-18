@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponse
+# EdGraphHttpAggregatorsTenantApiServicesObservationsObservationSubmissionResponse
 
 ## Properties
 

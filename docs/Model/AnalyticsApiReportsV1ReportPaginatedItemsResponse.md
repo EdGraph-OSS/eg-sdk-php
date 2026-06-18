@@ -1,4 +1,4 @@
-# # AnalyticsApiReportsV1ReportPaginatedItemsResponse
+# AnalyticsApiReportsV1ReportPaginatedItemsResponse
 
 ## Properties
 

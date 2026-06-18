@@ -1,4 +1,4 @@
-# # ValidationsApiDbEnvironmentsV1CreateRequest
+# ValidationsApiDbEnvironmentsV1CreateRequest
 
 ## Properties
 

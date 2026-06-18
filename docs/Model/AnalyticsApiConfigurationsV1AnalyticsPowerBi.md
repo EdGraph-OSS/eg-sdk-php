@@ -1,4 +1,4 @@
-# # AnalyticsApiConfigurationsV1AnalyticsPowerBi
+# AnalyticsApiConfigurationsV1AnalyticsPowerBi
 
 ## Properties
 

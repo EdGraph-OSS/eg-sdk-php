@@ -1,4 +1,4 @@
-# # IdentityApiUserV2UserMeProfile
+# IdentityApiUserV2UserMeProfile
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesMappedConnectorListResponse
+# EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesMappedConnectorListResponse
 
 ## Properties
 

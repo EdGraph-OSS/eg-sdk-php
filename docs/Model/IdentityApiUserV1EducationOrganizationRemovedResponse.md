@@ -1,4 +1,4 @@
-# # IdentityApiUserV1EducationOrganizationRemovedResponse
+# IdentityApiUserV1EducationOrganizationRemovedResponse
 
 ## Properties
 

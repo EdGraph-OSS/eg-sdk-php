@@ -1,4 +1,4 @@
-# # RegistrationApiRegistrationV2TenantType
+# RegistrationApiRegistrationV2TenantType
 
 ## Properties
 

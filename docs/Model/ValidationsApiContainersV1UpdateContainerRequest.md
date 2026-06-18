@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1UpdateContainerRequest
+# ValidationsApiContainersV1UpdateContainerRequest
 
 ## Properties
 

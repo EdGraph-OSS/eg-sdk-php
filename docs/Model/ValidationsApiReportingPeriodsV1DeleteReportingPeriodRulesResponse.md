@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1DeleteReportingPeriodRulesResponse
+# ValidationsApiReportingPeriodsV1DeleteReportingPeriodRulesResponse
 
 ## Properties
 

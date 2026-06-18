@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1SubmissionMetricsAddedBulkResponse
+# ValidationsApiReportingPeriodsV1SubmissionMetricsAddedBulkResponse
 
 ## Properties
 

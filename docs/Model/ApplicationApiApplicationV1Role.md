@@ -1,4 +1,4 @@
-# # ApplicationApiApplicationV1Role
+# ApplicationApiApplicationV1Role
 
 ## Properties
 

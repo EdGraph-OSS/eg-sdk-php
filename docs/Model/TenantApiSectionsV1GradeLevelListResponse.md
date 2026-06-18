@@ -1,4 +1,4 @@
-# # TenantApiSectionsV1GradeLevelListResponse
+# TenantApiSectionsV1GradeLevelListResponse
 
 ## Properties
 

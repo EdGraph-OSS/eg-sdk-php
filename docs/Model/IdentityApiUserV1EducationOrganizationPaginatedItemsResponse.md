@@ -1,4 +1,4 @@
-# # IdentityApiUserV1EducationOrganizationPaginatedItemsResponse
+# IdentityApiUserV1EducationOrganizationPaginatedItemsResponse
 
 ## Properties
 

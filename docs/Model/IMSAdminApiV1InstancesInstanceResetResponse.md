@@ -1,4 +1,4 @@
-# # IMSAdminApiV1InstancesInstanceResetResponse
+# IMSAdminApiV1InstancesInstanceResetResponse
 
 ## Properties
 

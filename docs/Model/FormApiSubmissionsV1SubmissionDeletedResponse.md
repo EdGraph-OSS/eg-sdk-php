@@ -1,4 +1,4 @@
-# # FormApiSubmissionsV1SubmissionDeletedResponse
+# FormApiSubmissionsV1SubmissionDeletedResponse
 
 ## Properties
 

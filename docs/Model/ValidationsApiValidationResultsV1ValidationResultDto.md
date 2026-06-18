@@ -1,4 +1,4 @@
-# # ValidationsApiValidationResultsV1ValidationResultDto
+# ValidationsApiValidationResultsV1ValidationResultDto
 
 ## Properties
 

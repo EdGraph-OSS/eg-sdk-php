@@ -1,4 +1,4 @@
-# # IMSAdminApiV1ClientsPaginatedItemsResponse
+# IMSAdminApiV1ClientsPaginatedItemsResponse
 
 ## Properties
 

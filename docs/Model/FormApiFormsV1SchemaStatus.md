@@ -1,4 +1,4 @@
-# # FormApiFormsV1SchemaStatus
+# FormApiFormsV1SchemaStatus
 
 ## Properties
 

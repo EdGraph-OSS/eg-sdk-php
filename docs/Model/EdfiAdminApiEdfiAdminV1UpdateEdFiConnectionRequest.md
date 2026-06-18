@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
+# EdfiAdminApiEdfiAdminV1UpdateEdFiConnectionRequest
 
 ## Properties
 
@@ -17,5 +17,7 @@ Name | Type | Description | Notes
 **instanceType** | [**\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1InstanceType**](EdfiAdminApiEdfiAdminV1InstanceType.md) |  | [optional]
 **discoveryUrl** | **string** |  | [optional]
 **metadataJson** | **string** |  | [optional]
+**discoveryDocument** | [**\EdGraph\PlatformClient\Model\EdfiAdminApiEdfiAdminV1OdsApiDiscoveryApi**](EdfiAdminApiEdfiAdminV1OdsApiDiscoveryApi.md) |  | [optional]
+**adminApiUrl** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

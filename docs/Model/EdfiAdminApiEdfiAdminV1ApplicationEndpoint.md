@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1ApplicationEndpoint
+# EdfiAdminApiEdfiAdminV1ApplicationEndpoint
 
 ## Properties
 

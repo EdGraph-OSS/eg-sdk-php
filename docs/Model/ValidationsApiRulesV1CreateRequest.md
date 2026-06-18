@@ -1,4 +1,4 @@
-# # ValidationsApiRulesV1CreateRequest
+# ValidationsApiRulesV1CreateRequest
 
 ## Properties
 

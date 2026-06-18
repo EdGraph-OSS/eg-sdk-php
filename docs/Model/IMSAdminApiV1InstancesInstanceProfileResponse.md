@@ -1,4 +1,4 @@
-# # IMSAdminApiV1InstancesInstanceProfileResponse
+# IMSAdminApiV1InstancesInstanceProfileResponse
 
 ## Properties
 

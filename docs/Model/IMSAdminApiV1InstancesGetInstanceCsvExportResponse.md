@@ -1,4 +1,4 @@
-# # IMSAdminApiV1InstancesGetInstanceCsvExportResponse
+# IMSAdminApiV1InstancesGetInstanceCsvExportResponse
 
 ## Properties
 

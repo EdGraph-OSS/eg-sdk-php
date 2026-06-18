@@ -1,4 +1,4 @@
-# # TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModel
+# TenantApiTenantV1TenantSettingTypesListResponsePaginatedItemsViewModel
 
 ## Properties
 

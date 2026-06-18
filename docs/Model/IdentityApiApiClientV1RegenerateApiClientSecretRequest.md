@@ -1,4 +1,4 @@
-# # IdentityApiApiClientV1RegenerateApiClientSecretRequest
+# IdentityApiApiClientV1RegenerateApiClientSecretRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1CreateVendorRequest
+# EdfiAdminApiEdfiAdminV1CreateVendorRequest
 
 ## Properties
 

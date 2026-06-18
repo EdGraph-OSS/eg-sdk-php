@@ -1,4 +1,4 @@
-# # IdentityApiUserV2UsersSearchResponse
+# IdentityApiUserV2UsersSearchResponse
 
 ## Properties
 

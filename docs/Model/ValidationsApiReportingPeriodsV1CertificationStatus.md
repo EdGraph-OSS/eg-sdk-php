@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1CertificationStatus
+# ValidationsApiReportingPeriodsV1CertificationStatus
 
 ## Properties
 

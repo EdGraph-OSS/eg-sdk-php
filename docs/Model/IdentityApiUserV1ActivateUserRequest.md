@@ -1,4 +1,4 @@
-# # IdentityApiUserV1ActivateUserRequest
+# IdentityApiUserV1ActivateUserRequest
 
 ## Properties
 

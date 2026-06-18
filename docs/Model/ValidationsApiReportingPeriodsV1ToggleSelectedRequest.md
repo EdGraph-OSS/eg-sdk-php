@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1ToggleSelectedRequest
+# ValidationsApiReportingPeriodsV1ToggleSelectedRequest
 
 ## Properties
 

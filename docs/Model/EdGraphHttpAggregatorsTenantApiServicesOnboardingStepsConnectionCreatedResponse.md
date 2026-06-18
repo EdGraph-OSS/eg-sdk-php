@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionCreatedResponse
+# EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionCreatedResponse
 
 ## Properties
 

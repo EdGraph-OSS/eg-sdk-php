@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1PaginatedSubmissionLogs
+# EdGraphServicesStateReportingV1PaginatedSubmissionLogs
 
 ## Properties
 

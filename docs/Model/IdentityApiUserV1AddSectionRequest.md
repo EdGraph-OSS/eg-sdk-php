@@ -1,4 +1,4 @@
-# # IdentityApiUserV1AddSectionRequest
+# IdentityApiUserV1AddSectionRequest
 
 ## Properties
 

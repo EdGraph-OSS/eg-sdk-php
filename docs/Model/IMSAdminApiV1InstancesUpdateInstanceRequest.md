@@ -1,4 +1,4 @@
-# # IMSAdminApiV1InstancesUpdateInstanceRequest
+# IMSAdminApiV1InstancesUpdateInstanceRequest
 
 ## Properties
 

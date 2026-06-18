@@ -1,4 +1,4 @@
-# # ValidationsApiJobsV1PaginatedItemsResponse
+# ValidationsApiJobsV1PaginatedItemsResponse
 
 ## Properties
 

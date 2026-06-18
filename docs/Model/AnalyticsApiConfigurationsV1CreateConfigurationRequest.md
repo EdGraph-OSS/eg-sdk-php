@@ -1,4 +1,4 @@
-# # AnalyticsApiConfigurationsV1CreateConfigurationRequest
+# AnalyticsApiConfigurationsV1CreateConfigurationRequest
 
 ## Properties
 

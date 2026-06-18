@@ -1,4 +1,4 @@
-# # ValidationsApiTagsV1CreateRequest
+# ValidationsApiTagsV1CreateRequest
 
 ## Properties
 

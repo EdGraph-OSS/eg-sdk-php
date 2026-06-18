@@ -1,4 +1,4 @@
-# # FormApiFormComponentsV1FormComponentResponsePaginatedItemsViewModel
+# FormApiFormComponentsV1FormComponentResponsePaginatedItemsViewModel
 
 ## Properties
 

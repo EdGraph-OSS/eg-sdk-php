@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1GenerateReportsResponse
+# EdfiAdminApiEdfiAdminV1GenerateReportsResponse
 
 ## Properties
 

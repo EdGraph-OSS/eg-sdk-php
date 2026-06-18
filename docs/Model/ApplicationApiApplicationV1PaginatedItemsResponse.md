@@ -1,4 +1,4 @@
-# # ApplicationApiApplicationV1PaginatedItemsResponse
+# ApplicationApiApplicationV1PaginatedItemsResponse
 
 ## Properties
 

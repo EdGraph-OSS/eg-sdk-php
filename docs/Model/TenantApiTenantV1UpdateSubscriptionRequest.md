@@ -1,4 +1,4 @@
-# # TenantApiTenantV1UpdateSubscriptionRequest
+# TenantApiTenantV1UpdateSubscriptionRequest
 
 ## Properties
 

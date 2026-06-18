@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1ToggleReportingPeriodSelectedRequest
+# EdGraphServicesStateReportingV1ToggleReportingPeriodSelectedRequest
 
 ## Properties
 

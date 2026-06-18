@@ -1,4 +1,4 @@
-# # DataSyncApiJobTypeV1JobTypeListResponse
+# DataSyncApiJobTypeV1JobTypeListResponse
 
 ## Properties
 

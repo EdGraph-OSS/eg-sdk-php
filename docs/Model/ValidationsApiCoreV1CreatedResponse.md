@@ -1,4 +1,4 @@
-# # ValidationsApiCoreV1CreatedResponse
+# ValidationsApiCoreV1CreatedResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # IMSAdminApiV1ClientsClaim
+# IMSAdminApiV1ClientsClaim
 
 ## Properties
 

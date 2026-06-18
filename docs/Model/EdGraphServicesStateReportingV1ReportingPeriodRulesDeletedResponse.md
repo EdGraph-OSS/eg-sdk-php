@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1ReportingPeriodRulesDeletedResponse
+# EdGraphServicesStateReportingV1ReportingPeriodRulesDeletedResponse
 
 ## Properties
 

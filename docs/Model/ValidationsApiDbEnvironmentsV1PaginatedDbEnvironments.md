@@ -1,4 +1,4 @@
-# # ValidationsApiDbEnvironmentsV1PaginatedDbEnvironments
+# ValidationsApiDbEnvironmentsV1PaginatedDbEnvironments
 
 ## Properties
 

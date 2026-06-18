@@ -1,4 +1,4 @@
-# # IdentityApiUserV1PasswordResettedResponse
+# IdentityApiUserV1PasswordResettedResponse
 
 ## Properties
 

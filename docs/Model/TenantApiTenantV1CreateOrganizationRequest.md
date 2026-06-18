@@ -1,4 +1,4 @@
-# # TenantApiTenantV1CreateOrganizationRequest
+# TenantApiTenantV1CreateOrganizationRequest
 
 ## Properties
 

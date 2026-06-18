@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1VendorListResponse
+# EdfiAdminApiEdfiAdminV1VendorListResponse
 
 ## Properties
 

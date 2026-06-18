@@ -1,4 +1,4 @@
-# # MicrosoftAspNetCoreMvcValidationProblemDetails
+# MicrosoftAspNetCoreMvcValidationProblemDetails
 
 ## Properties
 

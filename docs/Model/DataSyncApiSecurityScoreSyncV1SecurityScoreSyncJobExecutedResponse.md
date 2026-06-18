@@ -1,4 +1,4 @@
-# # DataSyncApiSecurityScoreSyncV1SecurityScoreSyncJobExecutedResponse
+# DataSyncApiSecurityScoreSyncV1SecurityScoreSyncJobExecutedResponse
 
 ## Properties
 

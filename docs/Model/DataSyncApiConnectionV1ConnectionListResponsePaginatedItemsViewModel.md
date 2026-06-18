@@ -1,4 +1,4 @@
-# # DataSyncApiConnectionV1ConnectionListResponsePaginatedItemsViewModel
+# DataSyncApiConnectionV1ConnectionListResponsePaginatedItemsViewModel
 
 ## Properties
 

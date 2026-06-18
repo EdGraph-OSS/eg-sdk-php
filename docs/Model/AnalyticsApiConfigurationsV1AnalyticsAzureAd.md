@@ -1,4 +1,4 @@
-# # AnalyticsApiConfigurationsV1AnalyticsAzureAd
+# AnalyticsApiConfigurationsV1AnalyticsAzureAd
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest
+# EvaluationApiEvaluationSettingsV1SetFormConfigurationRequest
 
 ## Properties
 

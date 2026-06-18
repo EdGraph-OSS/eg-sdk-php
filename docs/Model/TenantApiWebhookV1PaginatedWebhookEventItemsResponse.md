@@ -1,4 +1,4 @@
-# # TenantApiWebhookV1PaginatedWebhookEventItemsResponse
+# TenantApiWebhookV1PaginatedWebhookEventItemsResponse
 
 ## Properties
 

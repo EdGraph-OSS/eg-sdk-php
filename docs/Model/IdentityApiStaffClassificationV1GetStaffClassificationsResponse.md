@@ -1,4 +1,4 @@
-# # IdentityApiStaffClassificationV1GetStaffClassificationsResponse
+# IdentityApiStaffClassificationV1GetStaffClassificationsResponse
 
 ## Properties
 

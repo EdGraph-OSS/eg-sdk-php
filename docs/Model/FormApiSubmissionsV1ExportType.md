@@ -1,4 +1,4 @@
-# # FormApiSubmissionsV1ExportType
+# FormApiSubmissionsV1ExportType
 
 ## Properties
 

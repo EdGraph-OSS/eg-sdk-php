@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1InstanceResourcesCountListResponsePaginatedItemsViewModel
+# EdfiAdminApiEdfiAdminV1InstanceResourcesCountListResponsePaginatedItemsViewModel
 
 ## Properties
 

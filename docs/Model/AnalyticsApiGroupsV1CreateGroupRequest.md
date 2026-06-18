@@ -1,4 +1,4 @@
-# # AnalyticsApiGroupsV1CreateGroupRequest
+# AnalyticsApiGroupsV1CreateGroupRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1SubmissionCancelledResponse
+# EdGraphServicesStateReportingV1SubmissionCancelledResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # TenantApiWebhookV1WebhookSchema
+# TenantApiWebhookV1WebhookSchema
 
 ## Properties
 

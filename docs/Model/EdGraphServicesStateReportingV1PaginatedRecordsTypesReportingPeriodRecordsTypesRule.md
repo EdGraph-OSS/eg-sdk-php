@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1PaginatedRecordsTypesReportingPeriodRecordsTypesRule
+# EdGraphServicesStateReportingV1PaginatedRecordsTypesReportingPeriodRecordsTypesRule
 
 ## Properties
 

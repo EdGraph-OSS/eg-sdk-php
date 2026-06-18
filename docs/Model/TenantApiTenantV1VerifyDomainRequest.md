@@ -1,4 +1,4 @@
-# # TenantApiTenantV1VerifyDomainRequest
+# TenantApiTenantV1VerifyDomainRequest
 
 ## Properties
 

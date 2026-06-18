@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1SaveClaimSetResponse
+# EdfiAdminApiEdfiAdminV1SaveClaimSetResponse
 
 ## Properties
 

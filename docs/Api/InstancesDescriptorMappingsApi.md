@@ -1,13 +1,17 @@
 # EdGraph\PlatformClient\InstancesDescriptorMappingsApi
 
+
+
 All URIs are relative to https://api.dev.edgraph.com/tenant, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**createDescriptorMapping()**](InstancesDescriptorMappingsApi.md#createDescriptorMapping) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings | Creates a Descriptor Mapping. |
 | [**deleteDescriptorMapping()**](InstancesDescriptorMappingsApi.md#deleteDescriptorMapping) | **DELETE** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/{descriptorMappingId} | Deletes a Descriptor Mapping. |
+| [**exportDescriptorMappings()**](InstancesDescriptorMappingsApi.md#exportDescriptorMappings) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/export | Exports all Descriptor Mappings as a JSON file. |
 | [**getDescriptorMappingById()**](InstancesDescriptorMappingsApi.md#getDescriptorMappingById) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/{descriptorMappingId} | Retrieves a Descriptor Mapping by ID. |
 | [**getDescriptorMappings()**](InstancesDescriptorMappingsApi.md#getDescriptorMappings) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings | Retrieves a list of Descriptors Mappings. |
+| [**importDescriptorMappings()**](InstancesDescriptorMappingsApi.md#importDescriptorMappings) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/import | Imports Descriptor Mappings from a JSON file. |
 | [**updateDescriptorMapping()**](InstancesDescriptorMappingsApi.md#updateDescriptorMapping) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/{descriptorMappingId} | Updates a Descriptor Mapping. |
 
 
@@ -120,6 +124,69 @@ try {
 | **instanceId** | **string**|  | |
 | **year** | **int**|  | |
 | **descriptorMappingId** | **string**|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `exportDescriptorMappings()`
+
+```php
+exportDescriptorMappings($tenantId, $instanceId, $year, $namespace)
+```
+
+Exports all Descriptor Mappings as a JSON file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\InstancesDescriptorMappingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$instanceId = 'instanceId_example'; // string | 
+$year = 56; // int | 
+$namespace = 'namespace_example'; // string | 
+
+try {
+    $apiInstance->exportDescriptorMappings($tenantId, $instanceId, $year, $namespace);
+} catch (Exception $e) {
+    echo 'Exception when calling InstancesDescriptorMappingsApi->exportDescriptorMappings: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **instanceId** | **string**|  | |
+| **year** | **int**|  | |
+| **namespace** | **string**|  | [optional] |
 
 ### Return type
 
@@ -264,6 +331,69 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `importDescriptorMappings()`
+
+```php
+importDescriptorMappings($tenantId, $instanceId, $year, $file)
+```
+
+Imports Descriptor Mappings from a JSON file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\InstancesDescriptorMappingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$instanceId = 'instanceId_example'; // string | 
+$year = 56; // int | 
+$file = '/path/to/file.txt'; // \SplFileObject
+
+try {
+    $apiInstance->importDescriptorMappings($tenantId, $instanceId, $year, $file);
+} catch (Exception $e) {
+    echo 'Exception when calling InstancesDescriptorMappingsApi->importDescriptorMappings: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **instanceId** | **string**|  | |
+| **year** | **int**|  | |
+| **file** | **\SplFileObject****\SplFileObject**|  | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `multipart/form-data`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

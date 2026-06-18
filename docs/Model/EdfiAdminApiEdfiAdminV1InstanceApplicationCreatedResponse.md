@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1InstanceApplicationCreatedResponse
+# EdfiAdminApiEdfiAdminV1InstanceApplicationCreatedResponse
 
 ## Properties
 

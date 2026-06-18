@@ -1,4 +1,4 @@
-# # EvaluationApiEvaluationSettingsV1UsersSetResponse
+# EvaluationApiEvaluationSettingsV1UsersSetResponse
 
 ## Properties
 

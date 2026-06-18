@@ -1,4 +1,4 @@
-# # DataSyncApiProviderV1ConnectionType
+# DataSyncApiProviderV1ConnectionType
 
 ## Properties
 

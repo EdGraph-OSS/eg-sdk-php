@@ -1,4 +1,4 @@
-# # DataSyncApiJobV1JobListResponsePaginatedItemsViewModel
+# DataSyncApiJobV1JobListResponsePaginatedItemsViewModel
 
 ## Properties
 

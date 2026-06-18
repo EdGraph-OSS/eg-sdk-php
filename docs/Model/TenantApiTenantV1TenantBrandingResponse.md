@@ -1,4 +1,4 @@
-# # TenantApiTenantV1TenantBrandingResponse
+# TenantApiTenantV1TenantBrandingResponse
 
 ## Properties
 

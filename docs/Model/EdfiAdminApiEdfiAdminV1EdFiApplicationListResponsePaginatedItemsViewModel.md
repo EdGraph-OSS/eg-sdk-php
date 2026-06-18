@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1EdFiApplicationListResponsePaginatedItemsViewModel
+# EdfiAdminApiEdfiAdminV1EdFiApplicationListResponsePaginatedItemsViewModel
 
 ## Properties
 

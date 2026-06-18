@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1EdFiConnectionPaginatedItemsResponse
+# EdfiAdminApiEdfiAdminV1EdFiConnectionPaginatedItemsResponse
 
 ## Properties
 

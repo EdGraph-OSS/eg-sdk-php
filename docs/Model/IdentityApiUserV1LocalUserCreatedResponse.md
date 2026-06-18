@@ -1,4 +1,4 @@
-# # IdentityApiUserV1LocalUserCreatedResponse
+# IdentityApiUserV1LocalUserCreatedResponse
 
 ## Properties
 

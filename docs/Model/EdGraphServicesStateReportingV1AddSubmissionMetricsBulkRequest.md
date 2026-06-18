@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1AddSubmissionMetricsBulkRequest
+# EdGraphServicesStateReportingV1AddSubmissionMetricsBulkRequest
 
 ## Properties
 

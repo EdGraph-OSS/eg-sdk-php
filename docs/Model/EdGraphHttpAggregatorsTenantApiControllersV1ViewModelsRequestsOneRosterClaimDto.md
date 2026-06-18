@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsOneRosterClaimDto
+# EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsOneRosterClaimDto
 
 ## Properties
 

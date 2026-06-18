@@ -1,4 +1,4 @@
-# # ValidationsApiJobsV1Schedule
+# ValidationsApiJobsV1Schedule
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # IMSAdminApiV1ClientsClientListResponse
+# IMSAdminApiV1ClientsClientListResponse
 
 ## Properties
 

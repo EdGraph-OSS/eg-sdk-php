@@ -1,4 +1,4 @@
-# # ValidationsApiValidationResultsV1FindResponse
+# ValidationsApiValidationResultsV1FindResponse
 
 ## Properties
 

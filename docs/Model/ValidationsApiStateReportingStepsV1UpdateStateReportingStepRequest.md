@@ -1,4 +1,4 @@
-# # ValidationsApiStateReportingStepsV1UpdateStateReportingStepRequest
+# ValidationsApiStateReportingStepsV1UpdateStateReportingStepRequest
 
 ## Properties
 

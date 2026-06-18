@@ -1,4 +1,4 @@
-# # AnalyticsApiADLSGen2ConnectorsV1AuthenticationType
+# AnalyticsApiADLSGen2ConnectorsV1AuthenticationType
 
 ## Properties
 

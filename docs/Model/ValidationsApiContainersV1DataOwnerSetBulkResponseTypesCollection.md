@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1DataOwnerSetBulkResponseTypesCollection
+# ValidationsApiContainersV1DataOwnerSetBulkResponseTypesCollection
 
 ## Properties
 

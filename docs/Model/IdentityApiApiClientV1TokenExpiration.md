@@ -1,4 +1,4 @@
-# # IdentityApiApiClientV1TokenExpiration
+# IdentityApiApiClientV1TokenExpiration
 
 ## Properties
 

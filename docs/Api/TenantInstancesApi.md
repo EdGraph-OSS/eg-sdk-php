@@ -1,5 +1,7 @@
 # EdGraph\PlatformClient\TenantInstancesApi
 
+
+
 All URIs are relative to https://api.dev.edgraph.com/tenant, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -11,7 +13,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 ## `loadOnboardingStepEdFiApiMetadata()`
 
 ```php
-loadOnboardingStepEdFiApiMetadata($tenantId, $edGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult
+loadOnboardingStepEdFiApiMetadata($tenantId, $edGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult
 ```
 
 Loads connection metadata.
@@ -34,10 +36,10 @@ $apiInstance = new EdGraph\PlatformClient\Api\TenantInstancesApi(
     $config
 );
 $tenantId = 'tenantId_example'; // string | 
-$edGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest = new \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest(); // \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest | 
+$edGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest = new \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest(); // \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest | 
 
 try {
-    $result = $apiInstance->loadOnboardingStepEdFiApiMetadata($tenantId, $edGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest);
+    $result = $apiInstance->loadOnboardingStepEdFiApiMetadata($tenantId, $edGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TenantInstancesApi->loadOnboardingStepEdFiApiMetadata: ', $e->getMessage(), PHP_EOL;
@@ -49,7 +51,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenantId** | **string**|  | |
-| **edGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest** | [**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest**](../Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest.md)|  | [optional] |
+| **edGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest** | [**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest**](../Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest.md)|  | [optional] |
 
 ### Return type
 

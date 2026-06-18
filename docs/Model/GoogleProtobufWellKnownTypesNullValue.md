@@ -1,4 +1,4 @@
-# # GoogleProtobufWellKnownTypesNullValue
+# GoogleProtobufWellKnownTypesNullValue
 
 ## Properties
 

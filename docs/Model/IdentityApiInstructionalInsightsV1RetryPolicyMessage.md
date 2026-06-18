@@ -1,4 +1,4 @@
-# # IdentityApiInstructionalInsightsV1RetryPolicyMessage
+# IdentityApiInstructionalInsightsV1RetryPolicyMessage
 
 ## Properties
 

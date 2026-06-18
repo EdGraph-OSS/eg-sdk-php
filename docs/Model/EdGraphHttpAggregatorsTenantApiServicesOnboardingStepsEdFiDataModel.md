@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiDataModel
+# EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiDataModel
 
 ## Properties
 

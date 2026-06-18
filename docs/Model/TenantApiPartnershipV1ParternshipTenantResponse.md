@@ -1,4 +1,4 @@
-# # TenantApiPartnershipV1ParternshipTenantResponse
+# TenantApiPartnershipV1ParternshipTenantResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # FormApiSectionsV1SectionDeletedResponse
+# FormApiSectionsV1SectionDeletedResponse
 
 ## Properties
 

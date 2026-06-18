@@ -1,4 +1,4 @@
-# # IdentityApiUserV1UpdateSectionRequest
+# IdentityApiUserV1UpdateSectionRequest
 
 ## Properties
 

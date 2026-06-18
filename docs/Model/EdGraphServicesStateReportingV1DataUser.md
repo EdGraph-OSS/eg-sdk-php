@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1DataUser
+# EdGraphServicesStateReportingV1DataUser
 
 ## Properties
 

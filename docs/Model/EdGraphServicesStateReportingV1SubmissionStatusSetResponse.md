@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1SubmissionStatusSetResponse
+# EdGraphServicesStateReportingV1SubmissionStatusSetResponse
 
 ## Properties
 

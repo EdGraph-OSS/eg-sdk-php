@@ -1,4 +1,4 @@
-# # EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel
+# EvaluationApiEvaluationsV1CampusResponsePaginatedItemsViewModel
 
 ## Properties
 

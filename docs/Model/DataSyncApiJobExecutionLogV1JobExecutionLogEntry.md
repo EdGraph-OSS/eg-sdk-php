@@ -1,4 +1,4 @@
-# # DataSyncApiJobExecutionLogV1JobExecutionLogEntry
+# DataSyncApiJobExecutionLogV1JobExecutionLogEntry
 
 ## Properties
 

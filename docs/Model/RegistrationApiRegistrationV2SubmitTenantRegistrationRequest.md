@@ -1,4 +1,4 @@
-# # RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
+# RegistrationApiRegistrationV2SubmitTenantRegistrationRequest
 
 ## Properties
 

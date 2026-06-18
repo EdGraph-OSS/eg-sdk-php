@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1SubmissionStatus
+# EdGraphServicesStateReportingV1SubmissionStatus
 
 ## Properties
 

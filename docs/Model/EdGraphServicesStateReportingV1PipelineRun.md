@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1PipelineRun
+# EdGraphServicesStateReportingV1PipelineRun
 
 ## Properties
 

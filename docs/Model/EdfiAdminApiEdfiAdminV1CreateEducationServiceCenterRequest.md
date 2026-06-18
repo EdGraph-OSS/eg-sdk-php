@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1CreateEducationServiceCenterRequest
+# EdfiAdminApiEdfiAdminV1CreateEducationServiceCenterRequest
 
 ## Properties
 

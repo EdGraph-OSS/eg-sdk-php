@@ -1,4 +1,4 @@
-# # EvaluationApiEvaluationsV1EvaluationUpdatedResponse
+# EvaluationApiEvaluationsV1EvaluationUpdatedResponse
 
 ## Properties
 

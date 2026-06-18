@@ -1,4 +1,4 @@
-# # ApplicationApiApplicationV1UrlType
+# ApplicationApiApplicationV1UrlType
 
 ## Properties
 

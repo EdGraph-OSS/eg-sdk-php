@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1CollectionUser
+# ValidationsApiContainersV1CollectionUser
 
 ## Properties
 

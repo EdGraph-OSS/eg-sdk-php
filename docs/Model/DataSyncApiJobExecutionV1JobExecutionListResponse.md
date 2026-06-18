@@ -1,4 +1,4 @@
-# # DataSyncApiJobExecutionV1JobExecutionListResponse
+# DataSyncApiJobExecutionV1JobExecutionListResponse
 
 ## Properties
 

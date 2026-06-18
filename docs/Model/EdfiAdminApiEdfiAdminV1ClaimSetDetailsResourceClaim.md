@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
+# EdfiAdminApiEdfiAdminV1ClaimSetDetailsResourceClaim
 
 ## Properties
 

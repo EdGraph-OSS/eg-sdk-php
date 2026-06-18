@@ -7,8 +7,7 @@ All Api- v1.0
 
 ### Requirements
 
-PHP 7.4 and later.
-Should also work with PHP 8.0.
+PHP 8.1 and later.
 
 ### Composer
 
@@ -94,8 +93,10 @@ Class | Method | HTTP request | Description
 *ApplicationsApi* | [**getTenantApplicationProfileByIdAsync**](docs/Api/ApplicationsApi.md#gettenantapplicationprofilebyidasync) | **GET** /tenants/{tenantId}/applications/{applicationId} | Retrieves an application
 *ApplicationsApi* | [**getTenantApplicationsAsync**](docs/Api/ApplicationsApi.md#gettenantapplicationsasync) | **GET** /tenants/{tenantId}/applications | Retrieves a list of applications associated to this tenant
 *ApplicationsSettingsApi* | [**getClientSettingsAsync**](docs/Api/ApplicationsSettingsApi.md#getclientsettingsasync) | **GET** /tenants/{tenantId}/clients/{clientId}/settings | Retrieves a list of a Tenant&#39;s ClientSettings.
+*ApplicationsSettingsApi* | [**getClientSettingsByCodeAsync**](docs/Api/ApplicationsSettingsApi.md#getclientsettingsbycodeasync) | **GET** /tenants/{tenantId}/clients/{clientId}/settings/{code} | Retrieves a Tenant&#39;s ClientSetting by code.
 *ApplicationsSettingsApi* | [**getClientSettingsTypesAsync**](docs/Api/ApplicationsSettingsApi.md#getclientsettingstypesasync) | **GET** /tenants/{tenantId}/clients/{clientId}/settingstypes | Retrieves a list of ClientSettingsTypes.
 *ApplicationsSettingsApi* | [**setClientSettingsAsync**](docs/Api/ApplicationsSettingsApi.md#setclientsettingsasync) | **POST** /tenants/{tenantId}/clients/{clientId}/settings | Creates/updates a Tenant&#39;s ClientSettings.
+*ApplicationsSettingsApi* | [**setClientSettingsByCodeAsync**](docs/Api/ApplicationsSettingsApi.md#setclientsettingsbycodeasync) | **POST** /tenants/{tenantId}/clients/{clientId}/settings/{code} | Creates/updates a Tenant&#39;s ClientSetting by code.
 *ApplicationsTilesApi* | [**getTenantApplicationTilesAsync**](docs/Api/ApplicationsTilesApi.md#gettenantapplicationtilesasync) | **GET** /tenants/{tenantId}/applicationtiles | Retrieves a list of applications licensed to the user that is currently logged in the context of this tenant
 *CacheApi* | [**refreshUserProfileCache**](docs/Api/CacheApi.md#refreshuserprofilecache) | **POST** /me/cache/refresh | Refreshes the user&#39;s profile cache.
 *CapacitiesApi* | [**assignMyGroupToCapacity**](docs/Api/CapacitiesApi.md#assignmygrouptocapacity) | **POST** /tenants/{tenantId}/analytics/capacities | Assigns the specified group to the specified capacity.
@@ -114,7 +115,7 @@ Class | Method | HTTP request | Description
 *CategoriesApi* | [**setCategoryDataOwnerBulk**](docs/Api/CategoriesApi.md#setcategorydataownerbulk) | **POST** /tenants/{tenantId}/statereporting/reportingperiods/{reportingPeriodId}/categories/owner | Sets the Data Owner of Categories.
 *CategoriesApi* | [**uploadStateReportingCategory**](docs/Api/CategoriesApi.md#uploadstatereportingcategory) | **POST** /tenants/{tenantId}/statereporting/categories/upload | Upload a Category via a JSON file.
 *CategoriesApi* | [**uploadStateReportingPeriodsFromCategoryJson**](docs/Api/CategoriesApi.md#uploadstatereportingperiodsfromcategoryjson) | **POST** /tenants/{tenantId}/statereporting/environments/{environmentId}/reportingperiods/upload | Upload a Category via a JSON file.
-*ChangesLogsApi* | [**getAllChangesAsync**](docs/Api/ChangesLogsApi.md#getallchangesasync) | **GET** /changes/{tenantId}/changes | 
+*ChangeLogsApi* | [**getAllChangesAsync**](docs/Api/ChangeLogsApi.md#getallchangesasync) | **GET** /tenants/{tenantId}/changes | 
 *ClientsSecretsApi* | [**addClientSecret**](docs/Api/ClientsSecretsApi.md#addclientsecret) | **POST** /tenants/{tenantId}/oneroster/instances/{instanceId}/clients/{clientId}/secrets | Creates a new secret for an OpenId client
 *ClientsSecretsApi* | [**regenerateOneRosterApiClientSecretAsync**](docs/Api/ClientsSecretsApi.md#regenerateonerosterapiclientsecretasync) | **PUT** /tenants/{tenantId}/oneroster/instances/{instanceId}/clients/{clientId}/regeneratesecret | Regenerate Client Secret
 *CollectionsApi* | [**createCollection**](docs/Api/CollectionsApi.md#createcollection) | **POST** /tenants/{tenantId}/validations/collections | Creates a Collection.
@@ -148,7 +149,6 @@ Class | Method | HTTP request | Description
 *ConnectionsApi* | [**getEdFiConnectionById**](docs/Api/ConnectionsApi.md#getedficonnectionbyid) | **GET** /tenants/{tenantId}/edfiadmin/connections/{connectionId} | Retrieves an Ed-Fi Connection by ID.
 *ConnectionsApi* | [**getEdFiConnectionsAsync**](docs/Api/ConnectionsApi.md#getedficonnectionsasync) | **GET** /tenants/{tenantId}/edfiadmin/connections | Retrieves a list of Ed-Fi Connections.
 *ConnectionsApi* | [**getEdFiOdsBackupCodesDescriptorsAsync**](docs/Api/ConnectionsApi.md#getedfiodsbackupcodesdescriptorsasync) | **GET** /tenants/{tenantId}/edfiadmin/connections/odsbackupcodes | Retrieves a list of Ed-Fi ODS backup codes.
-*ConnectionsApi* | [**getEdFiResourcesByInstanceYear**](docs/Api/ConnectionsApi.md#getedfiresourcesbyinstanceyear) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/resources | Retrieves an Ed-Fi Resources by Instance Id and Year.
 *ConnectionsApi* | [**getPagedConnections**](docs/Api/ConnectionsApi.md#getpagedconnections) | **GET** /tenants/{tenantId}/oneroster/connections | Retrieves a list of Connections.
 *ConnectionsApi* | [**getTenantDataSyncConnectionProfileById**](docs/Api/ConnectionsApi.md#gettenantdatasyncconnectionprofilebyid) | **GET** /tenants/{tenantId}/datasync/connections/{connectionId} | Retrieves a specific DataSync connection using its primary key
 *ConnectionsApi* | [**testConnectionDetailsAsync**](docs/Api/ConnectionsApi.md#testconnectiondetailsasync) | **POST** /tenants/{tenantId}/oneroster/connections/test | Tests the connection by sending the connection details in the request payload
@@ -339,8 +339,10 @@ Class | Method | HTTP request | Description
 *InstancesClientsApi* | [**updateClient**](docs/Api/InstancesClientsApi.md#updateclient) | **PUT** /tenants/{tenantId}/oneroster/instances/{instanceId}/clients/{clientId} | Updates a client by Id
 *InstancesDescriptorMappingsApi* | [**createDescriptorMapping**](docs/Api/InstancesDescriptorMappingsApi.md#createdescriptormapping) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings | Creates a Descriptor Mapping.
 *InstancesDescriptorMappingsApi* | [**deleteDescriptorMapping**](docs/Api/InstancesDescriptorMappingsApi.md#deletedescriptormapping) | **DELETE** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/{descriptorMappingId} | Deletes a Descriptor Mapping.
+*InstancesDescriptorMappingsApi* | [**exportDescriptorMappings**](docs/Api/InstancesDescriptorMappingsApi.md#exportdescriptormappings) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/export | Exports all Descriptor Mappings as a JSON file.
 *InstancesDescriptorMappingsApi* | [**getDescriptorMappingById**](docs/Api/InstancesDescriptorMappingsApi.md#getdescriptormappingbyid) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/{descriptorMappingId} | Retrieves a Descriptor Mapping by ID.
 *InstancesDescriptorMappingsApi* | [**getDescriptorMappings**](docs/Api/InstancesDescriptorMappingsApi.md#getdescriptormappings) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings | Retrieves a list of Descriptors Mappings.
+*InstancesDescriptorMappingsApi* | [**importDescriptorMappings**](docs/Api/InstancesDescriptorMappingsApi.md#importdescriptormappings) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/import | Imports Descriptor Mappings from a JSON file.
 *InstancesDescriptorMappingsApi* | [**updateDescriptorMapping**](docs/Api/InstancesDescriptorMappingsApi.md#updatedescriptormapping) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptorMappings/{descriptorMappingId} | Updates a Descriptor Mapping.
 *InstancesDescriptorsApi* | [**createDescriptorAsync**](docs/Api/InstancesDescriptorsApi.md#createdescriptorasync) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptors | Creates a Descriptor.
 *InstancesDescriptorsApi* | [**deleteDescriptorAsync**](docs/Api/InstancesDescriptorsApi.md#deletedescriptorasync) | **DELETE** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/descriptors/{descriptorId} | Deletes a Descriptor.
@@ -388,6 +390,21 @@ Class | Method | HTTP request | Description
 *InstancesVendorsApi* | [**getVendorsAsync**](docs/Api/InstancesVendorsApi.md#getvendorsasync) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/vendors | Retrieves a list of Vendors.
 *InstancesVendorsApi* | [**syncVendorAsync**](docs/Api/InstancesVendorsApi.md#syncvendorasync) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/vendors/{vendorId}/sync | Copies a Vendor from one instance to another/other instance(s).
 *InstancesVendorsApi* | [**updateVendorAsync**](docs/Api/InstancesVendorsApi.md#updatevendorasync) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/vendors/{vendorId} | Updates a Vendor.
+*IntegrationProductsApi* | [**createIntegrationProduct**](docs/Api/IntegrationProductsApi.md#createintegrationproduct) | **POST** /integrations/products | Creates an Integration Product.
+*IntegrationProductsApi* | [**deleteIntegrationProduct**](docs/Api/IntegrationProductsApi.md#deleteintegrationproduct) | **DELETE** /integrations/products/{productId} | Removes an Integration Product.
+*IntegrationProductsApi* | [**getIntegrationProduct**](docs/Api/IntegrationProductsApi.md#getintegrationproduct) | **GET** /integrations/products/{productId} | Gets an Integration Product.
+*IntegrationProductsApi* | [**searchIntegrationProducts**](docs/Api/IntegrationProductsApi.md#searchintegrationproducts) | **GET** /integrations/products | Search Integration Products.
+*IntegrationProductsApi* | [**updateIntegrationProduct**](docs/Api/IntegrationProductsApi.md#updateintegrationproduct) | **PUT** /integrations/products/{productId} | Updates an Integration Product.
+*IntegrationTypesApi* | [**createIntegrationType**](docs/Api/IntegrationTypesApi.md#createintegrationtype) | **POST** /integrations/types | Creates an Integration Type.
+*IntegrationTypesApi* | [**deleteIntegrationType**](docs/Api/IntegrationTypesApi.md#deleteintegrationtype) | **DELETE** /integrations/types/{typeId} | Removes an Integration Type.
+*IntegrationTypesApi* | [**getIntegrationType**](docs/Api/IntegrationTypesApi.md#getintegrationtype) | **GET** /integrations/types/{typeId} | Gets an Integration Type.
+*IntegrationTypesApi* | [**searchIntegrationTypes**](docs/Api/IntegrationTypesApi.md#searchintegrationtypes) | **GET** /integrations/types | Search Integration Types.
+*IntegrationTypesApi* | [**updateIntegrationType**](docs/Api/IntegrationTypesApi.md#updateintegrationtype) | **PUT** /integrations/types/{typeId} | Updates an Integration Type.
+*IntegrationVendorsApi* | [**createIntegrationVendor**](docs/Api/IntegrationVendorsApi.md#createintegrationvendor) | **POST** /integrations/vendors | Creates an Integration Vendor.
+*IntegrationVendorsApi* | [**deleteIntegrationVendor**](docs/Api/IntegrationVendorsApi.md#deleteintegrationvendor) | **DELETE** /integrations/vendors/{vendorId} | Removes an Integration Vendor.
+*IntegrationVendorsApi* | [**getIntegrationVendor**](docs/Api/IntegrationVendorsApi.md#getintegrationvendor) | **GET** /integrations/vendors/{vendorId} | Gets an Integration Vendor.
+*IntegrationVendorsApi* | [**searchIntegrationVendors**](docs/Api/IntegrationVendorsApi.md#searchintegrationvendors) | **GET** /integrations/vendors | Search Integration Vendors.
+*IntegrationVendorsApi* | [**updateIntegrationVendor**](docs/Api/IntegrationVendorsApi.md#updateintegrationvendor) | **PUT** /integrations/vendors/{vendorId} | Updates an Integration Vendor.
 *InvitationsApi* | [**deleteTenantInvitationAsync**](docs/Api/InvitationsApi.md#deletetenantinvitationasync) | **DELETE** /tenants/{tenantId}/invitations/{invitationId} | Deletes an invitation
 *InvitationsApi* | [**getAllTenantInvitationsAsync**](docs/Api/InvitationsApi.md#getalltenantinvitationsasync) | **GET** /tenants/{tenantId}/invitations | Retrieves a list of invitations associated to this tenant
 *InvitationsApi* | [**getTenantInvitationByIdAsync**](docs/Api/InvitationsApi.md#gettenantinvitationbyidasync) | **GET** /tenants/{tenantId}/invitations/{invitationId} | Retrieves a specific invitation
@@ -533,14 +550,6 @@ Class | Method | HTTP request | Description
 *SettingsApi* | [**getTenantSettings**](docs/Api/SettingsApi.md#gettenantsettings) | **GET** /tenants/{tenantId}/settings | Retrieves a list of the Tenant&#39;s settings.
 *SettingsApi* | [**getTenantSettingsByCode**](docs/Api/SettingsApi.md#gettenantsettingsbycode) | **GET** /tenants/{tenantId}/settings/{code} | Retrieves a Tenant&#39;s settings by code.
 *SettingsApi* | [**setTenantSettings**](docs/Api/SettingsApi.md#settenantsettings) | **POST** /tenants/{tenantId}/settings/{code} | Creates/updates a Tenant&#39;s settings.
-*SpecificationsApi* | [**createSpecification**](docs/Api/SpecificationsApi.md#createspecification) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications | Create a Specification resource
-*SpecificationsApi* | [**deleteSpecification**](docs/Api/SpecificationsApi.md#deletespecification) | **DELETE** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/{id} | Delete of Specification resource
-*SpecificationsApi* | [**exportSpecifications**](docs/Api/SpecificationsApi.md#exportspecifications) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/export | Export all Specifications resources given a Tenant
-*SpecificationsApi* | [**getSpecification**](docs/Api/SpecificationsApi.md#getspecification) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/{id} | Get Specification resource
-*SpecificationsApi* | [**purgeSpecification**](docs/Api/SpecificationsApi.md#purgespecification) | **DELETE** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/{specificationId}/purge | Purge a deleted Specification resource
-*SpecificationsApi* | [**recoverSpecification**](docs/Api/SpecificationsApi.md#recoverspecification) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/{specificationId}/recover | Recover deleted Specification resource
-*SpecificationsApi* | [**searchSpecifications**](docs/Api/SpecificationsApi.md#searchspecifications) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/search | Seaarch specifications
-*SpecificationsApi* | [**updateSpecification**](docs/Api/SpecificationsApi.md#updatespecification) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/specifications/{id} | Update specification
 *StaffClassificationsApi* | [**createStaffClassification**](docs/Api/StaffClassificationsApi.md#createstaffclassification) | **POST** /tenants/{tenantId}/staffclassifications | Creates a StaffClassification.
 *StaffClassificationsApi* | [**deleteStaffClassification**](docs/Api/StaffClassificationsApi.md#deletestaffclassification) | **DELETE** /tenants/{tenantId}/staffclassifications/{staffClassificationId} | Deletes a StaffClassification.
 *StaffClassificationsApi* | [**getStaffClassificationById**](docs/Api/StaffClassificationsApi.md#getstaffclassificationbyid) | **GET** /tenants/{tenantId}/staffclassifications/{staffClassificationId} | Retrieves a StaffClassification by ID.
@@ -568,6 +577,11 @@ Class | Method | HTTP request | Description
 *TenantBrandingApi* | [**updateTenantBranding**](docs/Api/TenantBrandingApi.md#updatetenantbranding) | **PUT** /tenants/{tenantId}/branding | Updates the branding of tenant
 *TenantInstancesApi* | [**loadOnboardingStepEdFiApiMetadata**](docs/Api/TenantInstancesApi.md#loadonboardingstepedfiapimetadata) | **POST** /tenants/{tenantId}/onboardingsteps/edfi-api-metadata | Loads connection metadata.
 *TenantInstancesApi* | [**testOnboardingStepConnection**](docs/Api/TenantInstancesApi.md#testonboardingstepconnection) | **POST** /tenants/{tenantId}/onboardingsteps/testconnection | Tests availability of provided connection metadata.
+*TenantIntegrationsApi* | [**addTenantIntegration**](docs/Api/TenantIntegrationsApi.md#addtenantintegration) | **POST** /tenants/{tenantId}/integrations | Creates an Integration for a tenant.
+*TenantIntegrationsApi* | [**deleteTenantIntegration**](docs/Api/TenantIntegrationsApi.md#deletetenantintegration) | **DELETE** /tenants/{tenantId}/integrations/{id} | Removes a tenant Integration.
+*TenantIntegrationsApi* | [**getTenantIntegration**](docs/Api/TenantIntegrationsApi.md#gettenantintegration) | **GET** /tenants/{tenantId}/integrations/{id} | Gets a tenant Integration.
+*TenantIntegrationsApi* | [**searchIntegrations**](docs/Api/TenantIntegrationsApi.md#searchintegrations) | **GET** /tenants/{tenantId}/integrations | Search a Tenant&#39;s Integrations
+*TenantIntegrationsApi* | [**updateTenantIntegration**](docs/Api/TenantIntegrationsApi.md#updatetenantintegration) | **PUT** /tenants/{tenantId}/integrations/{id} | Updates a tenant Integration.
 *TenantJobsDSLApi* | [**createDslJob**](docs/Api/TenantJobsDSLApi.md#createdsljob) | **POST** /tenants/{tenantId}/jobs/dsl | Creates a DSL Sync Job for a given tenant
 *TenantJobsDSLApi* | [**executeDslJob**](docs/Api/TenantJobsDSLApi.md#executedsljob) | **PUT** /tenants/{tenantId}/jobs/dsl/{jobId}/execute | Executes a DSL Sync Job for a given tenant
 *TenantJobsDSLApi* | [**getDslJob**](docs/Api/TenantJobsDSLApi.md#getdsljob) | **GET** /tenants/{tenantId}/jobs/dsl/{jobId} | Retrieves a DSL jobs profile for a given tenant
@@ -642,6 +656,7 @@ Class | Method | HTTP request | Description
 *WebhooksApi* | [**getAllWebhookSubscriptionsAsync**](docs/Api/WebhooksApi.md#getallwebhooksubscriptionsasync) | **GET** /tenants/{tenantId}/webhooks/events | 
 *WebhooksApi* | [**getAllWebhooksAsync**](docs/Api/WebhooksApi.md#getallwebhooksasync) | **GET** /tenants/{tenantId}/webhooks | Retrieves a list of webhooks.
 *WebhooksApi* | [**getWebhookByIdAsync**](docs/Api/WebhooksApi.md#getwebhookbyidasync) | **GET** /tenants/{tenantId}/webhooks/{webhookId} | Retrieves a webhook by ID.
+*WebhooksApi* | [**requestWebhookReRun**](docs/Api/WebhooksApi.md#requestwebhookrerun) | **POST** /tenants/{tenantId}/webhooks/{webhookId}/dispatches/{dispatchId}/rerun | 
 *WebhooksApi* | [**updateWebhookAsync**](docs/Api/WebhooksApi.md#updatewebhookasync) | **PUT** /tenants/{tenantId}/webhooks/{webhookId} | Updates a webhook
 
 ## Models
@@ -882,10 +897,10 @@ Class | Method | HTTP request | Description
 - [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionUpdatedResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsConnectionUpdatedResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi.md)
 - [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMetadataResult.md)
-- [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiMetadataRequest.md)
 - [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiDataModel](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiDataModel.md)
 - [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsTestConnectionResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsTestConnectionResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUrls.md)
+- [EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsUseCasesEdFiApiMetadataRequest.md)
 - [EdGraphHttpAggregatorsTenantApiServicesSecurityScoreSyncCreateSecurityScoreSyncJobRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesSecurityScoreSyncCreateSecurityScoreSyncJobRequest.md)
 - [EdGraphHttpAggregatorsTenantApiServicesSecurityScoreSyncJobCreatedResult](docs/Model/EdGraphHttpAggregatorsTenantApiServicesSecurityScoreSyncJobCreatedResult.md)
 - [EdGraphHttpAggregatorsTenantApiServicesSecurityScoreSyncUpdateSecurityScoreSyncJobRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesSecurityScoreSyncUpdateSecurityScoreSyncJobRequest.md)
@@ -1008,7 +1023,6 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1CreateInstanceRequestSchoolYear](docs/Model/EdfiAdminApiEdfiAdminV1CreateInstanceRequestSchoolYear.md)
 - [EdfiAdminApiEdfiAdminV1CreateLocalEducationAgencyRequest](docs/Model/EdfiAdminApiEdfiAdminV1CreateLocalEducationAgencyRequest.md)
 - [EdfiAdminApiEdfiAdminV1CreateOnboardingStepRequest](docs/Model/EdfiAdminApiEdfiAdminV1CreateOnboardingStepRequest.md)
-- [EdfiAdminApiEdfiAdminV1CreateSpecificationRequest](docs/Model/EdfiAdminApiEdfiAdminV1CreateSpecificationRequest.md)
 - [EdfiAdminApiEdfiAdminV1CreateStateEducationAgencyRequest](docs/Model/EdfiAdminApiEdfiAdminV1CreateStateEducationAgencyRequest.md)
 - [EdfiAdminApiEdfiAdminV1CreateVendorRequest](docs/Model/EdfiAdminApiEdfiAdminV1CreateVendorRequest.md)
 - [EdfiAdminApiEdfiAdminV1DatabaseTier](docs/Model/EdfiAdminApiEdfiAdminV1DatabaseTier.md)
@@ -1043,9 +1057,6 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor](docs/Model/EdfiAdminApiEdfiAdminV1EducationOrganizationCategoryDescriptor.md)
 - [EdfiAdminApiEdfiAdminV1EducationServiceCenter](docs/Model/EdfiAdminApiEdfiAdminV1EducationServiceCenter.md)
 - [EdfiAdminApiEdfiAdminV1EducationServiceCenterCreatedResponse](docs/Model/EdfiAdminApiEdfiAdminV1EducationServiceCenterCreatedResponse.md)
-- [EdfiAdminApiEdfiAdminV1ExportSpecificationsRequest](docs/Model/EdfiAdminApiEdfiAdminV1ExportSpecificationsRequest.md)
-- [EdfiAdminApiEdfiAdminV1ExportStatus](docs/Model/EdfiAdminApiEdfiAdminV1ExportStatus.md)
-- [EdfiAdminApiEdfiAdminV1ExportType](docs/Model/EdfiAdminApiEdfiAdminV1ExportType.md)
 - [EdfiAdminApiEdfiAdminV1GenderRepresentation](docs/Model/EdfiAdminApiEdfiAdminV1GenderRepresentation.md)
 - [EdfiAdminApiEdfiAdminV1GenerateReportsResponse](docs/Model/EdfiAdminApiEdfiAdminV1GenerateReportsResponse.md)
 - [EdfiAdminApiEdfiAdminV1GetLocalEducationAgencyProfileResponse](docs/Model/EdfiAdminApiEdfiAdminV1GetLocalEducationAgencyProfileResponse.md)
@@ -1078,6 +1089,8 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1LocalEducationAgencyTableViewResponse](docs/Model/EdfiAdminApiEdfiAdminV1LocalEducationAgencyTableViewResponse.md)
 - [EdfiAdminApiEdfiAdminV1LocalEducationAgencyTableViewResponsePaginatedItemsViewModel](docs/Model/EdfiAdminApiEdfiAdminV1LocalEducationAgencyTableViewResponsePaginatedItemsViewModel.md)
 - [EdfiAdminApiEdfiAdminV1OdsApiConnectionEndpoint](docs/Model/EdfiAdminApiEdfiAdminV1OdsApiConnectionEndpoint.md)
+- [EdfiAdminApiEdfiAdminV1OdsApiDiscoveryApi](docs/Model/EdfiAdminApiEdfiAdminV1OdsApiDiscoveryApi.md)
+- [EdfiAdminApiEdfiAdminV1OdsApiDiscoveryApiDataModel](docs/Model/EdfiAdminApiEdfiAdminV1OdsApiDiscoveryApiDataModel.md)
 - [EdfiAdminApiEdfiAdminV1Onboarding](docs/Model/EdfiAdminApiEdfiAdminV1Onboarding.md)
 - [EdfiAdminApiEdfiAdminV1OnboardingStep](docs/Model/EdfiAdminApiEdfiAdminV1OnboardingStep.md)
 - [EdfiAdminApiEdfiAdminV1RaceRepresentation](docs/Model/EdfiAdminApiEdfiAdminV1RaceRepresentation.md)
@@ -1086,23 +1099,13 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1ReportsStatusResponse](docs/Model/EdfiAdminApiEdfiAdminV1ReportsStatusResponse.md)
 - [EdfiAdminApiEdfiAdminV1ResetInstanceResponse](docs/Model/EdfiAdminApiEdfiAdminV1ResetInstanceResponse.md)
 - [EdfiAdminApiEdfiAdminV1ResourceClaim](docs/Model/EdfiAdminApiEdfiAdminV1ResourceClaim.md)
-- [EdfiAdminApiEdfiAdminV1ResourceItem](docs/Model/EdfiAdminApiEdfiAdminV1ResourceItem.md)
-- [EdfiAdminApiEdfiAdminV1ResourcesByInstanceYearPaginatedItemsResponse](docs/Model/EdfiAdminApiEdfiAdminV1ResourcesByInstanceYearPaginatedItemsResponse.md)
 - [EdfiAdminApiEdfiAdminV1SaveClaimSetRequest](docs/Model/EdfiAdminApiEdfiAdminV1SaveClaimSetRequest.md)
 - [EdfiAdminApiEdfiAdminV1SaveClaimSetResponse](docs/Model/EdfiAdminApiEdfiAdminV1SaveClaimSetResponse.md)
 - [EdfiAdminApiEdfiAdminV1SchoolCountRepresentation](docs/Model/EdfiAdminApiEdfiAdminV1SchoolCountRepresentation.md)
 - [EdfiAdminApiEdfiAdminV1SchoolsByTypeReportResponse](docs/Model/EdfiAdminApiEdfiAdminV1SchoolsByTypeReportResponse.md)
-- [EdfiAdminApiEdfiAdminV1SearchSpecificationsRequest](docs/Model/EdfiAdminApiEdfiAdminV1SearchSpecificationsRequest.md)
 - [EdfiAdminApiEdfiAdminV1SecretEncryptionMetadata](docs/Model/EdfiAdminApiEdfiAdminV1SecretEncryptionMetadata.md)
 - [EdfiAdminApiEdfiAdminV1SecretValueType](docs/Model/EdfiAdminApiEdfiAdminV1SecretValueType.md)
 - [EdfiAdminApiEdfiAdminV1SetInstanceIsDefaultRequest](docs/Model/EdfiAdminApiEdfiAdminV1SetInstanceIsDefaultRequest.md)
-- [EdfiAdminApiEdfiAdminV1SpecificationDeletedResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationDeletedResponse.md)
-- [EdfiAdminApiEdfiAdminV1SpecificationPurgedResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationPurgedResponse.md)
-- [EdfiAdminApiEdfiAdminV1SpecificationRecoveredResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationRecoveredResponse.md)
-- [EdfiAdminApiEdfiAdminV1SpecificationResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationResponse.md)
-- [EdfiAdminApiEdfiAdminV1SpecificationUpdatedResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationUpdatedResponse.md)
-- [EdfiAdminApiEdfiAdminV1SpecificationsExportedResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationsExportedResponse.md)
-- [EdfiAdminApiEdfiAdminV1SpecificationsSearchResponse](docs/Model/EdfiAdminApiEdfiAdminV1SpecificationsSearchResponse.md)
 - [EdfiAdminApiEdfiAdminV1StateEducationAgency](docs/Model/EdfiAdminApiEdfiAdminV1StateEducationAgency.md)
 - [EdfiAdminApiEdfiAdminV1StateEducationAgencyCreatedResponse](docs/Model/EdfiAdminApiEdfiAdminV1StateEducationAgencyCreatedResponse.md)
 - [EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse](docs/Model/EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse.md)
@@ -1133,7 +1136,6 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1UpdateInstanceRequest](docs/Model/EdfiAdminApiEdfiAdminV1UpdateInstanceRequest.md)
 - [EdfiAdminApiEdfiAdminV1UpdateLocalEducationAgencyRequest](docs/Model/EdfiAdminApiEdfiAdminV1UpdateLocalEducationAgencyRequest.md)
 - [EdfiAdminApiEdfiAdminV1UpdateOnboardingStepRequest](docs/Model/EdfiAdminApiEdfiAdminV1UpdateOnboardingStepRequest.md)
-- [EdfiAdminApiEdfiAdminV1UpdateSpecificationRequest](docs/Model/EdfiAdminApiEdfiAdminV1UpdateSpecificationRequest.md)
 - [EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest](docs/Model/EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest.md)
 - [EdfiAdminApiEdfiAdminV1UpdateVendorRequest](docs/Model/EdfiAdminApiEdfiAdminV1UpdateVendorRequest.md)
 - [EdfiAdminApiEdfiAdminV1Vendor](docs/Model/EdfiAdminApiEdfiAdminV1Vendor.md)
@@ -1383,6 +1385,34 @@ Class | Method | HTTP request | Description
 - [RegistrationApiRegistrationV2ApprovalStatus](docs/Model/RegistrationApiRegistrationV2ApprovalStatus.md)
 - [RegistrationApiRegistrationV2SubmitTenantRegistrationRequest](docs/Model/RegistrationApiRegistrationV2SubmitTenantRegistrationRequest.md)
 - [RegistrationApiRegistrationV2TenantType](docs/Model/RegistrationApiRegistrationV2TenantType.md)
+- [TenantApiIntegrationsV1CreateIntegrationProductRequest](docs/Model/TenantApiIntegrationsV1CreateIntegrationProductRequest.md)
+- [TenantApiIntegrationsV1CreateIntegrationProductResponse](docs/Model/TenantApiIntegrationsV1CreateIntegrationProductResponse.md)
+- [TenantApiIntegrationsV1CreateIntegrationRequest](docs/Model/TenantApiIntegrationsV1CreateIntegrationRequest.md)
+- [TenantApiIntegrationsV1CreateIntegrationResponse](docs/Model/TenantApiIntegrationsV1CreateIntegrationResponse.md)
+- [TenantApiIntegrationsV1CreateIntegrationTypeRequest](docs/Model/TenantApiIntegrationsV1CreateIntegrationTypeRequest.md)
+- [TenantApiIntegrationsV1CreateIntegrationTypeResponse](docs/Model/TenantApiIntegrationsV1CreateIntegrationTypeResponse.md)
+- [TenantApiIntegrationsV1CreateIntegrationVendorRequest](docs/Model/TenantApiIntegrationsV1CreateIntegrationVendorRequest.md)
+- [TenantApiIntegrationsV1CreateIntegrationVendorResponse](docs/Model/TenantApiIntegrationsV1CreateIntegrationVendorResponse.md)
+- [TenantApiIntegrationsV1DeleteIntegrationProductResponse](docs/Model/TenantApiIntegrationsV1DeleteIntegrationProductResponse.md)
+- [TenantApiIntegrationsV1DeleteIntegrationResponse](docs/Model/TenantApiIntegrationsV1DeleteIntegrationResponse.md)
+- [TenantApiIntegrationsV1DeleteIntegrationTypeResponse](docs/Model/TenantApiIntegrationsV1DeleteIntegrationTypeResponse.md)
+- [TenantApiIntegrationsV1DeleteIntegrationVendorResponse](docs/Model/TenantApiIntegrationsV1DeleteIntegrationVendorResponse.md)
+- [TenantApiIntegrationsV1GetIntegrationProductResponse](docs/Model/TenantApiIntegrationsV1GetIntegrationProductResponse.md)
+- [TenantApiIntegrationsV1GetIntegrationResponse](docs/Model/TenantApiIntegrationsV1GetIntegrationResponse.md)
+- [TenantApiIntegrationsV1GetIntegrationTypeResponse](docs/Model/TenantApiIntegrationsV1GetIntegrationTypeResponse.md)
+- [TenantApiIntegrationsV1GetIntegrationVendorResponse](docs/Model/TenantApiIntegrationsV1GetIntegrationVendorResponse.md)
+- [TenantApiIntegrationsV1Integration](docs/Model/TenantApiIntegrationsV1Integration.md)
+- [TenantApiIntegrationsV1IntegrationPaginatedItemsViewModel](docs/Model/TenantApiIntegrationsV1IntegrationPaginatedItemsViewModel.md)
+- [TenantApiIntegrationsV1IntegrationProduct](docs/Model/TenantApiIntegrationsV1IntegrationProduct.md)
+- [TenantApiIntegrationsV1IntegrationProductPaginatedItemsViewModel](docs/Model/TenantApiIntegrationsV1IntegrationProductPaginatedItemsViewModel.md)
+- [TenantApiIntegrationsV1IntegrationType](docs/Model/TenantApiIntegrationsV1IntegrationType.md)
+- [TenantApiIntegrationsV1IntegrationTypePaginatedItemsViewModel](docs/Model/TenantApiIntegrationsV1IntegrationTypePaginatedItemsViewModel.md)
+- [TenantApiIntegrationsV1IntegrationVendor](docs/Model/TenantApiIntegrationsV1IntegrationVendor.md)
+- [TenantApiIntegrationsV1IntegrationVendorPaginatedItemsViewModel](docs/Model/TenantApiIntegrationsV1IntegrationVendorPaginatedItemsViewModel.md)
+- [TenantApiIntegrationsV1UpdateIntegrationProductRequest](docs/Model/TenantApiIntegrationsV1UpdateIntegrationProductRequest.md)
+- [TenantApiIntegrationsV1UpdateIntegrationRequest](docs/Model/TenantApiIntegrationsV1UpdateIntegrationRequest.md)
+- [TenantApiIntegrationsV1UpdateIntegrationTypeRequest](docs/Model/TenantApiIntegrationsV1UpdateIntegrationTypeRequest.md)
+- [TenantApiIntegrationsV1UpdateIntegrationVendorRequest](docs/Model/TenantApiIntegrationsV1UpdateIntegrationVendorRequest.md)
 - [TenantApiPartnershipV1PaginatedItemsResponse](docs/Model/TenantApiPartnershipV1PaginatedItemsResponse.md)
 - [TenantApiPartnershipV1ParternshipTenantResponse](docs/Model/TenantApiPartnershipV1ParternshipTenantResponse.md)
 - [TenantApiPartnershipV1PartnershipByIdResponse](docs/Model/TenantApiPartnershipV1PartnershipByIdResponse.md)
@@ -1457,9 +1487,12 @@ Class | Method | HTTP request | Description
 - [TenantApiWebhookV1CreateWebhookRequest](docs/Model/TenantApiWebhookV1CreateWebhookRequest.md)
 - [TenantApiWebhookV1PaginatedItemsResponse](docs/Model/TenantApiWebhookV1PaginatedItemsResponse.md)
 - [TenantApiWebhookV1PaginatedWebhookEventItemsResponse](docs/Model/TenantApiWebhookV1PaginatedWebhookEventItemsResponse.md)
+- [TenantApiWebhookV1ReRunRequestedResponse](docs/Model/TenantApiWebhookV1ReRunRequestedResponse.md)
+- [TenantApiWebhookV1RequestReRunRequest](docs/Model/TenantApiWebhookV1RequestReRunRequest.md)
 - [TenantApiWebhookV1UpdateWebhookRequest](docs/Model/TenantApiWebhookV1UpdateWebhookRequest.md)
 - [TenantApiWebhookV1WebhookEventResponse](docs/Model/TenantApiWebhookV1WebhookEventResponse.md)
 - [TenantApiWebhookV1WebhookIdResponse](docs/Model/TenantApiWebhookV1WebhookIdResponse.md)
+- [TenantApiWebhookV1WebhookReRunStrategy](docs/Model/TenantApiWebhookV1WebhookReRunStrategy.md)
 - [TenantApiWebhookV1WebhookResponse](docs/Model/TenantApiWebhookV1WebhookResponse.md)
 - [TenantApiWebhookV1WebhookSchema](docs/Model/TenantApiWebhookV1WebhookSchema.md)
 - [TenantApiWebhookV1WebhookSubscriberResponse](docs/Model/TenantApiWebhookV1WebhookSubscriberResponse.md)
@@ -1602,6 +1635,6 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `v1.0`
-    - Package version: `0.0.40`
-    - Generator version: `7.8.0`
+    - Package version: `0.0.42`
+    - Generator version: `7.23.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

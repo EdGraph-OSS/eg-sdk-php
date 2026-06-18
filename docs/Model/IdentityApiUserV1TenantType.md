@@ -1,4 +1,4 @@
-# # IdentityApiUserV1TenantType
+# IdentityApiUserV1TenantType
 
 ## Properties
 

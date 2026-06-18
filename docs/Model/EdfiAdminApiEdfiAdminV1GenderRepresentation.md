@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1GenderRepresentation
+# EdfiAdminApiEdfiAdminV1GenderRepresentation
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # IdentityApiUserV1UserDeactivatedResponse
+# IdentityApiUserV1UserDeactivatedResponse
 
 ## Properties
 

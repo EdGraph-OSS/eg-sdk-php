@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1SubmissionStatusSetResponse
+# ValidationsApiReportingPeriodsV1SubmissionStatusSetResponse
 
 ## Properties
 

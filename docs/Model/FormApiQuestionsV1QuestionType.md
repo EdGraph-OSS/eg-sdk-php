@@ -1,4 +1,4 @@
-# # FormApiQuestionsV1QuestionType
+# FormApiQuestionsV1QuestionType
 
 ## Properties
 

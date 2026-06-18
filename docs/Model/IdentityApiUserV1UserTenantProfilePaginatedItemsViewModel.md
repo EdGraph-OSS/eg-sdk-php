@@ -1,4 +1,4 @@
-# # IdentityApiUserV1UserTenantProfilePaginatedItemsViewModel
+# IdentityApiUserV1UserTenantProfilePaginatedItemsViewModel
 
 ## Properties
 

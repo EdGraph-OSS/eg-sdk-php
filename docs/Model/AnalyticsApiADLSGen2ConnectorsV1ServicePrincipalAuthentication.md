@@ -1,4 +1,4 @@
-# # AnalyticsApiADLSGen2ConnectorsV1ServicePrincipalAuthentication
+# AnalyticsApiADLSGen2ConnectorsV1ServicePrincipalAuthentication
 
 ## Properties
 

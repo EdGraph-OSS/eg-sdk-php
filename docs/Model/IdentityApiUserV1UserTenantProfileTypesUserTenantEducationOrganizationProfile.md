@@ -1,4 +1,4 @@
-# # IdentityApiUserV1UserTenantProfileTypesUserTenantEducationOrganizationProfile
+# IdentityApiUserV1UserTenantProfileTypesUserTenantEducationOrganizationProfile
 
 ## Properties
 

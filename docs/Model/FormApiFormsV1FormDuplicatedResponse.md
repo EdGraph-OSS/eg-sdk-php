@@ -1,4 +1,4 @@
-# # FormApiFormsV1FormDuplicatedResponse
+# FormApiFormsV1FormDuplicatedResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EvaluationApiEvaluationSettingsV1SetApplicationRequest
+# EvaluationApiEvaluationSettingsV1SetApplicationRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # TenantApiTenantV1DeploymentType
+# TenantApiTenantV1DeploymentType
 
 ## Properties
 

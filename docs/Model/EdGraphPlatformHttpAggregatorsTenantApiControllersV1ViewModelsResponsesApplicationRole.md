@@ -1,4 +1,4 @@
-# # EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationRole
+# EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationRole
 
 ## Properties
 

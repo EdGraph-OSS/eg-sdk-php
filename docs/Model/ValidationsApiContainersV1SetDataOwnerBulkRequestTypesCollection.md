@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1SetDataOwnerBulkRequestTypesCollection
+# ValidationsApiContainersV1SetDataOwnerBulkRequestTypesCollection
 
 ## Properties
 

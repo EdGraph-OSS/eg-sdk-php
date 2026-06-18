@@ -1,4 +1,4 @@
-# # IMSAdminApiV1ConnectionsPagedConnectionsResponse
+# IMSAdminApiV1ConnectionsPagedConnectionsResponse
 
 ## Properties
 

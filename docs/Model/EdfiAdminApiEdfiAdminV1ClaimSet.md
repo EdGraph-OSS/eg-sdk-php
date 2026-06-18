@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1ClaimSet
+# EdfiAdminApiEdfiAdminV1ClaimSet
 
 ## Properties
 

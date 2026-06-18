@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1AuthorizationStrategiesResponse
+# EdfiAdminApiEdfiAdminV1AuthorizationStrategiesResponse
 
 ## Properties
 

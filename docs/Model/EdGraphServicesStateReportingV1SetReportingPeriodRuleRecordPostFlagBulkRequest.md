@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequest
+# EdGraphServicesStateReportingV1SetReportingPeriodRuleRecordPostFlagBulkRequest
 
 ## Properties
 

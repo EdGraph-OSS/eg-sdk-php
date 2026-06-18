@@ -1,4 +1,4 @@
-# # IMSAdminApiV1ConnectionsTestConnectionDetailsByInstanceIdRequest
+# IMSAdminApiV1ConnectionsTestConnectionDetailsByInstanceIdRequest
 
 ## Properties
 

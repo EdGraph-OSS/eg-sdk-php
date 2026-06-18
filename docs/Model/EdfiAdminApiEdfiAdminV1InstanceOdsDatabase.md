@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1InstanceOdsDatabase
+# EdfiAdminApiEdfiAdminV1InstanceOdsDatabase
 
 ## Properties
 

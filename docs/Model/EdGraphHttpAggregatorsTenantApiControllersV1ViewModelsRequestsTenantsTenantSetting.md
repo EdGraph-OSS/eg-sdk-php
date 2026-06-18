@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting
+# EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting
 
 ## Properties
 

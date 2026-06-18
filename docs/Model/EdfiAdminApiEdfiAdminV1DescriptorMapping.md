@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1DescriptorMapping
+# EdfiAdminApiEdfiAdminV1DescriptorMapping
 
 ## Properties
 

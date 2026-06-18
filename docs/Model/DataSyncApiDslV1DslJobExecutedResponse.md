@@ -1,4 +1,4 @@
-# # DataSyncApiDslV1DslJobExecutedResponse
+# DataSyncApiDslV1DslJobExecutedResponse
 
 ## Properties
 

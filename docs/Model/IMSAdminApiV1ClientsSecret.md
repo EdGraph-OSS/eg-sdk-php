@@ -1,4 +1,4 @@
-# # IMSAdminApiV1ClientsSecret
+# IMSAdminApiV1ClientsSecret
 
 ## Properties
 

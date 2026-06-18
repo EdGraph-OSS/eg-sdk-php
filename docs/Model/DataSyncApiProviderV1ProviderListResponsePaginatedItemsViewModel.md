@@ -1,4 +1,4 @@
-# # DataSyncApiProviderV1ProviderListResponsePaginatedItemsViewModel
+# DataSyncApiProviderV1ProviderListResponsePaginatedItemsViewModel
 
 ## Properties
 

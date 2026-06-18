@@ -1,4 +1,4 @@
-# # IMSAdminApiV1ConnectionsConnectionListResponse
+# IMSAdminApiV1ConnectionsConnectionListResponse
 
 ## Properties
 

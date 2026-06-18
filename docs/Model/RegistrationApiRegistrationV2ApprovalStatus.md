@@ -1,4 +1,4 @@
-# # RegistrationApiRegistrationV2ApprovalStatus
+# RegistrationApiRegistrationV2ApprovalStatus
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1DescriptorNamespacesPaginatedItemsResponse
+# EdfiAdminApiEdfiAdminV1DescriptorNamespacesPaginatedItemsResponse
 
 ## Properties
 

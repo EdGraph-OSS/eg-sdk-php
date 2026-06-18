@@ -1,4 +1,4 @@
-# # TenantApiTenantV1TenantType
+# TenantApiTenantV1TenantType
 
 ## Properties
 

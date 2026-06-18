@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest
+# EdfiAdminApiEdfiAdminV1UpdateStateEducationAgencyRequest
 
 ## Properties
 

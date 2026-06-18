@@ -1,4 +1,4 @@
-# # IdentityApiUserV2UserLicenseProfileResponse
+# IdentityApiUserV2UserLicenseProfileResponse
 
 ## Properties
 

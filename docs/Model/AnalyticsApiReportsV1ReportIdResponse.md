@@ -1,4 +1,4 @@
-# # AnalyticsApiReportsV1ReportIdResponse
+# AnalyticsApiReportsV1ReportIdResponse
 
 ## Properties
 

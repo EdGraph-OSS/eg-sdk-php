@@ -1,4 +1,4 @@
-# # AnalyticsApiUserAuthorizationsV1SchoolYear
+# AnalyticsApiUserAuthorizationsV1SchoolYear
 
 ## Properties
 

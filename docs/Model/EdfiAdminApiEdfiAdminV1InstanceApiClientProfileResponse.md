@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
+# EdfiAdminApiEdfiAdminV1InstanceApiClientProfileResponse
 
 ## Properties
 

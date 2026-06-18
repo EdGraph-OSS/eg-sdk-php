@@ -1,4 +1,4 @@
-# # ApplicationApiApplicationV1ApplicationType
+# ApplicationApiApplicationV1ApplicationType
 
 ## Properties
 

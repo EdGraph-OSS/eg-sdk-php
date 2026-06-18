@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
+# EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest
 
 ## Properties
 

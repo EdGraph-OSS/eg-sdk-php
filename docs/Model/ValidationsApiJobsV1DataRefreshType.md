@@ -1,4 +1,4 @@
-# # ValidationsApiJobsV1DataRefreshType
+# ValidationsApiJobsV1DataRefreshType
 
 ## Properties
 

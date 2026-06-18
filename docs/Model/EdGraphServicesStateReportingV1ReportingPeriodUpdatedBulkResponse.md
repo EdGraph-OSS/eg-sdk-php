@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1ReportingPeriodUpdatedBulkResponse
+# EdGraphServicesStateReportingV1ReportingPeriodUpdatedBulkResponse
 
 ## Properties
 

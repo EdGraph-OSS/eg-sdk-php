@@ -1,4 +1,4 @@
-# # DataSyncApiProviderV1ConnectionMetadataField
+# DataSyncApiProviderV1ConnectionMetadataField
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # IdentityApiUserV1RemoveSectionBulkRequest
+# IdentityApiUserV1RemoveSectionBulkRequest
 
 ## Properties
 

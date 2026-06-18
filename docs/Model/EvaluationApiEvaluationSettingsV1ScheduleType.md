@@ -1,4 +1,4 @@
-# # EvaluationApiEvaluationSettingsV1ScheduleType
+# EvaluationApiEvaluationSettingsV1ScheduleType
 
 ## Properties
 

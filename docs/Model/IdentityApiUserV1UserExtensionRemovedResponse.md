@@ -1,4 +1,4 @@
-# # IdentityApiUserV1UserExtensionRemovedResponse
+# IdentityApiUserV1UserExtensionRemovedResponse
 
 ## Properties
 

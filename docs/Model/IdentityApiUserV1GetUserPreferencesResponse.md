@@ -1,4 +1,4 @@
-# # IdentityApiUserV1GetUserPreferencesResponse
+# IdentityApiUserV1GetUserPreferencesResponse
 
 ## Properties
 

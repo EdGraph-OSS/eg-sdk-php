@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1StudentProgramRepresentation
+# EdfiAdminApiEdfiAdminV1StudentProgramRepresentation
 
 ## Properties
 

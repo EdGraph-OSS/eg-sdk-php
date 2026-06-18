@@ -1,4 +1,4 @@
-# # AnalyticsApiReportsV1SyncLatestVersionRequest
+# AnalyticsApiReportsV1SyncLatestVersionRequest
 
 ## Properties
 

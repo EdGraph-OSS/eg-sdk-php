@@ -1,4 +1,4 @@
-# # IdentityApiStaffClassificationV1StaffClassificationDeletedResponse
+# IdentityApiStaffClassificationV1StaffClassificationDeletedResponse
 
 ## Properties
 

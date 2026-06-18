@@ -1,4 +1,4 @@
-# # IMSAdminApiV1InstancesInstanceEndpointsResponse
+# IMSAdminApiV1InstancesInstanceEndpointsResponse
 
 ## Properties
 

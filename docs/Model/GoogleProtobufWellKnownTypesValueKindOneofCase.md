@@ -1,4 +1,4 @@
-# # GoogleProtobufWellKnownTypesValueKindOneofCase
+# GoogleProtobufWellKnownTypesValueKindOneofCase
 
 ## Properties
 

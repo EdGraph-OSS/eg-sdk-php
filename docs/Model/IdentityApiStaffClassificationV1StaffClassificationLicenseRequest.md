@@ -1,4 +1,4 @@
-# # IdentityApiStaffClassificationV1StaffClassificationLicenseRequest
+# IdentityApiStaffClassificationV1StaffClassificationLicenseRequest
 
 ## Properties
 

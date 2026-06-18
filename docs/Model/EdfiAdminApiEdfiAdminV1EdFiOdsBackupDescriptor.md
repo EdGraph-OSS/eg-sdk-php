@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1EdFiOdsBackupDescriptor
+# EdfiAdminApiEdfiAdminV1EdFiOdsBackupDescriptor
 
 ## Properties
 

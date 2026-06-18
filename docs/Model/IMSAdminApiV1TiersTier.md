@@ -1,4 +1,4 @@
-# # IMSAdminApiV1TiersTier
+# IMSAdminApiV1TiersTier
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
+# DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile
 
 ## Properties
 

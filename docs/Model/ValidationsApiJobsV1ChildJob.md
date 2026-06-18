@@ -1,4 +1,4 @@
-# # ValidationsApiJobsV1ChildJob
+# ValidationsApiJobsV1ChildJob
 
 ## Properties
 

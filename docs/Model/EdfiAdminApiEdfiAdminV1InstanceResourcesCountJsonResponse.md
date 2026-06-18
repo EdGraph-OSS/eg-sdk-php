@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1InstanceResourcesCountJsonResponse
+# EdfiAdminApiEdfiAdminV1InstanceResourcesCountJsonResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiServicesStateReportingV1PagedConnectionsResponse
+# EdGraphHttpAggregatorsTenantApiServicesStateReportingV1PagedConnectionsResponse
 
 ## Properties
 

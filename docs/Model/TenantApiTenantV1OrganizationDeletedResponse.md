@@ -1,4 +1,4 @@
-# # TenantApiTenantV1OrganizationDeletedResponse
+# TenantApiTenantV1OrganizationDeletedResponse
 
 ## Properties
 

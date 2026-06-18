@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1ChangeDatabaseTierRequest
+# EdfiAdminApiEdfiAdminV1ChangeDatabaseTierRequest
 
 ## Properties
 

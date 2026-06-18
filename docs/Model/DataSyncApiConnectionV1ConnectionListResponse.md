@@ -1,4 +1,4 @@
-# # DataSyncApiConnectionV1ConnectionListResponse
+# DataSyncApiConnectionV1ConnectionListResponse
 
 ## Properties
 

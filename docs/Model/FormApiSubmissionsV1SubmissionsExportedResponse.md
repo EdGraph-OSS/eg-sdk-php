@@ -1,4 +1,4 @@
-# # FormApiSubmissionsV1SubmissionsExportedResponse
+# FormApiSubmissionsV1SubmissionsExportedResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # IdentityApiApiClientV1CreateApiClientRequest
+# IdentityApiApiClientV1CreateApiClientRequest
 
 ## Properties
 

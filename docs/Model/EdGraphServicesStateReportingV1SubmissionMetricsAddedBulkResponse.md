@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1SubmissionMetricsAddedBulkResponse
+# EdGraphServicesStateReportingV1SubmissionMetricsAddedBulkResponse
 
 ## Properties
 

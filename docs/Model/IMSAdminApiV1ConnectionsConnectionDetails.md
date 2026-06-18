@@ -1,4 +1,4 @@
-# # IMSAdminApiV1ConnectionsConnectionDetails
+# IMSAdminApiV1ConnectionsConnectionDetails
 
 ## Properties
 

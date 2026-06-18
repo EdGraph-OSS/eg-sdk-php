@@ -1,4 +1,4 @@
-# # DataSyncApiJobV1DeactivateJobRequest
+# DataSyncApiJobV1DeactivateJobRequest
 
 ## Properties
 

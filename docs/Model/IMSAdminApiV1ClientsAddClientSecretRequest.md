@@ -1,4 +1,4 @@
-# # IMSAdminApiV1ClientsAddClientSecretRequest
+# IMSAdminApiV1ClientsAddClientSecretRequest
 
 ## Properties
 

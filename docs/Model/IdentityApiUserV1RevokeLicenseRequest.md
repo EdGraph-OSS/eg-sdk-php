@@ -1,4 +1,4 @@
-# # IdentityApiUserV1RevokeLicenseRequest
+# IdentityApiUserV1RevokeLicenseRequest
 
 ## Properties
 

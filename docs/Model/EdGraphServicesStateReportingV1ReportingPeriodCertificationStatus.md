@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1ReportingPeriodCertificationStatus
+# EdGraphServicesStateReportingV1ReportingPeriodCertificationStatus
 
 ## Properties
 

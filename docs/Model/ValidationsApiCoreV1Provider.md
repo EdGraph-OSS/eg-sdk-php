@@ -1,4 +1,4 @@
-# # ValidationsApiCoreV1Provider
+# ValidationsApiCoreV1Provider
 
 ## Properties
 

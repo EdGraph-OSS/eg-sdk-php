@@ -1,4 +1,4 @@
-# # AnalyticsApiReportsV1SyncWorkspacesRequest
+# AnalyticsApiReportsV1SyncWorkspacesRequest
 
 ## Properties
 

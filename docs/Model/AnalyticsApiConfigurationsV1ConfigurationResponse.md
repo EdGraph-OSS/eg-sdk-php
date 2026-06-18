@@ -1,4 +1,4 @@
-# # AnalyticsApiConfigurationsV1ConfigurationResponse
+# AnalyticsApiConfigurationsV1ConfigurationResponse
 
 ## Properties
 

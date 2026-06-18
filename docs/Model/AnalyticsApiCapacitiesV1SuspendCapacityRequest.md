@@ -1,4 +1,4 @@
-# # AnalyticsApiCapacitiesV1SuspendCapacityRequest
+# AnalyticsApiCapacitiesV1SuspendCapacityRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1StudentsByProgramReportResponse
+# EdfiAdminApiEdfiAdminV1StudentsByProgramReportResponse
 
 ## Properties
 

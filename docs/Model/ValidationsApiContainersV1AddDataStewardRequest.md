@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1AddDataStewardRequest
+# ValidationsApiContainersV1AddDataStewardRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1PaginatedRecords
+# EdGraphServicesStateReportingV1PaginatedRecords
 
 ## Properties
 

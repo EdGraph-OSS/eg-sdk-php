@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1SyncResponse
+# EdfiAdminApiEdfiAdminV1SyncResponse
 
 ## Properties
 

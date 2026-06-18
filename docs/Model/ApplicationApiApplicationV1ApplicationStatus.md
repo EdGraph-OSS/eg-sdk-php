@@ -1,4 +1,4 @@
-# # ApplicationApiApplicationV1ApplicationStatus
+# ApplicationApiApplicationV1ApplicationStatus
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # FormApiSectionsV1SectionCreatedResponse
+# FormApiSectionsV1SectionCreatedResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ValidationsApiDbEnvironmentsV1DbEnvironmentDto
+# ValidationsApiDbEnvironmentsV1DbEnvironmentDto
 
 ## Properties
 

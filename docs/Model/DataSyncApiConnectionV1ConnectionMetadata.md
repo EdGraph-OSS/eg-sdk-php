@@ -1,4 +1,4 @@
-# # DataSyncApiConnectionV1ConnectionMetadata
+# DataSyncApiConnectionV1ConnectionMetadata
 
 ## Properties
 

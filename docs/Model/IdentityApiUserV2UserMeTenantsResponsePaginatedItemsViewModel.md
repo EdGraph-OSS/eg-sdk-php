@@ -1,4 +1,4 @@
-# # IdentityApiUserV2UserMeTenantsResponsePaginatedItemsViewModel
+# IdentityApiUserV2UserMeTenantsResponsePaginatedItemsViewModel
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1EdFiConnectionUpdatedResponse
+# EdfiAdminApiEdfiAdminV1EdFiConnectionUpdatedResponse
 
 ## Properties
 

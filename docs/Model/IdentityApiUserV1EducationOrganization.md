@@ -1,4 +1,4 @@
-# # IdentityApiUserV1EducationOrganization
+# IdentityApiUserV1EducationOrganization
 
 ## Properties
 

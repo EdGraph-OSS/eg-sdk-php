@@ -1,4 +1,4 @@
-# # TenantApiPartnershipV1PartnershipSyncDirection
+# TenantApiPartnershipV1PartnershipSyncDirection
 
 ## Properties
 

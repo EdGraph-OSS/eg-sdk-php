@@ -1,4 +1,4 @@
-# # FormApiSectionsV1CreateSectionRequest
+# FormApiSectionsV1CreateSectionRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # IMSAdminApiV1ClientsUpdateClientRequest
+# IMSAdminApiV1ClientsUpdateClientRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse
+# EdfiAdminApiEdfiAdminV1StudentEconomicSituationReportResponse
 
 ## Properties
 

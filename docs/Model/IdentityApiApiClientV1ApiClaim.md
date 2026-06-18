@@ -1,4 +1,4 @@
-# # IdentityApiApiClientV1ApiClaim
+# IdentityApiApiClientV1ApiClaim
 
 ## Properties
 

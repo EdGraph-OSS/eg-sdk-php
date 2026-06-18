@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1ReportingPeriodValidationsRunDto
+# EdGraphServicesStateReportingV1ReportingPeriodValidationsRunDto
 
 ## Properties
 

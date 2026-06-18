@@ -1,4 +1,4 @@
-# # TenantApiSectionsV1SectionSource
+# TenantApiSectionsV1SectionSource
 
 ## Properties
 

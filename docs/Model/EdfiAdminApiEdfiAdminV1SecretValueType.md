@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1SecretValueType
+# EdfiAdminApiEdfiAdminV1SecretValueType
 
 ## Properties
 

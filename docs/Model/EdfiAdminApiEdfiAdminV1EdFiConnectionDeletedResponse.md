@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1EdFiConnectionDeletedResponse
+# EdfiAdminApiEdfiAdminV1EdFiConnectionDeletedResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1LocalEducationAgencyTableViewResponse
+# EdfiAdminApiEdfiAdminV1LocalEducationAgencyTableViewResponse
 
 ## Properties
 

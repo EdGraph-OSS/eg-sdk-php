@@ -1,4 +1,4 @@
-# # AnalyticsApiConfigurationsV1HasValidConfigurationResponse
+# AnalyticsApiConfigurationsV1HasValidConfigurationResponse
 
 ## Properties
 

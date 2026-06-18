@@ -1,4 +1,4 @@
-# # AnalyticsApiGroupsV1GroupUsersResponse
+# AnalyticsApiGroupsV1GroupUsersResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ValidationsApiTagsV1PaginatedTags
+# ValidationsApiTagsV1PaginatedTags
 
 ## Properties
 

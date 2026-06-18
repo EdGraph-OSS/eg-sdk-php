@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1CreateEdFiApplicationRequest
+# EdfiAdminApiEdfiAdminV1CreateEdFiApplicationRequest
 
 ## Properties
 

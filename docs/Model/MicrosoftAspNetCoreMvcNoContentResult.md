@@ -1,4 +1,4 @@
-# # MicrosoftAspNetCoreMvcNoContentResult
+# MicrosoftAspNetCoreMvcNoContentResult
 
 ## Properties
 

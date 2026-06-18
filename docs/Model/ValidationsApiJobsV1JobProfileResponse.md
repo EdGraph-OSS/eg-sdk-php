@@ -1,4 +1,4 @@
-# # ValidationsApiJobsV1JobProfileResponse
+# ValidationsApiJobsV1JobProfileResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ValidationsApiJobsV1Metric
+# ValidationsApiJobsV1Metric
 
 ## Properties
 

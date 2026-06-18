@@ -1,4 +1,4 @@
-# # IdentityApiUserV1UserExtension
+# IdentityApiUserV1UserExtension
 
 ## Properties
 

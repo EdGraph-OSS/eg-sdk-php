@@ -1,4 +1,4 @@
-# # FormApiFormsV1FormDeletedResponse
+# FormApiFormsV1FormDeletedResponse
 
 ## Properties
 

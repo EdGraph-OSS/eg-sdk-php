@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1SchoolsByTypeReportResponse
+# EdfiAdminApiEdfiAdminV1SchoolsByTypeReportResponse
 
 ## Properties
 

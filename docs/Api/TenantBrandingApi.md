@@ -1,5 +1,7 @@
 # EdGraph\PlatformClient\TenantBrandingApi
 
+
+
 All URIs are relative to https://api.dev.edgraph.com/tenant, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -33,8 +35,8 @@ $apiInstance = new EdGraph\PlatformClient\Api\TenantBrandingApi(
     $config
 );
 $tenantId = 'tenantId_example'; // string | 
-$logoFile = "/path/to/file.txt"; // \SplFileObject
-$backgroundFile = "/path/to/file.txt"; // \SplFileObject
+$logoFile = '/path/to/file.txt'; // \SplFileObject
+$backgroundFile = '/path/to/file.txt'; // \SplFileObject
 $brandName = 'brandName_example'; // string
 $enabled = True; // bool
 

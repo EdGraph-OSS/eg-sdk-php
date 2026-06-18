@@ -1,4 +1,4 @@
-# # IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionLogMessage
+# IdentityApiInstructionalInsightsV1InstructionalInsightsSecuritySyncJobExecutionLogMessage
 
 ## Properties
 

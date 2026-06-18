@@ -1,5 +1,7 @@
 # EdGraph\PlatformClient\WebhooksApi
 
+
+
 All URIs are relative to https://api.dev.edgraph.com/tenant, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -9,6 +11,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**getAllWebhookSubscriptionsAsync()**](WebhooksApi.md#getAllWebhookSubscriptionsAsync) | **GET** /tenants/{tenantId}/webhooks/events |  |
 | [**getAllWebhooksAsync()**](WebhooksApi.md#getAllWebhooksAsync) | **GET** /tenants/{tenantId}/webhooks | Retrieves a list of webhooks. |
 | [**getWebhookByIdAsync()**](WebhooksApi.md#getWebhookByIdAsync) | **GET** /tenants/{tenantId}/webhooks/{webhookId} | Retrieves a webhook by ID. |
+| [**requestWebhookReRun()**](WebhooksApi.md#requestWebhookReRun) | **POST** /tenants/{tenantId}/webhooks/{webhookId}/dispatches/{dispatchId}/rerun |  |
 | [**updateWebhookAsync()**](WebhooksApi.md#updateWebhookAsync) | **PUT** /tenants/{tenantId}/webhooks/{webhookId} | Updates a webhook |
 
 
@@ -318,6 +321,70 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `requestWebhookReRun()`
+
+```php
+requestWebhookReRun($tenantId, $webhookId, $dispatchId, $tenantApiWebhookV1RequestReRunRequest): \EdGraph\PlatformClient\Model\TenantApiWebhookV1ReRunRequestedResponse
+```
+
+
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\WebhooksApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string
+$webhookId = 'webhookId_example'; // string
+$dispatchId = 'dispatchId_example'; // string
+$tenantApiWebhookV1RequestReRunRequest = new \EdGraph\PlatformClient\Model\TenantApiWebhookV1RequestReRunRequest(); // \EdGraph\PlatformClient\Model\TenantApiWebhookV1RequestReRunRequest
+
+try {
+    $result = $apiInstance->requestWebhookReRun($tenantId, $webhookId, $dispatchId, $tenantApiWebhookV1RequestReRunRequest);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling WebhooksApi->requestWebhookReRun: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **webhookId** | **string**|  | |
+| **dispatchId** | **string**|  | |
+| **tenantApiWebhookV1RequestReRunRequest** | [**\EdGraph\PlatformClient\Model\TenantApiWebhookV1RequestReRunRequest**](../Model/TenantApiWebhookV1RequestReRunRequest.md)|  | [optional] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\TenantApiWebhookV1ReRunRequestedResponse**](../Model/TenantApiWebhookV1ReRunRequestedResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

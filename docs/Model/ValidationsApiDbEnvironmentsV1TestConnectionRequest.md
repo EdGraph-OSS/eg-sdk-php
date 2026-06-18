@@ -1,4 +1,4 @@
-# # ValidationsApiDbEnvironmentsV1TestConnectionRequest
+# ValidationsApiDbEnvironmentsV1TestConnectionRequest
 
 ## Properties
 

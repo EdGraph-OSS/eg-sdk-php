@@ -1,4 +1,4 @@
-# # ValidationsApiReportingPeriodsV1PaginatedRecords
+# ValidationsApiReportingPeriodsV1PaginatedRecords
 
 ## Properties
 

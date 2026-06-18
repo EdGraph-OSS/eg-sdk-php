@@ -1,5 +1,7 @@
 # EdGraph\PlatformClient\ReportsApi
 
+
+
 All URIs are relative to https://api.dev.edgraph.com/tenant, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
@@ -40,7 +42,7 @@ $apiInstance = new EdGraph\PlatformClient\Api\ReportsApi(
     $config
 );
 $tenantId = 'tenantId_example'; // string | 
-$file = "/path/to/file.txt"; // \SplFileObject
+$file = '/path/to/file.txt'; // \SplFileObject
 $name = 'name_example'; // string
 $shortDescription = 'shortDescription_example'; // string
 $description = 'description_example'; // string
@@ -486,7 +488,7 @@ $apiInstance = new EdGraph\PlatformClient\Api\ReportsApi(
 );
 $tenantId = 'tenantId_example'; // string | 
 $reportId = 'reportId_example'; // string | 
-$file = "/path/to/file.txt"; // \SplFileObject
+$file = '/path/to/file.txt'; // \SplFileObject
 $id = 'id_example'; // string
 $name = 'name_example'; // string
 $shortDescription = 'shortDescription_example'; // string

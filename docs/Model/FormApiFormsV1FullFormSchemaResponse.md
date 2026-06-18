@@ -1,4 +1,4 @@
-# # FormApiFormsV1FullFormSchemaResponse
+# FormApiFormsV1FullFormSchemaResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiServicesFormsV1FormPaginatedItemsViewModel
+# EdGraphHttpAggregatorsTenantApiServicesFormsV1FormPaginatedItemsViewModel
 
 ## Properties
 

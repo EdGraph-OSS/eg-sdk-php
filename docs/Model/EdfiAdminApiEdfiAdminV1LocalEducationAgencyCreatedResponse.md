@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1LocalEducationAgencyCreatedResponse
+# EdfiAdminApiEdfiAdminV1LocalEducationAgencyCreatedResponse
 
 ## Properties
 

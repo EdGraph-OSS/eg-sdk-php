@@ -1,6 +1,6 @@
 {
     "name": "edgraph/platform-client",
-    "version": "0.0.40",
+    "version": "0.0.42",
     "description": "All Api- v1.0",
     "keywords": [
         "openapitools",
@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.1",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",

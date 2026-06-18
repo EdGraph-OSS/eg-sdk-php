@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1UpdateInstanceApplicationRequest
+# EdfiAdminApiEdfiAdminV1UpdateInstanceApplicationRequest
 
 ## Properties
 

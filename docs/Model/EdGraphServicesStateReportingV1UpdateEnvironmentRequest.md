@@ -1,4 +1,4 @@
-# # EdGraphServicesStateReportingV1UpdateEnvironmentRequest
+# EdGraphServicesStateReportingV1UpdateEnvironmentRequest
 
 ## Properties
 

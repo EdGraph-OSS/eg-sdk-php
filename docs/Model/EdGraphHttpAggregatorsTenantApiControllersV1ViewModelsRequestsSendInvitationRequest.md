@@ -1,4 +1,4 @@
-# # EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
+# EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsSendInvitationRequest
 
 ## Properties
 

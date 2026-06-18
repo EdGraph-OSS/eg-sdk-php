@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1DatabaseTier
+# EdfiAdminApiEdfiAdminV1DatabaseTier
 
 ## Properties
 

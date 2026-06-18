@@ -1,4 +1,4 @@
-# # IdentityApiUserV1SectionRemovedBulkResponse
+# IdentityApiUserV1SectionRemovedBulkResponse
 
 ## Properties
 

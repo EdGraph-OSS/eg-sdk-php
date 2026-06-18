@@ -1,4 +1,4 @@
-# # TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse
+# TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse
 
 ## Properties
 

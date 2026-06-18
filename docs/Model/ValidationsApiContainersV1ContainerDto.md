@@ -1,4 +1,4 @@
-# # ValidationsApiContainersV1ContainerDto
+# ValidationsApiContainersV1ContainerDto
 
 ## Properties
 

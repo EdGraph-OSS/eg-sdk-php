@@ -1,4 +1,4 @@
-# # EdfiAdminApiEdfiAdminV1AddRelatedInstancesResponse
+# EdfiAdminApiEdfiAdminV1AddRelatedInstancesResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # DataSyncApiJobV1JobMetadata
+# DataSyncApiJobV1JobMetadata
 
 ## Properties
 
