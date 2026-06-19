@@ -6,10 +6,71 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**getTenantSettingByCode()**](SettingsApi.md#getTenantSettingByCode) | **GET** /tenants/{tenantId}/tenantsettings/{code} | Retrieves a Tenant&#39;s settings by code. |
 | [**getTenantSettings()**](SettingsApi.md#getTenantSettings) | **GET** /tenants/{tenantId}/settings | Retrieves a list of the Tenant&#39;s settings. |
 | [**getTenantSettingsByCode()**](SettingsApi.md#getTenantSettingsByCode) | **GET** /tenants/{tenantId}/settings/{code} | Retrieves a Tenant&#39;s settings by code. |
 | [**setTenantSettings()**](SettingsApi.md#setTenantSettings) | **POST** /tenants/{tenantId}/settings/{code} | Creates/updates a Tenant&#39;s settings. |
 
+
+## `getTenantSettingByCode()`
+
+```php
+getTenantSettingByCode($tenantId, $code): \EdGraph\PlatformClient\Model\TenantApiTenantV1TenantSetting
+```
+
+Retrieves a Tenant's settings by code.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\SettingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$code = 'code_example'; // string | 
+
+try {
+    $result = $apiInstance->getTenantSettingByCode($tenantId, $code);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SettingsApi->getTenantSettingByCode: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **code** | **string**|  | |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\TenantApiTenantV1TenantSetting**](../Model/TenantApiTenantV1TenantSetting.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `getTenantSettings()`
 
