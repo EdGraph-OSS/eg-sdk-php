@@ -60,6 +60,8 @@ class FormApiQuestionsV1QuestionType
 
     public const IMAGE = 'Image';
 
+    public const CHECKBOX = 'Checkbox';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -75,7 +77,8 @@ class FormApiQuestionsV1QuestionType
             self::CUSTOM_COMPONENT,
             self::SCORING,
             self::HTML,
-            self::IMAGE
+            self::IMAGE,
+            self::CHECKBOX
         ];
     }
 }
