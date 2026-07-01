@@ -75,10 +75,7 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         'mfaCompleted' => 'bool',
         'platformRole' => 'string',
         'tenantStatus' => 'string',
-        'tenantAdmin' => 'bool',
-        'isDeleted' => 'bool',
-        'deletedDateTime' => 'string',
-        'deletedBy' => 'string'
+        'tenantAdmin' => 'bool'
     ];
 
     /**
@@ -106,10 +103,7 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         'mfaCompleted' => null,
         'platformRole' => null,
         'tenantStatus' => null,
-        'tenantAdmin' => null,
-        'isDeleted' => null,
-        'deletedDateTime' => null,
-        'deletedBy' => null
+        'tenantAdmin' => null
     ];
 
     /**
@@ -135,10 +129,7 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         'mfaCompleted' => false,
         'platformRole' => true,
         'tenantStatus' => true,
-        'tenantAdmin' => true,
-        'isDeleted' => false,
-        'deletedDateTime' => true,
-        'deletedBy' => true
+        'tenantAdmin' => true
     ];
 
     /**
@@ -244,10 +235,7 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         'mfaCompleted' => 'mfaCompleted',
         'platformRole' => 'platformRole',
         'tenantStatus' => 'tenantStatus',
-        'tenantAdmin' => 'tenantAdmin',
-        'isDeleted' => 'isDeleted',
-        'deletedDateTime' => 'deletedDateTime',
-        'deletedBy' => 'deletedBy'
+        'tenantAdmin' => 'tenantAdmin'
     ];
 
     /**
@@ -273,10 +261,7 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         'mfaCompleted' => 'setMfaCompleted',
         'platformRole' => 'setPlatformRole',
         'tenantStatus' => 'setTenantStatus',
-        'tenantAdmin' => 'setTenantAdmin',
-        'isDeleted' => 'setIsDeleted',
-        'deletedDateTime' => 'setDeletedDateTime',
-        'deletedBy' => 'setDeletedBy'
+        'tenantAdmin' => 'setTenantAdmin'
     ];
 
     /**
@@ -302,10 +287,7 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         'mfaCompleted' => 'getMfaCompleted',
         'platformRole' => 'getPlatformRole',
         'tenantStatus' => 'getTenantStatus',
-        'tenantAdmin' => 'getTenantAdmin',
-        'isDeleted' => 'getIsDeleted',
-        'deletedDateTime' => 'getDeletedDateTime',
-        'deletedBy' => 'getDeletedBy'
+        'tenantAdmin' => 'getTenantAdmin'
     ];
 
     /**
@@ -383,9 +365,6 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         $this->setIfExists('platformRole', $data ?? [], null);
         $this->setIfExists('tenantStatus', $data ?? [], null);
         $this->setIfExists('tenantAdmin', $data ?? [], null);
-        $this->setIfExists('isDeleted', $data ?? [], null);
-        $this->setIfExists('deletedDateTime', $data ?? [], null);
-        $this->setIfExists('deletedBy', $data ?? [], null);
     }
 
     /**
@@ -1024,101 +1003,6 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
             }
         }
         $this->container['tenantAdmin'] = $tenantAdmin;
-
-        return $this;
-    }
-
-    /**
-     * Gets isDeleted
-     *
-     * @return bool|null
-     */
-    public function getIsDeleted()
-    {
-        return $this->container['isDeleted'];
-    }
-
-    /**
-     * Sets isDeleted
-     *
-     * @param bool|null $isDeleted isDeleted
-     *
-     * @return self
-     */
-    public function setIsDeleted($isDeleted)
-    {
-        if (is_null($isDeleted)) {
-            throw new \InvalidArgumentException('non-nullable isDeleted cannot be null');
-        }
-        $this->container['isDeleted'] = $isDeleted;
-
-        return $this;
-    }
-
-    /**
-     * Gets deletedDateTime
-     *
-     * @return string|null
-     */
-    public function getDeletedDateTime()
-    {
-        return $this->container['deletedDateTime'];
-    }
-
-    /**
-     * Sets deletedDateTime
-     *
-     * @param string|null $deletedDateTime deletedDateTime
-     *
-     * @return self
-     */
-    public function setDeletedDateTime($deletedDateTime)
-    {
-        if (is_null($deletedDateTime)) {
-            array_push($this->openAPINullablesSetToNull, 'deletedDateTime');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('deletedDateTime', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['deletedDateTime'] = $deletedDateTime;
-
-        return $this;
-    }
-
-    /**
-     * Gets deletedBy
-     *
-     * @return string|null
-     */
-    public function getDeletedBy()
-    {
-        return $this->container['deletedBy'];
-    }
-
-    /**
-     * Sets deletedBy
-     *
-     * @param string|null $deletedBy deletedBy
-     *
-     * @return self
-     */
-    public function setDeletedBy($deletedBy)
-    {
-        if (is_null($deletedBy)) {
-            array_push($this->openAPINullablesSetToNull, 'deletedBy');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('deletedBy', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['deletedBy'] = $deletedBy;
 
         return $this;
     }

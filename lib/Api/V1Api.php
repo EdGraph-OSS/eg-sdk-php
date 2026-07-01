@@ -74,8 +74,20 @@ class V1Api
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'getStudentProfile' => [
+            'application/json',
+        ],
+        'getStudents' => [
+            'application/json',
+        ],
         'releaseUserLockout' => [
             'application/json',
+        ],
+        'updateStudentContacts' => [
+            'application/json-patch+json',
+            'application/json',
+            'text/json',
+            'application/*+json',
         ],
     ];
 
@@ -123,6 +135,593 @@ class V1Api
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation getStudentProfile
+     *
+     * Returns the admin profile for a single student.
+     *
+     * @param  string $tenantId tenantId (required)
+     * @param  string $id id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStudentProfile'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function getStudentProfile($tenantId, $id, string $contentType = self::contentTypes['getStudentProfile'][0])
+    {
+        $this->getStudentProfileWithHttpInfo($tenantId, $id, $contentType);
+    }
+
+    /**
+     * Operation getStudentProfileWithHttpInfo
+     *
+     * Returns the admin profile for a single student.
+     *
+     * @param  string $tenantId (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStudentProfile'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getStudentProfileWithHttpInfo($tenantId, $id, string $contentType = self::contentTypes['getStudentProfile'][0])
+    {
+        $request = $this->getStudentProfileRequest($tenantId, $id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getStudentProfileAsync
+     *
+     * Returns the admin profile for a single student.
+     *
+     * @param  string $tenantId (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStudentProfile'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getStudentProfileAsync($tenantId, $id, string $contentType = self::contentTypes['getStudentProfile'][0])
+    {
+        return $this->getStudentProfileAsyncWithHttpInfo($tenantId, $id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getStudentProfileAsyncWithHttpInfo
+     *
+     * Returns the admin profile for a single student.
+     *
+     * @param  string $tenantId (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStudentProfile'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getStudentProfileAsyncWithHttpInfo($tenantId, $id, string $contentType = self::contentTypes['getStudentProfile'][0])
+    {
+        $returnType = '';
+        $request = $this->getStudentProfileRequest($tenantId, $id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getStudentProfile'
+     *
+     * @param  string $tenantId (required)
+     * @param  string $id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStudentProfile'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getStudentProfileRequest($tenantId, $id, string $contentType = self::contentTypes['getStudentProfile'][0])
+    {
+
+        // verify the required parameter 'tenantId' is set
+        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenantId when calling getStudentProfile'
+            );
+        }
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getStudentProfile'
+            );
+        }
+
+
+        $resourcePath = '/students/{tenantId}/students/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($tenantId !== null) {
+            $resourcePath = str_replace(
+                '{tenantId}',
+                ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{id}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getStudents
+     *
+     * Returns a paginated list of students for the given tenant.
+     *
+     * @param  string $tenantId tenantId (required)
+     * @param  string|null $campus campus (optional)
+     * @param  string|null $pathway pathway (optional)
+     * @param  string|null $status status (optional)
+     * @param  int|null $pageIndex pageIndex (optional, default to 0)
+     * @param  int|null $pageSize pageSize (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStudents'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function getStudents($tenantId, $campus = null, $pathway = null, $status = null, $pageIndex = 0, $pageSize = 10, string $contentType = self::contentTypes['getStudents'][0])
+    {
+        $this->getStudentsWithHttpInfo($tenantId, $campus, $pathway, $status, $pageIndex, $pageSize, $contentType);
+    }
+
+    /**
+     * Operation getStudentsWithHttpInfo
+     *
+     * Returns a paginated list of students for the given tenant.
+     *
+     * @param  string $tenantId (required)
+     * @param  string|null $campus (optional)
+     * @param  string|null $pathway (optional)
+     * @param  string|null $status (optional)
+     * @param  int|null $pageIndex (optional, default to 0)
+     * @param  int|null $pageSize (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStudents'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getStudentsWithHttpInfo($tenantId, $campus = null, $pathway = null, $status = null, $pageIndex = 0, $pageSize = 10, string $contentType = self::contentTypes['getStudents'][0])
+    {
+        $request = $this->getStudentsRequest($tenantId, $campus, $pathway, $status, $pageIndex, $pageSize, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getStudentsAsync
+     *
+     * Returns a paginated list of students for the given tenant.
+     *
+     * @param  string $tenantId (required)
+     * @param  string|null $campus (optional)
+     * @param  string|null $pathway (optional)
+     * @param  string|null $status (optional)
+     * @param  int|null $pageIndex (optional, default to 0)
+     * @param  int|null $pageSize (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStudents'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getStudentsAsync($tenantId, $campus = null, $pathway = null, $status = null, $pageIndex = 0, $pageSize = 10, string $contentType = self::contentTypes['getStudents'][0])
+    {
+        return $this->getStudentsAsyncWithHttpInfo($tenantId, $campus, $pathway, $status, $pageIndex, $pageSize, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getStudentsAsyncWithHttpInfo
+     *
+     * Returns a paginated list of students for the given tenant.
+     *
+     * @param  string $tenantId (required)
+     * @param  string|null $campus (optional)
+     * @param  string|null $pathway (optional)
+     * @param  string|null $status (optional)
+     * @param  int|null $pageIndex (optional, default to 0)
+     * @param  int|null $pageSize (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStudents'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getStudentsAsyncWithHttpInfo($tenantId, $campus = null, $pathway = null, $status = null, $pageIndex = 0, $pageSize = 10, string $contentType = self::contentTypes['getStudents'][0])
+    {
+        $returnType = '';
+        $request = $this->getStudentsRequest($tenantId, $campus, $pathway, $status, $pageIndex, $pageSize, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getStudents'
+     *
+     * @param  string $tenantId (required)
+     * @param  string|null $campus (optional)
+     * @param  string|null $pathway (optional)
+     * @param  string|null $status (optional)
+     * @param  int|null $pageIndex (optional, default to 0)
+     * @param  int|null $pageSize (optional, default to 10)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getStudents'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getStudentsRequest($tenantId, $campus = null, $pathway = null, $status = null, $pageIndex = 0, $pageSize = 10, string $contentType = self::contentTypes['getStudents'][0])
+    {
+
+        // verify the required parameter 'tenantId' is set
+        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenantId when calling getStudents'
+            );
+        }
+
+
+
+
+
+
+
+        $resourcePath = '/students/{tenantId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $campus,
+            'campus', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pathway,
+            'pathway', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $status,
+            'status', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pageIndex,
+            'pageIndex', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pageSize,
+            'pageSize', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($tenantId !== null) {
+            $resourcePath = str_replace(
+                '{tenantId}',
+                ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -416,6 +1015,285 @@ class V1Api
 
         // for model (json/xml)
         if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateStudentContacts
+     *
+     * Updates the contact overrides for a student.
+     *
+     * @param  string $tenantId tenantId (required)
+     * @param  string $studentId studentId (required)
+     * @param  mixed|null $body body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStudentContacts'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function updateStudentContacts($tenantId, $studentId, $body = null, string $contentType = self::contentTypes['updateStudentContacts'][0])
+    {
+        $this->updateStudentContactsWithHttpInfo($tenantId, $studentId, $body, $contentType);
+    }
+
+    /**
+     * Operation updateStudentContactsWithHttpInfo
+     *
+     * Updates the contact overrides for a student.
+     *
+     * @param  string $tenantId (required)
+     * @param  string $studentId (required)
+     * @param  mixed|null $body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStudentContacts'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateStudentContactsWithHttpInfo($tenantId, $studentId, $body = null, string $contentType = self::contentTypes['updateStudentContacts'][0])
+    {
+        $request = $this->updateStudentContactsRequest($tenantId, $studentId, $body, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            return [null, $statusCode, $response->getHeaders()];
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateStudentContactsAsync
+     *
+     * Updates the contact overrides for a student.
+     *
+     * @param  string $tenantId (required)
+     * @param  string $studentId (required)
+     * @param  mixed|null $body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStudentContacts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateStudentContactsAsync($tenantId, $studentId, $body = null, string $contentType = self::contentTypes['updateStudentContacts'][0])
+    {
+        return $this->updateStudentContactsAsyncWithHttpInfo($tenantId, $studentId, $body, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateStudentContactsAsyncWithHttpInfo
+     *
+     * Updates the contact overrides for a student.
+     *
+     * @param  string $tenantId (required)
+     * @param  string $studentId (required)
+     * @param  mixed|null $body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStudentContacts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateStudentContactsAsyncWithHttpInfo($tenantId, $studentId, $body = null, string $contentType = self::contentTypes['updateStudentContacts'][0])
+    {
+        $returnType = '';
+        $request = $this->updateStudentContactsRequest($tenantId, $studentId, $body, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateStudentContacts'
+     *
+     * @param  string $tenantId (required)
+     * @param  string $studentId (required)
+     * @param  mixed|null $body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateStudentContacts'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateStudentContactsRequest($tenantId, $studentId, $body = null, string $contentType = self::contentTypes['updateStudentContacts'][0])
+    {
+
+        // verify the required parameter 'tenantId' is set
+        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenantId when calling updateStudentContacts'
+            );
+        }
+
+        // verify the required parameter 'studentId' is set
+        if ($studentId === null || (is_array($studentId) && count($studentId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $studentId when calling updateStudentContacts'
+            );
+        }
+
+
+
+        $resourcePath = '/students/{tenantId}/{studentId}/contacts';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($tenantId !== null) {
+            $resourcePath = str_replace(
+                '{tenantId}',
+                ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($studentId !== null) {
+            $resourcePath = str_replace(
+                '{studentId}',
+                ObjectSerializer::toPathValue($studentId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
+            } else {
+                $httpBody = $body;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

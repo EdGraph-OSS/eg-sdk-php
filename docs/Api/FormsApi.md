@@ -12,7 +12,6 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**duplicateForm()**](FormsApi.md#duplicateForm) | **POST** /tenants/{tenantId}/forms/{formId}/duplicate | Duplicates all Form data for a given tenant (with Sections and Questions). |
 | [**getForm()**](FormsApi.md#getForm) | **GET** /tenants/{tenantId}/forms/{formId} | Get Form. |
 | [**getFormAccess()**](FormsApi.md#getFormAccess) | **GET** /tenants/{tenantId}/forms/{formId}/access | Get the Access Type for a Form. |
-| [**getFullFormSchema()**](FormsApi.md#getFullFormSchema) | **GET** /tenants/{tenantId}/forms/{formId}/full/schemas | Get a Forms Json and UI React JSON compatible Schema. |
 | [**importForm()**](FormsApi.md#importForm) | **POST** /tenants/{tenantId}/forms/import | Imports all form data for a given tenant. |
 | [**searchForms()**](FormsApi.md#searchForms) | **GET** /tenants/{tenantId}/forms | Search Forms |
 | [**setFormAccess()**](FormsApi.md#setFormAccess) | **PUT** /tenants/{tenantId}/forms/{formId}/access | Sets the Access Type for a Form. |
@@ -366,66 +365,6 @@ try {
 ### Return type
 
 [**\EdGraph\PlatformClient\Model\FormApiFormsV1FormAccessResponse**](../Model/FormApiFormsV1FormAccessResponse.md)
-
-### Authorization
-
-[oauth2](../../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `getFullFormSchema()`
-
-```php
-getFullFormSchema($tenantId, $formId): \EdGraph\PlatformClient\Model\FormApiFormsV1FullFormSchemaResponse
-```
-
-Get a Forms Json and UI React JSON compatible Schema.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure OAuth2 access token for authorization: oauth2
-$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new EdGraph\PlatformClient\Api\FormsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$tenantId = 'tenantId_example'; // string | 
-$formId = 'formId_example'; // string | 
-
-try {
-    $result = $apiInstance->getFullFormSchema($tenantId, $formId);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling FormsApi->getFullFormSchema: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **tenantId** | **string**|  | |
-| **formId** | **string**|  | |
-
-### Return type
-
-[**\EdGraph\PlatformClient\Model\FormApiFormsV1FullFormSchemaResponse**](../Model/FormApiFormsV1FullFormSchemaResponse.md)
 
 ### Authorization
 

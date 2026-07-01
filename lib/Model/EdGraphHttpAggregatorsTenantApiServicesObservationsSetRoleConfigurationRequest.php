@@ -59,7 +59,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationReq
     protected static $openAPITypes = [
         'tenantId' => 'string',
         'role' => 'string',
-        'assignedPersonaIdentifiers' => 'string[]'
+        'assignedPersonaIdentifiers' => 'string[]',
+        'ignoreOrganization' => 'bool'
     ];
 
     /**
@@ -72,7 +73,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationReq
     protected static $openAPIFormats = [
         'tenantId' => null,
         'role' => null,
-        'assignedPersonaIdentifiers' => null
+        'assignedPersonaIdentifiers' => null,
+        'ignoreOrganization' => null
     ];
 
     /**
@@ -83,7 +85,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationReq
     protected static array $openAPINullables = [
         'tenantId' => true,
         'role' => true,
-        'assignedPersonaIdentifiers' => true
+        'assignedPersonaIdentifiers' => true,
+        'ignoreOrganization' => false
     ];
 
     /**
@@ -174,7 +177,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationReq
     protected static $attributeMap = [
         'tenantId' => 'tenantId',
         'role' => 'role',
-        'assignedPersonaIdentifiers' => 'assignedPersonaIdentifiers'
+        'assignedPersonaIdentifiers' => 'assignedPersonaIdentifiers',
+        'ignoreOrganization' => 'ignoreOrganization'
     ];
 
     /**
@@ -185,7 +189,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationReq
     protected static $setters = [
         'tenantId' => 'setTenantId',
         'role' => 'setRole',
-        'assignedPersonaIdentifiers' => 'setAssignedPersonaIdentifiers'
+        'assignedPersonaIdentifiers' => 'setAssignedPersonaIdentifiers',
+        'ignoreOrganization' => 'setIgnoreOrganization'
     ];
 
     /**
@@ -196,7 +201,8 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationReq
     protected static $getters = [
         'tenantId' => 'getTenantId',
         'role' => 'getRole',
-        'assignedPersonaIdentifiers' => 'getAssignedPersonaIdentifiers'
+        'assignedPersonaIdentifiers' => 'getAssignedPersonaIdentifiers',
+        'ignoreOrganization' => 'getIgnoreOrganization'
     ];
 
     /**
@@ -259,6 +265,7 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationReq
         $this->setIfExists('tenantId', $data ?? [], null);
         $this->setIfExists('role', $data ?? [], null);
         $this->setIfExists('assignedPersonaIdentifiers', $data ?? [], null);
+        $this->setIfExists('ignoreOrganization', $data ?? [], null);
     }
 
     /**
@@ -401,6 +408,33 @@ class EdGraphHttpAggregatorsTenantApiServicesObservationsSetRoleConfigurationReq
             }
         }
         $this->container['assignedPersonaIdentifiers'] = $assignedPersonaIdentifiers;
+
+        return $this;
+    }
+
+    /**
+     * Gets ignoreOrganization
+     *
+     * @return bool|null
+     */
+    public function getIgnoreOrganization()
+    {
+        return $this->container['ignoreOrganization'];
+    }
+
+    /**
+     * Sets ignoreOrganization
+     *
+     * @param bool|null $ignoreOrganization ignoreOrganization
+     *
+     * @return self
+     */
+    public function setIgnoreOrganization($ignoreOrganization)
+    {
+        if (is_null($ignoreOrganization)) {
+            throw new \InvalidArgumentException('non-nullable ignoreOrganization cannot be null');
+        }
+        $this->container['ignoreOrganization'] = $ignoreOrganization;
 
         return $this;
     }

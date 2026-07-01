@@ -59,7 +59,8 @@ class EvaluationApiEvaluationSettingsV1RoleConfigurationResponse implements Mode
      */
     protected static $openAPITypes = [
         'role' => 'string',
-        'assignedPersonaIdentifiers' => 'string[]'
+        'assignedPersonaIdentifiers' => 'string[]',
+        'ignoreOrganization' => 'bool'
     ];
 
     /**
@@ -71,7 +72,8 @@ class EvaluationApiEvaluationSettingsV1RoleConfigurationResponse implements Mode
      */
     protected static $openAPIFormats = [
         'role' => null,
-        'assignedPersonaIdentifiers' => null
+        'assignedPersonaIdentifiers' => null,
+        'ignoreOrganization' => null
     ];
 
     /**
@@ -81,7 +83,8 @@ class EvaluationApiEvaluationSettingsV1RoleConfigurationResponse implements Mode
      */
     protected static array $openAPINullables = [
         'role' => true,
-        'assignedPersonaIdentifiers' => true
+        'assignedPersonaIdentifiers' => true,
+        'ignoreOrganization' => true
     ];
 
     /**
@@ -171,7 +174,8 @@ class EvaluationApiEvaluationSettingsV1RoleConfigurationResponse implements Mode
      */
     protected static $attributeMap = [
         'role' => 'role',
-        'assignedPersonaIdentifiers' => 'assignedPersonaIdentifiers'
+        'assignedPersonaIdentifiers' => 'assignedPersonaIdentifiers',
+        'ignoreOrganization' => 'ignoreOrganization'
     ];
 
     /**
@@ -181,7 +185,8 @@ class EvaluationApiEvaluationSettingsV1RoleConfigurationResponse implements Mode
      */
     protected static $setters = [
         'role' => 'setRole',
-        'assignedPersonaIdentifiers' => 'setAssignedPersonaIdentifiers'
+        'assignedPersonaIdentifiers' => 'setAssignedPersonaIdentifiers',
+        'ignoreOrganization' => 'setIgnoreOrganization'
     ];
 
     /**
@@ -191,7 +196,8 @@ class EvaluationApiEvaluationSettingsV1RoleConfigurationResponse implements Mode
      */
     protected static $getters = [
         'role' => 'getRole',
-        'assignedPersonaIdentifiers' => 'getAssignedPersonaIdentifiers'
+        'assignedPersonaIdentifiers' => 'getAssignedPersonaIdentifiers',
+        'ignoreOrganization' => 'getIgnoreOrganization'
     ];
 
     /**
@@ -253,6 +259,7 @@ class EvaluationApiEvaluationSettingsV1RoleConfigurationResponse implements Mode
     {
         $this->setIfExists('role', $data ?? [], null);
         $this->setIfExists('assignedPersonaIdentifiers', $data ?? [], null);
+        $this->setIfExists('ignoreOrganization', $data ?? [], null);
     }
 
     /**
@@ -361,6 +368,40 @@ class EvaluationApiEvaluationSettingsV1RoleConfigurationResponse implements Mode
             }
         }
         $this->container['assignedPersonaIdentifiers'] = $assignedPersonaIdentifiers;
+
+        return $this;
+    }
+
+    /**
+     * Gets ignoreOrganization
+     *
+     * @return bool|null
+     */
+    public function getIgnoreOrganization()
+    {
+        return $this->container['ignoreOrganization'];
+    }
+
+    /**
+     * Sets ignoreOrganization
+     *
+     * @param bool|null $ignoreOrganization ignoreOrganization
+     *
+     * @return self
+     */
+    public function setIgnoreOrganization($ignoreOrganization)
+    {
+        if (is_null($ignoreOrganization)) {
+            array_push($this->openAPINullablesSetToNull, 'ignoreOrganization');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ignoreOrganization', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ignoreOrganization'] = $ignoreOrganization;
 
         return $this;
     }

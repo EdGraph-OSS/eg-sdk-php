@@ -77,19 +77,10 @@ class ApplicationsSettingsApi
         'getClientSettingsAsync' => [
             'application/json',
         ],
-        'getClientSettingsByCodeAsync' => [
-            'application/json',
-        ],
         'getClientSettingsTypesAsync' => [
             'application/json',
         ],
         'setClientSettingsAsync' => [
-            'application/json-patch+json',
-            'application/json',
-            'text/json',
-            'application/*+json',
-        ],
-        'setClientSettingsByCodeAsync' => [
             'application/json-patch+json',
             'application/json',
             'text/json',
@@ -150,19 +141,15 @@ class ApplicationsSettingsApi
      *
      * @param  string $tenantId  (required)
      * @param  string $clientId  (required)
-     * @param  int|null $pageIndex  (optional, default to 0)
-     * @param  int|null $pageSize  (optional, default to 100)
-     * @param  string|null $orderBy  (optional, default to '')
-     * @param  string|null $filter  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientSettingsAsync'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1GetAppSettingsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
      */
-    public function getClientSettingsAsync($tenantId, $clientId, $pageIndex = 0, $pageSize = 100, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getClientSettingsAsync'][0])
+    public function getClientSettingsAsync($tenantId, $clientId, string $contentType = self::contentTypes['getClientSettingsAsync'][0])
     {
-        list($response) = $this->getClientSettingsAsyncWithHttpInfo($tenantId, $clientId, $pageIndex, $pageSize, $orderBy, $filter, $contentType);
+        list($response) = $this->getClientSettingsAsyncWithHttpInfo($tenantId, $clientId, $contentType);
         return $response;
     }
 
@@ -173,19 +160,15 @@ class ApplicationsSettingsApi
      *
      * @param  string $tenantId  (required)
      * @param  string $clientId  (required)
-     * @param  int|null $pageIndex  (optional, default to 0)
-     * @param  int|null $pageSize  (optional, default to 100)
-     * @param  string|null $orderBy  (optional, default to '')
-     * @param  string|null $filter  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientSettingsAsync'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1GetAppSettingsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getClientSettingsAsyncWithHttpInfo($tenantId, $clientId, $pageIndex = 0, $pageSize = 100, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getClientSettingsAsync'][0])
+    public function getClientSettingsAsyncWithHttpInfo($tenantId, $clientId, string $contentType = self::contentTypes['getClientSettingsAsync'][0])
     {
-        $request = $this->getClientSettingsAsyncRequest($tenantId, $clientId, $pageIndex, $pageSize, $orderBy, $filter, $contentType);
+        $request = $this->getClientSettingsAsyncRequest($tenantId, $clientId, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -319,18 +302,14 @@ class ApplicationsSettingsApi
      *
      * @param  string $tenantId  (required)
      * @param  string $clientId  (required)
-     * @param  int|null $pageIndex  (optional, default to 0)
-     * @param  int|null $pageSize  (optional, default to 100)
-     * @param  string|null $orderBy  (optional, default to '')
-     * @param  string|null $filter  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientSettingsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getClientSettingsAsyncAsync($tenantId, $clientId, $pageIndex = 0, $pageSize = 100, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getClientSettingsAsync'][0])
+    public function getClientSettingsAsyncAsync($tenantId, $clientId, string $contentType = self::contentTypes['getClientSettingsAsync'][0])
     {
-        return $this->getClientSettingsAsyncAsyncWithHttpInfo($tenantId, $clientId, $pageIndex, $pageSize, $orderBy, $filter, $contentType)
+        return $this->getClientSettingsAsyncAsyncWithHttpInfo($tenantId, $clientId, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -345,19 +324,15 @@ class ApplicationsSettingsApi
      *
      * @param  string $tenantId  (required)
      * @param  string $clientId  (required)
-     * @param  int|null $pageIndex  (optional, default to 0)
-     * @param  int|null $pageSize  (optional, default to 100)
-     * @param  string|null $orderBy  (optional, default to '')
-     * @param  string|null $filter  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientSettingsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getClientSettingsAsyncAsyncWithHttpInfo($tenantId, $clientId, $pageIndex = 0, $pageSize = 100, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getClientSettingsAsync'][0])
+    public function getClientSettingsAsyncAsyncWithHttpInfo($tenantId, $clientId, string $contentType = self::contentTypes['getClientSettingsAsync'][0])
     {
         $returnType = '\EdGraph\PlatformClient\Model\TenantApiTenantV1GetAppSettingsResponse';
-        $request = $this->getClientSettingsAsyncRequest($tenantId, $clientId, $pageIndex, $pageSize, $orderBy, $filter, $contentType);
+        $request = $this->getClientSettingsAsyncRequest($tenantId, $clientId, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -400,16 +375,12 @@ class ApplicationsSettingsApi
      *
      * @param  string $tenantId  (required)
      * @param  string $clientId  (required)
-     * @param  int|null $pageIndex  (optional, default to 0)
-     * @param  int|null $pageSize  (optional, default to 100)
-     * @param  string|null $orderBy  (optional, default to '')
-     * @param  string|null $filter  (optional, default to '')
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientSettingsAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getClientSettingsAsyncRequest($tenantId, $clientId, $pageIndex = 0, $pageSize = 100, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getClientSettingsAsync'][0])
+    public function getClientSettingsAsyncRequest($tenantId, $clientId, string $contentType = self::contentTypes['getClientSettingsAsync'][0])
     {
 
         // verify the required parameter 'tenantId' is set
@@ -427,10 +398,6 @@ class ApplicationsSettingsApi
         }
 
 
-
-
-
-
         $resourcePath = '/tenants/{tenantId}/clients/{clientId}/settings';
         $formParams = [];
         $queryParams = [];
@@ -438,42 +405,6 @@ class ApplicationsSettingsApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $pageIndex,
-            'pageIndex', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $pageSize,
-            'pageSize', // param base name
-            'integer', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $orderBy,
-            'orderBy', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $filter,
-            'filter', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
 
 
         // path params
@@ -489,388 +420,6 @@ class ApplicationsSettingsApi
             $resourcePath = str_replace(
                 '{clientId}',
                 ObjectSerializer::toPathValue($clientId),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'GET',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getClientSettingsByCodeAsync
-     *
-     * Retrieves a Tenant&#39;s ClientSetting by code.
-     *
-     * @param  string $tenantId  (required)
-     * @param  string $clientId  (required)
-     * @param  string $code  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientSettingsByCodeAsync'] to see the possible values for this operation
-     *
-     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1TenantAppSettings|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails
-     */
-    public function getClientSettingsByCodeAsync($tenantId, $clientId, $code, string $contentType = self::contentTypes['getClientSettingsByCodeAsync'][0])
-    {
-        list($response) = $this->getClientSettingsByCodeAsyncWithHttpInfo($tenantId, $clientId, $code, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation getClientSettingsByCodeAsyncWithHttpInfo
-     *
-     * Retrieves a Tenant&#39;s ClientSetting by code.
-     *
-     * @param  string $tenantId  (required)
-     * @param  string $clientId  (required)
-     * @param  string $code  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientSettingsByCodeAsync'] to see the possible values for this operation
-     *
-     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1TenantAppSettings|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getClientSettingsByCodeAsyncWithHttpInfo($tenantId, $clientId, $code, string $contentType = self::contentTypes['getClientSettingsByCodeAsync'][0])
-    {
-        $request = $this->getClientSettingsByCodeAsyncRequest($tenantId, $clientId, $code, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $request,
-                        $response,
-                    );
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\EdGraph\PlatformClient\Model\TenantApiTenantV1TenantAppSettings',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails',
-                        $request,
-                        $response,
-                    );
-                case 404:
-                    return $this->handleResponseWithDataType(
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\EdGraph\PlatformClient\Model\TenantApiTenantV1TenantAppSettings',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\TenantApiTenantV1TenantAppSettings',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getClientSettingsByCodeAsyncAsync
-     *
-     * Retrieves a Tenant&#39;s ClientSetting by code.
-     *
-     * @param  string $tenantId  (required)
-     * @param  string $clientId  (required)
-     * @param  string $code  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientSettingsByCodeAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getClientSettingsByCodeAsyncAsync($tenantId, $clientId, $code, string $contentType = self::contentTypes['getClientSettingsByCodeAsync'][0])
-    {
-        return $this->getClientSettingsByCodeAsyncAsyncWithHttpInfo($tenantId, $clientId, $code, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getClientSettingsByCodeAsyncAsyncWithHttpInfo
-     *
-     * Retrieves a Tenant&#39;s ClientSetting by code.
-     *
-     * @param  string $tenantId  (required)
-     * @param  string $clientId  (required)
-     * @param  string $code  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientSettingsByCodeAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getClientSettingsByCodeAsyncAsyncWithHttpInfo($tenantId, $clientId, $code, string $contentType = self::contentTypes['getClientSettingsByCodeAsync'][0])
-    {
-        $returnType = '\EdGraph\PlatformClient\Model\TenantApiTenantV1TenantAppSettings';
-        $request = $this->getClientSettingsByCodeAsyncRequest($tenantId, $clientId, $code, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getClientSettingsByCodeAsync'
-     *
-     * @param  string $tenantId  (required)
-     * @param  string $clientId  (required)
-     * @param  string $code  (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getClientSettingsByCodeAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function getClientSettingsByCodeAsyncRequest($tenantId, $clientId, $code, string $contentType = self::contentTypes['getClientSettingsByCodeAsync'][0])
-    {
-
-        // verify the required parameter 'tenantId' is set
-        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tenantId when calling getClientSettingsByCodeAsync'
-            );
-        }
-
-        // verify the required parameter 'clientId' is set
-        if ($clientId === null || (is_array($clientId) && count($clientId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $clientId when calling getClientSettingsByCodeAsync'
-            );
-        }
-
-        // verify the required parameter 'code' is set
-        if ($code === null || (is_array($code) && count($code) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $code when calling getClientSettingsByCodeAsync'
-            );
-        }
-
-
-        $resourcePath = '/tenants/{tenantId}/clients/{clientId}/settings/{code}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($tenantId !== null) {
-            $resourcePath = str_replace(
-                '{tenantId}',
-                ObjectSerializer::toPathValue($tenantId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($clientId !== null) {
-            $resourcePath = str_replace(
-                '{clientId}',
-                ObjectSerializer::toPathValue($clientId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($code !== null) {
-            $resourcePath = str_replace(
-                '{code}',
-                ObjectSerializer::toPathValue($code),
                 $resourcePath
             );
         }
@@ -1647,401 +1196,6 @@ class ApplicationsSettingsApi
             $resourcePath = str_replace(
                 '{clientId}',
                 ObjectSerializer::toPathValue($clientId),
-                $resourcePath
-            );
-        }
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($tenantApiTenantV1SetAppSettingsRequest)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($tenantApiTenantV1SetAppSettingsRequest));
-            } else {
-                $httpBody = $tenantApiTenantV1SetAppSettingsRequest;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires OAuth (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation setClientSettingsByCodeAsync
-     *
-     * Creates/updates a Tenant&#39;s ClientSetting by code.
-     *
-     * @param  string $tenantId  (required)
-     * @param  string $clientId  (required)
-     * @param  string $code  (required)
-     * @param  \EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsRequest|null $tenantApiTenantV1SetAppSettingsRequest  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setClientSettingsByCodeAsync'] to see the possible values for this operation
-     *
-     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails
-     */
-    public function setClientSettingsByCodeAsync($tenantId, $clientId, $code, $tenantApiTenantV1SetAppSettingsRequest = null, string $contentType = self::contentTypes['setClientSettingsByCodeAsync'][0])
-    {
-        list($response) = $this->setClientSettingsByCodeAsyncWithHttpInfo($tenantId, $clientId, $code, $tenantApiTenantV1SetAppSettingsRequest, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation setClientSettingsByCodeAsyncWithHttpInfo
-     *
-     * Creates/updates a Tenant&#39;s ClientSetting by code.
-     *
-     * @param  string $tenantId  (required)
-     * @param  string $clientId  (required)
-     * @param  string $code  (required)
-     * @param  \EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsRequest|null $tenantApiTenantV1SetAppSettingsRequest  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setClientSettingsByCodeAsync'] to see the possible values for this operation
-     *
-     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function setClientSettingsByCodeAsyncWithHttpInfo($tenantId, $clientId, $code, $tenantApiTenantV1SetAppSettingsRequest = null, string $contentType = self::contentTypes['setClientSettingsByCodeAsync'][0])
-    {
-        $request = $this->setClientSettingsByCodeAsyncRequest($tenantId, $clientId, $code, $tenantApiTenantV1SetAppSettingsRequest, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $request,
-                        $response,
-                    );
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsResponse',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails',
-                        $request,
-                        $response,
-                    );
-                case 404:
-                    return $this->handleResponseWithDataType(
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsResponse',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation setClientSettingsByCodeAsyncAsync
-     *
-     * Creates/updates a Tenant&#39;s ClientSetting by code.
-     *
-     * @param  string $tenantId  (required)
-     * @param  string $clientId  (required)
-     * @param  string $code  (required)
-     * @param  \EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsRequest|null $tenantApiTenantV1SetAppSettingsRequest  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setClientSettingsByCodeAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function setClientSettingsByCodeAsyncAsync($tenantId, $clientId, $code, $tenantApiTenantV1SetAppSettingsRequest = null, string $contentType = self::contentTypes['setClientSettingsByCodeAsync'][0])
-    {
-        return $this->setClientSettingsByCodeAsyncAsyncWithHttpInfo($tenantId, $clientId, $code, $tenantApiTenantV1SetAppSettingsRequest, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation setClientSettingsByCodeAsyncAsyncWithHttpInfo
-     *
-     * Creates/updates a Tenant&#39;s ClientSetting by code.
-     *
-     * @param  string $tenantId  (required)
-     * @param  string $clientId  (required)
-     * @param  string $code  (required)
-     * @param  \EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsRequest|null $tenantApiTenantV1SetAppSettingsRequest  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setClientSettingsByCodeAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function setClientSettingsByCodeAsyncAsyncWithHttpInfo($tenantId, $clientId, $code, $tenantApiTenantV1SetAppSettingsRequest = null, string $contentType = self::contentTypes['setClientSettingsByCodeAsync'][0])
-    {
-        $returnType = '\EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsResponse';
-        $request = $this->setClientSettingsByCodeAsyncRequest($tenantId, $clientId, $code, $tenantApiTenantV1SetAppSettingsRequest, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'setClientSettingsByCodeAsync'
-     *
-     * @param  string $tenantId  (required)
-     * @param  string $clientId  (required)
-     * @param  string $code  (required)
-     * @param  \EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsRequest|null $tenantApiTenantV1SetAppSettingsRequest  (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setClientSettingsByCodeAsync'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function setClientSettingsByCodeAsyncRequest($tenantId, $clientId, $code, $tenantApiTenantV1SetAppSettingsRequest = null, string $contentType = self::contentTypes['setClientSettingsByCodeAsync'][0])
-    {
-
-        // verify the required parameter 'tenantId' is set
-        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $tenantId when calling setClientSettingsByCodeAsync'
-            );
-        }
-
-        // verify the required parameter 'clientId' is set
-        if ($clientId === null || (is_array($clientId) && count($clientId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $clientId when calling setClientSettingsByCodeAsync'
-            );
-        }
-
-        // verify the required parameter 'code' is set
-        if ($code === null || (is_array($code) && count($code) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $code when calling setClientSettingsByCodeAsync'
-            );
-        }
-
-
-
-        $resourcePath = '/tenants/{tenantId}/clients/{clientId}/settings/{code}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // path params
-        if ($tenantId !== null) {
-            $resourcePath = str_replace(
-                '{tenantId}',
-                ObjectSerializer::toPathValue($tenantId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($clientId !== null) {
-            $resourcePath = str_replace(
-                '{clientId}',
-                ObjectSerializer::toPathValue($clientId),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($code !== null) {
-            $resourcePath = str_replace(
-                '{code}',
-                ObjectSerializer::toPathValue($code),
                 $resourcePath
             );
         }

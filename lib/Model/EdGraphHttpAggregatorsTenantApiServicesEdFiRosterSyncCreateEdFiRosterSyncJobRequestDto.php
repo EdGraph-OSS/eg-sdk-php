@@ -59,7 +59,8 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
     protected static $openAPITypes = [
         'mode' => 'string',
         'useSSAInsteadOfSEOAA' => '\EdGraph\PlatformClient\Model\DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions',
-        'importSectionAndCourseData' => 'bool'
+        'importSectionAndCourseData' => 'bool',
+        'useStaffEdOrgContactAssociationForEmails' => 'bool'
     ];
 
     /**
@@ -72,7 +73,8 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
     protected static $openAPIFormats = [
         'mode' => null,
         'useSSAInsteadOfSEOAA' => null,
-        'importSectionAndCourseData' => null
+        'importSectionAndCourseData' => null,
+        'useStaffEdOrgContactAssociationForEmails' => null
     ];
 
     /**
@@ -83,7 +85,8 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
     protected static array $openAPINullables = [
         'mode' => true,
         'useSSAInsteadOfSEOAA' => false,
-        'importSectionAndCourseData' => false
+        'importSectionAndCourseData' => false,
+        'useStaffEdOrgContactAssociationForEmails' => false
     ];
 
     /**
@@ -174,7 +177,8 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
     protected static $attributeMap = [
         'mode' => 'mode',
         'useSSAInsteadOfSEOAA' => 'use_SSA_InsteadOf_SEOAA',
-        'importSectionAndCourseData' => 'importSectionAndCourseData'
+        'importSectionAndCourseData' => 'importSectionAndCourseData',
+        'useStaffEdOrgContactAssociationForEmails' => 'useStaffEdOrgContactAssociationForEmails'
     ];
 
     /**
@@ -185,7 +189,8 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
     protected static $setters = [
         'mode' => 'setMode',
         'useSSAInsteadOfSEOAA' => 'setUseSSAInsteadOfSEOAA',
-        'importSectionAndCourseData' => 'setImportSectionAndCourseData'
+        'importSectionAndCourseData' => 'setImportSectionAndCourseData',
+        'useStaffEdOrgContactAssociationForEmails' => 'setUseStaffEdOrgContactAssociationForEmails'
     ];
 
     /**
@@ -196,7 +201,8 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
     protected static $getters = [
         'mode' => 'getMode',
         'useSSAInsteadOfSEOAA' => 'getUseSSAInsteadOfSEOAA',
-        'importSectionAndCourseData' => 'getImportSectionAndCourseData'
+        'importSectionAndCourseData' => 'getImportSectionAndCourseData',
+        'useStaffEdOrgContactAssociationForEmails' => 'getUseStaffEdOrgContactAssociationForEmails'
     ];
 
     /**
@@ -259,6 +265,7 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
         $this->setIfExists('mode', $data ?? [], null);
         $this->setIfExists('useSSAInsteadOfSEOAA', $data ?? [], null);
         $this->setIfExists('importSectionAndCourseData', $data ?? [], null);
+        $this->setIfExists('useStaffEdOrgContactAssociationForEmails', $data ?? [], null);
     }
 
     /**
@@ -387,6 +394,33 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
             throw new \InvalidArgumentException('non-nullable importSectionAndCourseData cannot be null');
         }
         $this->container['importSectionAndCourseData'] = $importSectionAndCourseData;
+
+        return $this;
+    }
+
+    /**
+     * Gets useStaffEdOrgContactAssociationForEmails
+     *
+     * @return bool|null
+     */
+    public function getUseStaffEdOrgContactAssociationForEmails()
+    {
+        return $this->container['useStaffEdOrgContactAssociationForEmails'];
+    }
+
+    /**
+     * Sets useStaffEdOrgContactAssociationForEmails
+     *
+     * @param bool|null $useStaffEdOrgContactAssociationForEmails useStaffEdOrgContactAssociationForEmails
+     *
+     * @return self
+     */
+    public function setUseStaffEdOrgContactAssociationForEmails($useStaffEdOrgContactAssociationForEmails)
+    {
+        if (is_null($useStaffEdOrgContactAssociationForEmails)) {
+            throw new \InvalidArgumentException('non-nullable useStaffEdOrgContactAssociationForEmails cannot be null');
+        }
+        $this->container['useStaffEdOrgContactAssociationForEmails'] = $useStaffEdOrgContactAssociationForEmails;
 
         return $this;
     }

@@ -75,10 +75,7 @@ class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUse
         'logins' => '\EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserLogin[]',
         'source' => 'string',
         'lastLoginDateTime' => 'string',
-        'mfaCompleted' => 'bool',
-        'isDeleted' => 'bool',
-        'deletedDateTime' => 'string',
-        'deletedBy' => 'string'
+        'mfaCompleted' => 'bool'
     ];
 
     /**
@@ -107,10 +104,7 @@ class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUse
         'logins' => null,
         'source' => null,
         'lastLoginDateTime' => null,
-        'mfaCompleted' => null,
-        'isDeleted' => null,
-        'deletedDateTime' => null,
-        'deletedBy' => null
+        'mfaCompleted' => null
     ];
 
     /**
@@ -137,10 +131,7 @@ class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUse
         'logins' => true,
         'source' => true,
         'lastLoginDateTime' => true,
-        'mfaCompleted' => false,
-        'isDeleted' => false,
-        'deletedDateTime' => true,
-        'deletedBy' => true
+        'mfaCompleted' => false
     ];
 
     /**
@@ -247,10 +238,7 @@ class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUse
         'logins' => 'logins',
         'source' => 'source',
         'lastLoginDateTime' => 'lastLoginDateTime',
-        'mfaCompleted' => 'mfaCompleted',
-        'isDeleted' => 'isDeleted',
-        'deletedDateTime' => 'deletedDateTime',
-        'deletedBy' => 'deletedBy'
+        'mfaCompleted' => 'mfaCompleted'
     ];
 
     /**
@@ -277,10 +265,7 @@ class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUse
         'logins' => 'setLogins',
         'source' => 'setSource',
         'lastLoginDateTime' => 'setLastLoginDateTime',
-        'mfaCompleted' => 'setMfaCompleted',
-        'isDeleted' => 'setIsDeleted',
-        'deletedDateTime' => 'setDeletedDateTime',
-        'deletedBy' => 'setDeletedBy'
+        'mfaCompleted' => 'setMfaCompleted'
     ];
 
     /**
@@ -307,10 +292,7 @@ class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUse
         'logins' => 'getLogins',
         'source' => 'getSource',
         'lastLoginDateTime' => 'getLastLoginDateTime',
-        'mfaCompleted' => 'getMfaCompleted',
-        'isDeleted' => 'getIsDeleted',
-        'deletedDateTime' => 'getDeletedDateTime',
-        'deletedBy' => 'getDeletedBy'
+        'mfaCompleted' => 'getMfaCompleted'
     ];
 
     /**
@@ -389,9 +371,6 @@ class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUse
         $this->setIfExists('source', $data ?? [], null);
         $this->setIfExists('lastLoginDateTime', $data ?? [], null);
         $this->setIfExists('mfaCompleted', $data ?? [], null);
-        $this->setIfExists('isDeleted', $data ?? [], null);
-        $this->setIfExists('deletedDateTime', $data ?? [], null);
-        $this->setIfExists('deletedBy', $data ?? [], null);
     }
 
     /**
@@ -1064,101 +1043,6 @@ class EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUse
             throw new \InvalidArgumentException('non-nullable mfaCompleted cannot be null');
         }
         $this->container['mfaCompleted'] = $mfaCompleted;
-
-        return $this;
-    }
-
-    /**
-     * Gets isDeleted
-     *
-     * @return bool|null
-     */
-    public function getIsDeleted()
-    {
-        return $this->container['isDeleted'];
-    }
-
-    /**
-     * Sets isDeleted
-     *
-     * @param bool|null $isDeleted isDeleted
-     *
-     * @return self
-     */
-    public function setIsDeleted($isDeleted)
-    {
-        if (is_null($isDeleted)) {
-            throw new \InvalidArgumentException('non-nullable isDeleted cannot be null');
-        }
-        $this->container['isDeleted'] = $isDeleted;
-
-        return $this;
-    }
-
-    /**
-     * Gets deletedDateTime
-     *
-     * @return string|null
-     */
-    public function getDeletedDateTime()
-    {
-        return $this->container['deletedDateTime'];
-    }
-
-    /**
-     * Sets deletedDateTime
-     *
-     * @param string|null $deletedDateTime deletedDateTime
-     *
-     * @return self
-     */
-    public function setDeletedDateTime($deletedDateTime)
-    {
-        if (is_null($deletedDateTime)) {
-            array_push($this->openAPINullablesSetToNull, 'deletedDateTime');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('deletedDateTime', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['deletedDateTime'] = $deletedDateTime;
-
-        return $this;
-    }
-
-    /**
-     * Gets deletedBy
-     *
-     * @return string|null
-     */
-    public function getDeletedBy()
-    {
-        return $this->container['deletedBy'];
-    }
-
-    /**
-     * Sets deletedBy
-     *
-     * @param string|null $deletedBy deletedBy
-     *
-     * @return self
-     */
-    public function setDeletedBy($deletedBy)
-    {
-        if (is_null($deletedBy)) {
-            array_push($this->openAPINullablesSetToNull, 'deletedBy');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('deletedBy', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['deletedBy'] = $deletedBy;
 
         return $this;
     }

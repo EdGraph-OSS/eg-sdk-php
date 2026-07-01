@@ -70,7 +70,8 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         'enabled' => 'bool',
         'edFiInstanceId' => 'string',
         'useSSAInsteadOfSEOAA' => '\EdGraph\PlatformClient\Model\DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions',
-        'importSectionAndCourseData' => 'bool'
+        'importSectionAndCourseData' => 'bool',
+        'useStaffEdOrgContactAssociationForEmails' => 'bool'
     ];
 
     /**
@@ -94,7 +95,8 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         'enabled' => null,
         'edFiInstanceId' => null,
         'useSSAInsteadOfSEOAA' => null,
-        'importSectionAndCourseData' => null
+        'importSectionAndCourseData' => null,
+        'useStaffEdOrgContactAssociationForEmails' => null
     ];
 
     /**
@@ -116,7 +118,8 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         'enabled' => true,
         'edFiInstanceId' => true,
         'useSSAInsteadOfSEOAA' => false,
-        'importSectionAndCourseData' => true
+        'importSectionAndCourseData' => true,
+        'useStaffEdOrgContactAssociationForEmails' => true
     ];
 
     /**
@@ -218,7 +221,8 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         'enabled' => 'enabled',
         'edFiInstanceId' => 'edFiInstanceId',
         'useSSAInsteadOfSEOAA' => 'useSSAInsteadOfSEOAA',
-        'importSectionAndCourseData' => 'importSectionAndCourseData'
+        'importSectionAndCourseData' => 'importSectionAndCourseData',
+        'useStaffEdOrgContactAssociationForEmails' => 'useStaffEdOrgContactAssociationForEmails'
     ];
 
     /**
@@ -240,7 +244,8 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         'enabled' => 'setEnabled',
         'edFiInstanceId' => 'setEdFiInstanceId',
         'useSSAInsteadOfSEOAA' => 'setUseSSAInsteadOfSEOAA',
-        'importSectionAndCourseData' => 'setImportSectionAndCourseData'
+        'importSectionAndCourseData' => 'setImportSectionAndCourseData',
+        'useStaffEdOrgContactAssociationForEmails' => 'setUseStaffEdOrgContactAssociationForEmails'
     ];
 
     /**
@@ -262,7 +267,8 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         'enabled' => 'getEnabled',
         'edFiInstanceId' => 'getEdFiInstanceId',
         'useSSAInsteadOfSEOAA' => 'getUseSSAInsteadOfSEOAA',
-        'importSectionAndCourseData' => 'getImportSectionAndCourseData'
+        'importSectionAndCourseData' => 'getImportSectionAndCourseData',
+        'useStaffEdOrgContactAssociationForEmails' => 'getUseStaffEdOrgContactAssociationForEmails'
     ];
 
     /**
@@ -336,6 +342,7 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         $this->setIfExists('edFiInstanceId', $data ?? [], null);
         $this->setIfExists('useSSAInsteadOfSEOAA', $data ?? [], null);
         $this->setIfExists('importSectionAndCourseData', $data ?? [], null);
+        $this->setIfExists('useStaffEdOrgContactAssociationForEmails', $data ?? [], null);
     }
 
     /**
@@ -831,6 +838,40 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
             }
         }
         $this->container['importSectionAndCourseData'] = $importSectionAndCourseData;
+
+        return $this;
+    }
+
+    /**
+     * Gets useStaffEdOrgContactAssociationForEmails
+     *
+     * @return bool|null
+     */
+    public function getUseStaffEdOrgContactAssociationForEmails()
+    {
+        return $this->container['useStaffEdOrgContactAssociationForEmails'];
+    }
+
+    /**
+     * Sets useStaffEdOrgContactAssociationForEmails
+     *
+     * @param bool|null $useStaffEdOrgContactAssociationForEmails useStaffEdOrgContactAssociationForEmails
+     *
+     * @return self
+     */
+    public function setUseStaffEdOrgContactAssociationForEmails($useStaffEdOrgContactAssociationForEmails)
+    {
+        if (is_null($useStaffEdOrgContactAssociationForEmails)) {
+            array_push($this->openAPINullablesSetToNull, 'useStaffEdOrgContactAssociationForEmails');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('useStaffEdOrgContactAssociationForEmails', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['useStaffEdOrgContactAssociationForEmails'] = $useStaffEdOrgContactAssociationForEmails;
 
         return $this;
     }
