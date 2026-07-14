@@ -319,7 +319,7 @@ class V1Api
         }
 
 
-        $resourcePath = '/students/{tenantId}/students/{id}';
+        $resourcePath = '/tenants/{tenantId}/students/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -603,7 +603,7 @@ class V1Api
 
 
 
-        $resourcePath = '/students/{tenantId}';
+        $resourcePath = '/tenants/{tenantId}/students';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1252,7 +1252,7 @@ class V1Api
 
 
 
-        $resourcePath = '/students/{tenantId}/{studentId}/contacts';
+        $resourcePath = '/tenants/{tenantId}/{studentId}/contacts';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

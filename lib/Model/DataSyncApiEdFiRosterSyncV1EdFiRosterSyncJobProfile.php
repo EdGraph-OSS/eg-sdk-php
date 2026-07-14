@@ -71,7 +71,8 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         'edFiInstanceId' => 'string',
         'useSSAInsteadOfSEOAA' => '\EdGraph\PlatformClient\Model\DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions',
         'importSectionAndCourseData' => 'bool',
-        'useStaffEdOrgContactAssociationForEmails' => 'bool'
+        'useStaffEdOrgContactAssociationForEmails' => 'bool',
+        'ignoreEndDates' => 'bool'
     ];
 
     /**
@@ -96,7 +97,8 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         'edFiInstanceId' => null,
         'useSSAInsteadOfSEOAA' => null,
         'importSectionAndCourseData' => null,
-        'useStaffEdOrgContactAssociationForEmails' => null
+        'useStaffEdOrgContactAssociationForEmails' => null,
+        'ignoreEndDates' => null
     ];
 
     /**
@@ -119,7 +121,8 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         'edFiInstanceId' => true,
         'useSSAInsteadOfSEOAA' => false,
         'importSectionAndCourseData' => true,
-        'useStaffEdOrgContactAssociationForEmails' => true
+        'useStaffEdOrgContactAssociationForEmails' => true,
+        'ignoreEndDates' => true
     ];
 
     /**
@@ -222,7 +225,8 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         'edFiInstanceId' => 'edFiInstanceId',
         'useSSAInsteadOfSEOAA' => 'useSSAInsteadOfSEOAA',
         'importSectionAndCourseData' => 'importSectionAndCourseData',
-        'useStaffEdOrgContactAssociationForEmails' => 'useStaffEdOrgContactAssociationForEmails'
+        'useStaffEdOrgContactAssociationForEmails' => 'useStaffEdOrgContactAssociationForEmails',
+        'ignoreEndDates' => 'ignoreEndDates'
     ];
 
     /**
@@ -245,7 +249,8 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         'edFiInstanceId' => 'setEdFiInstanceId',
         'useSSAInsteadOfSEOAA' => 'setUseSSAInsteadOfSEOAA',
         'importSectionAndCourseData' => 'setImportSectionAndCourseData',
-        'useStaffEdOrgContactAssociationForEmails' => 'setUseStaffEdOrgContactAssociationForEmails'
+        'useStaffEdOrgContactAssociationForEmails' => 'setUseStaffEdOrgContactAssociationForEmails',
+        'ignoreEndDates' => 'setIgnoreEndDates'
     ];
 
     /**
@@ -268,7 +273,8 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         'edFiInstanceId' => 'getEdFiInstanceId',
         'useSSAInsteadOfSEOAA' => 'getUseSSAInsteadOfSEOAA',
         'importSectionAndCourseData' => 'getImportSectionAndCourseData',
-        'useStaffEdOrgContactAssociationForEmails' => 'getUseStaffEdOrgContactAssociationForEmails'
+        'useStaffEdOrgContactAssociationForEmails' => 'getUseStaffEdOrgContactAssociationForEmails',
+        'ignoreEndDates' => 'getIgnoreEndDates'
     ];
 
     /**
@@ -343,6 +349,7 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
         $this->setIfExists('useSSAInsteadOfSEOAA', $data ?? [], null);
         $this->setIfExists('importSectionAndCourseData', $data ?? [], null);
         $this->setIfExists('useStaffEdOrgContactAssociationForEmails', $data ?? [], null);
+        $this->setIfExists('ignoreEndDates', $data ?? [], null);
     }
 
     /**
@@ -872,6 +879,40 @@ class DataSyncApiEdFiRosterSyncV1EdFiRosterSyncJobProfile implements ModelInterf
             }
         }
         $this->container['useStaffEdOrgContactAssociationForEmails'] = $useStaffEdOrgContactAssociationForEmails;
+
+        return $this;
+    }
+
+    /**
+     * Gets ignoreEndDates
+     *
+     * @return bool|null
+     */
+    public function getIgnoreEndDates()
+    {
+        return $this->container['ignoreEndDates'];
+    }
+
+    /**
+     * Sets ignoreEndDates
+     *
+     * @param bool|null $ignoreEndDates ignoreEndDates
+     *
+     * @return self
+     */
+    public function setIgnoreEndDates($ignoreEndDates)
+    {
+        if (is_null($ignoreEndDates)) {
+            array_push($this->openAPINullablesSetToNull, 'ignoreEndDates');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ignoreEndDates', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ignoreEndDates'] = $ignoreEndDates;
 
         return $this;
     }

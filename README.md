@@ -465,6 +465,7 @@ Class | Method | HTTP request | Description
 *ObservationsApi* | [**getPaginatedAvailableCampuses**](docs/Api/ObservationsApi.md#getpaginatedavailablecampuses) | **GET** /tenants/{tenantId}/observations/campuses | Get Available Campuses
 *ObservationsApi* | [**getPaginatedAvailableForms**](docs/Api/ObservationsApi.md#getpaginatedavailableforms) | **GET** /tenants/{tenantId}/observations/available-forms | Get Paginated Available Forms
 *ObservationsApi* | [**getPaginatedCampusSections**](docs/Api/ObservationsApi.md#getpaginatedcampussections) | **GET** /tenants/{tenantId}/observations/campuses/{campusId}/sections | Retrieves a list of Sections for a given available campus.
+*ObservationsApi* | [**getPaginatedCampusesWithEvaluees**](docs/Api/ObservationsApi.md#getpaginatedcampuseswithevaluees) | **GET** /tenants/{tenantId}/observations/campuses-with-evaluees | Get a paginated list of the available campuses that have evaluees, each with its complete list of evaluees.
 *ObservationsApi* | [**getPaginatedEvaluees**](docs/Api/ObservationsApi.md#getpaginatedevaluees) | **GET** /tenants/{tenantId}/observations/evaluees | Get paginated evaluees
 *ObservationsApi* | [**getPaginatedObservations**](docs/Api/ObservationsApi.md#getpaginatedobservations) | **GET** /tenants/{tenantId}/observations | Get Paginated Observations for a given tenant
 *ObservationsApi* | [**getSubmittedObservationsCount**](docs/Api/ObservationsApi.md#getsubmittedobservationscount) | **GET** /tenants/{tenantId}/submittedobservations | Get submitted Observations count
@@ -635,10 +636,10 @@ Class | Method | HTTP request | Description
 *UsersSectionsApi* | [**removeUserSectionBulk**](docs/Api/UsersSectionsApi.md#removeusersectionbulk) | **DELETE** /tenants/{tenantId}/users/{userId}/sections/bulk | Removes Sections from a user in bulk.
 *UsersSectionsApi* | [**updateUserSection**](docs/Api/UsersSectionsApi.md#updateusersection) | **PUT** /tenants/{tenantId}/users/{userId}/sections/{userSectionId} | Updates the Section of a user.
 *UsersSectionsApi* | [**updateUserSectionBulk**](docs/Api/UsersSectionsApi.md#updateusersectionbulk) | **PUT** /tenants/{tenantId}/users/{userId}/sections/bulk | Updates the Section of a user in bulk.
-*V1Api* | [**getStudentProfile**](docs/Api/V1Api.md#getstudentprofile) | **GET** /students/{tenantId}/students/{id} | Returns the admin profile for a single student.
-*V1Api* | [**getStudents**](docs/Api/V1Api.md#getstudents) | **GET** /students/{tenantId} | Returns a paginated list of students for the given tenant.
+*V1Api* | [**getStudentProfile**](docs/Api/V1Api.md#getstudentprofile) | **GET** /tenants/{tenantId}/students/{id} | Returns the admin profile for a single student.
+*V1Api* | [**getStudents**](docs/Api/V1Api.md#getstudents) | **GET** /tenants/{tenantId}/students | Returns a paginated list of students for the given tenant.
 *V1Api* | [**releaseUserLockout**](docs/Api/V1Api.md#releaseuserlockout) | **PUT** /tenants/{tenantId}/users/{userId}/releaselockout | 
-*V1Api* | [**updateStudentContacts**](docs/Api/V1Api.md#updatestudentcontacts) | **PUT** /students/{tenantId}/{studentId}/contacts | Updates the contact overrides for a student.
+*V1Api* | [**updateStudentContacts**](docs/Api/V1Api.md#updatestudentcontacts) | **PUT** /tenants/{tenantId}/{studentId}/contacts | Updates the contact overrides for a student.
 *ValidationResultsAPIApi* | [**findResultsApiJobRunRecordsAsync**](docs/Api/ValidationResultsAPIApi.md#findresultsapijobrunrecordsasync) | **GET** /tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/records | Retrieves a list of Job Run Records from the Validation Results API.
 *ValidationResultsAPIApi* | [**findResultsApiJobRunRuleRecordsAsync**](docs/Api/ValidationResultsAPIApi.md#findresultsapijobrunrulerecordsasync) | **GET** /tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/rules/{ruleId}/records | Retrieves a list of Job Run Rule Records from the Validation Results API.
 *ValidationResultsAPIApi* | [**findResultsApiJobRunRulesAsync**](docs/Api/ValidationResultsAPIApi.md#findresultsapijobrunrulesasync) | **GET** /tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/rules | Retrieves a list of Job Run Rules from the Validation Results API.
@@ -858,6 +859,7 @@ Class | Method | HTTP request | Description
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsAddAvailablePersonaResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsCampusResponseGetPaginatedItemsResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsCampusWithEvalueesResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsCampusWithEvalueesResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationRequest.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsCreateObservationSubmissionRequest.md)
@@ -872,6 +874,7 @@ Class | Method | HTTP request | Description
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsFormVersionConfigurationResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetApplicationSettingsResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsGetApplicationSettingsResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetAvailableCampusesTotalEvalueesResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsGetAvailableCampusesTotalEvalueesResponse.md)
+- [EdGraphHttpAggregatorsTenantApiServicesObservationsGetCampusesWithEvalueesResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsGetCampusesWithEvalueesResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsGetStaffClassificationSettingsResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsGetSubmittedObservationsCountResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesObservationsObservationDraftResponse.md)
@@ -1385,6 +1388,7 @@ Class | Method | HTTP request | Description
 - [RegistrationApiRegistrationV2ApprovalStatus](docs/Model/RegistrationApiRegistrationV2ApprovalStatus.md)
 - [RegistrationApiRegistrationV2SubmitTenantRegistrationRequest](docs/Model/RegistrationApiRegistrationV2SubmitTenantRegistrationRequest.md)
 - [RegistrationApiRegistrationV2TenantType](docs/Model/RegistrationApiRegistrationV2TenantType.md)
+- [SystemNetHttpStatusCode](docs/Model/SystemNetHttpStatusCode.md)
 - [TenantApiIntegrationsV1CreateIntegrationProductRequest](docs/Model/TenantApiIntegrationsV1CreateIntegrationProductRequest.md)
 - [TenantApiIntegrationsV1CreateIntegrationProductResponse](docs/Model/TenantApiIntegrationsV1CreateIntegrationProductResponse.md)
 - [TenantApiIntegrationsV1CreateIntegrationRequest](docs/Model/TenantApiIntegrationsV1CreateIntegrationRequest.md)
@@ -1635,6 +1639,6 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `v1.0`
-    - Package version: `0.0.46`
+    - Package version: `0.0.47`
     - Generator version: `7.23.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

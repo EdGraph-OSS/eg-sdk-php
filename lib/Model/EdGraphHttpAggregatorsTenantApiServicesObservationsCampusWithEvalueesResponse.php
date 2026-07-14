@@ -1,6 +1,6 @@
 <?php
 /**
- * EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJobRequestDto
+ * EdGraphHttpAggregatorsTenantApiServicesObservationsCampusWithEvalueesResponse
  *
  * PHP version 8.1
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \EdGraph\PlatformClient\ObjectSerializer;
 
 /**
- * EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJobRequestDto Class Doc Comment
+ * EdGraphHttpAggregatorsTenantApiServicesObservationsCampusWithEvalueesResponse Class Doc Comment
  *
  * @category Class
  * @package  EdGraph\PlatformClient
@@ -40,7 +40,7 @@ use \EdGraph\PlatformClient\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJobRequestDto implements ModelInterface, ArrayAccess, \JsonSerializable
+class EdGraphHttpAggregatorsTenantApiServicesObservationsCampusWithEvalueesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
      *
      * @var string
      */
-    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.EdFiRosterSync.CreateEdFiRosterSyncJobRequestDto';
+    protected static $openAPIModelName = 'EdGraph.HttpAggregators.Tenant.Api.Services.Observations.CampusWithEvalueesResponse';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,8 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
      * @var string[]
      */
     protected static $openAPITypes = [
-        'mode' => 'string',
-        'useSSAInsteadOfSEOAA' => '\EdGraph\PlatformClient\Model\DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions',
-        'importSectionAndCourseData' => 'bool',
-        'useStaffEdOrgContactAssociationForEmails' => 'bool',
-        'ignoreEndDates' => 'bool'
+        'campus' => 'string',
+        'evaluees' => '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse[]'
     ];
 
     /**
@@ -72,11 +69,8 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'mode' => null,
-        'useSSAInsteadOfSEOAA' => null,
-        'importSectionAndCourseData' => null,
-        'useStaffEdOrgContactAssociationForEmails' => null,
-        'ignoreEndDates' => null
+        'campus' => null,
+        'evaluees' => null
     ];
 
     /**
@@ -85,11 +79,8 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'mode' => true,
-        'useSSAInsteadOfSEOAA' => false,
-        'importSectionAndCourseData' => false,
-        'useStaffEdOrgContactAssociationForEmails' => false,
-        'ignoreEndDates' => false
+        'campus' => true,
+        'evaluees' => true
     ];
 
     /**
@@ -178,11 +169,8 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
      * @var string[]
      */
     protected static $attributeMap = [
-        'mode' => 'mode',
-        'useSSAInsteadOfSEOAA' => 'use_SSA_InsteadOf_SEOAA',
-        'importSectionAndCourseData' => 'importSectionAndCourseData',
-        'useStaffEdOrgContactAssociationForEmails' => 'useStaffEdOrgContactAssociationForEmails',
-        'ignoreEndDates' => 'ignoreEndDates'
+        'campus' => 'campus',
+        'evaluees' => 'evaluees'
     ];
 
     /**
@@ -191,11 +179,8 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
      * @var string[]
      */
     protected static $setters = [
-        'mode' => 'setMode',
-        'useSSAInsteadOfSEOAA' => 'setUseSSAInsteadOfSEOAA',
-        'importSectionAndCourseData' => 'setImportSectionAndCourseData',
-        'useStaffEdOrgContactAssociationForEmails' => 'setUseStaffEdOrgContactAssociationForEmails',
-        'ignoreEndDates' => 'setIgnoreEndDates'
+        'campus' => 'setCampus',
+        'evaluees' => 'setEvaluees'
     ];
 
     /**
@@ -204,11 +189,8 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
      * @var string[]
      */
     protected static $getters = [
-        'mode' => 'getMode',
-        'useSSAInsteadOfSEOAA' => 'getUseSSAInsteadOfSEOAA',
-        'importSectionAndCourseData' => 'getImportSectionAndCourseData',
-        'useStaffEdOrgContactAssociationForEmails' => 'getUseStaffEdOrgContactAssociationForEmails',
-        'ignoreEndDates' => 'getIgnoreEndDates'
+        'campus' => 'getCampus',
+        'evaluees' => 'getEvaluees'
     ];
 
     /**
@@ -268,11 +250,8 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('mode', $data ?? [], null);
-        $this->setIfExists('useSSAInsteadOfSEOAA', $data ?? [], null);
-        $this->setIfExists('importSectionAndCourseData', $data ?? [], null);
-        $this->setIfExists('useStaffEdOrgContactAssociationForEmails', $data ?? [], null);
-        $this->setIfExists('ignoreEndDates', $data ?? [], null);
+        $this->setIfExists('campus', $data ?? [], null);
+        $this->setIfExists('evaluees', $data ?? [], null);
     }
 
     /**
@@ -318,143 +297,69 @@ class EdGraphHttpAggregatorsTenantApiServicesEdFiRosterSyncCreateEdFiRosterSyncJ
 
 
     /**
-     * Gets mode
+     * Gets campus
      *
      * @return string|null
      */
-    public function getMode()
+    public function getCampus()
     {
-        return $this->container['mode'];
+        return $this->container['campus'];
     }
 
     /**
-     * Sets mode
+     * Sets campus
      *
-     * @param string|null $mode mode
+     * @param string|null $campus campus
      *
      * @return self
      */
-    public function setMode($mode)
+    public function setCampus($campus)
     {
-        if (is_null($mode)) {
-            array_push($this->openAPINullablesSetToNull, 'mode');
+        if (is_null($campus)) {
+            array_push($this->openAPINullablesSetToNull, 'campus');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('mode', $nullablesSetToNull);
+            $index = array_search('campus', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['mode'] = $mode;
+        $this->container['campus'] = $campus;
 
         return $this;
     }
 
     /**
-     * Gets useSSAInsteadOfSEOAA
+     * Gets evaluees
      *
-     * @return \EdGraph\PlatformClient\Model\DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions|null
+     * @return \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse[]|null
      */
-    public function getUseSSAInsteadOfSEOAA()
+    public function getEvaluees()
     {
-        return $this->container['useSSAInsteadOfSEOAA'];
+        return $this->container['evaluees'];
     }
 
     /**
-     * Sets useSSAInsteadOfSEOAA
+     * Sets evaluees
      *
-     * @param \EdGraph\PlatformClient\Model\DataSyncApiEdFiRosterSyncV1UseSSAInsteadOfSEOAAOptions|null $useSSAInsteadOfSEOAA useSSAInsteadOfSEOAA
+     * @param \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsEvalueeResponse[]|null $evaluees evaluees
      *
      * @return self
      */
-    public function setUseSSAInsteadOfSEOAA($useSSAInsteadOfSEOAA)
+    public function setEvaluees($evaluees)
     {
-        if (is_null($useSSAInsteadOfSEOAA)) {
-            throw new \InvalidArgumentException('non-nullable useSSAInsteadOfSEOAA cannot be null');
+        if (is_null($evaluees)) {
+            array_push($this->openAPINullablesSetToNull, 'evaluees');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('evaluees', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['useSSAInsteadOfSEOAA'] = $useSSAInsteadOfSEOAA;
-
-        return $this;
-    }
-
-    /**
-     * Gets importSectionAndCourseData
-     *
-     * @return bool|null
-     */
-    public function getImportSectionAndCourseData()
-    {
-        return $this->container['importSectionAndCourseData'];
-    }
-
-    /**
-     * Sets importSectionAndCourseData
-     *
-     * @param bool|null $importSectionAndCourseData importSectionAndCourseData
-     *
-     * @return self
-     */
-    public function setImportSectionAndCourseData($importSectionAndCourseData)
-    {
-        if (is_null($importSectionAndCourseData)) {
-            throw new \InvalidArgumentException('non-nullable importSectionAndCourseData cannot be null');
-        }
-        $this->container['importSectionAndCourseData'] = $importSectionAndCourseData;
-
-        return $this;
-    }
-
-    /**
-     * Gets useStaffEdOrgContactAssociationForEmails
-     *
-     * @return bool|null
-     */
-    public function getUseStaffEdOrgContactAssociationForEmails()
-    {
-        return $this->container['useStaffEdOrgContactAssociationForEmails'];
-    }
-
-    /**
-     * Sets useStaffEdOrgContactAssociationForEmails
-     *
-     * @param bool|null $useStaffEdOrgContactAssociationForEmails useStaffEdOrgContactAssociationForEmails
-     *
-     * @return self
-     */
-    public function setUseStaffEdOrgContactAssociationForEmails($useStaffEdOrgContactAssociationForEmails)
-    {
-        if (is_null($useStaffEdOrgContactAssociationForEmails)) {
-            throw new \InvalidArgumentException('non-nullable useStaffEdOrgContactAssociationForEmails cannot be null');
-        }
-        $this->container['useStaffEdOrgContactAssociationForEmails'] = $useStaffEdOrgContactAssociationForEmails;
-
-        return $this;
-    }
-
-    /**
-     * Gets ignoreEndDates
-     *
-     * @return bool|null
-     */
-    public function getIgnoreEndDates()
-    {
-        return $this->container['ignoreEndDates'];
-    }
-
-    /**
-     * Sets ignoreEndDates
-     *
-     * @param bool|null $ignoreEndDates ignoreEndDates
-     *
-     * @return self
-     */
-    public function setIgnoreEndDates($ignoreEndDates)
-    {
-        if (is_null($ignoreEndDates)) {
-            throw new \InvalidArgumentException('non-nullable ignoreEndDates cannot be null');
-        }
-        $this->container['ignoreEndDates'] = $ignoreEndDates;
+        $this->container['evaluees'] = $evaluees;
 
         return $this;
     }

@@ -21,6 +21,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**getPaginatedAvailableCampuses()**](ObservationsApi.md#getPaginatedAvailableCampuses) | **GET** /tenants/{tenantId}/observations/campuses | Get Available Campuses |
 | [**getPaginatedAvailableForms()**](ObservationsApi.md#getPaginatedAvailableForms) | **GET** /tenants/{tenantId}/observations/available-forms | Get Paginated Available Forms |
 | [**getPaginatedCampusSections()**](ObservationsApi.md#getPaginatedCampusSections) | **GET** /tenants/{tenantId}/observations/campuses/{campusId}/sections | Retrieves a list of Sections for a given available campus. |
+| [**getPaginatedCampusesWithEvaluees()**](ObservationsApi.md#getPaginatedCampusesWithEvaluees) | **GET** /tenants/{tenantId}/observations/campuses-with-evaluees | Get a paginated list of the available campuses that have evaluees, each with its complete list of evaluees. |
 | [**getPaginatedEvaluees()**](ObservationsApi.md#getPaginatedEvaluees) | **GET** /tenants/{tenantId}/observations/evaluees | Get paginated evaluees |
 | [**getPaginatedObservations()**](ObservationsApi.md#getPaginatedObservations) | **GET** /tenants/{tenantId}/observations | Get Paginated Observations for a given tenant |
 | [**getSubmittedObservationsCount()**](ObservationsApi.md#getSubmittedObservationsCount) | **GET** /tenants/{tenantId}/submittedobservations | Get submitted Observations count |
@@ -963,6 +964,70 @@ try {
 ### Return type
 
 [**\EdGraph\PlatformClient\Model\TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse**](../Model/TenantApiSectionsV1SectionListResponseGetPaginatedItemsResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPaginatedCampusesWithEvaluees()`
+
+```php
+getPaginatedCampusesWithEvaluees($tenantId, $pageSize, $pageIndex, $orderBy): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsGetCampusesWithEvalueesResponse
+```
+
+Get a paginated list of the available campuses that have evaluees, each with its complete list of evaluees.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\ObservationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$pageSize = 10; // int | 
+$pageIndex = 0; // int | 
+$orderBy = ''; // string | 
+
+try {
+    $result = $apiInstance->getPaginatedCampusesWithEvaluees($tenantId, $pageSize, $pageIndex, $orderBy);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ObservationsApi->getPaginatedCampusesWithEvaluees: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **pageSize** | **int**|  | [optional] [default to 10] |
+| **pageIndex** | **int**|  | [optional] [default to 0] |
+| **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsGetCampusesWithEvalueesResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsGetCampusesWithEvalueesResponse.md)
 
 ### Authorization
 

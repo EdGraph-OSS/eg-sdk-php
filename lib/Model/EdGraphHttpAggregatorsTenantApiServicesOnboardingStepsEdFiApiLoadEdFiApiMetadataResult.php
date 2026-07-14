@@ -59,7 +59,8 @@ class EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMe
     protected static $openAPITypes = [
         'isSuccess' => 'bool',
         'value' => '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApi',
-        'error' => 'string'
+        'error' => 'string',
+        'statusCode' => '\EdGraph\PlatformClient\Model\SystemNetHttpStatusCode'
     ];
 
     /**
@@ -72,7 +73,8 @@ class EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMe
     protected static $openAPIFormats = [
         'isSuccess' => null,
         'value' => null,
-        'error' => null
+        'error' => null,
+        'statusCode' => null
     ];
 
     /**
@@ -83,7 +85,8 @@ class EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMe
     protected static array $openAPINullables = [
         'isSuccess' => false,
         'value' => false,
-        'error' => true
+        'error' => true,
+        'statusCode' => false
     ];
 
     /**
@@ -174,7 +177,8 @@ class EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMe
     protected static $attributeMap = [
         'isSuccess' => 'isSuccess',
         'value' => 'value',
-        'error' => 'error'
+        'error' => 'error',
+        'statusCode' => 'statusCode'
     ];
 
     /**
@@ -185,7 +189,8 @@ class EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMe
     protected static $setters = [
         'isSuccess' => 'setIsSuccess',
         'value' => 'setValue',
-        'error' => 'setError'
+        'error' => 'setError',
+        'statusCode' => 'setStatusCode'
     ];
 
     /**
@@ -196,7 +201,8 @@ class EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMe
     protected static $getters = [
         'isSuccess' => 'getIsSuccess',
         'value' => 'getValue',
-        'error' => 'getError'
+        'error' => 'getError',
+        'statusCode' => 'getStatusCode'
     ];
 
     /**
@@ -259,6 +265,7 @@ class EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMe
         $this->setIfExists('isSuccess', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
         $this->setIfExists('error', $data ?? [], null);
+        $this->setIfExists('statusCode', $data ?? [], null);
     }
 
     /**
@@ -387,6 +394,33 @@ class EdGraphHttpAggregatorsTenantApiServicesOnboardingStepsEdFiApiLoadEdFiApiMe
             }
         }
         $this->container['error'] = $error;
+
+        return $this;
+    }
+
+    /**
+     * Gets statusCode
+     *
+     * @return \EdGraph\PlatformClient\Model\SystemNetHttpStatusCode|null
+     */
+    public function getStatusCode()
+    {
+        return $this->container['statusCode'];
+    }
+
+    /**
+     * Sets statusCode
+     *
+     * @param \EdGraph\PlatformClient\Model\SystemNetHttpStatusCode|null $statusCode statusCode
+     *
+     * @return self
+     */
+    public function setStatusCode($statusCode)
+    {
+        if (is_null($statusCode)) {
+            throw new \InvalidArgumentException('non-nullable statusCode cannot be null');
+        }
+        $this->container['statusCode'] = $statusCode;
 
         return $this;
     }
