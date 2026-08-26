@@ -314,6 +314,7 @@ class TenantApiTenantV1GetAppSettingsResponse implements ModelInterface, ArrayAc
      * Gets data
      *
      * @return \EdGraph\PlatformClient\Model\TenantApiTenantV1TenantAppSettings[]|null
+     * @deprecated
      */
     public function getData()
     {
@@ -326,6 +327,7 @@ class TenantApiTenantV1GetAppSettingsResponse implements ModelInterface, ArrayAc
      * @param \EdGraph\PlatformClient\Model\TenantApiTenantV1TenantAppSettings[]|null $data data
      *
      * @return self
+     * @deprecated
      */
     public function setData($data)
     {

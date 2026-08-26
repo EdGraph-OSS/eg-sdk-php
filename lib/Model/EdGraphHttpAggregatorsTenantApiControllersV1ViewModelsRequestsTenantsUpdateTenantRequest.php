@@ -368,6 +368,7 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdat
      * Gets settings
      *
      * @return \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting[]|null
+     * @deprecated
      */
     public function getSettings()
     {
@@ -380,6 +381,7 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsUpdat
      * @param \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsTenantsTenantSetting[]|null $settings settings
      *
      * @return self
+     * @deprecated
      */
     public function setSettings($settings)
     {

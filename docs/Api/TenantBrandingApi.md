@@ -12,7 +12,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 ## `updateTenantBranding()`
 
 ```php
-updateTenantBranding($tenantId, $logoFile, $backgroundFile, $brandName, $enabled): \EdGraph\PlatformClient\Model\TenantApiTenantV1TenantUpdatedResponse
+updateTenantBranding($tenantId, $logoFile, $backgroundFile, $brandName, $enabled, $removeBackground, $removeLogo): \EdGraph\PlatformClient\Model\TenantApiTenantV1TenantUpdatedResponse
 ```
 
 Updates the branding of tenant
@@ -39,9 +39,11 @@ $logoFile = '/path/to/file.txt'; // \SplFileObject
 $backgroundFile = '/path/to/file.txt'; // \SplFileObject
 $brandName = 'brandName_example'; // string
 $enabled = True; // bool
+$removeBackground = True; // bool
+$removeLogo = True; // bool
 
 try {
-    $result = $apiInstance->updateTenantBranding($tenantId, $logoFile, $backgroundFile, $brandName, $enabled);
+    $result = $apiInstance->updateTenantBranding($tenantId, $logoFile, $backgroundFile, $brandName, $enabled, $removeBackground, $removeLogo);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TenantBrandingApi->updateTenantBranding: ', $e->getMessage(), PHP_EOL;
@@ -57,6 +59,8 @@ try {
 | **backgroundFile** | **\SplFileObject****\SplFileObject**|  | [optional] |
 | **brandName** | **string**|  | [optional] |
 | **enabled** | **bool**|  | [optional] |
+| **removeBackground** | **bool**|  | [optional] |
+| **removeLogo** | **bool**|  | [optional] |
 
 ### Return type
 

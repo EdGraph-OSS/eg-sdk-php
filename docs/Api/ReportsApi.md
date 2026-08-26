@@ -8,11 +8,14 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | ------------- | ------------- | ------------- |
 | [**createReportAsync()**](ReportsApi.md#createReportAsync) | **POST** /tenants/{tenantId}/analytics/reports | Creates a new report (Does not upload pbix file). |
 | [**deleteReportAsync()**](ReportsApi.md#deleteReportAsync) | **DELETE** /tenants/{tenantId}/analytics/reports/{reportId} | Removes a report. |
-| [**downloadReportAsync()**](ReportsApi.md#downloadReportAsync) | **GET** /tenants/{tenantId}/analytics/reports/download/{reportId}/{groupId} | Retrieves the PBIX for any report in the list in order to download |
+| [**downloadReportAsync()**](ReportsApi.md#downloadReportAsync) | **GET** /tenants/{tenantId}/analytics/reports/download/{reportId}/{groupId} | Retrieves the PBIX for any report in the list in order to download. |
 | [**getAllTenantAnalyticsWorkspaceReportsAsync()**](ReportsApi.md#getAllTenantAnalyticsWorkspaceReportsAsync) | **GET** /tenants/{tenantId}/analytics/reports | Retrieves all reports. |
+| [**getAnalyticsTenantUsersAsync()**](ReportsApi.md#getAnalyticsTenantUsersAsync) | **GET** /tenants/{tenantId}/analytics/users | Searchable, paginated list of tenant users for the Manage Access \&quot;specific users\&quot; picker. |
+| [**getReportAccessAsync()**](ReportsApi.md#getReportAccessAsync) | **GET** /tenants/{tenantId}/analytics/reports/{reportId}/access | Retrieves the audience-targeting (Manage Access) configuration for a report. |
 | [**getReportByIdAsync()**](ReportsApi.md#getReportByIdAsync) | **GET** /tenants/{tenantId}/analytics/reports/{reportId} | Retrieves a Report by ID. |
 | [**syncLatestVersion()**](ReportsApi.md#syncLatestVersion) | **POST** /tenants/{tenantId}/analytics/reports/synclatestversion | Sync latest version |
 | [**syncWorkspacesAsync()**](ReportsApi.md#syncWorkspacesAsync) | **POST** /tenants/{tenantId}/analytics/reports/sync | Triggers workspace, ODS and DW automation. |
+| [**updateReportAccessAsync()**](ReportsApi.md#updateReportAccessAsync) | **PUT** /tenants/{tenantId}/analytics/reports/{reportId}/access | Updates the audience-targeting (Manage Access) configuration for a report. |
 | [**updateReportAsync()**](ReportsApi.md#updateReportAsync) | **PUT** /tenants/{tenantId}/analytics/reports/{reportId} | Updates a report. |
 
 
@@ -159,7 +162,9 @@ void (empty response body)
 downloadReportAsync($tenantId, $reportId, $groupId): \EdGraph\PlatformClient\Model\AnalyticsApiReportsV1DownloadReportResponse
 ```
 
-Retrieves the PBIX for any report in the list in order to download
+Retrieves the PBIX for any report in the list in order to download.
+
+Admin-only. This resolves the PowerBI artifact straight from its report/group ids, so it  cannot apply the report's audience targeting the way the list and get-by-id paths do.  Restricting it to Analytics.Admin — the role that bypasses audience targeting anyway —  keeps a non-admin from downloading the source of a report they are not granted.
 
 ### Example
 
@@ -267,6 +272,132 @@ try {
 ### Return type
 
 [**\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportPaginatedItemsResponse**](../Model/AnalyticsApiReportsV1ReportPaginatedItemsResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getAnalyticsTenantUsersAsync()`
+
+```php
+getAnalyticsTenantUsersAsync($tenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\IdentityApiUserV1UserListResponsePaginatedItemsViewModel
+```
+
+Searchable, paginated list of tenant users for the Manage Access \"specific users\" picker.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$pageSize = 20; // int | 
+$pageIndex = 0; // int | 
+$orderBy = ''; // string | 
+$filter = ''; // string | 
+
+try {
+    $result = $apiInstance->getAnalyticsTenantUsersAsync($tenantId, $pageSize, $pageIndex, $orderBy, $filter);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->getAnalyticsTenantUsersAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **pageSize** | **int**|  | [optional] [default to 20] |
+| **pageIndex** | **int**|  | [optional] [default to 0] |
+| **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
+| **filter** | **string**|  | [optional] [default to &#39;&#39;] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\IdentityApiUserV1UserListResponsePaginatedItemsViewModel**](../Model/IdentityApiUserV1UserListResponsePaginatedItemsViewModel.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getReportAccessAsync()`
+
+```php
+getReportAccessAsync($tenantId, $reportId): \EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto
+```
+
+Retrieves the audience-targeting (Manage Access) configuration for a report.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$reportId = 'reportId_example'; // string | 
+
+try {
+    $result = $apiInstance->getReportAccessAsync($tenantId, $reportId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->getReportAccessAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **reportId** | **string**|  | |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto**](../Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto.md)
 
 ### Authorization
 
@@ -447,6 +578,68 @@ try {
 ### Return type
 
 **object**
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateReportAccessAsync()`
+
+```php
+updateReportAccessAsync($tenantId, $reportId, $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest): \EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse
+```
+
+Updates the audience-targeting (Manage Access) configuration for a report.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\ReportsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$reportId = 'reportId_example'; // string | 
+$edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest = new \EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest(); // \EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest | 
+
+try {
+    $result = $apiInstance->updateReportAccessAsync($tenantId, $reportId, $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ReportsApi->updateReportAccessAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **reportId** | **string**|  | |
+| **edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest** | [**\EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest**](../Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest.md)|  | [optional] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse**](../Model/AnalyticsApiReportsV1ReportIdResponse.md)
 
 ### Authorization
 

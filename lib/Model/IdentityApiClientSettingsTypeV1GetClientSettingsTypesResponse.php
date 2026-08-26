@@ -395,6 +395,7 @@ class IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse implements M
      * Gets data
      *
      * @return \EdGraph\PlatformClient\Model\IdentityApiClientSettingsTypeV1ClientSettingsTypeResponse[]|null
+     * @deprecated
      */
     public function getData()
     {
@@ -407,6 +408,7 @@ class IdentityApiClientSettingsTypeV1GetClientSettingsTypesResponse implements M
      * @param \EdGraph\PlatformClient\Model\IdentityApiClientSettingsTypeV1ClientSettingsTypeResponse[]|null $data data
      *
      * @return self
+     * @deprecated
      */
     public function setData($data)
     {

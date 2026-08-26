@@ -75,7 +75,8 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         'mfaCompleted' => 'bool',
         'platformRole' => 'string',
         'tenantStatus' => 'string',
-        'tenantAdmin' => 'bool'
+        'tenantAdmin' => 'bool',
+        'status' => 'string'
     ];
 
     /**
@@ -103,7 +104,8 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         'mfaCompleted' => null,
         'platformRole' => null,
         'tenantStatus' => null,
-        'tenantAdmin' => null
+        'tenantAdmin' => null,
+        'status' => null
     ];
 
     /**
@@ -129,7 +131,8 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         'mfaCompleted' => false,
         'platformRole' => true,
         'tenantStatus' => true,
-        'tenantAdmin' => true
+        'tenantAdmin' => true,
+        'status' => true
     ];
 
     /**
@@ -235,7 +238,8 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         'mfaCompleted' => 'mfaCompleted',
         'platformRole' => 'platformRole',
         'tenantStatus' => 'tenantStatus',
-        'tenantAdmin' => 'tenantAdmin'
+        'tenantAdmin' => 'tenantAdmin',
+        'status' => 'status'
     ];
 
     /**
@@ -261,7 +265,8 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         'mfaCompleted' => 'setMfaCompleted',
         'platformRole' => 'setPlatformRole',
         'tenantStatus' => 'setTenantStatus',
-        'tenantAdmin' => 'setTenantAdmin'
+        'tenantAdmin' => 'setTenantAdmin',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -287,7 +292,8 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         'mfaCompleted' => 'getMfaCompleted',
         'platformRole' => 'getPlatformRole',
         'tenantStatus' => 'getTenantStatus',
-        'tenantAdmin' => 'getTenantAdmin'
+        'tenantAdmin' => 'getTenantAdmin',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -365,6 +371,7 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
         $this->setIfExists('platformRole', $data ?? [], null);
         $this->setIfExists('tenantStatus', $data ?? [], null);
         $this->setIfExists('tenantAdmin', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
     }
 
     /**
@@ -1003,6 +1010,40 @@ class IdentityApiUserV2UserProfileResponse implements ModelInterface, ArrayAcces
             }
         }
         $this->container['tenantAdmin'] = $tenantAdmin;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status The user's status across all their tenants: Active if any membership is active, Inactive if every  membership is inactive, Unknown if they have no memberships. Unlike tenantStatus this does not  depend on a tenantId being supplied on the request.
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }

@@ -137,7 +137,7 @@ class MyPreferencesApi
     /**
      * Operation getUserPreferences
      *
-     * Retrieves the user&#39;s preferences.
+     * Retrieves the user&#39;s preferences.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  int|null $pageIndex  (optional, default to 0)
      * @param  int|null $pageSize  (optional, default to 10)
@@ -148,6 +148,7 @@ class MyPreferencesApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\IdentityApiUserV1GetUserPreferencesResponse|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails
+     * @deprecated
      */
     public function getUserPreferences($pageIndex = 0, $pageSize = 10, $orderBy = null, $filter = null, string $contentType = self::contentTypes['getUserPreferences'][0])
     {
@@ -158,7 +159,7 @@ class MyPreferencesApi
     /**
      * Operation getUserPreferencesWithHttpInfo
      *
-     * Retrieves the user&#39;s preferences.
+     * Retrieves the user&#39;s preferences.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  int|null $pageIndex  (optional, default to 0)
      * @param  int|null $pageSize  (optional, default to 10)
@@ -169,6 +170,7 @@ class MyPreferencesApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\IdentityApiUserV1GetUserPreferencesResponse|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getUserPreferencesWithHttpInfo($pageIndex = 0, $pageSize = 10, $orderBy = null, $filter = null, string $contentType = self::contentTypes['getUserPreferences'][0])
     {
@@ -302,7 +304,7 @@ class MyPreferencesApi
     /**
      * Operation getUserPreferencesAsync
      *
-     * Retrieves the user&#39;s preferences.
+     * Retrieves the user&#39;s preferences.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  int|null $pageIndex  (optional, default to 0)
      * @param  int|null $pageSize  (optional, default to 10)
@@ -312,6 +314,7 @@ class MyPreferencesApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getUserPreferencesAsync($pageIndex = 0, $pageSize = 10, $orderBy = null, $filter = null, string $contentType = self::contentTypes['getUserPreferences'][0])
     {
@@ -326,7 +329,7 @@ class MyPreferencesApi
     /**
      * Operation getUserPreferencesAsyncWithHttpInfo
      *
-     * Retrieves the user&#39;s preferences.
+     * Retrieves the user&#39;s preferences.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  int|null $pageIndex  (optional, default to 0)
      * @param  int|null $pageSize  (optional, default to 10)
@@ -336,6 +339,7 @@ class MyPreferencesApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getUserPreferencesAsyncWithHttpInfo($pageIndex = 0, $pageSize = 10, $orderBy = null, $filter = null, string $contentType = self::contentTypes['getUserPreferences'][0])
     {
@@ -389,6 +393,7 @@ class MyPreferencesApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getUserPreferencesRequest($pageIndex = 0, $pageSize = 10, $orderBy = null, $filter = null, string $contentType = self::contentTypes['getUserPreferences'][0])
     {
@@ -505,7 +510,7 @@ class MyPreferencesApi
     /**
      * Operation preference
      *
-     * Retrieves a user&#39;s preference by code.
+     * Retrieves a user&#39;s preference by code.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $code  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['preference'] to see the possible values for this operation
@@ -513,6 +518,7 @@ class MyPreferencesApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails
+     * @deprecated
      */
     public function preference($code, string $contentType = self::contentTypes['preference'][0])
     {
@@ -523,7 +529,7 @@ class MyPreferencesApi
     /**
      * Operation preferenceWithHttpInfo
      *
-     * Retrieves a user&#39;s preference by code.
+     * Retrieves a user&#39;s preference by code.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $code  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['preference'] to see the possible values for this operation
@@ -531,6 +537,7 @@ class MyPreferencesApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function preferenceWithHttpInfo($code, string $contentType = self::contentTypes['preference'][0])
     {
@@ -664,13 +671,14 @@ class MyPreferencesApi
     /**
      * Operation preferenceAsync
      *
-     * Retrieves a user&#39;s preference by code.
+     * Retrieves a user&#39;s preference by code.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $code  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['preference'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function preferenceAsync($code, string $contentType = self::contentTypes['preference'][0])
     {
@@ -685,13 +693,14 @@ class MyPreferencesApi
     /**
      * Operation preferenceAsyncWithHttpInfo
      *
-     * Retrieves a user&#39;s preference by code.
+     * Retrieves a user&#39;s preference by code.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $code  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['preference'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function preferenceAsyncWithHttpInfo($code, string $contentType = self::contentTypes['preference'][0])
     {
@@ -742,6 +751,7 @@ class MyPreferencesApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function preferenceRequest($code, string $contentType = self::contentTypes['preference'][0])
     {
@@ -833,7 +843,7 @@ class MyPreferencesApi
     /**
      * Operation updateUserPreferenceAsync
      *
-     * Creates or update a user&#39;s preference.
+     * Creates or update a user&#39;s preference.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest|null $edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateUserPreferenceAsync'] to see the possible values for this operation
@@ -841,6 +851,7 @@ class MyPreferencesApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\IdentityApiUserV1UserPreferenceUpdatedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @deprecated
      */
     public function updateUserPreferenceAsync($edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest = null, string $contentType = self::contentTypes['updateUserPreferenceAsync'][0])
     {
@@ -851,7 +862,7 @@ class MyPreferencesApi
     /**
      * Operation updateUserPreferenceAsyncWithHttpInfo
      *
-     * Creates or update a user&#39;s preference.
+     * Creates or update a user&#39;s preference.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest|null $edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateUserPreferenceAsync'] to see the possible values for this operation
@@ -859,6 +870,7 @@ class MyPreferencesApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\IdentityApiUserV1UserPreferenceUpdatedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function updateUserPreferenceAsyncWithHttpInfo($edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest = null, string $contentType = self::contentTypes['updateUserPreferenceAsync'][0])
     {
@@ -992,13 +1004,14 @@ class MyPreferencesApi
     /**
      * Operation updateUserPreferenceAsyncAsync
      *
-     * Creates or update a user&#39;s preference.
+     * Creates or update a user&#39;s preference.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest|null $edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateUserPreferenceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function updateUserPreferenceAsyncAsync($edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest = null, string $contentType = self::contentTypes['updateUserPreferenceAsync'][0])
     {
@@ -1013,13 +1026,14 @@ class MyPreferencesApi
     /**
      * Operation updateUserPreferenceAsyncAsyncWithHttpInfo
      *
-     * Creates or update a user&#39;s preference.
+     * Creates or update a user&#39;s preference.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest|null $edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateUserPreferenceAsync'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function updateUserPreferenceAsyncAsyncWithHttpInfo($edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest = null, string $contentType = self::contentTypes['updateUserPreferenceAsync'][0])
     {
@@ -1070,6 +1084,7 @@ class MyPreferencesApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function updateUserPreferenceAsyncRequest($edGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsUpdateUserPreferenceRequest = null, string $contentType = self::contentTypes['updateUserPreferenceAsync'][0])
     {

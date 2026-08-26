@@ -25,6 +25,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**getInstanceEndpoints()**](InstancesApi.md#getInstanceEndpoints) | **GET** /tenants/{tenantId}/oneroster/instances/{instanceId}/endpoints | Retrieves the One Roster endpoint URLs of an Instance. |
 | [**getInstancesAsync()**](InstancesApi.md#getInstancesAsync) | **GET** /tenants/{tenantId}/edfiadmin/instances | Retrieves a list of Instances. |
 | [**getPagedInstances()**](InstancesApi.md#getPagedInstances) | **GET** /tenants/{tenantId}/oneroster/instances | Retrieves a list of Instances. |
+| [**getTenantInstanceByIdV2()**](InstancesApi.md#getTenantInstanceByIdV2) | **GET** /v2/tenants/{tenantId}/instances/{instanceId} | Get Instance by Id |
 | [**getTenantInstancesV2()**](InstancesApi.md#getTenantInstancesV2) | **GET** /v2/tenants/{tenantId}/instances | Get list of all instances for a tenant - V2 |
 | [**isInstanceCustomIdAvailable()**](InstancesApi.md#isInstanceCustomIdAvailable) | **GET** /tenants/{tenantId}/oneroster/instances/isinstancecustomidavailable/{customId} | Validate if instance is available |
 | [**loadApiMetadata()**](InstancesApi.md#loadApiMetadata) | **POST** /tenants/{tenantId}/edfiadmin/api-metadata | Loads connection metadata. |
@@ -1193,6 +1194,66 @@ try {
 ### Return type
 
 [**\EdGraph\PlatformClient\Model\IMSAdminApiV1InstancesPagedInstancesResponse**](../Model/IMSAdminApiV1InstancesPagedInstancesResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTenantInstanceByIdV2()`
+
+```php
+getTenantInstanceByIdV2($tenantId, $instanceId): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse
+```
+
+Get Instance by Id
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\InstancesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$instanceId = 'instanceId_example'; // string | 
+
+try {
+    $result = $apiInstance->getTenantInstanceByIdV2($tenantId, $instanceId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InstancesApi->getTenantInstanceByIdV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **instanceId** | **string**|  | |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse.md)
 
 ### Authorization
 

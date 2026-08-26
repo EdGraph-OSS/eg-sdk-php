@@ -18,11 +18,11 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/EdGraph-OSS/php-sdk.git"
+      "url": "https://github.com/EdGraph-OSS/eg-sdk-php.git"
     }
   ],
   "require": {
-    "EdGraph-OSS/php-sdk": "*@dev"
+    "EdGraph-OSS/eg-sdk-php": "*@dev"
   }
 }
 ```
@@ -114,6 +114,13 @@ Class | Method | HTTP request | Description
 *CategoriesApi* | [**uploadStateReportingCategory**](docs/Api/CategoriesApi.md#uploadstatereportingcategory) | **POST** /tenants/{tenantId}/statereporting/categories/upload | Upload a Category via a JSON file.
 *CategoriesApi* | [**uploadStateReportingPeriodsFromCategoryJson**](docs/Api/CategoriesApi.md#uploadstatereportingperiodsfromcategoryjson) | **POST** /tenants/{tenantId}/statereporting/environments/{environmentId}/reportingperiods/upload | Upload a Category via a JSON file.
 *ChangeLogsApi* | [**getAllChangesAsync**](docs/Api/ChangeLogsApi.md#getallchangesasync) | **GET** /tenants/{tenantId}/changes | 
+*ClientBrandingApi* | [**getClientBrandingAsync**](docs/Api/ClientBrandingApi.md#getclientbrandingasync) | **GET** /clients/{clientId}/branding | Public (unauthenticated) read of a client&#39;s branding for the sign-in and other pre-auth  surfaces (Azure DevOps #17086). Returns only render fields + the override flag — never secrets,  storage internals, or other client configuration.
+*ClientSettingsApi* | [**createClientSetting**](docs/Api/ClientSettingsApi.md#createclientsetting) | **POST** /v2/tenants/{tenantId}/clients/{clientId}/settings | Create a Client-scope setting
+*ClientSettingsApi* | [**deleteClientSetting**](docs/Api/ClientSettingsApi.md#deleteclientsetting) | **DELETE** /v2/tenants/{tenantId}/clients/{clientId}/settings/{settingIdOrCode} | Delete the Client-scope setting for a key, addressed by SettingType id or Code
+*ClientSettingsApi* | [**getClientSetting**](docs/Api/ClientSettingsApi.md#getclientsetting) | **GET** /v2/tenants/{tenantId}/clients/{clientId}/settings/{settingIdOrCode} | Get a Client-scope setting
+*ClientSettingsApi* | [**searchClientSettings**](docs/Api/ClientSettingsApi.md#searchclientsettings) | **GET** /v2/tenants/{tenantId}/clients/{clientId}/settings | List Client-scope settings
+*ClientSettingsApi* | [**setClientSetting**](docs/Api/ClientSettingsApi.md#setclientsetting) | **PUT** /v2/tenants/{tenantId}/clients/{clientId}/settings | Create or update (upsert) a Client-scope setting, addressed by the SettingTypeId in the body
+*ClientSettingsApi* | [**updateClientSetting**](docs/Api/ClientSettingsApi.md#updateclientsetting) | **PUT** /v2/tenants/{tenantId}/clients/{clientId}/settings/{settingIdOrCode} | Update the Client-scope setting for a key, addressed by SettingType id or Code
 *ClientsSecretsApi* | [**addClientSecret**](docs/Api/ClientsSecretsApi.md#addclientsecret) | **POST** /tenants/{tenantId}/oneroster/instances/{instanceId}/clients/{clientId}/secrets | Creates a new secret for an OpenId client
 *ClientsSecretsApi* | [**regenerateOneRosterApiClientSecretAsync**](docs/Api/ClientsSecretsApi.md#regenerateonerosterapiclientsecretasync) | **PUT** /tenants/{tenantId}/oneroster/instances/{instanceId}/clients/{clientId}/regeneratesecret | Regenerate Client Secret
 *CollectionsApi* | [**createCollection**](docs/Api/CollectionsApi.md#createcollection) | **POST** /tenants/{tenantId}/validations/collections | Creates a Collection.
@@ -182,6 +189,16 @@ Class | Method | HTTP request | Description
 *EdFiSyncApi* | [**executeEdFiSyncJob**](docs/Api/EdFiSyncApi.md#executeedfisyncjob) | **PUT** /tenants/{tenantId}/jobs/edfisync/execute | Executes an Ed-Fi Sync Job
 *EdFiSyncApi* | [**getEdFiSyncData**](docs/Api/EdFiSyncApi.md#getedfisyncdata) | **GET** /tenants/{tenantId}/jobs/edfisync | Retrieves Ed-Fi Sync Connection Data for a given tenant
 *EdFiSyncApi* | [**updateEdFiSync**](docs/Api/EdFiSyncApi.md#updateedfisync) | **PUT** /tenants/{tenantId}/jobs/edfisync | Updates an Ed-Fi Sync for a given tenant
+*EnrollmentAdminApplicationsApi* | [**getEnrollmentApplication**](docs/Api/EnrollmentAdminApplicationsApi.md#getenrollmentapplication) | **GET** /tenants/{tenantId}/enrollmentadmin/applications/{applicationId} | Gets an Enrollment Application.
+*EnrollmentAdminApplicationsApi* | [**getEnrollmentApplications**](docs/Api/EnrollmentAdminApplicationsApi.md#getenrollmentapplications) | **GET** /tenants/{tenantId}/enrollmentadmin/applications | Searches Enrollment Applications.
+*EnrollmentAdminContactsApi* | [**getEnrollmentContactById**](docs/Api/EnrollmentAdminContactsApi.md#getenrollmentcontactbyid) | **GET** /tenants/{tenantId}/enrollmentadmin/contacts/{id} | Gets an Enrollment Contact by its record id, with its linked students.
+*EnrollmentAdminContactsApi* | [**getEnrollmentContacts**](docs/Api/EnrollmentAdminContactsApi.md#getenrollmentcontacts) | **GET** /tenants/{tenantId}/enrollmentadmin/contacts | Searches Enrollment Contacts.
+*EnrollmentAdminSchoolsApi* | [**getEnrollmentSchool**](docs/Api/EnrollmentAdminSchoolsApi.md#getenrollmentschool) | **GET** /tenants/{tenantId}/enrollmentadmin/schools/code/{code} | Gets an Enrollment School by its school code, with the programs it runs.
+*EnrollmentAdminSchoolsApi* | [**getEnrollmentSchoolById**](docs/Api/EnrollmentAdminSchoolsApi.md#getenrollmentschoolbyid) | **GET** /tenants/{tenantId}/enrollmentadmin/schools/{id} | Gets an Enrollment School by its record id, with the programs it runs.
+*EnrollmentAdminSchoolsApi* | [**getEnrollmentSchools**](docs/Api/EnrollmentAdminSchoolsApi.md#getenrollmentschools) | **GET** /tenants/{tenantId}/enrollmentadmin/schools | Searches Enrollment Schools.
+*EnrollmentAdminSchoolsApi* | [**setEnrollmentSchoolEnabled**](docs/Api/EnrollmentAdminSchoolsApi.md#setenrollmentschoolenabled) | **PUT** /tenants/{tenantId}/enrollmentadmin/schools/code/{code}/enabled | Enables or disables an Enrollment School.
+*EnrollmentAdminStudentsApi* | [**getEnrollmentStudent**](docs/Api/EnrollmentAdminStudentsApi.md#getenrollmentstudent) | **GET** /tenants/{tenantId}/enrollmentadmin/students/{studentId} | Gets an Enrollment Student.
+*EnrollmentAdminStudentsApi* | [**getEnrollmentStudents**](docs/Api/EnrollmentAdminStudentsApi.md#getenrollmentstudents) | **GET** /tenants/{tenantId}/enrollmentadmin/students | Searches Enrollment Students.
 *EnvironmentsApi* | [**createEnvironment**](docs/Api/EnvironmentsApi.md#createenvironment) | **POST** /tenants/{tenantId}/validations/environments | Creates an Environment.
 *EnvironmentsApi* | [**createStateReportingEnvironment**](docs/Api/EnvironmentsApi.md#createstatereportingenvironment) | **POST** /tenants/{tenantId}/statereporting/environments | Creates a new Environment.
 *EnvironmentsApi* | [**deleteEnvironment**](docs/Api/EnvironmentsApi.md#deleteenvironment) | **DELETE** /tenants/{tenantId}/validations/environments/{environmentId} | Deletes an Environment.
@@ -290,6 +307,7 @@ Class | Method | HTTP request | Description
 *InstancesApi* | [**getInstanceEndpoints**](docs/Api/InstancesApi.md#getinstanceendpoints) | **GET** /tenants/{tenantId}/oneroster/instances/{instanceId}/endpoints | Retrieves the One Roster endpoint URLs of an Instance.
 *InstancesApi* | [**getInstancesAsync**](docs/Api/InstancesApi.md#getinstancesasync) | **GET** /tenants/{tenantId}/edfiadmin/instances | Retrieves a list of Instances.
 *InstancesApi* | [**getPagedInstances**](docs/Api/InstancesApi.md#getpagedinstances) | **GET** /tenants/{tenantId}/oneroster/instances | Retrieves a list of Instances.
+*InstancesApi* | [**getTenantInstanceByIdV2**](docs/Api/InstancesApi.md#gettenantinstancebyidv2) | **GET** /v2/tenants/{tenantId}/instances/{instanceId} | Get Instance by Id
 *InstancesApi* | [**getTenantInstancesV2**](docs/Api/InstancesApi.md#gettenantinstancesv2) | **GET** /v2/tenants/{tenantId}/instances | Get list of all instances for a tenant - V2
 *InstancesApi* | [**isInstanceCustomIdAvailable**](docs/Api/InstancesApi.md#isinstancecustomidavailable) | **GET** /tenants/{tenantId}/oneroster/instances/isinstancecustomidavailable/{customId} | Validate if instance is available
 *InstancesApi* | [**loadApiMetadata**](docs/Api/InstancesApi.md#loadapimetadata) | **POST** /tenants/{tenantId}/edfiadmin/api-metadata | Loads connection metadata.
@@ -429,14 +447,20 @@ Class | Method | HTTP request | Description
 *JobsApi* | [**updateJob**](docs/Api/JobsApi.md#updatejob) | **PUT** /tenants/{tenantId}/validations/jobs/{jobId} | Updates a Job.
 *JobsApi* | [**updateTenantDataSyncJob**](docs/Api/JobsApi.md#updatetenantdatasyncjob) | **PUT** /tenants/{tenantId}/datasync/jobs/{jobId} | Updates a DataSync job matching the primary key
 *LogsApi* | [**getLogs**](docs/Api/LogsApi.md#getlogs) | **GET** /tenants/{tenantId}/validations/logs | Retrieves a list of Logs.
-*MyExtensionsApi* | [**removeUserExtension**](docs/Api/MyExtensionsApi.md#removeuserextension) | **DELETE** /me/extensions/{code} | Removes a user&#39;s profile extension.
-*MyExtensionsApi* | [**setUserExtension**](docs/Api/MyExtensionsApi.md#setuserextension) | **POST** /me/extensions | Creates or update a user&#39;s profile extension.
-*MyPreferencesApi* | [**getUserPreferences**](docs/Api/MyPreferencesApi.md#getuserpreferences) | **GET** /me/preferences | Retrieves the user&#39;s preferences.
-*MyPreferencesApi* | [**preference**](docs/Api/MyPreferencesApi.md#preference) | **GET** /me/preferences/{code} | Retrieves a user&#39;s preference by code.
-*MyPreferencesApi* | [**updateUserPreferenceAsync**](docs/Api/MyPreferencesApi.md#updateuserpreferenceasync) | **POST** /me/preferences | Creates or update a user&#39;s preference.
+*MyExtensionsApi* | [**removeUserExtension**](docs/Api/MyExtensionsApi.md#removeuserextension) | **DELETE** /me/extensions/{code} | Removes a user&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
+*MyExtensionsApi* | [**setUserExtension**](docs/Api/MyExtensionsApi.md#setuserextension) | **POST** /me/extensions | Creates or update a user&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
+*MyPreferencesApi* | [**getUserPreferences**](docs/Api/MyPreferencesApi.md#getuserpreferences) | **GET** /me/preferences | Retrieves the user&#39;s preferences.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
+*MyPreferencesApi* | [**preference**](docs/Api/MyPreferencesApi.md#preference) | **GET** /me/preferences/{code} | Retrieves a user&#39;s preference by code.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
+*MyPreferencesApi* | [**updateUserPreferenceAsync**](docs/Api/MyPreferencesApi.md#updateuserpreferenceasync) | **POST** /me/preferences | Creates or update a user&#39;s preference.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
 *MyProfileApi* | [**getMyProfile**](docs/Api/MyProfileApi.md#getmyprofile) | **GET** /v2/me | Get the profile of the user that is currently logged in.
 *MyProfileApi* | [**getMyTenant**](docs/Api/MyProfileApi.md#getmytenant) | **GET** /v2/me/tenants/{tenantId} | Get the tenant associated to the user.
 *MyProfileApi* | [**getUserCacheAsync**](docs/Api/MyProfileApi.md#getusercacheasync) | **GET** /me | Retrieves the profile of the user that is currently logged in, including the user&#39;s preferences and its associated tenants
+*MySettingsApi* | [**createMySetting**](docs/Api/MySettingsApi.md#createmysetting) | **POST** /me/settings | Create a User-scope setting
+*MySettingsApi* | [**deleteMySetting**](docs/Api/MySettingsApi.md#deletemysetting) | **DELETE** /me/settings/{settingIdOrCode} | Delete the User-scope setting for a key, addressed by SettingType id or Code
+*MySettingsApi* | [**getMySetting**](docs/Api/MySettingsApi.md#getmysetting) | **GET** /me/settings/{settingIdOrCode} | Get a User-scope setting
+*MySettingsApi* | [**searchMySettings**](docs/Api/MySettingsApi.md#searchmysettings) | **GET** /me/settings | List User-scope settings
+*MySettingsApi* | [**setMySetting**](docs/Api/MySettingsApi.md#setmysetting) | **PUT** /me/settings | Create or update (upsert) a User-scope setting, addressed by the SettingTypeId in the body
+*MySettingsApi* | [**updateMySetting**](docs/Api/MySettingsApi.md#updatemysetting) | **PUT** /me/settings/{settingIdOrCode} | Update the User-scope setting for a key, addressed by SettingType id or Code
 *MyTenantsApi* | [**getUserTenants**](docs/Api/MyTenantsApi.md#getusertenants) | **GET** /me/tenants | Retrieves the Tenants of the User that is currently logged in.
 *MyTenantsApi* | [**searchMyLicenses**](docs/Api/MyTenantsApi.md#searchmylicenses) | **GET** /v2/me/tenants/{tenantId}/licenses | Search the user&#39;s licenses.
 *MyTenantsApi* | [**searchMyTenants**](docs/Api/MyTenantsApi.md#searchmytenants) | **GET** /v2/me/tenants | Searches tenants associated to the user.
@@ -522,11 +546,14 @@ Class | Method | HTTP request | Description
 *ReportingPeriodsApi* | [**updateReportingPeriodBulk**](docs/Api/ReportingPeriodsApi.md#updatereportingperiodbulk) | **PUT** /tenants/{tenantId}/statereporting/reportingperiods | Updates Reporting Periods in bulk.
 *ReportsApi* | [**createReportAsync**](docs/Api/ReportsApi.md#createreportasync) | **POST** /tenants/{tenantId}/analytics/reports | Creates a new report (Does not upload pbix file).
 *ReportsApi* | [**deleteReportAsync**](docs/Api/ReportsApi.md#deletereportasync) | **DELETE** /tenants/{tenantId}/analytics/reports/{reportId} | Removes a report.
-*ReportsApi* | [**downloadReportAsync**](docs/Api/ReportsApi.md#downloadreportasync) | **GET** /tenants/{tenantId}/analytics/reports/download/{reportId}/{groupId} | Retrieves the PBIX for any report in the list in order to download
+*ReportsApi* | [**downloadReportAsync**](docs/Api/ReportsApi.md#downloadreportasync) | **GET** /tenants/{tenantId}/analytics/reports/download/{reportId}/{groupId} | Retrieves the PBIX for any report in the list in order to download.
 *ReportsApi* | [**getAllTenantAnalyticsWorkspaceReportsAsync**](docs/Api/ReportsApi.md#getalltenantanalyticsworkspacereportsasync) | **GET** /tenants/{tenantId}/analytics/reports | Retrieves all reports.
+*ReportsApi* | [**getAnalyticsTenantUsersAsync**](docs/Api/ReportsApi.md#getanalyticstenantusersasync) | **GET** /tenants/{tenantId}/analytics/users | Searchable, paginated list of tenant users for the Manage Access \&quot;specific users\&quot; picker.
+*ReportsApi* | [**getReportAccessAsync**](docs/Api/ReportsApi.md#getreportaccessasync) | **GET** /tenants/{tenantId}/analytics/reports/{reportId}/access | Retrieves the audience-targeting (Manage Access) configuration for a report.
 *ReportsApi* | [**getReportByIdAsync**](docs/Api/ReportsApi.md#getreportbyidasync) | **GET** /tenants/{tenantId}/analytics/reports/{reportId} | Retrieves a Report by ID.
 *ReportsApi* | [**syncLatestVersion**](docs/Api/ReportsApi.md#synclatestversion) | **POST** /tenants/{tenantId}/analytics/reports/synclatestversion | Sync latest version
 *ReportsApi* | [**syncWorkspacesAsync**](docs/Api/ReportsApi.md#syncworkspacesasync) | **POST** /tenants/{tenantId}/analytics/reports/sync | Triggers workspace, ODS and DW automation.
+*ReportsApi* | [**updateReportAccessAsync**](docs/Api/ReportsApi.md#updatereportaccessasync) | **PUT** /tenants/{tenantId}/analytics/reports/{reportId}/access | Updates the audience-targeting (Manage Access) configuration for a report.
 *ReportsApi* | [**updateReportAsync**](docs/Api/ReportsApi.md#updatereportasync) | **PUT** /tenants/{tenantId}/analytics/reports/{reportId} | Updates a report.
 *RulesApi* | [**createRule**](docs/Api/RulesApi.md#createrule) | **POST** /tenants/{tenantId}/validations/rules | Creates a Rule.
 *RulesApi* | [**deleteRule**](docs/Api/RulesApi.md#deleterule) | **DELETE** /tenants/{tenantId}/validations/rules/{ruleId} | Deletes a Rule.
@@ -546,9 +573,9 @@ Class | Method | HTTP request | Description
 *SectionsApi* | [**getSections**](docs/Api/SectionsApi.md#getsections) | **GET** /tenants/{tenantId}/sections | Retrieves a list of Sections.
 *SectionsApi* | [**searchSections**](docs/Api/SectionsApi.md#searchsections) | **GET** /tenants/{tenantId}/forms/{formId}/sections | Search Sections
 *SectionsApi* | [**updateSection**](docs/Api/SectionsApi.md#updatesection) | **PUT** /tenants/{tenantId}/forms/{formId}/sections/{sectionId} | Updates a Section.
-*SettingsApi* | [**getTenantSettings**](docs/Api/SettingsApi.md#gettenantsettings) | **GET** /tenants/{tenantId}/settings | Retrieves a list of the Tenant&#39;s settings.
-*SettingsApi* | [**getTenantSettingsByCode**](docs/Api/SettingsApi.md#gettenantsettingsbycode) | **GET** /tenants/{tenantId}/settings/{code} | Retrieves a Tenant&#39;s settings by code.
-*SettingsApi* | [**setTenantSettings**](docs/Api/SettingsApi.md#settenantsettings) | **POST** /tenants/{tenantId}/settings/{code} | Creates/updates a Tenant&#39;s settings.
+*SettingsApi* | [**getTenantSettings**](docs/Api/SettingsApi.md#gettenantsettings) | **GET** /tenants/{tenantId}/settings | Retrieves a list of the Tenant&#39;s settings.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
+*SettingsApi* | [**getTenantSettingsByCode**](docs/Api/SettingsApi.md#gettenantsettingsbycode) | **GET** /tenants/{tenantId}/settings/{code} | Retrieves a Tenant&#39;s settings by code.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
+*SettingsApi* | [**setTenantSettings**](docs/Api/SettingsApi.md#settenantsettings) | **POST** /tenants/{tenantId}/settings/{code} | Creates/updates a Tenant&#39;s settings.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
 *StaffClassificationsApi* | [**createStaffClassification**](docs/Api/StaffClassificationsApi.md#createstaffclassification) | **POST** /tenants/{tenantId}/staffclassifications | Creates a StaffClassification.
 *StaffClassificationsApi* | [**deleteStaffClassification**](docs/Api/StaffClassificationsApi.md#deletestaffclassification) | **DELETE** /tenants/{tenantId}/staffclassifications/{staffClassificationId} | Deletes a StaffClassification.
 *StaffClassificationsApi* | [**getStaffClassificationById**](docs/Api/StaffClassificationsApi.md#getstaffclassificationbyid) | **GET** /tenants/{tenantId}/staffclassifications/{staffClassificationId} | Retrieves a StaffClassification by ID.
@@ -597,6 +624,12 @@ Class | Method | HTTP request | Description
 *TenantSecurityScoreSyncApi* | [**getSecurityScoreSyncJobExecution**](docs/Api/TenantSecurityScoreSyncApi.md#getsecurityscoresyncjobexecution) | **GET** /tenants/{tenantId}/jobs/securityscore/{jobId}/executions/{jobExecutionId} | Retrieves a Security Score Sync Job Execution for a given tenant
 *TenantSecurityScoreSyncApi* | [**updateSecurityScoreSyncJob**](docs/Api/TenantSecurityScoreSyncApi.md#updatesecurityscoresyncjob) | **PUT** /tenants/{tenantId}/jobs/securityscore | Updates a Security Score Sync for a given tenant
 *TenantSettingTypesApi* | [**getAllSettingTypes**](docs/Api/TenantSettingTypesApi.md#getallsettingtypes) | **GET** /tenants/settings | Retrieves all setting types
+*TenantSettingsApi* | [**createTenantSetting**](docs/Api/TenantSettingsApi.md#createtenantsetting) | **POST** /v2/tenants/{tenantId}/settings | Create a Tenant-scope setting
+*TenantSettingsApi* | [**deleteTenantSetting**](docs/Api/TenantSettingsApi.md#deletetenantsetting) | **DELETE** /v2/tenants/{tenantId}/settings/{settingIdOrCode} | Delete the Tenant-scope setting for a key, addressed by SettingType id or Code
+*TenantSettingsApi* | [**getTenantSetting**](docs/Api/TenantSettingsApi.md#gettenantsetting) | **GET** /v2/tenants/{tenantId}/settings/{settingIdOrCode} | Get a Tenant-scope setting
+*TenantSettingsApi* | [**searchTenantSettings**](docs/Api/TenantSettingsApi.md#searchtenantsettings) | **GET** /v2/tenants/{tenantId}/settings | List Tenant-scope settings
+*TenantSettingsApi* | [**setTenantSetting**](docs/Api/TenantSettingsApi.md#settenantsetting) | **PUT** /v2/tenants/{tenantId}/settings | Create or update (upsert) a Tenant-scope setting, addressed by the SettingTypeId in the body
+*TenantSettingsApi* | [**updateTenantSetting**](docs/Api/TenantSettingsApi.md#updatetenantsetting) | **PUT** /v2/tenants/{tenantId}/settings/{settingIdOrCode} | Update the Tenant-scope setting for a key, addressed by SettingType id or Code
 *TenantsApi* | [**getTenantByIdAsync**](docs/Api/TenantsApi.md#gettenantbyidasync) | **GET** /tenants/{tenantId} | Retrieves the profile of a specific tenant
 *TenantsApi* | [**updateTenantAsync**](docs/Api/TenantsApi.md#updatetenantasync) | **PUT** /tenants/{tenantId} | Updates a tenant&#39;s profile
 *UsersApi* | [**activateTenantUserAsync**](docs/Api/UsersApi.md#activatetenantuserasync) | **PUT** /tenants/{tenantId}/users/{userId}/activate | Activates a user
@@ -636,10 +669,7 @@ Class | Method | HTTP request | Description
 *UsersSectionsApi* | [**removeUserSectionBulk**](docs/Api/UsersSectionsApi.md#removeusersectionbulk) | **DELETE** /tenants/{tenantId}/users/{userId}/sections/bulk | Removes Sections from a user in bulk.
 *UsersSectionsApi* | [**updateUserSection**](docs/Api/UsersSectionsApi.md#updateusersection) | **PUT** /tenants/{tenantId}/users/{userId}/sections/{userSectionId} | Updates the Section of a user.
 *UsersSectionsApi* | [**updateUserSectionBulk**](docs/Api/UsersSectionsApi.md#updateusersectionbulk) | **PUT** /tenants/{tenantId}/users/{userId}/sections/bulk | Updates the Section of a user in bulk.
-*V1Api* | [**getStudentProfile**](docs/Api/V1Api.md#getstudentprofile) | **GET** /tenants/{tenantId}/students/{id} | Returns the admin profile for a single student.
-*V1Api* | [**getStudents**](docs/Api/V1Api.md#getstudents) | **GET** /tenants/{tenantId}/students | Returns a paginated list of students for the given tenant.
 *V1Api* | [**releaseUserLockout**](docs/Api/V1Api.md#releaseuserlockout) | **PUT** /tenants/{tenantId}/users/{userId}/releaselockout | 
-*V1Api* | [**updateStudentContacts**](docs/Api/V1Api.md#updatestudentcontacts) | **PUT** /tenants/{tenantId}/{studentId}/contacts | Updates the contact overrides for a student.
 *ValidationResultsAPIApi* | [**findResultsApiJobRunRecordsAsync**](docs/Api/ValidationResultsAPIApi.md#findresultsapijobrunrecordsasync) | **GET** /tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/records | Retrieves a list of Job Run Records from the Validation Results API.
 *ValidationResultsAPIApi* | [**findResultsApiJobRunRuleRecordsAsync**](docs/Api/ValidationResultsAPIApi.md#findresultsapijobrunrulerecordsasync) | **GET** /tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/rules/{ruleId}/records | Retrieves a list of Job Run Rule Records from the Validation Results API.
 *ValidationResultsAPIApi* | [**findResultsApiJobRunRulesAsync**](docs/Api/ValidationResultsAPIApi.md#findresultsapijobrunrulesasync) | **GET** /tenants/{tenantId}/validations/results-api/jobs/{jobId}/runs/{runId}/rules | Retrieves a list of Job Run Rules from the Validation Results API.
@@ -781,6 +811,7 @@ Class | Method | HTTP request | Description
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsCreateOnboardingStepRequestDto.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsAddEducationOrganizationRequest.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEducationOrganizationsUpdateEducationOrganizationRequest.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEnrollmentAdminSetSchoolEnabledRequestDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsEnrollmentAdminSetSchoolEnabledRequestDto.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQuestionRequestDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQuestionRequestDto.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQuestionValidationRequestDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsCreateQuestionValidationRequestDto.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQuestionRequestDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsFormsUpdateQuestionRequestDto.md)
@@ -811,6 +842,14 @@ Class | Method | HTTP request | Description
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsValidationsCreateValidationJobRequest](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsRequestsValidationsCreateValidationJobRequest.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDto.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesDomainListResponseDtoPaginatedItemsViewModel.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminContactResponseDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminContactResponseDto.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminContactResponseDtoPaginatedItemsViewModel](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminContactResponseDtoPaginatedItemsViewModel.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminContactStudentResponseDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminContactStudentResponseDto.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminSchoolEnabledResponseDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminSchoolEnabledResponseDto.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminSchoolListItemResponseDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminSchoolListItemResponseDto.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminSchoolListItemResponseDtoPaginatedItemsViewModel](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminSchoolListItemResponseDtoPaginatedItemsViewModel.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminSchoolProgramResponseDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminSchoolProgramResponseDto.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminSchoolResponseDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentAdminSchoolResponseDto.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponse](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponse.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserSearchStatus](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserSearchStatus.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraisersSearchedResponse.md)
@@ -833,12 +872,20 @@ Class | Method | HTTP request | Description
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesValidationResultsApiRecordsRecordDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesValidationResultsApiRecordsRecordDto.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesValidationResultsApiRulesRuleDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesValidationResultsApiRulesRuleDto.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesValidationResultsApiRunsRunDto](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesValidationResultsApiRunsRunDto.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV2CreateClientSettingRequestBody](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2CreateClientSettingRequestBody.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV2CreateTenantSettingRequestBody](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2CreateTenantSettingRequestBody.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV2DeleteClientSettingRequestBody](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2DeleteClientSettingRequestBody.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV2DeleteTenantSettingRequestBody](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2DeleteTenantSettingRequestBody.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV2RequestsAddSeoaaRequest](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2RequestsAddSeoaaRequest.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2RequestsUpdateSeoaaRequest.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicense.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseRole](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseRole.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResult](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResult.md)
 - [EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResultBulk](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2ResponsesUserLicenseSearchResultBulk.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV2SetClientSettingRequestBody](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2SetClientSettingRequestBody.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV2SetTenantSettingRequestBody](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2SetTenantSettingRequestBody.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV2UpdateClientSettingRequestBody](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2UpdateClientSettingRequestBody.md)
+- [EdGraphHttpAggregatorsTenantApiControllersV2UpdateTenantSettingRequestBody](docs/Model/EdGraphHttpAggregatorsTenantApiControllersV2UpdateTenantSettingRequestBody.md)
 - [EdGraphHttpAggregatorsTenantApiServicesConnectorsExtensionsADLSGen2ConnectorProfileDTO](docs/Model/EdGraphHttpAggregatorsTenantApiServicesConnectorsExtensionsADLSGen2ConnectorProfileDTO.md)
 - [EdGraphHttpAggregatorsTenantApiServicesConnectorsExtensionsADLSGen2ConnectorProfilePipelineDTO](docs/Model/EdGraphHttpAggregatorsTenantApiServicesConnectorsExtensionsADLSGen2ConnectorProfilePipelineDTO.md)
 - [EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesConnectorByTypeCreatedResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesConnectorsResponsesConnectorByTypeCreatedResponse.md)
@@ -918,11 +965,18 @@ Class | Method | HTTP request | Description
 - [EdGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionByTypeRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionByTypeRequest.md)
 - [EdGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionResponse](docs/Model/EdGraphHttpAggregatorsTenantApiServicesStateReportingV1TestConnectionResponse.md)
 - [EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest](docs/Model/EdGraphHttpAggregatorsTenantApiServicesStateReportingV1UpdateConnectionRequest.md)
+- [EdGraphPlatformHttpAggregatorsTenantApiControllersV1CreateMySettingRequestBody](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1CreateMySettingRequestBody.md)
+- [EdGraphPlatformHttpAggregatorsTenantApiControllersV1DeleteMySettingRequestBody](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1DeleteMySettingRequestBody.md)
+- [EdGraphPlatformHttpAggregatorsTenantApiControllersV1SetMySettingRequestBody](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1SetMySettingRequestBody.md)
+- [EdGraphPlatformHttpAggregatorsTenantApiControllersV1UpdateMySettingRequestBody](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1UpdateMySettingRequestBody.md)
+- [EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest.md)
 - [EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationRole](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationRole.md)
 - [EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTileResponseWithUserApplicationLicense](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTileResponseWithUserApplicationLicense.md)
 - [EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTilesResponseWithUserApplicationLicense](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationTilesResponseWithUserApplicationLicense.md)
 - [EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesApplicationUrl.md)
+- [EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesClientBrandingResponse](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesClientBrandingResponse.md)
 - [EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesConnectionEdFiResponse](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesConnectionEdFiResponse.md)
+- [EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto.md)
 - [EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesTenantStatus.md)
 - [EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheResponse.md)
 - [EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantEducationOrganizationResponse](docs/Model/EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesUserCacheTenantEducationOrganizationResponse.md)
@@ -1149,6 +1203,15 @@ Class | Method | HTTP request | Description
 - [EdfiAdminApiEdfiAdminV1VendorListResponsePaginatedItemsViewModel](docs/Model/EdfiAdminApiEdfiAdminV1VendorListResponsePaginatedItemsViewModel.md)
 - [EdfiAdminApiEdfiAdminV1VendorProfileResponse](docs/Model/EdfiAdminApiEdfiAdminV1VendorProfileResponse.md)
 - [EdfiAdminApiEdfiAdminV1VendorUpdatedResponse](docs/Model/EdfiAdminApiEdfiAdminV1VendorUpdatedResponse.md)
+- [EnrollmentApiEnrollmentApplicationResponsesV1ApplicationProfileMessage](docs/Model/EnrollmentApiEnrollmentApplicationResponsesV1ApplicationProfileMessage.md)
+- [EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseContactMessage](docs/Model/EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseContactMessage.md)
+- [EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseResponse](docs/Model/EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseResponse.md)
+- [EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseStepMessage](docs/Model/EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseStepMessage.md)
+- [EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponsesSearchResponse](docs/Model/EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponsesSearchResponse.md)
+- [EnrollmentApiEnrollmentStudentsV1AllowedApplicationProfileIdMessage](docs/Model/EnrollmentApiEnrollmentStudentsV1AllowedApplicationProfileIdMessage.md)
+- [EnrollmentApiEnrollmentStudentsV1StudentContactMessage](docs/Model/EnrollmentApiEnrollmentStudentsV1StudentContactMessage.md)
+- [EnrollmentApiEnrollmentStudentsV1StudentResponse](docs/Model/EnrollmentApiEnrollmentStudentsV1StudentResponse.md)
+- [EnrollmentApiEnrollmentStudentsV1StudentsSearchResponse](docs/Model/EnrollmentApiEnrollmentStudentsV1StudentsSearchResponse.md)
 - [EvaluationApiEvaluationSettingsV1ApplicationSetResponse](docs/Model/EvaluationApiEvaluationSettingsV1ApplicationSetResponse.md)
 - [EvaluationApiEvaluationSettingsV1EvaluationSettingResponse](docs/Model/EvaluationApiEvaluationSettingsV1EvaluationSettingResponse.md)
 - [EvaluationApiEvaluationSettingsV1FormConfigurationResponse](docs/Model/EvaluationApiEvaluationSettingsV1FormConfigurationResponse.md)
@@ -1319,6 +1382,8 @@ Class | Method | HTTP request | Description
 - [IdentityApiUserV1AddSectionBulkRequest](docs/Model/IdentityApiUserV1AddSectionBulkRequest.md)
 - [IdentityApiUserV1AddSectionBulkRequestTypesSectionDto](docs/Model/IdentityApiUserV1AddSectionBulkRequestTypesSectionDto.md)
 - [IdentityApiUserV1AddSectionRequest](docs/Model/IdentityApiUserV1AddSectionRequest.md)
+- [IdentityApiUserV1ComputedLicense](docs/Model/IdentityApiUserV1ComputedLicense.md)
+- [IdentityApiUserV1ComputedLicenseApplicationRole](docs/Model/IdentityApiUserV1ComputedLicenseApplicationRole.md)
 - [IdentityApiUserV1DeactivateUserRequest](docs/Model/IdentityApiUserV1DeactivateUserRequest.md)
 - [IdentityApiUserV1EducationOrganization](docs/Model/IdentityApiUserV1EducationOrganization.md)
 - [IdentityApiUserV1EducationOrganizationAddedResponse](docs/Model/IdentityApiUserV1EducationOrganizationAddedResponse.md)
@@ -1332,6 +1397,7 @@ Class | Method | HTTP request | Description
 - [IdentityApiUserV1LicenseAssignedResponse](docs/Model/IdentityApiUserV1LicenseAssignedResponse.md)
 - [IdentityApiUserV1LicenseRevokedBulkResponse](docs/Model/IdentityApiUserV1LicenseRevokedBulkResponse.md)
 - [IdentityApiUserV1LicenseRevokedResponse](docs/Model/IdentityApiUserV1LicenseRevokedResponse.md)
+- [IdentityApiUserV1LicenseStatus](docs/Model/IdentityApiUserV1LicenseStatus.md)
 - [IdentityApiUserV1LocalUserCreatedResponse](docs/Model/IdentityApiUserV1LocalUserCreatedResponse.md)
 - [IdentityApiUserV1PasswordResettedResponse](docs/Model/IdentityApiUserV1PasswordResettedResponse.md)
 - [IdentityApiUserV1Preference](docs/Model/IdentityApiUserV1Preference.md)
@@ -1352,6 +1418,8 @@ Class | Method | HTTP request | Description
 - [IdentityApiUserV1SectionUpdatedBulkResponse](docs/Model/IdentityApiUserV1SectionUpdatedBulkResponse.md)
 - [IdentityApiUserV1SectionUpdatedResponse](docs/Model/IdentityApiUserV1SectionUpdatedResponse.md)
 - [IdentityApiUserV1SetUserExtensionRequest](docs/Model/IdentityApiUserV1SetUserExtensionRequest.md)
+- [IdentityApiUserV1Tenant](docs/Model/IdentityApiUserV1Tenant.md)
+- [IdentityApiUserV1TenantSource](docs/Model/IdentityApiUserV1TenantSource.md)
 - [IdentityApiUserV1TenantStatus](docs/Model/IdentityApiUserV1TenantStatus.md)
 - [IdentityApiUserV1TenantType](docs/Model/IdentityApiUserV1TenantType.md)
 - [IdentityApiUserV1UpdateSectionBulkRequest](docs/Model/IdentityApiUserV1UpdateSectionBulkRequest.md)
@@ -1362,6 +1430,9 @@ Class | Method | HTTP request | Description
 - [IdentityApiUserV1UserExtension](docs/Model/IdentityApiUserV1UserExtension.md)
 - [IdentityApiUserV1UserExtensionRemovedResponse](docs/Model/IdentityApiUserV1UserExtensionRemovedResponse.md)
 - [IdentityApiUserV1UserExtensionSetResponse](docs/Model/IdentityApiUserV1UserExtensionSetResponse.md)
+- [IdentityApiUserV1UserListResponse](docs/Model/IdentityApiUserV1UserListResponse.md)
+- [IdentityApiUserV1UserListResponsePaginatedItemsViewModel](docs/Model/IdentityApiUserV1UserListResponsePaginatedItemsViewModel.md)
+- [IdentityApiUserV1UserLogin](docs/Model/IdentityApiUserV1UserLogin.md)
 - [IdentityApiUserV1UserPreferenceUpdatedResponse](docs/Model/IdentityApiUserV1UserPreferenceUpdatedResponse.md)
 - [IdentityApiUserV1UserTenantProfile](docs/Model/IdentityApiUserV1UserTenantProfile.md)
 - [IdentityApiUserV1UserTenantProfilePaginatedItemsViewModel](docs/Model/IdentityApiUserV1UserTenantProfilePaginatedItemsViewModel.md)
@@ -1388,6 +1459,18 @@ Class | Method | HTTP request | Description
 - [RegistrationApiRegistrationV2ApprovalStatus](docs/Model/RegistrationApiRegistrationV2ApprovalStatus.md)
 - [RegistrationApiRegistrationV2SubmitTenantRegistrationRequest](docs/Model/RegistrationApiRegistrationV2SubmitTenantRegistrationRequest.md)
 - [RegistrationApiRegistrationV2TenantType](docs/Model/RegistrationApiRegistrationV2TenantType.md)
+- [SettingsApiClientSettingsV1ClientSettingMessage](docs/Model/SettingsApiClientSettingsV1ClientSettingMessage.md)
+- [SettingsApiClientSettingsV1CreateClientSettingResponse](docs/Model/SettingsApiClientSettingsV1CreateClientSettingResponse.md)
+- [SettingsApiClientSettingsV1SearchClientSettingsResponse](docs/Model/SettingsApiClientSettingsV1SearchClientSettingsResponse.md)
+- [SettingsApiClientSettingsV1SetClientSettingResponse](docs/Model/SettingsApiClientSettingsV1SetClientSettingResponse.md)
+- [SettingsApiTenantSettingsV1CreateTenantSettingResponse](docs/Model/SettingsApiTenantSettingsV1CreateTenantSettingResponse.md)
+- [SettingsApiTenantSettingsV1SearchTenantSettingsResponse](docs/Model/SettingsApiTenantSettingsV1SearchTenantSettingsResponse.md)
+- [SettingsApiTenantSettingsV1SetTenantSettingResponse](docs/Model/SettingsApiTenantSettingsV1SetTenantSettingResponse.md)
+- [SettingsApiTenantSettingsV1TenantSettingMessage](docs/Model/SettingsApiTenantSettingsV1TenantSettingMessage.md)
+- [SettingsApiUserSettingsV1CreateUserSettingResponse](docs/Model/SettingsApiUserSettingsV1CreateUserSettingResponse.md)
+- [SettingsApiUserSettingsV1SearchUserSettingsResponse](docs/Model/SettingsApiUserSettingsV1SearchUserSettingsResponse.md)
+- [SettingsApiUserSettingsV1SetUserSettingResponse](docs/Model/SettingsApiUserSettingsV1SetUserSettingResponse.md)
+- [SettingsApiUserSettingsV1UserSettingMessage](docs/Model/SettingsApiUserSettingsV1UserSettingMessage.md)
 - [SystemNetHttpStatusCode](docs/Model/SystemNetHttpStatusCode.md)
 - [TenantApiIntegrationsV1CreateIntegrationProductRequest](docs/Model/TenantApiIntegrationsV1CreateIntegrationProductRequest.md)
 - [TenantApiIntegrationsV1CreateIntegrationProductResponse](docs/Model/TenantApiIntegrationsV1CreateIntegrationProductResponse.md)
@@ -1639,6 +1722,6 @@ vendor/bin/phpunit
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
 - API version: `v1.0`
-    - Package version: `0.0.52`
+    - Package version: `0.0.54`
     - Generator version: `7.23.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

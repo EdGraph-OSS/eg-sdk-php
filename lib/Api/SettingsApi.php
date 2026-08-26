@@ -137,7 +137,7 @@ class SettingsApi
     /**
      * Operation getTenantSettings
      *
-     * Retrieves a list of the Tenant&#39;s settings.
+     * Retrieves a list of the Tenant&#39;s settings.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $tenantId  (required)
      * @param  int|null $pageIndex  (optional, default to 0)
@@ -149,6 +149,7 @@ class SettingsApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1GetAppSettingsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @deprecated
      */
     public function getTenantSettings($tenantId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTenantSettings'][0])
     {
@@ -159,7 +160,7 @@ class SettingsApi
     /**
      * Operation getTenantSettingsWithHttpInfo
      *
-     * Retrieves a list of the Tenant&#39;s settings.
+     * Retrieves a list of the Tenant&#39;s settings.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $tenantId  (required)
      * @param  int|null $pageIndex  (optional, default to 0)
@@ -171,6 +172,7 @@ class SettingsApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1GetAppSettingsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getTenantSettingsWithHttpInfo($tenantId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTenantSettings'][0])
     {
@@ -304,7 +306,7 @@ class SettingsApi
     /**
      * Operation getTenantSettingsAsync
      *
-     * Retrieves a list of the Tenant&#39;s settings.
+     * Retrieves a list of the Tenant&#39;s settings.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $tenantId  (required)
      * @param  int|null $pageIndex  (optional, default to 0)
@@ -315,6 +317,7 @@ class SettingsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getTenantSettingsAsync($tenantId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTenantSettings'][0])
     {
@@ -329,7 +332,7 @@ class SettingsApi
     /**
      * Operation getTenantSettingsAsyncWithHttpInfo
      *
-     * Retrieves a list of the Tenant&#39;s settings.
+     * Retrieves a list of the Tenant&#39;s settings.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $tenantId  (required)
      * @param  int|null $pageIndex  (optional, default to 0)
@@ -340,6 +343,7 @@ class SettingsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getTenantSettingsAsyncWithHttpInfo($tenantId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTenantSettings'][0])
     {
@@ -394,6 +398,7 @@ class SettingsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getTenantSettingsRequest($tenantId, $pageIndex = 0, $pageSize = 10, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getTenantSettings'][0])
     {
@@ -525,7 +530,7 @@ class SettingsApi
     /**
      * Operation getTenantSettingsByCode
      *
-     * Retrieves a Tenant&#39;s settings by code.
+     * Retrieves a Tenant&#39;s settings by code.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $tenantId  (required)
      * @param  string $code  (required)
@@ -534,6 +539,7 @@ class SettingsApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1TenantAppSettings|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @deprecated
      */
     public function getTenantSettingsByCode($tenantId, $code, string $contentType = self::contentTypes['getTenantSettingsByCode'][0])
     {
@@ -544,7 +550,7 @@ class SettingsApi
     /**
      * Operation getTenantSettingsByCodeWithHttpInfo
      *
-     * Retrieves a Tenant&#39;s settings by code.
+     * Retrieves a Tenant&#39;s settings by code.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $tenantId  (required)
      * @param  string $code  (required)
@@ -553,6 +559,7 @@ class SettingsApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1TenantAppSettings|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getTenantSettingsByCodeWithHttpInfo($tenantId, $code, string $contentType = self::contentTypes['getTenantSettingsByCode'][0])
     {
@@ -686,7 +693,7 @@ class SettingsApi
     /**
      * Operation getTenantSettingsByCodeAsync
      *
-     * Retrieves a Tenant&#39;s settings by code.
+     * Retrieves a Tenant&#39;s settings by code.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $tenantId  (required)
      * @param  string $code  (required)
@@ -694,6 +701,7 @@ class SettingsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getTenantSettingsByCodeAsync($tenantId, $code, string $contentType = self::contentTypes['getTenantSettingsByCode'][0])
     {
@@ -708,7 +716,7 @@ class SettingsApi
     /**
      * Operation getTenantSettingsByCodeAsyncWithHttpInfo
      *
-     * Retrieves a Tenant&#39;s settings by code.
+     * Retrieves a Tenant&#39;s settings by code.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $tenantId  (required)
      * @param  string $code  (required)
@@ -716,6 +724,7 @@ class SettingsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getTenantSettingsByCodeAsyncWithHttpInfo($tenantId, $code, string $contentType = self::contentTypes['getTenantSettingsByCode'][0])
     {
@@ -767,6 +776,7 @@ class SettingsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getTenantSettingsByCodeRequest($tenantId, $code, string $contentType = self::contentTypes['getTenantSettingsByCode'][0])
     {
@@ -873,7 +883,7 @@ class SettingsApi
     /**
      * Operation setTenantSettings
      *
-     * Creates/updates a Tenant&#39;s settings.
+     * Creates/updates a Tenant&#39;s settings.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $tenantId  (required)
      * @param  string $code  (required)
@@ -883,6 +893,7 @@ class SettingsApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails
+     * @deprecated
      */
     public function setTenantSettings($tenantId, $code, $tenantApiTenantV1SetAppSettingsRequest = null, string $contentType = self::contentTypes['setTenantSettings'][0])
     {
@@ -893,7 +904,7 @@ class SettingsApi
     /**
      * Operation setTenantSettingsWithHttpInfo
      *
-     * Creates/updates a Tenant&#39;s settings.
+     * Creates/updates a Tenant&#39;s settings.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $tenantId  (required)
      * @param  string $code  (required)
@@ -903,6 +914,7 @@ class SettingsApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function setTenantSettingsWithHttpInfo($tenantId, $code, $tenantApiTenantV1SetAppSettingsRequest = null, string $contentType = self::contentTypes['setTenantSettings'][0])
     {
@@ -1050,7 +1062,7 @@ class SettingsApi
     /**
      * Operation setTenantSettingsAsync
      *
-     * Creates/updates a Tenant&#39;s settings.
+     * Creates/updates a Tenant&#39;s settings.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $tenantId  (required)
      * @param  string $code  (required)
@@ -1059,6 +1071,7 @@ class SettingsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function setTenantSettingsAsync($tenantId, $code, $tenantApiTenantV1SetAppSettingsRequest = null, string $contentType = self::contentTypes['setTenantSettings'][0])
     {
@@ -1073,7 +1086,7 @@ class SettingsApi
     /**
      * Operation setTenantSettingsAsyncWithHttpInfo
      *
-     * Creates/updates a Tenant&#39;s settings.
+     * Creates/updates a Tenant&#39;s settings.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $tenantId  (required)
      * @param  string $code  (required)
@@ -1082,6 +1095,7 @@ class SettingsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function setTenantSettingsAsyncWithHttpInfo($tenantId, $code, $tenantApiTenantV1SetAppSettingsRequest = null, string $contentType = self::contentTypes['setTenantSettings'][0])
     {
@@ -1134,6 +1148,7 @@ class SettingsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function setTenantSettingsRequest($tenantId, $code, $tenantApiTenantV1SetAppSettingsRequest = null, string $contentType = self::contentTypes['setTenantSettings'][0])
     {

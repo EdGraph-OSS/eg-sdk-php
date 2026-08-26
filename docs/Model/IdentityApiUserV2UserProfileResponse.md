@@ -22,5 +22,6 @@ Name | Type | Description | Notes
 **platformRole** | **string** |  | [optional]
 **tenantStatus** | **string** |  | [optional]
 **tenantAdmin** | **bool** |  | [optional]
+**status** | **string** | The user&#39;s status across all their tenants: Active if any membership is active, Inactive if every  membership is inactive, Unknown if they have no memberships. Unlike tenantStatus this does not  depend on a tenantId being supplied on the request. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

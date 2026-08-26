@@ -135,15 +135,17 @@ class TenantBrandingApi
      * @param  \SplFileObject|null $backgroundFile backgroundFile (optional)
      * @param  string|null $brandName brandName (optional)
      * @param  bool|null $enabled enabled (optional)
+     * @param  bool|null $removeBackground removeBackground (optional)
+     * @param  bool|null $removeLogo removeLogo (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTenantBranding'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1TenantUpdatedResponse
      */
-    public function updateTenantBranding($tenantId, $logoFile = null, $backgroundFile = null, $brandName = null, $enabled = null, string $contentType = self::contentTypes['updateTenantBranding'][0])
+    public function updateTenantBranding($tenantId, $logoFile = null, $backgroundFile = null, $brandName = null, $enabled = null, $removeBackground = null, $removeLogo = null, string $contentType = self::contentTypes['updateTenantBranding'][0])
     {
-        list($response) = $this->updateTenantBrandingWithHttpInfo($tenantId, $logoFile, $backgroundFile, $brandName, $enabled, $contentType);
+        list($response) = $this->updateTenantBrandingWithHttpInfo($tenantId, $logoFile, $backgroundFile, $brandName, $enabled, $removeBackground, $removeLogo, $contentType);
         return $response;
     }
 
@@ -157,15 +159,17 @@ class TenantBrandingApi
      * @param  \SplFileObject|null $backgroundFile (optional)
      * @param  string|null $brandName (optional)
      * @param  bool|null $enabled (optional)
+     * @param  bool|null $removeBackground (optional)
+     * @param  bool|null $removeLogo (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTenantBranding'] to see the possible values for this operation
      *
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails|\EdGraph\PlatformClient\Model\TenantApiTenantV1TenantUpdatedResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateTenantBrandingWithHttpInfo($tenantId, $logoFile = null, $backgroundFile = null, $brandName = null, $enabled = null, string $contentType = self::contentTypes['updateTenantBranding'][0])
+    public function updateTenantBrandingWithHttpInfo($tenantId, $logoFile = null, $backgroundFile = null, $brandName = null, $enabled = null, $removeBackground = null, $removeLogo = null, string $contentType = self::contentTypes['updateTenantBranding'][0])
     {
-        $request = $this->updateTenantBrandingRequest($tenantId, $logoFile, $backgroundFile, $brandName, $enabled, $contentType);
+        $request = $this->updateTenantBrandingRequest($tenantId, $logoFile, $backgroundFile, $brandName, $enabled, $removeBackground, $removeLogo, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -302,14 +306,16 @@ class TenantBrandingApi
      * @param  \SplFileObject|null $backgroundFile (optional)
      * @param  string|null $brandName (optional)
      * @param  bool|null $enabled (optional)
+     * @param  bool|null $removeBackground (optional)
+     * @param  bool|null $removeLogo (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTenantBranding'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTenantBrandingAsync($tenantId, $logoFile = null, $backgroundFile = null, $brandName = null, $enabled = null, string $contentType = self::contentTypes['updateTenantBranding'][0])
+    public function updateTenantBrandingAsync($tenantId, $logoFile = null, $backgroundFile = null, $brandName = null, $enabled = null, $removeBackground = null, $removeLogo = null, string $contentType = self::contentTypes['updateTenantBranding'][0])
     {
-        return $this->updateTenantBrandingAsyncWithHttpInfo($tenantId, $logoFile, $backgroundFile, $brandName, $enabled, $contentType)
+        return $this->updateTenantBrandingAsyncWithHttpInfo($tenantId, $logoFile, $backgroundFile, $brandName, $enabled, $removeBackground, $removeLogo, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -327,15 +333,17 @@ class TenantBrandingApi
      * @param  \SplFileObject|null $backgroundFile (optional)
      * @param  string|null $brandName (optional)
      * @param  bool|null $enabled (optional)
+     * @param  bool|null $removeBackground (optional)
+     * @param  bool|null $removeLogo (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTenantBranding'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateTenantBrandingAsyncWithHttpInfo($tenantId, $logoFile = null, $backgroundFile = null, $brandName = null, $enabled = null, string $contentType = self::contentTypes['updateTenantBranding'][0])
+    public function updateTenantBrandingAsyncWithHttpInfo($tenantId, $logoFile = null, $backgroundFile = null, $brandName = null, $enabled = null, $removeBackground = null, $removeLogo = null, string $contentType = self::contentTypes['updateTenantBranding'][0])
     {
         $returnType = '\EdGraph\PlatformClient\Model\TenantApiTenantV1TenantUpdatedResponse';
-        $request = $this->updateTenantBrandingRequest($tenantId, $logoFile, $backgroundFile, $brandName, $enabled, $contentType);
+        $request = $this->updateTenantBrandingRequest($tenantId, $logoFile, $backgroundFile, $brandName, $enabled, $removeBackground, $removeLogo, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -381,12 +389,14 @@ class TenantBrandingApi
      * @param  \SplFileObject|null $backgroundFile (optional)
      * @param  string|null $brandName (optional)
      * @param  bool|null $enabled (optional)
+     * @param  bool|null $removeBackground (optional)
+     * @param  bool|null $removeLogo (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateTenantBranding'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function updateTenantBrandingRequest($tenantId, $logoFile = null, $backgroundFile = null, $brandName = null, $enabled = null, string $contentType = self::contentTypes['updateTenantBranding'][0])
+    public function updateTenantBrandingRequest($tenantId, $logoFile = null, $backgroundFile = null, $brandName = null, $enabled = null, $removeBackground = null, $removeLogo = null, string $contentType = self::contentTypes['updateTenantBranding'][0])
     {
 
         // verify the required parameter 'tenantId' is set
@@ -395,6 +405,8 @@ class TenantBrandingApi
                 'Missing the required parameter $tenantId when calling updateTenantBranding'
             );
         }
+
+
 
 
 
@@ -427,6 +439,8 @@ class TenantBrandingApi
             'BackgroundFile' => $backgroundFile,
             'BrandName' => $brandName,
             'Enabled' => $enabled,
+            'RemoveBackground' => $removeBackground,
+            'RemoveLogo' => $removeLogo,
         ]);
 
         $formParams = $formDataProcessor->flatten($formData);

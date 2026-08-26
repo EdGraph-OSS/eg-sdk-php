@@ -86,6 +86,12 @@ class ReportsApi
         'getAllTenantAnalyticsWorkspaceReportsAsync' => [
             'application/json',
         ],
+        'getAnalyticsTenantUsersAsync' => [
+            'application/json',
+        ],
+        'getReportAccessAsync' => [
+            'application/json',
+        ],
         'getReportByIdAsync' => [
             'application/json',
         ],
@@ -96,6 +102,12 @@ class ReportsApi
             'application/*+json',
         ],
         'syncWorkspacesAsync' => [
+            'application/json-patch+json',
+            'application/json',
+            'text/json',
+            'application/*+json',
+        ],
+        'updateReportAccessAsync' => [
             'application/json-patch+json',
             'application/json',
             'text/json',
@@ -836,7 +848,7 @@ class ReportsApi
     /**
      * Operation downloadReportAsync
      *
-     * Retrieves the PBIX for any report in the list in order to download
+     * Retrieves the PBIX for any report in the list in order to download.
      *
      * @param  string $tenantId tenantId (required)
      * @param  string $reportId  (required)
@@ -856,7 +868,7 @@ class ReportsApi
     /**
      * Operation downloadReportAsyncWithHttpInfo
      *
-     * Retrieves the PBIX for any report in the list in order to download
+     * Retrieves the PBIX for any report in the list in order to download.
      *
      * @param  string $tenantId (required)
      * @param  string $reportId  (required)
@@ -985,7 +997,7 @@ class ReportsApi
     /**
      * Operation downloadReportAsyncAsync
      *
-     * Retrieves the PBIX for any report in the list in order to download
+     * Retrieves the PBIX for any report in the list in order to download.
      *
      * @param  string $tenantId (required)
      * @param  string $reportId  (required)
@@ -1008,7 +1020,7 @@ class ReportsApi
     /**
      * Operation downloadReportAsyncAsyncWithHttpInfo
      *
-     * Retrieves the PBIX for any report in the list in order to download
+     * Retrieves the PBIX for any report in the list in order to download.
      *
      * @param  string $tenantId (required)
      * @param  string $reportId  (required)
@@ -1499,6 +1511,728 @@ class ReportsApi
             $resourcePath = str_replace(
                 '{tenantId}',
                 ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getAnalyticsTenantUsersAsync
+     *
+     * Searchable, paginated list of tenant users for the Manage Access \&quot;specific users\&quot; picker.
+     *
+     * @param  string $tenantId  (required)
+     * @param  int|null $pageSize  (optional, default to 20)
+     * @param  int|null $pageIndex  (optional, default to 0)
+     * @param  string|null $orderBy  (optional, default to '')
+     * @param  string|null $filter  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalyticsTenantUsersAsync'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\IdentityApiUserV1UserListResponsePaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails
+     */
+    public function getAnalyticsTenantUsersAsync($tenantId, $pageSize = 20, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getAnalyticsTenantUsersAsync'][0])
+    {
+        list($response) = $this->getAnalyticsTenantUsersAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getAnalyticsTenantUsersAsyncWithHttpInfo
+     *
+     * Searchable, paginated list of tenant users for the Manage Access \&quot;specific users\&quot; picker.
+     *
+     * @param  string $tenantId  (required)
+     * @param  int|null $pageSize  (optional, default to 20)
+     * @param  int|null $pageIndex  (optional, default to 0)
+     * @param  string|null $orderBy  (optional, default to '')
+     * @param  string|null $filter  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalyticsTenantUsersAsync'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\IdentityApiUserV1UserListResponsePaginatedItemsViewModel|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getAnalyticsTenantUsersAsyncWithHttpInfo($tenantId, $pageSize = 20, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getAnalyticsTenantUsersAsync'][0])
+    {
+        $request = $this->getAnalyticsTenantUsersAsyncRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\IdentityApiUserV1UserListResponsePaginatedItemsViewModel',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\EdGraph\PlatformClient\Model\IdentityApiUserV1UserListResponsePaginatedItemsViewModel',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\IdentityApiUserV1UserListResponsePaginatedItemsViewModel',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getAnalyticsTenantUsersAsyncAsync
+     *
+     * Searchable, paginated list of tenant users for the Manage Access \&quot;specific users\&quot; picker.
+     *
+     * @param  string $tenantId  (required)
+     * @param  int|null $pageSize  (optional, default to 20)
+     * @param  int|null $pageIndex  (optional, default to 0)
+     * @param  string|null $orderBy  (optional, default to '')
+     * @param  string|null $filter  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalyticsTenantUsersAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAnalyticsTenantUsersAsyncAsync($tenantId, $pageSize = 20, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getAnalyticsTenantUsersAsync'][0])
+    {
+        return $this->getAnalyticsTenantUsersAsyncAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getAnalyticsTenantUsersAsyncAsyncWithHttpInfo
+     *
+     * Searchable, paginated list of tenant users for the Manage Access \&quot;specific users\&quot; picker.
+     *
+     * @param  string $tenantId  (required)
+     * @param  int|null $pageSize  (optional, default to 20)
+     * @param  int|null $pageIndex  (optional, default to 0)
+     * @param  string|null $orderBy  (optional, default to '')
+     * @param  string|null $filter  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalyticsTenantUsersAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getAnalyticsTenantUsersAsyncAsyncWithHttpInfo($tenantId, $pageSize = 20, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getAnalyticsTenantUsersAsync'][0])
+    {
+        $returnType = '\EdGraph\PlatformClient\Model\IdentityApiUserV1UserListResponsePaginatedItemsViewModel';
+        $request = $this->getAnalyticsTenantUsersAsyncRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getAnalyticsTenantUsersAsync'
+     *
+     * @param  string $tenantId  (required)
+     * @param  int|null $pageSize  (optional, default to 20)
+     * @param  int|null $pageIndex  (optional, default to 0)
+     * @param  string|null $orderBy  (optional, default to '')
+     * @param  string|null $filter  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAnalyticsTenantUsersAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getAnalyticsTenantUsersAsyncRequest($tenantId, $pageSize = 20, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getAnalyticsTenantUsersAsync'][0])
+    {
+
+        // verify the required parameter 'tenantId' is set
+        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenantId when calling getAnalyticsTenantUsersAsync'
+            );
+        }
+
+
+
+
+
+
+        $resourcePath = '/tenants/{tenantId}/analytics/users';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pageSize,
+            'pageSize', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pageIndex,
+            'pageIndex', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $orderBy,
+            'orderBy', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            'filter', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($tenantId !== null) {
+            $resourcePath = str_replace(
+                '{tenantId}',
+                ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getReportAccessAsync
+     *
+     * Retrieves the audience-targeting (Manage Access) configuration for a report.
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReportAccessAsync'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails
+     */
+    public function getReportAccessAsync($tenantId, $reportId, string $contentType = self::contentTypes['getReportAccessAsync'][0])
+    {
+        list($response) = $this->getReportAccessAsyncWithHttpInfo($tenantId, $reportId, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getReportAccessAsyncWithHttpInfo
+     *
+     * Retrieves the audience-targeting (Manage Access) configuration for a report.
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReportAccessAsync'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getReportAccessAsyncWithHttpInfo($tenantId, $reportId, string $contentType = self::contentTypes['getReportAccessAsync'][0])
+    {
+        $request = $this->getReportAccessAsyncRequest($tenantId, $reportId, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getReportAccessAsyncAsync
+     *
+     * Retrieves the audience-targeting (Manage Access) configuration for a report.
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReportAccessAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getReportAccessAsyncAsync($tenantId, $reportId, string $contentType = self::contentTypes['getReportAccessAsync'][0])
+    {
+        return $this->getReportAccessAsyncAsyncWithHttpInfo($tenantId, $reportId, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getReportAccessAsyncAsyncWithHttpInfo
+     *
+     * Retrieves the audience-targeting (Manage Access) configuration for a report.
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReportAccessAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getReportAccessAsyncAsyncWithHttpInfo($tenantId, $reportId, string $contentType = self::contentTypes['getReportAccessAsync'][0])
+    {
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsResponsesReportAccessResponseDto';
+        $request = $this->getReportAccessAsyncRequest($tenantId, $reportId, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getReportAccessAsync'
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getReportAccessAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getReportAccessAsyncRequest($tenantId, $reportId, string $contentType = self::contentTypes['getReportAccessAsync'][0])
+    {
+
+        // verify the required parameter 'tenantId' is set
+        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenantId when calling getReportAccessAsync'
+            );
+        }
+
+        // verify the required parameter 'reportId' is set
+        if ($reportId === null || (is_array($reportId) && count($reportId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $reportId when calling getReportAccessAsync'
+            );
+        }
+
+
+        $resourcePath = '/tenants/{tenantId}/analytics/reports/{reportId}/access';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($tenantId !== null) {
+            $resourcePath = str_replace(
+                '{tenantId}',
+                ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($reportId !== null) {
+            $resourcePath = str_replace(
+                '{reportId}',
+                ObjectSerializer::toPathValue($reportId),
                 $resourcePath
             );
         }
@@ -2585,6 +3319,367 @@ class ReportsApi
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
             'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation updateReportAccessAsync
+     *
+     * Updates the audience-targeting (Manage Access) configuration for a report.
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest|null $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReportAccessAsync'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails
+     */
+    public function updateReportAccessAsync($tenantId, $reportId, $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest = null, string $contentType = self::contentTypes['updateReportAccessAsync'][0])
+    {
+        list($response) = $this->updateReportAccessAsyncWithHttpInfo($tenantId, $reportId, $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation updateReportAccessAsyncWithHttpInfo
+     *
+     * Updates the audience-targeting (Manage Access) configuration for a report.
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest|null $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReportAccessAsync'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function updateReportAccessAsyncWithHttpInfo($tenantId, $reportId, $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest = null, string $contentType = self::contentTypes['updateReportAccessAsync'][0])
+    {
+        $request = $this->updateReportAccessAsyncRequest($tenantId, $reportId, $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation updateReportAccessAsyncAsync
+     *
+     * Updates the audience-targeting (Manage Access) configuration for a report.
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest|null $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReportAccessAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateReportAccessAsyncAsync($tenantId, $reportId, $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest = null, string $contentType = self::contentTypes['updateReportAccessAsync'][0])
+    {
+        return $this->updateReportAccessAsyncAsyncWithHttpInfo($tenantId, $reportId, $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation updateReportAccessAsyncAsyncWithHttpInfo
+     *
+     * Updates the audience-targeting (Manage Access) configuration for a report.
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest|null $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReportAccessAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function updateReportAccessAsyncAsyncWithHttpInfo($tenantId, $reportId, $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest = null, string $contentType = self::contentTypes['updateReportAccessAsync'][0])
+    {
+        $returnType = '\EdGraph\PlatformClient\Model\AnalyticsApiReportsV1ReportIdResponse';
+        $request = $this->updateReportAccessAsyncRequest($tenantId, $reportId, $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'updateReportAccessAsync'
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $reportId  (required)
+     * @param  \EdGraph\PlatformClient\Model\EdGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest|null $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest  (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateReportAccessAsync'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function updateReportAccessAsyncRequest($tenantId, $reportId, $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest = null, string $contentType = self::contentTypes['updateReportAccessAsync'][0])
+    {
+
+        // verify the required parameter 'tenantId' is set
+        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenantId when calling updateReportAccessAsync'
+            );
+        }
+
+        // verify the required parameter 'reportId' is set
+        if ($reportId === null || (is_array($reportId) && count($reportId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $reportId when calling updateReportAccessAsync'
+            );
+        }
+
+
+
+        $resourcePath = '/tenants/{tenantId}/analytics/reports/{reportId}/access';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($tenantId !== null) {
+            $resourcePath = str_replace(
+                '{tenantId}',
+                ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($reportId !== null) {
+            $resourcePath = str_replace(
+                '{reportId}',
+                ObjectSerializer::toPathValue($reportId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest));
+            } else {
+                $httpBody = $edGraphPlatformHttpAggregatorsTenantApiControllersV1ViewModelsRequestsReportAccessRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'PUT',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

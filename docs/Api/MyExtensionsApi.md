@@ -6,8 +6,8 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**removeUserExtension()**](MyExtensionsApi.md#removeUserExtension) | **DELETE** /me/extensions/{code} | Removes a user&#39;s profile extension. |
-| [**setUserExtension()**](MyExtensionsApi.md#setUserExtension) | **POST** /me/extensions | Creates or update a user&#39;s profile extension. |
+| [**removeUserExtension()**](MyExtensionsApi.md#removeUserExtension) | **DELETE** /me/extensions/{code} | Removes a user&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged. |
+| [**setUserExtension()**](MyExtensionsApi.md#setUserExtension) | **POST** /me/extensions | Creates or update a user&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged. |
 
 
 ## `removeUserExtension()`
@@ -16,7 +16,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 removeUserExtension($code): \EdGraph\PlatformClient\Model\IdentityApiUserV1UserExtensionRemovedResponse
 ```
 
-Removes a user's profile extension.
+Removes a user's profile extension.  <br><b>Deprecated.</b> Use `/me/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
 
 ### Example
 
@@ -74,7 +74,7 @@ try {
 setUserExtension($identityApiUserV1SetUserExtensionRequest): \EdGraph\PlatformClient\Model\IdentityApiUserV1UserExtensionSetResponse
 ```
 
-Creates or update a user's profile extension.
+Creates or update a user's profile extension.  <br><b>Deprecated.</b> Use `/me/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
 
 ### Example
 

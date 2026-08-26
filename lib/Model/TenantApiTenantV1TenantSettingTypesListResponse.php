@@ -819,6 +819,7 @@ class TenantApiTenantV1TenantSettingTypesListResponse implements ModelInterface,
      * Gets attributes
      *
      * @return \EdGraph\PlatformClient\Model\TenantApiTenantV1TenantSettingsTypeAttribute[]|null
+     * @deprecated
      */
     public function getAttributes()
     {
@@ -831,6 +832,7 @@ class TenantApiTenantV1TenantSettingTypesListResponse implements ModelInterface,
      * @param \EdGraph\PlatformClient\Model\TenantApiTenantV1TenantSettingsTypeAttribute[]|null $attributes attributes
      *
      * @return self
+     * @deprecated
      */
     public function setAttributes($attributes)
     {

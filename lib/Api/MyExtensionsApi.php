@@ -134,7 +134,7 @@ class MyExtensionsApi
     /**
      * Operation removeUserExtension
      *
-     * Removes a user&#39;s profile extension.
+     * Removes a user&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $code  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeUserExtension'] to see the possible values for this operation
@@ -142,6 +142,7 @@ class MyExtensionsApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\IdentityApiUserV1UserExtensionRemovedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @deprecated
      */
     public function removeUserExtension($code, string $contentType = self::contentTypes['removeUserExtension'][0])
     {
@@ -152,7 +153,7 @@ class MyExtensionsApi
     /**
      * Operation removeUserExtensionWithHttpInfo
      *
-     * Removes a user&#39;s profile extension.
+     * Removes a user&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $code  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeUserExtension'] to see the possible values for this operation
@@ -160,6 +161,7 @@ class MyExtensionsApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\IdentityApiUserV1UserExtensionRemovedResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function removeUserExtensionWithHttpInfo($code, string $contentType = self::contentTypes['removeUserExtension'][0])
     {
@@ -293,13 +295,14 @@ class MyExtensionsApi
     /**
      * Operation removeUserExtensionAsync
      *
-     * Removes a user&#39;s profile extension.
+     * Removes a user&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $code  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeUserExtension'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function removeUserExtensionAsync($code, string $contentType = self::contentTypes['removeUserExtension'][0])
     {
@@ -314,13 +317,14 @@ class MyExtensionsApi
     /**
      * Operation removeUserExtensionAsyncWithHttpInfo
      *
-     * Removes a user&#39;s profile extension.
+     * Removes a user&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  string $code  (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['removeUserExtension'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function removeUserExtensionAsyncWithHttpInfo($code, string $contentType = self::contentTypes['removeUserExtension'][0])
     {
@@ -371,6 +375,7 @@ class MyExtensionsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function removeUserExtensionRequest($code, string $contentType = self::contentTypes['removeUserExtension'][0])
     {
@@ -462,7 +467,7 @@ class MyExtensionsApi
     /**
      * Operation setUserExtension
      *
-     * Creates or update a user&#39;s profile extension.
+     * Creates or update a user&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  \EdGraph\PlatformClient\Model\IdentityApiUserV1SetUserExtensionRequest|null $identityApiUserV1SetUserExtensionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setUserExtension'] to see the possible values for this operation
@@ -470,6 +475,7 @@ class MyExtensionsApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\IdentityApiUserV1UserExtensionSetResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     * @deprecated
      */
     public function setUserExtension($identityApiUserV1SetUserExtensionRequest = null, string $contentType = self::contentTypes['setUserExtension'][0])
     {
@@ -480,7 +486,7 @@ class MyExtensionsApi
     /**
      * Operation setUserExtensionWithHttpInfo
      *
-     * Creates or update a user&#39;s profile extension.
+     * Creates or update a user&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  \EdGraph\PlatformClient\Model\IdentityApiUserV1SetUserExtensionRequest|null $identityApiUserV1SetUserExtensionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setUserExtension'] to see the possible values for this operation
@@ -488,6 +494,7 @@ class MyExtensionsApi
      * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\IdentityApiUserV1UserExtensionSetResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function setUserExtensionWithHttpInfo($identityApiUserV1SetUserExtensionRequest = null, string $contentType = self::contentTypes['setUserExtension'][0])
     {
@@ -621,13 +628,14 @@ class MyExtensionsApi
     /**
      * Operation setUserExtensionAsync
      *
-     * Creates or update a user&#39;s profile extension.
+     * Creates or update a user&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  \EdGraph\PlatformClient\Model\IdentityApiUserV1SetUserExtensionRequest|null $identityApiUserV1SetUserExtensionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setUserExtension'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function setUserExtensionAsync($identityApiUserV1SetUserExtensionRequest = null, string $contentType = self::contentTypes['setUserExtension'][0])
     {
@@ -642,13 +650,14 @@ class MyExtensionsApi
     /**
      * Operation setUserExtensionAsyncWithHttpInfo
      *
-     * Creates or update a user&#39;s profile extension.
+     * Creates or update a user&#39;s profile extension.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/me/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
      *
      * @param  \EdGraph\PlatformClient\Model\IdentityApiUserV1SetUserExtensionRequest|null $identityApiUserV1SetUserExtensionRequest  (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['setUserExtension'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function setUserExtensionAsyncWithHttpInfo($identityApiUserV1SetUserExtensionRequest = null, string $contentType = self::contentTypes['setUserExtension'][0])
     {
@@ -699,6 +708,7 @@ class MyExtensionsApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function setUserExtensionRequest($identityApiUserV1SetUserExtensionRequest = null, string $contentType = self::contentTypes['setUserExtension'][0])
     {

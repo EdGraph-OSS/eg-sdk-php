@@ -6,9 +6,9 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getTenantSettings()**](SettingsApi.md#getTenantSettings) | **GET** /tenants/{tenantId}/settings | Retrieves a list of the Tenant&#39;s settings. |
-| [**getTenantSettingsByCode()**](SettingsApi.md#getTenantSettingsByCode) | **GET** /tenants/{tenantId}/settings/{code} | Retrieves a Tenant&#39;s settings by code. |
-| [**setTenantSettings()**](SettingsApi.md#setTenantSettings) | **POST** /tenants/{tenantId}/settings/{code} | Creates/updates a Tenant&#39;s settings. |
+| [**getTenantSettings()**](SettingsApi.md#getTenantSettings) | **GET** /tenants/{tenantId}/settings | Retrieves a list of the Tenant&#39;s settings.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged. |
+| [**getTenantSettingsByCode()**](SettingsApi.md#getTenantSettingsByCode) | **GET** /tenants/{tenantId}/settings/{code} | Retrieves a Tenant&#39;s settings by code.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings/{code}&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged. |
+| [**setTenantSettings()**](SettingsApi.md#setTenantSettings) | **POST** /tenants/{tenantId}/settings/{code} | Creates/updates a Tenant&#39;s settings.  &lt;br&gt;&lt;b&gt;Deprecated.&lt;/b&gt; Use &#x60;/v2/tenants/{tenantId}/settings&#x60; instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged. |
 
 
 ## `getTenantSettings()`
@@ -17,7 +17,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 getTenantSettings($tenantId, $pageIndex, $pageSize, $orderBy, $filter): \EdGraph\PlatformClient\Model\TenantApiTenantV1GetAppSettingsResponse
 ```
 
-Retrieves a list of the Tenant's settings.
+Retrieves a list of the Tenant's settings.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
 
 ### Example
 
@@ -83,7 +83,7 @@ try {
 getTenantSettingsByCode($tenantId, $code): \EdGraph\PlatformClient\Model\TenantApiTenantV1TenantAppSettings
 ```
 
-Retrieves a Tenant's settings by code.
+Retrieves a Tenant's settings by code.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings/{code}` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
 
 ### Example
 
@@ -143,7 +143,7 @@ try {
 setTenantSettings($tenantId, $code, $tenantApiTenantV1SetAppSettingsRequest): \EdGraph\PlatformClient\Model\TenantApiTenantV1SetAppSettingsResponse
 ```
 
-Creates/updates a Tenant's settings.
+Creates/updates a Tenant's settings.  <br><b>Deprecated.</b> Use `/v2/tenants/{tenantId}/settings` instead. Superseded by  EdGraph.Services.Settings; see docs/settings-deprecation-map.md. This endpoint  still works and is unchanged.
 
 ### Example
 

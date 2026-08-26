@@ -152,6 +152,9 @@ class InstancesApi
         'getPagedInstances' => [
             'application/json',
         ],
+        'getTenantInstanceByIdV2' => [
+            'application/json',
+        ],
         'getTenantInstancesV2' => [
             'application/json',
         ],
@@ -6611,6 +6614,354 @@ class InstancesApi
             $resourcePath = str_replace(
                 '{tenantId}',
                 ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getTenantInstanceByIdV2
+     *
+     * Get Instance by Id
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $instanceId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInstanceByIdV2'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails
+     */
+    public function getTenantInstanceByIdV2($tenantId, $instanceId, string $contentType = self::contentTypes['getTenantInstanceByIdV2'][0])
+    {
+        list($response) = $this->getTenantInstanceByIdV2WithHttpInfo($tenantId, $instanceId, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getTenantInstanceByIdV2WithHttpInfo
+     *
+     * Get Instance by Id
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $instanceId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInstanceByIdV2'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getTenantInstanceByIdV2WithHttpInfo($tenantId, $instanceId, string $contentType = self::contentTypes['getTenantInstanceByIdV2'][0])
+    {
+        $request = $this->getTenantInstanceByIdV2Request($tenantId, $instanceId, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getTenantInstanceByIdV2Async
+     *
+     * Get Instance by Id
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $instanceId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInstanceByIdV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTenantInstanceByIdV2Async($tenantId, $instanceId, string $contentType = self::contentTypes['getTenantInstanceByIdV2'][0])
+    {
+        return $this->getTenantInstanceByIdV2AsyncWithHttpInfo($tenantId, $instanceId, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getTenantInstanceByIdV2AsyncWithHttpInfo
+     *
+     * Get Instance by Id
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $instanceId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInstanceByIdV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTenantInstanceByIdV2AsyncWithHttpInfo($tenantId, $instanceId, string $contentType = self::contentTypes['getTenantInstanceByIdV2'][0])
+    {
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceResponse';
+        $request = $this->getTenantInstanceByIdV2Request($tenantId, $instanceId, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getTenantInstanceByIdV2'
+     *
+     * @param  string $tenantId  (required)
+     * @param  string $instanceId  (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTenantInstanceByIdV2'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getTenantInstanceByIdV2Request($tenantId, $instanceId, string $contentType = self::contentTypes['getTenantInstanceByIdV2'][0])
+    {
+
+        // verify the required parameter 'tenantId' is set
+        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenantId when calling getTenantInstanceByIdV2'
+            );
+        }
+
+        // verify the required parameter 'instanceId' is set
+        if ($instanceId === null || (is_array($instanceId) && count($instanceId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instanceId when calling getTenantInstanceByIdV2'
+            );
+        }
+
+
+        $resourcePath = '/v2/tenants/{tenantId}/instances/{instanceId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($tenantId !== null) {
+            $resourcePath = str_replace(
+                '{tenantId}',
+                ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($instanceId !== null) {
+            $resourcePath = str_replace(
+                '{instanceId}',
+                ObjectSerializer::toPathValue($instanceId),
                 $resourcePath
             );
         }

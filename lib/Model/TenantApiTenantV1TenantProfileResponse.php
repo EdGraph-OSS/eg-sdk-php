@@ -1059,6 +1059,7 @@ class TenantApiTenantV1TenantProfileResponse implements ModelInterface, ArrayAcc
      * Gets settings
      *
      * @return \EdGraph\PlatformClient\Model\TenantApiTenantV1TenantSetting[]|null
+     * @deprecated
      */
     public function getSettings()
     {
@@ -1071,6 +1072,7 @@ class TenantApiTenantV1TenantProfileResponse implements ModelInterface, ArrayAcc
      * @param \EdGraph\PlatformClient\Model\TenantApiTenantV1TenantSetting[]|null $settings settings
      *
      * @return self
+     * @deprecated
      */
     public function setSettings($settings)
     {
