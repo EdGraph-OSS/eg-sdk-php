@@ -1117,7 +1117,7 @@ try {
 ## `getPaginatedObservations()`
 
 ```php
-getPaginatedObservations($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeName, $evalueeId, $formId, $status, $from, $to): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel
+getPaginatedObservations($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeName, $evalueeId, $formId, $status, $from, $to, $observerId): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel
 ```
 
 Get Paginated Observations for a given tenant
@@ -1150,9 +1150,10 @@ $formId = ''; // string |
 $status = ''; // string | 
 $from = ''; // string | 
 $to = ''; // string | 
+$observerId = ''; // string | 
 
 try {
-    $result = $apiInstance->getPaginatedObservations($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeName, $evalueeId, $formId, $status, $from, $to);
+    $result = $apiInstance->getPaginatedObservations($tenantId, $pageSize, $pageIndex, $orderBy, $campus, $evalueeName, $evalueeId, $formId, $status, $from, $to, $observerId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ObservationsApi->getPaginatedObservations: ', $e->getMessage(), PHP_EOL;
@@ -1174,6 +1175,7 @@ try {
 | **status** | **string**|  | [optional] [default to &#39;&#39;] |
 | **from** | **string**|  | [optional] [default to &#39;&#39;] |
 | **to** | **string**|  | [optional] [default to &#39;&#39;] |
+| **observerId** | **string**|  | [optional] [default to &#39;&#39;] |
 
 ### Return type
 

@@ -57,6 +57,7 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
      * @var string[]
      */
     protected static $openAPITypes = [
+        'id' => 'string',
         'studentId' => 'string',
         'firstName' => 'string',
         'middleName' => 'string',
@@ -71,6 +72,7 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'id' => 'uuid',
         'studentId' => null,
         'firstName' => null,
         'middleName' => null,
@@ -83,6 +85,7 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'id' => true,
         'studentId' => true,
         'firstName' => true,
         'middleName' => true,
@@ -175,6 +178,7 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'studentId' => 'studentId',
         'firstName' => 'firstName',
         'middleName' => 'middleName',
@@ -187,6 +191,7 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'studentId' => 'setStudentId',
         'firstName' => 'setFirstName',
         'middleName' => 'setMiddleName',
@@ -199,6 +204,7 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'studentId' => 'getStudentId',
         'firstName' => 'getFirstName',
         'middleName' => 'getMiddleName',
@@ -262,6 +268,7 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('studentId', $data ?? [], null);
         $this->setIfExists('firstName', $data ?? [], null);
         $this->setIfExists('middleName', $data ?? [], null);
@@ -309,6 +316,40 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets studentId

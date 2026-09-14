@@ -13,8 +13,10 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**cloneInstanceAsync()**](InstancesApi.md#cloneInstanceAsync) | **POST** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/clone | Clones an instance. |
 | [**createInstance()**](InstancesApi.md#createInstance) | **POST** /tenants/{tenantId}/oneroster/instances | Creates a new Instance. |
 | [**createInstanceAsync()**](InstancesApi.md#createInstanceAsync) | **POST** /tenants/{tenantId}/edfiadmin/instances | Creates a new Instance. |
+| [**createInstanceV2()**](InstancesApi.md#createInstanceV2) | **POST** /v2/tenants/{tenantId}/instances | Creates a new instance. |
 | [**deleteInstance()**](InstancesApi.md#deleteInstance) | **DELETE** /tenants/{tenantId}/oneroster/instances/{instanceId} | Deletes an Instance. |
 | [**deleteInstanceAsync()**](InstancesApi.md#deleteInstanceAsync) | **DELETE** /tenants/{tenantId}/edfiadmin/instances/{instanceId} | Deletes an Instance. |
+| [**deleteInstanceV2()**](InstancesApi.md#deleteInstanceV2) | **DELETE** /v2/tenants/{tenantId}/instances/{instanceId} | Deletes an instance. |
 | [**deleteSchoolYearAsync()**](InstancesApi.md#deleteSchoolYearAsync) | **DELETE** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year} | Removes an ODS database from an Instance. |
 | [**getEdFiAdminInstanceEndpoints()**](InstancesApi.md#getEdFiAdminInstanceEndpoints) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/endpoints | Retrieves the Ed-Fi API endpoint URLs of an Instance. |
 | [**getEdFiAdminInstanceYearEndpoints()**](InstancesApi.md#getEdFiAdminInstanceYearEndpoints) | **GET** /tenants/{tenantId}/edfiadmin/instances/{instanceId}/years/{year}/endpoints | Retrieves the Ed-Fi API endpoint URLs of an Instance. |
@@ -41,6 +43,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**truncateInstance()**](InstancesApi.md#truncateInstance) | **POST** /tenants/{tenantId}/oneroster/instances/{instanceId}/truncate | Truncates the Instance&#39;s database |
 | [**updateInstance()**](InstancesApi.md#updateInstance) | **PUT** /tenants/{tenantId}/oneroster/instances/{instanceId} | Updates an Instance. |
 | [**updateInstanceAsync()**](InstancesApi.md#updateInstanceAsync) | **PUT** /tenants/{tenantId}/edfiadmin/instances/{instanceId} | Updates an Instance. |
+| [**updateInstanceV2()**](InstancesApi.md#updateInstanceV2) | **PUT** /v2/tenants/{tenantId}/instances/{instanceId} | Updates an existing instance. |
 | [**validateCustomIdAvailable()**](InstancesApi.md#validateCustomIdAvailable) | **GET** /tenants/{tenantId}/edfiadmin/instances/validatecustomidavailable/{customId} | Validate if instance is available |
 
 
@@ -471,6 +474,66 @@ void (empty response body)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `createInstanceV2()`
+
+```php
+createInstanceV2($tenantId, $body): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceCreatedResponse
+```
+
+Creates a new instance.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\InstancesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$body = NULL; // mixed | 
+
+try {
+    $result = $apiInstance->createInstanceV2($tenantId, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InstancesApi->createInstanceV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **body** | **mixed**|  | [optional] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceCreatedResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceCreatedResponse.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `deleteInstance()`
 
 ```php
@@ -562,6 +625,65 @@ try {
     $apiInstance->deleteInstanceAsync($tenantId, $instanceId);
 } catch (Exception $e) {
     echo 'Exception when calling InstancesApi->deleteInstanceAsync: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **instanceId** | **string**|  | |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `deleteInstanceV2()`
+
+```php
+deleteInstanceV2($tenantId, $instanceId)
+```
+
+Deletes an instance.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\InstancesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$instanceId = 'instanceId_example'; // string | 
+
+try {
+    $apiInstance->deleteInstanceV2($tenantId, $instanceId);
+} catch (Exception $e) {
+    echo 'Exception when calling InstancesApi->deleteInstanceV2: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -2174,6 +2296,68 @@ try {
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json-patch+json`, `application/json`, `text/json`, `application/*+json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `updateInstanceV2()`
+
+```php
+updateInstanceV2($tenantId, $instanceId, $body): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceUpdatedResponse
+```
+
+Updates an existing instance.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\InstancesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$instanceId = 'instanceId_example'; // string | 
+$body = NULL; // mixed | 
+
+try {
+    $result = $apiInstance->updateInstanceV2($tenantId, $instanceId, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InstancesApi->updateInstanceV2: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **instanceId** | **string**|  | |
+| **body** | **mixed**|  | [optional] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceUpdatedResponse**](../Model/EdGraphHttpAggregatorsTenantApiServicesInstancesInstanceUpdatedResponse.md)
 
 ### Authorization
 

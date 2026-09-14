@@ -59,20 +59,26 @@ class EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseResponse i
     protected static $openAPITypes = [
         'id' => 'string',
         'tenantId' => 'string',
-        'applicationProfile' => '\EdGraph\PlatformClient\Model\EnrollmentApiEnrollmentApplicationResponsesV1ApplicationProfileMessage',
-        'currentStepCode' => 'string',
-        'completedProgress' => 'float',
+        'applicationPathway' => '\EdGraph\PlatformClient\Model\EnrollmentApiEnrollmentApplicationResponsesV1ApplicationPathwayMessage',
+        'currentScreenCode' => 'string',
+        'progress' => 'string',
         'studentId' => 'string',
         'languageCode' => 'string',
         'contacts' => '\EdGraph\PlatformClient\Model\EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseContactMessage[]',
-        'steps' => '\EdGraph\PlatformClient\Model\EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseStepMessage[]',
+        'screens' => '\EdGraph\PlatformClient\Model\EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseScreenMessage[]',
         'createdBy' => 'string',
         'createdDateTime' => 'string',
         'lastModifiedBy' => 'string',
         'lastModifiedDateTime' => 'string',
         'deletedBy' => 'string',
         'deletedDateTime' => 'string',
-        'isDeleted' => 'bool'
+        'isDeleted' => 'bool',
+        'status' => 'string',
+        'studentFirstName' => 'string',
+        'studentLastName' => 'string',
+        'studentLocalId' => 'string',
+        'nextSchoolCode' => 'string',
+        'nextSchoolName' => 'string'
     ];
 
     /**
@@ -85,20 +91,26 @@ class EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseResponse i
     protected static $openAPIFormats = [
         'id' => null,
         'tenantId' => null,
-        'applicationProfile' => null,
-        'currentStepCode' => null,
-        'completedProgress' => 'double',
+        'applicationPathway' => null,
+        'currentScreenCode' => null,
+        'progress' => null,
         'studentId' => null,
         'languageCode' => null,
         'contacts' => null,
-        'steps' => null,
+        'screens' => null,
         'createdBy' => null,
         'createdDateTime' => null,
         'lastModifiedBy' => null,
         'lastModifiedDateTime' => null,
         'deletedBy' => null,
         'deletedDateTime' => null,
-        'isDeleted' => null
+        'isDeleted' => null,
+        'status' => null,
+        'studentFirstName' => null,
+        'studentLastName' => null,
+        'studentLocalId' => null,
+        'nextSchoolCode' => null,
+        'nextSchoolName' => null
     ];
 
     /**
@@ -109,20 +121,26 @@ class EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseResponse i
     protected static array $openAPINullables = [
         'id' => true,
         'tenantId' => true,
-        'applicationProfile' => false,
-        'currentStepCode' => true,
-        'completedProgress' => false,
+        'applicationPathway' => false,
+        'currentScreenCode' => true,
+        'progress' => true,
         'studentId' => true,
         'languageCode' => true,
         'contacts' => true,
-        'steps' => true,
+        'screens' => true,
         'createdBy' => true,
         'createdDateTime' => true,
         'lastModifiedBy' => true,
         'lastModifiedDateTime' => true,
         'deletedBy' => true,
         'deletedDateTime' => true,
-        'isDeleted' => true
+        'isDeleted' => true,
+        'status' => true,
+        'studentFirstName' => true,
+        'studentLastName' => true,
+        'studentLocalId' => true,
+        'nextSchoolCode' => true,
+        'nextSchoolName' => true
     ];
 
     /**
@@ -213,20 +231,26 @@ class EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseResponse i
     protected static $attributeMap = [
         'id' => 'id',
         'tenantId' => 'tenantId',
-        'applicationProfile' => 'applicationProfile',
-        'currentStepCode' => 'currentStepCode',
-        'completedProgress' => 'completedProgress',
+        'applicationPathway' => 'applicationPathway',
+        'currentScreenCode' => 'currentScreenCode',
+        'progress' => 'progress',
         'studentId' => 'studentId',
         'languageCode' => 'languageCode',
         'contacts' => 'contacts',
-        'steps' => 'steps',
+        'screens' => 'screens',
         'createdBy' => 'createdBy',
         'createdDateTime' => 'createdDateTime',
         'lastModifiedBy' => 'lastModifiedBy',
         'lastModifiedDateTime' => 'lastModifiedDateTime',
         'deletedBy' => 'deletedBy',
         'deletedDateTime' => 'deletedDateTime',
-        'isDeleted' => 'isDeleted'
+        'isDeleted' => 'isDeleted',
+        'status' => 'status',
+        'studentFirstName' => 'studentFirstName',
+        'studentLastName' => 'studentLastName',
+        'studentLocalId' => 'studentLocalId',
+        'nextSchoolCode' => 'nextSchoolCode',
+        'nextSchoolName' => 'nextSchoolName'
     ];
 
     /**
@@ -237,20 +261,26 @@ class EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseResponse i
     protected static $setters = [
         'id' => 'setId',
         'tenantId' => 'setTenantId',
-        'applicationProfile' => 'setApplicationProfile',
-        'currentStepCode' => 'setCurrentStepCode',
-        'completedProgress' => 'setCompletedProgress',
+        'applicationPathway' => 'setApplicationPathway',
+        'currentScreenCode' => 'setCurrentScreenCode',
+        'progress' => 'setProgress',
         'studentId' => 'setStudentId',
         'languageCode' => 'setLanguageCode',
         'contacts' => 'setContacts',
-        'steps' => 'setSteps',
+        'screens' => 'setScreens',
         'createdBy' => 'setCreatedBy',
         'createdDateTime' => 'setCreatedDateTime',
         'lastModifiedBy' => 'setLastModifiedBy',
         'lastModifiedDateTime' => 'setLastModifiedDateTime',
         'deletedBy' => 'setDeletedBy',
         'deletedDateTime' => 'setDeletedDateTime',
-        'isDeleted' => 'setIsDeleted'
+        'isDeleted' => 'setIsDeleted',
+        'status' => 'setStatus',
+        'studentFirstName' => 'setStudentFirstName',
+        'studentLastName' => 'setStudentLastName',
+        'studentLocalId' => 'setStudentLocalId',
+        'nextSchoolCode' => 'setNextSchoolCode',
+        'nextSchoolName' => 'setNextSchoolName'
     ];
 
     /**
@@ -261,20 +291,26 @@ class EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseResponse i
     protected static $getters = [
         'id' => 'getId',
         'tenantId' => 'getTenantId',
-        'applicationProfile' => 'getApplicationProfile',
-        'currentStepCode' => 'getCurrentStepCode',
-        'completedProgress' => 'getCompletedProgress',
+        'applicationPathway' => 'getApplicationPathway',
+        'currentScreenCode' => 'getCurrentScreenCode',
+        'progress' => 'getProgress',
         'studentId' => 'getStudentId',
         'languageCode' => 'getLanguageCode',
         'contacts' => 'getContacts',
-        'steps' => 'getSteps',
+        'screens' => 'getScreens',
         'createdBy' => 'getCreatedBy',
         'createdDateTime' => 'getCreatedDateTime',
         'lastModifiedBy' => 'getLastModifiedBy',
         'lastModifiedDateTime' => 'getLastModifiedDateTime',
         'deletedBy' => 'getDeletedBy',
         'deletedDateTime' => 'getDeletedDateTime',
-        'isDeleted' => 'getIsDeleted'
+        'isDeleted' => 'getIsDeleted',
+        'status' => 'getStatus',
+        'studentFirstName' => 'getStudentFirstName',
+        'studentLastName' => 'getStudentLastName',
+        'studentLocalId' => 'getStudentLocalId',
+        'nextSchoolCode' => 'getNextSchoolCode',
+        'nextSchoolName' => 'getNextSchoolName'
     ];
 
     /**
@@ -336,13 +372,13 @@ class EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseResponse i
     {
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('tenantId', $data ?? [], null);
-        $this->setIfExists('applicationProfile', $data ?? [], null);
-        $this->setIfExists('currentStepCode', $data ?? [], null);
-        $this->setIfExists('completedProgress', $data ?? [], null);
+        $this->setIfExists('applicationPathway', $data ?? [], null);
+        $this->setIfExists('currentScreenCode', $data ?? [], null);
+        $this->setIfExists('progress', $data ?? [], null);
         $this->setIfExists('studentId', $data ?? [], null);
         $this->setIfExists('languageCode', $data ?? [], null);
         $this->setIfExists('contacts', $data ?? [], null);
-        $this->setIfExists('steps', $data ?? [], null);
+        $this->setIfExists('screens', $data ?? [], null);
         $this->setIfExists('createdBy', $data ?? [], null);
         $this->setIfExists('createdDateTime', $data ?? [], null);
         $this->setIfExists('lastModifiedBy', $data ?? [], null);
@@ -350,6 +386,12 @@ class EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseResponse i
         $this->setIfExists('deletedBy', $data ?? [], null);
         $this->setIfExists('deletedDateTime', $data ?? [], null);
         $this->setIfExists('isDeleted', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('studentFirstName', $data ?? [], null);
+        $this->setIfExists('studentLastName', $data ?? [], null);
+        $this->setIfExists('studentLocalId', $data ?? [], null);
+        $this->setIfExists('nextSchoolCode', $data ?? [], null);
+        $this->setIfExists('nextSchoolName', $data ?? [], null);
     }
 
     /**
@@ -463,89 +505,96 @@ class EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseResponse i
     }
 
     /**
-     * Gets applicationProfile
+     * Gets applicationPathway
      *
-     * @return \EdGraph\PlatformClient\Model\EnrollmentApiEnrollmentApplicationResponsesV1ApplicationProfileMessage|null
+     * @return \EdGraph\PlatformClient\Model\EnrollmentApiEnrollmentApplicationResponsesV1ApplicationPathwayMessage|null
      */
-    public function getApplicationProfile()
+    public function getApplicationPathway()
     {
-        return $this->container['applicationProfile'];
+        return $this->container['applicationPathway'];
     }
 
     /**
-     * Sets applicationProfile
+     * Sets applicationPathway
      *
-     * @param \EdGraph\PlatformClient\Model\EnrollmentApiEnrollmentApplicationResponsesV1ApplicationProfileMessage|null $applicationProfile applicationProfile
+     * @param \EdGraph\PlatformClient\Model\EnrollmentApiEnrollmentApplicationResponsesV1ApplicationPathwayMessage|null $applicationPathway applicationPathway
      *
      * @return self
      */
-    public function setApplicationProfile($applicationProfile)
+    public function setApplicationPathway($applicationPathway)
     {
-        if (is_null($applicationProfile)) {
-            throw new \InvalidArgumentException('non-nullable applicationProfile cannot be null');
+        if (is_null($applicationPathway)) {
+            throw new \InvalidArgumentException('non-nullable applicationPathway cannot be null');
         }
-        $this->container['applicationProfile'] = $applicationProfile;
+        $this->container['applicationPathway'] = $applicationPathway;
 
         return $this;
     }
 
     /**
-     * Gets currentStepCode
+     * Gets currentScreenCode
      *
      * @return string|null
      */
-    public function getCurrentStepCode()
+    public function getCurrentScreenCode()
     {
-        return $this->container['currentStepCode'];
+        return $this->container['currentScreenCode'];
     }
 
     /**
-     * Sets currentStepCode
+     * Sets currentScreenCode
      *
-     * @param string|null $currentStepCode currentStepCode
+     * @param string|null $currentScreenCode currentScreenCode
      *
      * @return self
      */
-    public function setCurrentStepCode($currentStepCode)
+    public function setCurrentScreenCode($currentScreenCode)
     {
-        if (is_null($currentStepCode)) {
-            array_push($this->openAPINullablesSetToNull, 'currentStepCode');
+        if (is_null($currentScreenCode)) {
+            array_push($this->openAPINullablesSetToNull, 'currentScreenCode');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('currentStepCode', $nullablesSetToNull);
+            $index = array_search('currentScreenCode', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['currentStepCode'] = $currentStepCode;
+        $this->container['currentScreenCode'] = $currentScreenCode;
 
         return $this;
     }
 
     /**
-     * Gets completedProgress
+     * Gets progress
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getCompletedProgress()
+    public function getProgress()
     {
-        return $this->container['completedProgress'];
+        return $this->container['progress'];
     }
 
     /**
-     * Sets completedProgress
+     * Sets progress
      *
-     * @param float|null $completedProgress completedProgress
+     * @param string|null $progress Decimal progress (0-100, 2dp) carried as an invariant-culture string,  mirroring the legacy enrollmentresults.proto completedProgress convention.
      *
      * @return self
      */
-    public function setCompletedProgress($completedProgress)
+    public function setProgress($progress)
     {
-        if (is_null($completedProgress)) {
-            throw new \InvalidArgumentException('non-nullable completedProgress cannot be null');
+        if (is_null($progress)) {
+            array_push($this->openAPINullablesSetToNull, 'progress');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('progress', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['completedProgress'] = $completedProgress;
+        $this->container['progress'] = $progress;
 
         return $this;
     }
@@ -653,35 +702,35 @@ class EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseResponse i
     }
 
     /**
-     * Gets steps
+     * Gets screens
      *
-     * @return \EdGraph\PlatformClient\Model\EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseStepMessage[]|null
+     * @return \EdGraph\PlatformClient\Model\EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseScreenMessage[]|null
      */
-    public function getSteps()
+    public function getScreens()
     {
-        return $this->container['steps'];
+        return $this->container['screens'];
     }
 
     /**
-     * Sets steps
+     * Sets screens
      *
-     * @param \EdGraph\PlatformClient\Model\EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseStepMessage[]|null $steps steps
+     * @param \EdGraph\PlatformClient\Model\EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseScreenMessage[]|null $screens screens
      *
      * @return self
      */
-    public function setSteps($steps)
+    public function setScreens($screens)
     {
-        if (is_null($steps)) {
-            array_push($this->openAPINullablesSetToNull, 'steps');
+        if (is_null($screens)) {
+            array_push($this->openAPINullablesSetToNull, 'screens');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('steps', $nullablesSetToNull);
+            $index = array_search('screens', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['steps'] = $steps;
+        $this->container['screens'] = $screens;
 
         return $this;
     }
@@ -920,6 +969,210 @@ class EnrollmentApiEnrollmentApplicationResponsesV1ApplicationResponseResponse i
             }
         }
         $this->container['isDeleted'] = $isDeleted;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets studentFirstName
+     *
+     * @return string|null
+     */
+    public function getStudentFirstName()
+    {
+        return $this->container['studentFirstName'];
+    }
+
+    /**
+     * Sets studentFirstName
+     *
+     * @param string|null $studentFirstName studentFirstName
+     *
+     * @return self
+     */
+    public function setStudentFirstName($studentFirstName)
+    {
+        if (is_null($studentFirstName)) {
+            array_push($this->openAPINullablesSetToNull, 'studentFirstName');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('studentFirstName', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['studentFirstName'] = $studentFirstName;
+
+        return $this;
+    }
+
+    /**
+     * Gets studentLastName
+     *
+     * @return string|null
+     */
+    public function getStudentLastName()
+    {
+        return $this->container['studentLastName'];
+    }
+
+    /**
+     * Sets studentLastName
+     *
+     * @param string|null $studentLastName studentLastName
+     *
+     * @return self
+     */
+    public function setStudentLastName($studentLastName)
+    {
+        if (is_null($studentLastName)) {
+            array_push($this->openAPINullablesSetToNull, 'studentLastName');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('studentLastName', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['studentLastName'] = $studentLastName;
+
+        return $this;
+    }
+
+    /**
+     * Gets studentLocalId
+     *
+     * @return string|null
+     */
+    public function getStudentLocalId()
+    {
+        return $this->container['studentLocalId'];
+    }
+
+    /**
+     * Sets studentLocalId
+     *
+     * @param string|null $studentLocalId studentLocalId
+     *
+     * @return self
+     */
+    public function setStudentLocalId($studentLocalId)
+    {
+        if (is_null($studentLocalId)) {
+            array_push($this->openAPINullablesSetToNull, 'studentLocalId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('studentLocalId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['studentLocalId'] = $studentLocalId;
+
+        return $this;
+    }
+
+    /**
+     * Gets nextSchoolCode
+     *
+     * @return string|null
+     */
+    public function getNextSchoolCode()
+    {
+        return $this->container['nextSchoolCode'];
+    }
+
+    /**
+     * Sets nextSchoolCode
+     *
+     * @param string|null $nextSchoolCode nextSchoolCode
+     *
+     * @return self
+     */
+    public function setNextSchoolCode($nextSchoolCode)
+    {
+        if (is_null($nextSchoolCode)) {
+            array_push($this->openAPINullablesSetToNull, 'nextSchoolCode');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nextSchoolCode', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['nextSchoolCode'] = $nextSchoolCode;
+
+        return $this;
+    }
+
+    /**
+     * Gets nextSchoolName
+     *
+     * @return string|null
+     */
+    public function getNextSchoolName()
+    {
+        return $this->container['nextSchoolName'];
+    }
+
+    /**
+     * Sets nextSchoolName
+     *
+     * @param string|null $nextSchoolName nextSchoolName
+     *
+     * @return self
+     */
+    public function setNextSchoolName($nextSchoolName)
+    {
+        if (is_null($nextSchoolName)) {
+            array_push($this->openAPINullablesSetToNull, 'nextSchoolName');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nextSchoolName', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['nextSchoolName'] = $nextSchoolName;
 
         return $this;
     }

@@ -69,7 +69,14 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
         'studentCount' => 'int',
         'isPhoneOverride' => 'bool',
         'isEmailOverride' => 'bool',
+        'sisEmail' => 'string',
+        'sisPhone' => 'string',
+        'emailOverriddenBy' => 'string',
+        'emailOverriddenAt' => '\DateTime',
+        'phoneOverriddenBy' => 'string',
+        'phoneOverriddenAt' => '\DateTime',
         'signInStatus' => 'string',
+        'isLocked' => 'bool',
         'createdBy' => 'string',
         'createdDateTime' => '\DateTime',
         'lastModifiedBy' => 'string',
@@ -98,7 +105,14 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
         'studentCount' => 'int32',
         'isPhoneOverride' => null,
         'isEmailOverride' => null,
+        'sisEmail' => null,
+        'sisPhone' => null,
+        'emailOverriddenBy' => null,
+        'emailOverriddenAt' => 'date-time',
+        'phoneOverriddenBy' => null,
+        'phoneOverriddenAt' => 'date-time',
         'signInStatus' => null,
+        'isLocked' => null,
         'createdBy' => null,
         'createdDateTime' => 'date-time',
         'lastModifiedBy' => null,
@@ -125,7 +139,14 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
         'studentCount' => false,
         'isPhoneOverride' => true,
         'isEmailOverride' => true,
+        'sisEmail' => true,
+        'sisPhone' => true,
+        'emailOverriddenBy' => true,
+        'emailOverriddenAt' => true,
+        'phoneOverriddenBy' => true,
+        'phoneOverriddenAt' => true,
         'signInStatus' => true,
+        'isLocked' => false,
         'createdBy' => true,
         'createdDateTime' => true,
         'lastModifiedBy' => true,
@@ -232,7 +253,14 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
         'studentCount' => 'studentCount',
         'isPhoneOverride' => 'isPhoneOverride',
         'isEmailOverride' => 'isEmailOverride',
+        'sisEmail' => 'sisEmail',
+        'sisPhone' => 'sisPhone',
+        'emailOverriddenBy' => 'emailOverriddenBy',
+        'emailOverriddenAt' => 'emailOverriddenAt',
+        'phoneOverriddenBy' => 'phoneOverriddenBy',
+        'phoneOverriddenAt' => 'phoneOverriddenAt',
         'signInStatus' => 'signInStatus',
+        'isLocked' => 'isLocked',
         'createdBy' => 'createdBy',
         'createdDateTime' => 'createdDateTime',
         'lastModifiedBy' => 'lastModifiedBy',
@@ -259,7 +287,14 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
         'studentCount' => 'setStudentCount',
         'isPhoneOverride' => 'setIsPhoneOverride',
         'isEmailOverride' => 'setIsEmailOverride',
+        'sisEmail' => 'setSisEmail',
+        'sisPhone' => 'setSisPhone',
+        'emailOverriddenBy' => 'setEmailOverriddenBy',
+        'emailOverriddenAt' => 'setEmailOverriddenAt',
+        'phoneOverriddenBy' => 'setPhoneOverriddenBy',
+        'phoneOverriddenAt' => 'setPhoneOverriddenAt',
         'signInStatus' => 'setSignInStatus',
+        'isLocked' => 'setIsLocked',
         'createdBy' => 'setCreatedBy',
         'createdDateTime' => 'setCreatedDateTime',
         'lastModifiedBy' => 'setLastModifiedBy',
@@ -286,7 +321,14 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
         'studentCount' => 'getStudentCount',
         'isPhoneOverride' => 'getIsPhoneOverride',
         'isEmailOverride' => 'getIsEmailOverride',
+        'sisEmail' => 'getSisEmail',
+        'sisPhone' => 'getSisPhone',
+        'emailOverriddenBy' => 'getEmailOverriddenBy',
+        'emailOverriddenAt' => 'getEmailOverriddenAt',
+        'phoneOverriddenBy' => 'getPhoneOverriddenBy',
+        'phoneOverriddenAt' => 'getPhoneOverriddenAt',
         'signInStatus' => 'getSignInStatus',
+        'isLocked' => 'getIsLocked',
         'createdBy' => 'getCreatedBy',
         'createdDateTime' => 'getCreatedDateTime',
         'lastModifiedBy' => 'getLastModifiedBy',
@@ -364,7 +406,14 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
         $this->setIfExists('studentCount', $data ?? [], null);
         $this->setIfExists('isPhoneOverride', $data ?? [], null);
         $this->setIfExists('isEmailOverride', $data ?? [], null);
+        $this->setIfExists('sisEmail', $data ?? [], null);
+        $this->setIfExists('sisPhone', $data ?? [], null);
+        $this->setIfExists('emailOverriddenBy', $data ?? [], null);
+        $this->setIfExists('emailOverriddenAt', $data ?? [], null);
+        $this->setIfExists('phoneOverriddenBy', $data ?? [], null);
+        $this->setIfExists('phoneOverriddenAt', $data ?? [], null);
         $this->setIfExists('signInStatus', $data ?? [], null);
+        $this->setIfExists('isLocked', $data ?? [], null);
         $this->setIfExists('createdBy', $data ?? [], null);
         $this->setIfExists('createdDateTime', $data ?? [], null);
         $this->setIfExists('lastModifiedBy', $data ?? [], null);
@@ -817,6 +866,210 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
     }
 
     /**
+     * Gets sisEmail
+     *
+     * @return string|null
+     */
+    public function getSisEmail()
+    {
+        return $this->container['sisEmail'];
+    }
+
+    /**
+     * Sets sisEmail
+     *
+     * @param string|null $sisEmail sisEmail
+     *
+     * @return self
+     */
+    public function setSisEmail($sisEmail)
+    {
+        if (is_null($sisEmail)) {
+            array_push($this->openAPINullablesSetToNull, 'sisEmail');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sisEmail', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['sisEmail'] = $sisEmail;
+
+        return $this;
+    }
+
+    /**
+     * Gets sisPhone
+     *
+     * @return string|null
+     */
+    public function getSisPhone()
+    {
+        return $this->container['sisPhone'];
+    }
+
+    /**
+     * Sets sisPhone
+     *
+     * @param string|null $sisPhone sisPhone
+     *
+     * @return self
+     */
+    public function setSisPhone($sisPhone)
+    {
+        if (is_null($sisPhone)) {
+            array_push($this->openAPINullablesSetToNull, 'sisPhone');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sisPhone', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['sisPhone'] = $sisPhone;
+
+        return $this;
+    }
+
+    /**
+     * Gets emailOverriddenBy
+     *
+     * @return string|null
+     */
+    public function getEmailOverriddenBy()
+    {
+        return $this->container['emailOverriddenBy'];
+    }
+
+    /**
+     * Sets emailOverriddenBy
+     *
+     * @param string|null $emailOverriddenBy emailOverriddenBy
+     *
+     * @return self
+     */
+    public function setEmailOverriddenBy($emailOverriddenBy)
+    {
+        if (is_null($emailOverriddenBy)) {
+            array_push($this->openAPINullablesSetToNull, 'emailOverriddenBy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('emailOverriddenBy', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['emailOverriddenBy'] = $emailOverriddenBy;
+
+        return $this;
+    }
+
+    /**
+     * Gets emailOverriddenAt
+     *
+     * @return \DateTime|null
+     */
+    public function getEmailOverriddenAt()
+    {
+        return $this->container['emailOverriddenAt'];
+    }
+
+    /**
+     * Sets emailOverriddenAt
+     *
+     * @param \DateTime|null $emailOverriddenAt emailOverriddenAt
+     *
+     * @return self
+     */
+    public function setEmailOverriddenAt($emailOverriddenAt)
+    {
+        if (is_null($emailOverriddenAt)) {
+            array_push($this->openAPINullablesSetToNull, 'emailOverriddenAt');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('emailOverriddenAt', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['emailOverriddenAt'] = $emailOverriddenAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets phoneOverriddenBy
+     *
+     * @return string|null
+     */
+    public function getPhoneOverriddenBy()
+    {
+        return $this->container['phoneOverriddenBy'];
+    }
+
+    /**
+     * Sets phoneOverriddenBy
+     *
+     * @param string|null $phoneOverriddenBy phoneOverriddenBy
+     *
+     * @return self
+     */
+    public function setPhoneOverriddenBy($phoneOverriddenBy)
+    {
+        if (is_null($phoneOverriddenBy)) {
+            array_push($this->openAPINullablesSetToNull, 'phoneOverriddenBy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phoneOverriddenBy', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['phoneOverriddenBy'] = $phoneOverriddenBy;
+
+        return $this;
+    }
+
+    /**
+     * Gets phoneOverriddenAt
+     *
+     * @return \DateTime|null
+     */
+    public function getPhoneOverriddenAt()
+    {
+        return $this->container['phoneOverriddenAt'];
+    }
+
+    /**
+     * Sets phoneOverriddenAt
+     *
+     * @param \DateTime|null $phoneOverriddenAt phoneOverriddenAt
+     *
+     * @return self
+     */
+    public function setPhoneOverriddenAt($phoneOverriddenAt)
+    {
+        if (is_null($phoneOverriddenAt)) {
+            array_push($this->openAPINullablesSetToNull, 'phoneOverriddenAt');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phoneOverriddenAt', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['phoneOverriddenAt'] = $phoneOverriddenAt;
+
+        return $this;
+    }
+
+    /**
      * Gets signInStatus
      *
      * @return string|null
@@ -846,6 +1099,33 @@ class EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEnrollmentA
             }
         }
         $this->container['signInStatus'] = $signInStatus;
+
+        return $this;
+    }
+
+    /**
+     * Gets isLocked
+     *
+     * @return bool|null
+     */
+    public function getIsLocked()
+    {
+        return $this->container['isLocked'];
+    }
+
+    /**
+     * Sets isLocked
+     *
+     * @param bool|null $isLocked isLocked
+     *
+     * @return self
+     */
+    public function setIsLocked($isLocked)
+    {
+        if (is_null($isLocked)) {
+            throw new \InvalidArgumentException('non-nullable isLocked cannot be null');
+        }
+        $this->container['isLocked'] = $isLocked;
 
         return $this;
     }
