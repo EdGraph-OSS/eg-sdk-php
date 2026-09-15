@@ -134,6 +134,9 @@ class ObservationsApi
         'getPaginatedObservations' => [
             'application/json',
         ],
+        'getPaginatedObservers' => [
+            'application/json',
+        ],
         'getSubmittedObservationsCount' => [
             'application/json',
         ],
@@ -7012,6 +7015,394 @@ class ObservationsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $observerId,
             'observerId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($tenantId !== null) {
+            $resourcePath = str_replace(
+                '{tenantId}',
+                ObjectSerializer::toPathValue($tenantId),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getPaginatedObservers
+     *
+     * Get paginated observers
+     *
+     * @param  string $tenantId  (required)
+     * @param  int|null $pageSize  (optional, default to 10)
+     * @param  int|null $pageIndex  (optional, default to 0)
+     * @param  string|null $orderBy  (optional, default to '')
+     * @param  string|null $filter  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedObservers'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails
+     */
+    public function getPaginatedObservers($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedObservers'][0])
+    {
+        list($response) = $this->getPaginatedObserversWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getPaginatedObserversWithHttpInfo
+     *
+     * Get paginated observers
+     *
+     * @param  string $tenantId  (required)
+     * @param  int|null $pageSize  (optional, default to 10)
+     * @param  int|null $pageIndex  (optional, default to 0)
+     * @param  string|null $orderBy  (optional, default to '')
+     * @param  string|null $filter  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedObservers'] to see the possible values for this operation
+     *
+     * @throws \EdGraph\PlatformClient\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails|\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponseGetPaginatedItemsResponse|\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getPaginatedObserversWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedObservers'][0])
+    {
+        $request = $this->getPaginatedObserversRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponseGetPaginatedItemsResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponseGetPaginatedItemsResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphCommonErrorsCoreProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponseGetPaginatedItemsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\EdGraph\PlatformClient\Model\MicrosoftAspNetCoreMvcValidationProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getPaginatedObserversAsync
+     *
+     * Get paginated observers
+     *
+     * @param  string $tenantId  (required)
+     * @param  int|null $pageSize  (optional, default to 10)
+     * @param  int|null $pageIndex  (optional, default to 0)
+     * @param  string|null $orderBy  (optional, default to '')
+     * @param  string|null $filter  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedObservers'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPaginatedObserversAsync($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedObservers'][0])
+    {
+        return $this->getPaginatedObserversAsyncWithHttpInfo($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getPaginatedObserversAsyncWithHttpInfo
+     *
+     * Get paginated observers
+     *
+     * @param  string $tenantId  (required)
+     * @param  int|null $pageSize  (optional, default to 10)
+     * @param  int|null $pageIndex  (optional, default to 0)
+     * @param  string|null $orderBy  (optional, default to '')
+     * @param  string|null $filter  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedObservers'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getPaginatedObserversAsyncWithHttpInfo($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedObservers'][0])
+    {
+        $returnType = '\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponseGetPaginatedItemsResponse';
+        $request = $this->getPaginatedObserversRequest($tenantId, $pageSize, $pageIndex, $orderBy, $filter, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getPaginatedObservers'
+     *
+     * @param  string $tenantId  (required)
+     * @param  int|null $pageSize  (optional, default to 10)
+     * @param  int|null $pageIndex  (optional, default to 0)
+     * @param  string|null $orderBy  (optional, default to '')
+     * @param  string|null $filter  (optional, default to '')
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getPaginatedObservers'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getPaginatedObserversRequest($tenantId, $pageSize = 10, $pageIndex = 0, $orderBy = '', $filter = '', string $contentType = self::contentTypes['getPaginatedObservers'][0])
+    {
+
+        // verify the required parameter 'tenantId' is set
+        if ($tenantId === null || (is_array($tenantId) && count($tenantId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $tenantId when calling getPaginatedObservers'
+            );
+        }
+
+
+
+
+
+
+        $resourcePath = '/tenants/{tenantId}/observations/observers';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pageSize,
+            'pageSize', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pageIndex,
+            'pageIndex', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $orderBy,
+            'orderBy', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $filter,
+            'filter', // param base name
             'string', // openApiType
             'form', // style
             true, // explode

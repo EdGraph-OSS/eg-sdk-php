@@ -24,6 +24,7 @@ All URIs are relative to https://api.dev.edgraph.com/tenant, except if the opera
 | [**getPaginatedCampusesWithEvaluees()**](ObservationsApi.md#getPaginatedCampusesWithEvaluees) | **GET** /tenants/{tenantId}/observations/campuses-with-evaluees | Get a paginated list of the available campuses that have evaluees, each with its complete list of evaluees. |
 | [**getPaginatedEvaluees()**](ObservationsApi.md#getPaginatedEvaluees) | **GET** /tenants/{tenantId}/observations/evaluees | Get paginated evaluees |
 | [**getPaginatedObservations()**](ObservationsApi.md#getPaginatedObservations) | **GET** /tenants/{tenantId}/observations | Get Paginated Observations for a given tenant |
+| [**getPaginatedObservers()**](ObservationsApi.md#getPaginatedObservers) | **GET** /tenants/{tenantId}/observations/observers | Get paginated observers |
 | [**getSubmittedObservationsCount()**](ObservationsApi.md#getSubmittedObservationsCount) | **GET** /tenants/{tenantId}/submittedobservations | Get submitted Observations count |
 | [**saveDashboardPreferences()**](ObservationsApi.md#saveDashboardPreferences) | **POST** /tenants/{tenantId}/observations/dashboards/{dashboardId}/preferences | Save user preferences for a given Dashboard |
 | [**searchPaginatedEvaluees()**](ObservationsApi.md#searchPaginatedEvaluees) | **GET** /tenants/{tenantId}/observations/search/evaluees | Search paginated evaluees |
@@ -1180,6 +1181,72 @@ try {
 ### Return type
 
 [**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel**](../Model/EdGraphHttpAggregatorsTenantApiServicesObservationsObservationProfileResponsePaginatedItemsViewModel.md)
+
+### Authorization
+
+[oauth2](../../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getPaginatedObservers()`
+
+```php
+getPaginatedObservers($tenantId, $pageSize, $pageIndex, $orderBy, $filter): \EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponseGetPaginatedItemsResponse
+```
+
+Get paginated observers
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: oauth2
+$config = EdGraph\PlatformClient\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new EdGraph\PlatformClient\Api\ObservationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenantId = 'tenantId_example'; // string | 
+$pageSize = 10; // int | 
+$pageIndex = 0; // int | 
+$orderBy = ''; // string | 
+$filter = ''; // string | 
+
+try {
+    $result = $apiInstance->getPaginatedObservers($tenantId, $pageSize, $pageIndex, $orderBy, $filter);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ObservationsApi->getPaginatedObservers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenantId** | **string**|  | |
+| **pageSize** | **int**|  | [optional] [default to 10] |
+| **pageIndex** | **int**|  | [optional] [default to 0] |
+| **orderBy** | **string**|  | [optional] [default to &#39;&#39;] |
+| **filter** | **string**|  | [optional] [default to &#39;&#39;] |
+
+### Return type
+
+[**\EdGraph\PlatformClient\Model\EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponseGetPaginatedItemsResponse**](../Model/EdGraphHttpAggregatorsTenantApiControllersV1ViewModelsResponsesEvaluationsAppraiserResponseGetPaginatedItemsResponse.md)
 
 ### Authorization
 
